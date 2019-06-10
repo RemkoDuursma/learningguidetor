@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 2 Beginner skills | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="This book teaches introductory to intermediate skills in R." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 2 Beginner skills | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 2 Beginner skills | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-06-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html">
+<link rel="next" href="summarize.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="summarize.html"><a href="summarize.html#including-data-in-a-script"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="summarize.html"><a href="summarize.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="summarize.html"><a href="summarize.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="summarize.html"><a href="summarize.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="summarize.html"><a href="summarize.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.8</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.8.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="3.8.2" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.8.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.8.3" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.8.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.8.4" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.8.4</b> Reordering factor levels based on a summary variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.9</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.9.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.9.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.9.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.10</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.10.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.10.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.11</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.11.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.11.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.11.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>4.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.2</b> Tips</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.3</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>5</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="5.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>5.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>5.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>5.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>5.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="5.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="5.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>5.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="5.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>5.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="5.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>5.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="5.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>5.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="5.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>5.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="5.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>5.4.9</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>5.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>5.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="5.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>5.5.2</b> Simple and multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>5.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>5.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="5.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>5.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="5.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>5.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="5.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>5.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="5.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>5.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>6</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>6.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>6.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="6.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>6.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="6.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>6.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="6.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>6.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="6.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>6.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>6.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>6.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="6.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>6.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="6.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>6.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="6.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>6.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="6.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>6.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="6.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>6.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>6.4</b> Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>7</b> R on the web</a><ul>
+<li class="chapter" data-level="7.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>7.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>7.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>7.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>7.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="7.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>7.4</b> Deploying an API with <code>plumber</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="webservices.html"><a href="webservices.html#deploying-a-simple-api"><i class="fa fa-check"></i><b>7.4.1</b> Deploying a simple API</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="intro" class="section level1">
+<h1><span class="header-section-number">Chapter 2</span> Beginner skills</h1>
+<div id="installingr" class="section level2">
+<h2><span class="header-section-number">2.1</span> Installing R and Rstudio</h2>
+<p>We assume you have installed R and Rstudio. We occasionally give some tips on how to use Rstudio effectively, but since Rstudio is likely to change more quickly than R - we instead suggest you keep an eye on their documentation (link).</p>
+<p>We assume that you have installed both R, and Rstudio. Please visit both websites (<a href="http://cran.r-project.org">here</a> for R, <a href="www.rstudio.org">here for Rstudio</a>) to download the latest version for your platform. Note that Rstudio simply runs R for us (and provides many, many other features) - you still need to install R itself.</p>
+<p><strong>Rstudio settings</strong></p>
+<p>We strongly recommend you change the following default settings in Rstudio. The default behaviour is to save all your objects to an ‘RData’ file when you exit, and loads the same objects when you open RStudio. This is very dangerous behaviour, and you <strong>must</strong> turn it off. For now, make sure you go to <kbd>Tools &gt; Global Options…</kbd> and on the <kbd>General</kbd> tab, make sure the settings are like the figure below.</p>
+<p><img src="screenshots/neverloadrdata.png" width="40%" /></p>
+<p>Another feature you may want to turn off is the automatic code completion, which is now a standard feature in RStudio. This is a matter of taste, but we find it handier to use code completion only when requested. If you change the settings as shown in the screenshot below, you can engage code completion by typing part of a function and then pressing <code>Tab</code>.</p>
+<p><img src="screenshots/rstudionocodecomplete.png" width="40%" /></p>
+
+<div class="rmdreading">
+This text is not a complete or even comprehensive guide to Rstudio - we focus on R. If you want to know more about all the options in the menu’s, keyboard shortcuts, and various add-ons and features, <a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE">please visit this link</a> to get started.
+</div>
+
+<div id="exampledata" class="section level3">
+<h3><span class="header-section-number">2.1.1</span> Example data used throughout this book</h3>
+<p>All example datasets used throughout this book are provided in the R package <code>lgrdata</code>. Install it like any other package (see <a href="intro.html#packages">2.8</a> for more information):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;lgrdata&quot;</span>)</code></pre>
+<p>At the start of each script where you use an example dataset, load the package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)</code></pre>
+<p>Then, you can make available any dataset from the package with :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(allometry)</code></pre>
+<p>Each dataset has help page, inspect it (<code>?allometry</code>) to learn a bit about the dataset, the meaning and units of the variables, and sometimes a simple example plot with the data.</p>
+</div>
+</div>
+<div id="basicops" class="section level2">
+<h2><span class="header-section-number">2.2</span> Basic operations</h2>
+<p>In Rstudio, the R console is shown in one of the windows. The other windows include the ‘Environment’ window (with tabs ‘Environment’, ‘History’, etc.), a ‘File management’ window (where you can browse files, view plots, install packages, etc.), and a source window.</p>
+<p>The source window (containing a script where you can write and save code) may not show up on your first use of Rstudio, press <kbd>Ctrl-Shift-N</kbd> to open a new script. We return to scripts in Section <a href="intro.html#scripts">2.10.2</a>.</p>
+<p>In the console, you can type R code and get immediate results, for example:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># I want to add two numbers:</span>
+<span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span></code></pre>
+<pre><code>## [1] 2</code></pre>
+<p>Here, we typed <code>1 + 1</code>, hit <kbd>Enter</kbd>, and R produced <code>2</code>. The <code>[1]</code> means that the result only has one element (the number ‘2’).</p>
+<p>In this book, the R output is shown after <code>##</code>. Every example can be run by you, simply copy the section (use the text selection tool in Adobe reader), and paste it into the console (with <kbd>Ctrl + Enter</kbd> on a Windows machine, or <kbd>Cmd + Enter</kbd> on a Mac).</p>
+<p>We can do all sorts of basic calculator operations. Consider the following examples:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Arithmetic</span>
+<span class="dv">12</span> <span class="op">*</span><span class="st"> </span>(<span class="dv">10</span> <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)</code></pre>
+<pre><code>## [1] 132</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Scientific notation</span>
+<span class="fl">3.5E03</span> <span class="op">+</span><span class="st"> </span><span class="fl">4E-01</span></code></pre>
+<pre><code>## [1] 3500.4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># pi is a built-in constant</span>
+<span class="kw">sin</span>(pi<span class="op">/</span><span class="dv">2</span>)</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Absolute value</span>
+<span class="kw">abs</span>(<span class="op">-</span><span class="dv">10</span>)</code></pre>
+<pre><code>## [1] 10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Yes, you can divide by zero</span>
+<span class="dv">1001</span><span class="op">/</span><span class="dv">0</span></code></pre>
+<pre><code>## [1] Inf</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Square root</span>
+<span class="kw">sqrt</span>(<span class="dv">225</span>)</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Exponents</span>
+<span class="dv">15</span><span class="op">^</span><span class="dv">2</span></code></pre>
+<pre><code>## [1] 225</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Round down to nearest integer (and ceiling() for up or round() for closest)</span>
+<span class="kw">floor</span>(<span class="fl">3.1415</span>)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<p>Try typing <code>?Math</code> for description of more mathematical functions.</p>
+<p>Also note the use of <code>#</code> for comments: anything after this symbol on the same line is <em>not</em> read by R.</p>
+
+<div class="rmdtry">
+<p>When typing code directly into the console (other than a script, which is what you usually will do when developing more serious code), consider these tips:</p>
+<ul>
+<li>Press <strong>UP</strong> on your keyboard to repeat the previous command (and keep pressing UP to find all previous commands).</li>
+<li>Press <strong>TAB</strong> to auto-complete the name of a function (even those from loaded packages); very handy if you don’t remember the name of the function, or you can’t be bothered typing it in.</li>
+<li>Press <strong>CTRL-L</strong> (CMD-L on Mac) to ‘clear’ the console. This does not remove the history or any objects, just starts a fresh screen.</li>
+<li>Press <strong>ESC</strong> to cancel an operation (if R is taking long, and you don’t want to wait).</li>
+</ul>
+</div>
+
+</div>
+<div id="vectorintro" class="section level2">
+<h2><span class="header-section-number">2.3</span> Working with vectors</h2>
+<p>A very useful type of object is the <code>vector</code>, which is basically a string of numbers or bits of text (but not a combination of both). The power of R is that most functions can use a vector directly as input, which greatly simplifies coding in many applications.</p>
+<p>Let’s construct an example vector with 7 numbers:</p>
+<pre class="sourceCode r"><code class="sourceCode r">nums1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">2</span>,<span class="dv">8</span>,<span class="dv">11</span>,<span class="dv">100</span>,<span class="dv">8</span>)</code></pre>
+<p>We can now do basic arithmetic with this <em>numeric vector</em> :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get the sum of a vector:</span>
+<span class="kw">sum</span>(nums1)</code></pre>
+<pre><code>## [1] 134</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get mean, standard deviation, number of observations (length):</span>
+<span class="kw">mean</span>(nums1)</code></pre>
+<pre><code>## [1] 19.14286</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(nums1)</code></pre>
+<pre><code>## [1] 35.83494</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">length</span>(nums1)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some functions result in a new vector, for example:</span>
+<span class="kw">rev</span>(nums1)  <span class="co"># reverse elements</span></code></pre>
+<pre><code>## [1]   8 100  11   8   2   4   1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cumsum</span>(nums1)  <span class="co"># cumulative sum</span></code></pre>
+<pre><code>## [1]   1   5   7  15  26 126 134</code></pre>
+<p>There are many more functions you can use directly on vectors. See the table below for a few useful ones.</p>
+<table>
+<caption><span id="tab:unnamed-chunk-13">Table 2.1: </span>A selection of useful built-in functions in R.</caption>
+<thead>
+<tr class="header">
+<th align="left">Function</th>
+<th align="left">What it does</th>
+<th align="left">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>length</code></td>
+<td align="left">Length of the vector</td>
+<td align="left"><code>length(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>rev</code></td>
+<td align="left">Reverses the elements of a vector</td>
+<td align="left"><code>rev(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sort</code></td>
+<td align="left">Sorts the elements of a vector</td>
+<td align="left"><code>sort(nums1, decreasing = TRUE)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>order</code></td>
+<td align="left">The order of elements in a vector</td>
+<td align="left"><code>order(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>head</code></td>
+<td align="left">The first few elements of a vector</td>
+<td align="left"><code>head(nums1, 5)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>max</code></td>
+<td align="left">The maximum value</td>
+<td align="left"><code>max(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>min</code></td>
+<td align="left">The minimum value</td>
+<td align="left"><code>min(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>which.max</code></td>
+<td align="left">Which element of the vector is the max?</td>
+<td align="left"><code>which.max(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>which.min</code></td>
+<td align="left">Which element of the vector is the min?</td>
+<td align="left"><code>which.min(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>mean</code></td>
+<td align="left">Computes the average of the vector</td>
+<td align="left"><code>mean(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>median</code></td>
+<td align="left">Computers the median</td>
+<td align="left"><code>median(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>var</code></td>
+<td align="left">Variance</td>
+<td align="left"><code>var(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>sd</code></td>
+<td align="left">Standard deviation</td>
+<td align="left"><code>sd(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>cumsum</code></td>
+<td align="left">Cumulative sum (running total)</td>
+<td align="left"><code>cumsum(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>diff</code></td>
+<td align="left">Successive difference of a vector</td>
+<td align="left"><code>diff(nums1)</code></td>
+</tr>
+<tr class="even">
+<td align="left"><code>unique</code></td>
+<td align="left">Unique values used in the vector</td>
+<td align="left"><code>unique(nums1)</code></td>
+</tr>
+<tr class="odd">
+<td align="left"><code>round</code></td>
+<td align="left">Rounds numbers to a specified number of decimal points</td>
+<td align="left"><code>round(nums1, 2)</code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="vectorized-operations" class="section level2">
+<h2><span class="header-section-number">2.4</span> Vectorized operations</h2>
+<p>To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu <kbd>File/New File/R Script</kbd>. In the file that opens, try typing the examples below (or copy-pasting for the lazy). A single line can be run by placing the cursor on that line, and clicking ‘Run’ in the menu just to the top-right of the window. Alternatively (and this is <strong>recommended</strong>), use the keyboard shortcut <code>Ctrl-Enter</code> (or <code>Cmd-Enter</code> on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.</p>
+<p>In the above section, we introduced a number of functions that you can use to do calculations on a vector of numbers. In R, a number of operations can be done on two vectors, and the result is a vector itself. Basically, R knows to apply these operations one element at a time. This is best illustrated by some examples:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make two vectors,</span>
+vec1 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)
+vec2 &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">11</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>)
+
+<span class="co"># Add a number, element-wise</span>
+vec1 <span class="op">+</span><span class="st"> </span><span class="dv">10</span></code></pre>
+<pre><code>## [1] 11 12 13 14 15</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Element-wise quadratic:</span>
+vec1<span class="op">^</span><span class="dv">2</span></code></pre>
+<pre><code>## [1]  1  4  9 16 25</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pair-wise multiplication:</span>
+vec1 <span class="op">*</span><span class="st"> </span>vec2</code></pre>
+<pre><code>## [1] 11 24 39 56 75</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pair-wise sum:</span>
+vec1 <span class="op">+</span><span class="st"> </span>vec2</code></pre>
+<pre><code>## [1] 12 14 16 18 20</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compare the pair-wise sum to the sum of both vectors:</span>
+<span class="kw">sum</span>(vec1) <span class="op">+</span><span class="st"> </span><span class="kw">sum</span>(vec2)</code></pre>
+<pre><code>## [1] 80</code></pre>
+<p>In each of the above examples, the operators (like <code>+</code> and so on) ‘know’ to make the calculations one element at a time (if one vector), or pair-wise (when two vectors). Clearly, for all examples where two vectors were used, the two vectors need to be the same length (i.e., have the same number of elements).</p>
+<div id="multifunctions" class="section level3">
+<h3><span class="header-section-number">2.4.1</span> Applying multiple functions at once</h3>
+<p>In R, we can apply functions and operators in combination. In the following examples, the <em>innermost</em> expressions are always evaluated first. This will make sense after some examples:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mean of the vector &#39;vec1&#39;, *after* squaring the values:</span>
+<span class="kw">mean</span>(vec1<span class="op">^</span><span class="dv">2</span>)</code></pre>
+<pre><code>## [1] 11</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mean of the vector, *then* square it:</span>
+<span class="kw">mean</span>(vec1)<span class="op">^</span><span class="dv">2</span></code></pre>
+<pre><code>## [1] 9</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Mean of the log of vec2:</span>
+<span class="kw">mean</span>(<span class="kw">log</span>(vec2))</code></pre>
+<pre><code>## [1] 2.558972</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Log of the mean of vec2:</span>
+<span class="kw">log</span>(<span class="kw">mean</span>(vec2))</code></pre>
+<pre><code>## [1] 2.564949</code></pre>
+<p>Alternatively, we can use the <code>pipe</code> operator, which allows us to write the operators in order of application. For the pipe operator, we need to load the <code>magrittr</code> package (see <a href="intro.html#packages">2.8</a> on how to install and load packages).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(magrittr)
+
+<span class="co"># Identical to mean(log(vec2))</span>
+vec2 <span class="op">%&gt;%</span><span class="st"> </span>log <span class="op">%&gt;%</span><span class="st"> </span>mean</code></pre>
+<pre><code>## [1] 2.558972</code></pre>
+<p>The above code can be written in at least two other equivalent ways: <code>log(vec2) %&gt;% mean</code>, and even <code>log(vec2) %&gt;% mean(.)</code>, where the <code>.</code> indicates explicitly the result from the previous operator.</p>
+<p>In any of the following, we assume you have loaded either <code>magrittr</code>, or some package that loads it for you (for example, <code>dplyr</code>). If you have not, you will see the error message <code>could not find function "%&gt;%"</code>.</p>
+<p>The pipe operator has become very popular, and we use it when it greatly simplifies code, making it easier to follow what the code actually does (and in which order).</p>
+</div>
+</div>
+<div id="objects-in-the-workspace" class="section level2">
+<h2><span class="header-section-number">2.5</span> Objects in the workspace</h2>
+<p>In the examples above, we have created a few new objects. These objects are kept in memory for the remainder of your session (that is, until you close R).</p>
+<p>In RStudio, you can browse all objects that are currently loaded in memory. Objects that are currently loaded in memory make up your <em>workspace</em>. Find the window that has the tab ‘Environment’. Here you see a list of all the objects you have created in this R session. When you click on an object, a window opens that shows the contents of the object.</p>
+<p>Alternatively, to see which objects you currently have in your workspace, use the following command:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ls</span>()</code></pre>
+<pre><code>## [1] &quot;nums1&quot;   &quot;vec1&quot;    &quot;vec2&quot;    &quot;words&quot;   &quot;x&quot;       &quot;y&quot;       &quot;a&quot;      
+## [8] &quot;b&quot;       &quot;numbers&quot;</code></pre>
+<p>To remove objects,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(nums1, nums2)</code></pre>
+<p>And to remove all objects that are currently loaded, use this command.  you want to use this wisely!</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rm</span>(<span class="dt">list=</span><span class="kw">ls</span>())</code></pre>
+<p>Finally, when you are ending your R session, but you want to continue exactly at this point the next time, make sure to save the current workspace. In RStudio, find the menu <code>Session</code> (at the top). Here you can save the current workspace, and also load a previously saved one.</p>
+</div>
+<div id="fileswd" class="section level2">
+<h2><span class="header-section-number">2.6</span> Files in the working directory</h2>
+<p>Each time you run R, it ‘sees’ one of your folders (‘directories’) and all the files in it. This folder is called the <em>working directory</em>. You can change the working directory in RStudio in a couple of ways.</p>
+<p>The first option, in Rstudio, is to go to the menu <code>Session &gt; Set Working Directory &gt; Choose Directory...</code>.</p>
+<p>Or, find the ‘Files’ tab in one of the RStudio windows (usually bottom-right). Here you can browse to the directory you want to use (by clicking on the small <code>...</code> button on the right ), and click <code>More &gt; Set as working directory</code>.</p>
+<p>You can also set or query the current working directory by typing the following code:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set working directory to C:/myR</span>
+<span class="kw">setwd</span>(<span class="st">&quot;C:/myR&quot;</span>)
+
+<span class="co"># What is the current working directory?</span>
+<span class="kw">getwd</span>()</code></pre>
+<p><em>Note:</em> For Windows users, use a forward slash (that is, /), not a back slash!</p>
+<p>Finally, you can see which files are available in the current working directory, as well as in subdirectories, using the <code>dir</code> function (<em>Note</em>: a synonym for this function is <code>list.files</code>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Show files in the working directory:</span>
+<span class="kw">dir</span>()
+
+<span class="co"># List files in some other directory:</span>
+<span class="kw">dir</span>(<span class="st">&quot;c:/work/projects/data/&quot;</span>)
+
+<span class="co"># Show files in the subdirectory &quot;data&quot;:</span>
+<span class="kw">dir</span>(<span class="st">&quot;data&quot;</span>)
+
+<span class="co"># Show files in the working directory that end in csv.</span>
+<span class="co"># (The ignore.case=TRUE assures that we find files that end in &#39;CSV&#39; as well as &#39;csv&#39;,</span>
+<span class="co"># and the &#39;[]&#39; is necessary to find the &#39;.&#39; in &#39;.csv&#39;.</span>
+<span class="kw">dir</span>(<span class="dt">pattern=</span><span class="st">&quot;[.]csv&quot;</span>, <span class="dt">ignore.case=</span><span class="ot">TRUE</span>)</code></pre>
+</div>
+<div id="rstudio-projects" class="section level2">
+<h2><span class="header-section-number">2.7</span> Rstudio projects</h2>
+<p>If you end up working primarily from Rstudio, we very strongly recommend the use of Projects in Rstudio to keep your work organized, and to help set the working directory.</p>
+<p>Rstudio projects are really just small files added to a certain folder, which “tags” that folder as containing a particular project. This idea works best if you have organized your work into smaller subsections, where you keep your different projects in separate folders.</p>
+</div>
+<div id="packages" class="section level2">
+<h2><span class="header-section-number">2.8</span> Packages</h2>
+<p>Throughout this tutorial, we will focus on the basic functionality of R, but we will also call on a number of add-on ‘packages’ that include additional functions. These packages need to be <em>installed</em> (downloaded) before first use, and <em>loaded</em> every time you start a new R session.</p>
+<div id="install-packages-from-cran" class="section level3">
+<h3><span class="header-section-number">2.8.1</span> Install packages from CRAN</h3>
+<p>You can find a full list of packages available for R on the CRAN site (<a href="http://cran.r-project.org/" class="uri">http://cran.r-project.org/</a>, navigate to ‘Packages’), but be warned – it’s a very long list, with over 10000 packages. If you really want to browse a long list of packages, you should prefer the website <a href="http://r-pkg.org/" class="uri">http://r-pkg.org/</a>, which provides a nice interface.</p>
+<p>In RStudio, click on the <code>Packages</code> tab in the lower-right hand panel. There you can see which packages are already installed, and you can install more by clicking on the <code>Install</code> button.</p>
+<p>Alternatively, to install a particular package, simply type:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;gplots&quot;</span>)</code></pre>
+
+<div class="rmdcaution">
+Never use <code>install.packages</code> in an rmarkdown file (it simply does not work), and it is generally bad practice to add it to a script, since you don’t want the packages to be installed every time the script is run. Instead, make it clear what the dependencies are in a README file, or use the approach outlined in “Loading many packages” further below, or in “Install missing packages”.
+</div>
+
+<p>The package needs to be installed only once (except when you need to update it, see Section <a href="intro.html#updatingpackages">2.8.5</a>). To use the package in your current R session, type:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gplots)</code></pre>
+<p>This loads the <code>gplots</code> package from your library into working memory. You can now use the functions available in the <code>gplots</code> package. If you close and reopen R, you will need to load the package again (but you don’t have to install it again).</p>
+<p>To quickly learn which functions are included in a package, type:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(<span class="dt">help=</span>gplots)</code></pre>
+</div>
+<div id="setting-the-cran-mirror" class="section level3">
+<h3><span class="header-section-number">2.8.2</span> Setting the CRAN mirror</h3>
+<p>CRAN is a central package for R packages, but it is hosted on many servers around the world. Back in the day, you always had to set the CRAN ‘mirror’ once for every R session. If you are using Rstudio, though, you won’t have to worry about this as it is set automatically to Rstudio’s own CRAN mirror, which is actually just a clever service that sends you to a nearby server.</p>
+<p>If you use R from the command line, you might want to set the mirror directly:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">options</span>(<span class="dt">repos =</span> <span class="kw">c</span>(<span class="dt">CRAN =</span> <span class="st">&quot;https://cran.rstudio.com/&quot;</span>))</code></pre>
+<p>This avoids an annoying popup when attempting <code>install.packages</code>.</p>
+</div>
+<div id="install-from-git-hosting-sites" class="section level3">
+<h3><span class="header-section-number">2.8.3</span> Install from git hosting sites</h3>
+<p>The previous section applies to packages that have been uploaded to CRAN (the central repository for R packages). It is however also quite common for R packages to be available on Github or Bitbucket - two large web services that host source code under <em>git</em> version control. For repositories that contain R packages, these cannot be installed via <code>install.packages</code>. Instead, do:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(remotes)
+<span class="kw">install_bitbucket</span>(<span class="st">&quot;remkoduursma/fitplc&quot;</span>)</code></pre>
+<p>This installs an R package from www.bitbucket.org. Similarly, <code>install_github</code> installs the package from www.github.com, if it is hosted there.</p>
+<p>For this command to work, your system needs to be able to compile R packages from source. Windows users will need to install <a href="https://cran.r-project.org/bin/windows/Rtools/">Rtools</a>.</p>
+</div>
+<div id="updating-r-and-package-locations" class="section level3">
+<h3><span class="header-section-number">2.8.4</span> Updating R and package locations</h3>
+<p>By default, <code>install.packages</code> places the packages in a subdirectory of your R installation, which means that when you update R, you have to reinstall all packages - unless you follow these instructions. To check where your packages are being installed to, type:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">.libPaths</span>()</code></pre>
+<p>You may see more than one path listed - packages will be installed to the first directory. It is generally a good idea to make a custom location for all your packages, for example under <code>c:/RLIBRARY</code>, or <code>~/rpackages</code>, or some other location independent of where R is installed.</p>
+<p>To do this, you have to add an environment variable <code>R_LIBS</code>, that points to your custom directory. If you don’t know how to do this, simply do a web search for ‘add environment variable windows/mac’. The next time you open Rstudio, <code>.libPaths()</code> should show the custom directory.</p>
+</div>
+<div id="updatingpackages" class="section level3">
+<h3><span class="header-section-number">2.8.5</span> Updating packages</h3>
+<p>Besides updating R and Rstudio itself (which is recommended at least every couple of months or so), it is also a very good idea to keep all packages up to date. If your workflow ends up depending on an older version of the package, your code may not work on a different system. To update all <em>installed</em> packages, you can run the following command - make sure to do this right after opening Rstudio:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">update.packages</span>(<span class="dt">ask=</span><span class="ot">FALSE</span>)</code></pre>
+<p>It is usually best to type ‘no’ when the installation process asks if you want to compile some updated packages. Also, occasionally this process fails - usually stating e.g. ‘package Rcpp not found’. Then first install those packages (the usual way), and retry <code>update.packages</code>.</p>
+</div>
+<div id="install-missing-packages" class="section level3">
+<h3><span class="header-section-number">2.8.6</span> Install missing packages</h3>
+<p>The <code>reinstallr</code> package can be used to install all packages that are ‘mentioned’ in any of the source files in your working directory. That is, all those that are loaded in an R script, rmarkdown file, and some others, using <code>library</code> or <code>require</code>. You can simply do,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reinstallr)
+<span class="kw">reinstallr</span>()</code></pre>
+</div>
+<div id="conflicts" class="section level3">
+<h3><span class="header-section-number">2.8.7</span> Conflicts</h3>
+<p>It is fairly common that certain functions appear in multiple packages. For example, <code>summarize</code> is a function in <code>Hmisc</code> and in <code>dplyr</code>. If you have loaded <code>Hmisc</code> first, and then load <code>dplyr</code>, you will see (among others), the following message:</p>
+<pre><code>The following objects are masked from ‘package:Hmisc’:
+
+    src, summarize</code></pre>
+<p>This means that if you now use <code>summarize()</code>, it will be used from the <code>dplyr</code> package. As a consequence of this, <em>package conflicts are resolved based on the order in which you load the packages</em>. This can be very confusing (and dangerous!). It is better to use the <code>::</code> operator, when you want to make sure to use a function from a certain package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use summarize from dplyr</span>
+dplyr<span class="op">::</span><span class="kw">summarize</span>(...)</code></pre>
+<p>In fact, it can be considered very good practice to <em>always</em> use the <code>::</code> (called a <em>namespace directive</em>) to make it clear in your code where the function is used from. We refrain from using the operator very often in this book though, as it makes the code a bit messy and longer.</p>
+</div>
+<div id="loading-many-packages" class="section level3">
+<h3><span class="header-section-number">2.8.8</span> Loading many packages</h3>
+<p>If you are using packages in a script file, it is usually considered a good idea to load any packages you will be using at the <em>start</em> of the script. Usually you will see a long list of <code>library(this)</code>, and <code>library(that)</code>, but we like to use the <code>pacman</code> package at the top of a script, like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(pacman))<span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)
+pacman<span class="op">::</span><span class="kw">p_load</span>(gplots, geometry, rgl, remotes, svglite)</code></pre>
+<p>The first line checks whether the <code>pacman</code> package is available (<code>require</code> is like <code>library</code>, except it returns <code>TRUE</code> if the package could be loaded), and if not (<code>!</code>), it is installed. Next, <code>p_load</code> from <code>pacman</code> can be used to load many packages in one line, <em>installing the ones that are not available</em>. This approach is a very concise way to make your script reproducible.</p>
+</div>
+</div>
+<div id="helpfiles" class="section level2">
+<h2><span class="header-section-number">2.9</span> Accessing the help files</h2>
+<p>Every function that you use in R has its own built-in help file. For example, to access the help file for the arithmetic mean, type <code>?mean</code>.</p>
+<p>This opens up the help file in your default browser (but does not require an internet connection). Functions added by loading new packages also have built-in help files. For example, to read about the function <code>bandplot</code> in the <code>gplots</code> package, type:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(gplots)
+?bandplot
+
+<span class="co"># Alternatively:</span>
+?gplots<span class="op">::</span>bandplot</code></pre>
+<p>Do not get overwhelmed when looking at the help files. Much of R’s reputation for a steep learning curve has to do with the rather obscure and often confusing help files. A good tip for beginners is to <em>not read the help files</em>, but skip straight to the Example section at the bottom of the help file. The first line of the help file, which shows what kind of input, or arguments, the function takes, can also be helpful.</p>
+<p>The built-in help files offer detailed documentation of built-in functions (and those offered by packages), but often you are looking for something, but don’t quite know what exactly. This frustrating experience is well described by this quote, to R-help in 2006:</p>
+<blockquote>
+<p>“This is probably documented, but I cannot find the right words or<br />
+expression for a search. My attempts failed.”</p>
+<p>— Denis Chabot</p>
+</blockquote>
+<p>Sometimes it is useful to search all help files (including all <em>installed</em> packages, loaded or not) for a keyword, for example <code>??ANOVA</code> will find everything that mentions ANOVAs.</p>
+<p>The best advice, though, is simply to <strong>just use Google</strong>. As a search, simply type the question like you would ask someone else, for example “How to place legend outside plot with ggplot2?”, “(Is there an) R package for 3D plots?”.</p>
+</div>
+<div id="writing-lots-of-code-rmarkdown-or-scripts" class="section level2">
+<h2><span class="header-section-number">2.10</span> Writing lots of code: rmarkdown or scripts?</h2>
+<p>In this chapter you have written a little code directly to the Console, but for any more serious work you will use scripts or “rmarkdown” documents. In Chapter <a href="reporting.html#reporting">4</a>, we will give more information on <code>rmarkdown</code> documents: an outstanding format to collect code, output, and text in a single, well formatted document. Scripts on the other hand only include code (and comments), and can be executed completely, or piece-by-piece by selecting code manually.</p>
+<p>For both options, a brief summary is provided below. Overall, you want to use <strong>scripts</strong> if you:</p>
+<ul>
+<li>Want to be able to run all R code at once, producing some sort of output in files, or some other side-effect (perhaps figures as PDF, new datasets written to disk, objects produced and saved, data downloaded or uploaded, etc.).</li>
+</ul>
+<p>On the other hand, you should use an <strong>rmarkdown document</strong> if you:</p>
+<ul>
+<li>Want to produce a document that includes all output from your analyses, including tables, figures, output from statistical analyses, and so on. The document can be well formatted and directly shared (hiding code, for example), and published on the web or simply emailed to your co-workers.</li>
+</ul>
+<div id="reproducible-documents-with-rmarkdown" class="section level3">
+<h3><span class="header-section-number">2.10.1</span> Reproducible documents with rmarkdown</h3>
+<ul>
+<li>Documents are mix of normal text, with markup (headers, captions, images, tables, formatting), and blocks of code, <strong>code chunks</strong>.</li>
+<li>The document can be quickly converted to html, pdf, or an MS Word document, and includes output from code chunks (text output, figures), well formatted.</li>
+<li>Easy to learn syntax, and Rstudio provides many shortcuts and tools for working with <code>rmarkdown</code>.</li>
+<li>Output formats include HTML, PDF (if LaTeX is installed) and MS Word.</li>
+<li>Make not just simple documents, but also HTML presentations (in many formats), blogs (with <code>blogdown</code>), books (with <code>bookdown</code>), auto-generated websites documenting R packages (with <code>pkgdown</code>), and many more templates provided by add-on packages.</li>
+</ul>
+<p>We give more information in Section <a href="reporting.html#rmarkdown">4.3</a>.</p>
+</div>
+<div id="scripts" class="section level3">
+<h3><span class="header-section-number">2.10.2</span> Using R scripts</h3>
+<p>Clearly, R markdown is the right solution if you are interested in writing fully reproducable reports or presentations. For everything else, we use R scripts - simply text files that include R code. A script is meant to be fully executable, so that you can run the entire script, producing the desired results, files, objects, or side-effects. In Rstudio, you can open a new R script with <code>File/New File/R script</code>, simply a text file that is saved with extension <code>.R</code>.</p>
+<p>To run your script, you can either click ‘Source’ on the topright corner of the document, or execute it from R with:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">source</span>(<span class="st">&quot;myscript.R&quot;</span>)</code></pre>
+<p>This is <em>not useful</em> when you are interested in the output that you normally see in the console. If you are <em>printing</em> things to the screen in your script, the call to <code>source</code> will not show any of it. You can make these results visible by including <code>print</code> directly in your script, for example:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The output of this will not show up if you </span>
+<span class="co"># do source(&quot;somescript.R&quot;)</span>
+<span class="kw">summary</span>(mtcars)
+
+<span class="co"># Here, the output will be printed to the screen,</span>
+<span class="co"># also with source()</span>
+<span class="kw">print</span>(<span class="kw">summary</span>(cars))</code></pre>
+<p>Although the trick with <code>print</code> works, usually you want to switch to <code>rmarkdown</code> if you are interested in viewing the outputs. Scripts are more useful for side effects, for example the creation of new datasets (that are saved to disk), production of figures as PDF files, up- or downloading of files, or even converting an rmarkdown file to HTML with various settings.</p>
+<div id="running-r-from-the-command-line" class="section level4">
+<h4><span class="header-section-number">2.10.2.1</span> Running R from the command line</h4>
+<p>From outside R or Rstudio, you can run your script from the <em>command line</em> with <code>Rscript</code>, for example:</p>
+<pre><code>Rscript myscript.R</code></pre>
+<p>(Note that this only works on Windows if R is added to the search path).</p>
+<p>You can also run bits of R code directly via,</p>
+<pre><code>Rscript -e &quot;sqrt(9)&quot;</code></pre>
+</div>
+<div id="running-scripts-in-the-background" class="section level4">
+<h4><span class="header-section-number">2.10.2.2</span> Running scripts in the background</h4>
+<p>Suppose you have a script that takes a long time to complete. You want to run this script in a background process, so it does not tie up Rstudio for a long time. A nice feature in Rstudio (since late 2018) can be found on the <kbd>Jobs</kbd> tab, in the Console pane.</p>
+<p>There, click ‘Start Job’, and select an R script you would like to run, and the working directory that should be used. The script will be run in the background, and the results will be shown in the Jobs tab. This way you can run an R script for every core you have available to you.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="summarize.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

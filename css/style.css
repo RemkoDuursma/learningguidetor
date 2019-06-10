@@ -1,0 +1,125 @@
+/* Source:
+I started with the custom CSS for the book about bookdown,
+then added lots of styles */
+
+@import url('https://fonts.googleapis.com/css?family=Roboto|Source+Sans+Pro');
+.book.font-family-0 {font-family: Georgia, serif;}
+.book.font-family-1 {font-family: "Roboto", sans-serif;}
+
+.sourceCode { 
+  margin: 0.1em 0; 
+}
+
+.book .book-body .page-wrapper .page-inner section.normal {
+  line-height: 1.3em;
+}
+
+.rmdcaution, .rmdimportant, .rmdnote, .rmdtip, .rmdwarning, .rmdtry, .rmdreading {
+  padding: 1em 1em 1em 4em;
+  margin-bottom: 10px;
+  background: #f5f5f5 5px center/3em no-repeat;
+}
+.rmdcaution {
+  background-image: url("../images/caution.png");
+}
+.rmdimportant {
+  background-image: url("../images/important.png");
+}
+.rmdnote {
+  background-image: url("../images/note.png");
+}
+.rmdtip {
+  background-image: url("../images/tip.png");
+}
+.rmdwarning {
+  background-image: url("../images/warning.png");
+}
+.rmdtry {
+	background-image: url("../images/idea.png");
+}
+.rmdreading {
+  background-image: url("../images/reading.png");
+}
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+.author{
+	color: #000000;
+}
+.date{
+  display: none;
+	/*font-size: 0.8em;*/
+}
+
+/* stole this off the 2012 web 
+https://meta.superuser.com/questions/4788/css-for-the-new-kbd-style*/
+kbd
+{
+    -moz-border-radius:3px;
+    -moz-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+    -webkit-border-radius:3px;
+    -webkit-box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+    background-color:#f7f7f7;
+    border:1px solid #ccc;
+    border-radius:3px;
+    box-shadow:0 1px 0 rgba(0,0,0,0.2),0 0 0 2px #fff inset;
+    color:#333;
+    display:inline-block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    line-height:1.4;
+    margin:0 .1em;
+    padding:.1em .6em;
+    text-shadow:0 1px 0 #fff;
+}
+
+
+/* Below is all from bookdown */
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+p.flushright {
+  text-align: right;
+}
+blockquote > p:last-child {
+  text-align: right;
+}
+blockquote > p:first-child {
+  text-align: inherit;
+}
+.header-section-number {
+  padding-right: .2em;
+  font-weight: 600;
+}
+.level1 .header-section-number {
+  display: inline-block;
+  /*border-bottom: 1px solid;*/
+}
+.level1 h1 {
+  /*border-bottom: 3px solid;*/
+  /*border-left: 1px solid;
+  padding-left: 20px;*/
+  font-weight: 450;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+}
+h1.title {
+  font-weight: 700;
+  line-height: 1.7em
+  ;
+}
+.smallcaps {
+  font-variant: small-caps;
+}
+.book .book-body .page-wrapper .page-inner section.normal strong {
+  font-weight: 600;
+}

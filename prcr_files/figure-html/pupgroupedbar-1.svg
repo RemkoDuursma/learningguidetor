@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 360.00 360.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<rect x='100.40' y='120.38' width='31.33' height='163.92' style='stroke-width: 0.75; fill: #4D4D4D;' />
+<rect x='131.73' y='108.83' width='31.33' height='175.48' style='stroke-width: 0.75; fill: #E6E6E6;' />
+<rect x='194.40' y='72.86' width='31.33' height='211.45' style='stroke-width: 0.75; fill: #4D4D4D;' />
+<rect x='225.73' y='59.04' width='31.33' height='225.27' style='stroke-width: 0.75; fill: #E6E6E6;' />
+<text x='128.40' y='312.48' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='222.40' y='312.48' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
+<rect x='266.90' y='66.24' width='55.66' height='43.20' style='stroke-width: 0.75;' />
+<rect x='277.70' y='77.04' width='8.64' height='7.20' style='stroke-width: 0.75; fill: #4D4D4D;' />
+<rect x='277.70' y='91.44' width='8.64' height='7.20' style='stroke-width: 0.75; fill: #E6E6E6;' />
+<text x='297.14' y='84.94' style='font-size: 12.00px; font-family: Arial;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>280</text>
+<text x='297.14' y='99.34' style='font-size: 12.00px; font-family: Arial;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>400</text>
+<text x='174.39' y='341.28' style='font-size: 12.00px; font-family: Arial;' textLength='40.03px' lengthAdjust='spacingAndGlyphs'>Gender</text>
+<text transform='translate(12.96,207.16) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='68.71px' lengthAdjust='spacingAndGlyphs'>Pupal weight</text>
+<line x1='59.04' y1='284.31' x2='59.04' y2='66.16' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='284.31' x2='51.84' y2='284.31' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='253.14' x2='51.84' y2='253.14' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='221.98' x2='51.84' y2='221.98' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='190.81' x2='51.84' y2='190.81' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='159.65' x2='51.84' y2='159.65' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='128.49' x2='51.84' y2='128.49' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='97.32' x2='51.84' y2='97.32' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='66.16' x2='51.84' y2='66.16' style='stroke-width: 0.75;' />
+<text transform='translate(41.76,295.99) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.00</text>
+<text transform='translate(41.76,233.66) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.10</text>
+<text transform='translate(41.76,171.33) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.20</text>
+<text transform='translate(41.76,109.00) rotate(-90)' style='font-size: 12.00px; font-family: Arial;' textLength='23.36px' lengthAdjust='spacingAndGlyphs'>0.30</text>
+</svg>

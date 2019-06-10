@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 9 The bootstrap | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="The HIERmanual has new clothes." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 9 The bootstrap | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The HIERmanual has new clothes." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 9 The bootstrap | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="The HIERmanual has new clothes." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-05-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="programming.html">
+<link rel="next" href="data-visualization-with-base-graphics.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.2</b> Reading data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.2.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.2.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.2.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.2.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.2.4" data-path="summarize.html"><a href="summarize.html#reading-typed-data"><i class="fa fa-check"></i><b>3.2.4</b> Reading typed data</a></li>
+<li class="chapter" data-level="3.2.5" data-path="summarize.html"><a href="summarize.html#other-data-formats"><i class="fa fa-check"></i><b>3.2.5</b> Other data formats</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.3.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.3.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.3.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.4</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.4.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.4.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.4.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.5</b> Exporting data</a></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7</b> Working with factors</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#turn-numeric-data-into-factors"><i class="fa fa-check"></i><b>3.7.1</b> Turn numeric data into factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#empty-factor-levels"><i class="fa fa-check"></i><b>3.7.2</b> Empty factor levels</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#changelevels"><i class="fa fa-check"></i><b>3.7.3</b> Changing the levels of a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.8</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.9</b> Working with missing values</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#making-missing-values"><i class="fa fa-check"></i><b>3.9.1</b> Making missing values</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#not-a-number"><i class="fa fa-check"></i><b>3.9.2</b> Not A Number</a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#naindataframe"><i class="fa fa-check"></i><b>3.9.3</b> Missing values in dataframes</a></li>
+<li class="chapter" data-level="3.9.4" data-path="summarize.html"><a href="summarize.html#subsetmissing"><i class="fa fa-check"></i><b>3.9.4</b> Subsetting when there are missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.10</b> Working with text</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#paste"><i class="fa fa-check"></i><b>3.10.1</b> Combining text</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#textgrep"><i class="fa fa-check"></i><b>3.10.2</b> Text in dataframes and <code>grep</code></a></li>
+<li class="chapter" data-level="3.10.3" data-path="summarize.html"><a href="summarize.html#more-control-with-the-stringr-package"><i class="fa fa-check"></i><b>3.10.3</b> More control with the <code>stringr</code> package</a></li>
+<li class="chapter" data-level="3.10.4" data-path="summarize.html"><a href="summarize.html#combining-text-and-r-objects-with-glue"><i class="fa fa-check"></i><b>3.10.4</b> Combining text and R objects with <code>glue</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.11</b> Working with dates and times</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#readingdates"><i class="fa fa-check"></i><b>3.11.1</b> Reading dates</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#datetime"><i class="fa fa-check"></i><b>3.11.2</b> Date-Time combinations</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.11.3</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.12</b> Summarizing dataframes</a></li>
+<li class="chapter" data-level="3.13" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.13</b> Making summary tables</a><ul>
+<li class="chapter" data-level="3.13.1" data-path="summarize.html"><a href="summarize.html#tapply"><i class="fa fa-check"></i><b>3.13.1</b> Summarizing vectors with <code>tapply</code></a></li>
+<li class="chapter" data-level="3.13.2" data-path="summarize.html"><a href="summarize.html#summaryby"><i class="fa fa-check"></i><b>3.13.2</b> Quick summary tables with <code>summaryBy</code></a></li>
+<li class="chapter" data-level="3.13.3" data-path="summarize.html"><a href="summarize.html#dplyr"><i class="fa fa-check"></i><b>3.13.3</b> Summarizing dataframes with <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.14</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.15" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.15</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.16" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.16</b> Reordering factor levels based on a summary variable</a></li>
+<li class="chapter" data-level="3.17" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.17</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.17.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.17.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.17.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.17.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.17.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.17.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.18</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.18.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.18.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.18.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.18.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.19</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.19.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.19.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.19.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.19.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.19.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.19.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.1</b> Tips</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.2</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>5</b> Basic statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic.html"><a href="basic.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="basic.html"><a href="basic.html#descstat"><i class="fa fa-check"></i><b>5.2</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.3" data-path="basic.html"><a href="basic.html#inference"><i class="fa fa-check"></i><b>5.3</b> Inference for a single population</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="basic.html"><a href="basic.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3.1</b> Hypothesis testing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="basic.html"><a href="basic.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4</b> Inference for two populations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="basic.html"><a href="basic.html#paired-data"><i class="fa fa-check"></i><b>5.4.1</b> Paired data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="basic.html"><a href="basic.html#unequal-variances"><i class="fa fa-check"></i><b>5.4.2</b> Unequal variances</a></li>
+<li class="chapter" data-level="5.4.3" data-path="basic.html"><a href="basic.html#assumed-normality"><i class="fa fa-check"></i><b>5.4.3</b> Assumed normality</a></li>
+<li class="chapter" data-level="5.4.4" data-path="basic.html"><a href="basic.html#power"><i class="fa fa-check"></i><b>5.4.4</b> Power</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="basic.html"><a href="basic.html#simpleregression"><i class="fa fa-check"></i><b>5.5</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="basic.html"><a href="basic.html#adding-regression-lines-to-a-plot"><i class="fa fa-check"></i><b>5.5.1</b> Adding regression lines to a plot</a></li>
+<li class="chapter" data-level="5.5.2" data-path="basic.html"><a href="basic.html#diagplots"><i class="fa fa-check"></i><b>5.5.2</b> Diagnostic plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="linmodel.html"><a href="linmodel.html#what-is-linear-modelling"><i class="fa fa-check"></i><b>6.2</b> What is linear modelling</a></li>
+<li class="chapter" data-level="6.3" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.3</b> A motivating example</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="linmodel.html"><a href="linmodel.html#testing-or-predicting"><i class="fa fa-check"></i><b>6.3.1</b> Testing or predicting?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations-1"><i class="fa fa-check"></i><b>6.5</b> Inference for two populations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#paired-data-1"><i class="fa fa-check"></i><b>6.5.1</b> Paired data</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#unequal-variances-1"><i class="fa fa-check"></i><b>6.5.2</b> Unequal variances</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#one-way-anova"><i class="fa fa-check"></i><b>6.6</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.6.1</b> Multiple comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.7</b> Comparing means by two variables (two-way ANOVA)</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.7.1</b> Interactions</a></li>
+<li class="chapter" data-level="6.7.2" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.7.2</b> Comparing models</a></li>
+<li class="chapter" data-level="6.7.3" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.7.3</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.8</b> Linear regression</a></li>
+<li class="chapter" data-level="6.9" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.9</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.9.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.9.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.9.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.9.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.9.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.9.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.9.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.9.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>6.9.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html"><i class="fa fa-check"></i><b>7</b> Non-linear Modelling</a><ul>
+<li class="chapter" data-level="7.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#transformations"><i class="fa fa-check"></i><b>7.1.1</b> Transformations</a></li>
+<li class="chapter" data-level="7.1.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#parametric-or-non-parametric"><i class="fa fa-check"></i><b>7.1.2</b> Parametric or non-parametric?</a></li>
+<li class="chapter" data-level="7.1.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#means-or-quantiles"><i class="fa fa-check"></i><b>7.1.3</b> Means or quantiles?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nls"><i class="fa fa-check"></i><b>7.2</b> Non-linear regression</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#introduction-4"><i class="fa fa-check"></i><b>7.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#model-selection"><i class="fa fa-check"></i><b>7.2.2</b> Model selection</a></li>
+<li class="chapter" data-level="7.2.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#selfstart"><i class="fa fa-check"></i><b>7.2.3</b> Self-starting functions</a></li>
+<li class="chapter" data-level="7.2.4" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#custom-models-require-starting-values"><i class="fa fa-check"></i><b>7.2.4</b> Custom models require starting values</a></li>
+<li class="chapter" data-level="7.2.5" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsdiagnos"><i class="fa fa-check"></i><b>7.2.5</b> Model summary and diagnostics</a></li>
+<li class="chapter" data-level="7.2.6" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#comparing-models-1"><i class="fa fa-check"></i><b>7.2.6</b> Comparing models</a></li>
+<li class="chapter" data-level="7.2.7" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsfactor"><i class="fa fa-check"></i><b>7.2.7</b> Adding factor variables</a></li>
+<li class="chapter" data-level="7.2.8" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlspredict"><i class="fa fa-check"></i><b>7.2.8</b> Predicting</a></li>
+<li class="chapter" data-level="7.2.9" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#confidence-intervals"><i class="fa fa-check"></i><b>7.2.9</b> Confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#other-regression-techniques"><i class="fa fa-check"></i><b>7.3</b> Other regression techniques</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#loess"><i class="fa fa-check"></i><b>7.3.1</b> Local regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rq"><i class="fa fa-check"></i><b>7.4</b> Quantile regression</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rqci"><i class="fa fa-check"></i><b>7.4.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="7.4.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rqnonlinear"><i class="fa fa-check"></i><b>7.4.2</b> Non-linear quantile regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsboot"><i class="fa fa-check"></i><b>7.5</b> Bootstrapping</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#parameter-combinations"><i class="fa fa-check"></i><b>7.5.1</b> Parameter combinations</a></li>
+<li class="chapter" data-level="7.5.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#bootpredictionnls"><i class="fa fa-check"></i><b>7.5.2</b> Predictions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>8</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="8.1" data-path="programming.html"><a href="programming.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>8.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>8.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="8.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>8.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="8.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>8.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="8.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>8.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="8.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>8.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>8.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>8.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="8.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>8.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="8.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>8.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="8.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>8.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>8.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="8.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>8.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>8.4</b> Loops</a></li>
+<li class="chapter" data-level="8.5" data-path="programming.html"><a href="programming.html#advanced-working-example"><i class="fa fa-check"></i><b>8.5</b> Advanced working example</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>9</b> The bootstrap</a><ul>
+<li class="chapter" data-level="9.1" data-path="bootstrap.html"><a href="bootstrap.html#introduction-6"><i class="fa fa-check"></i><b>9.1</b> Introduction</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="bootstrap.html"><a href="bootstrap.html#standard-errors-and-confidence-intervals"><i class="fa fa-check"></i><b>9.1.1</b> Standard errors and confidence intervals</a></li>
+<li class="chapter" data-level="9.1.2" data-path="bootstrap.html"><a href="bootstrap.html#understanding-the-bootstrap"><i class="fa fa-check"></i><b>9.1.2</b> Understanding the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="bootstrap.html"><a href="bootstrap.html#applybootstrap"><i class="fa fa-check"></i><b>9.2</b> Applying the bootstrap</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="bootstrap.html"><a href="bootstrap.html#a-simple-coin-toss-experiment"><i class="fa fa-check"></i><b>9.2.1</b> A simple coin toss experiment</a></li>
+<li class="chapter" data-level="9.2.2" data-path="bootstrap.html"><a href="bootstrap.html#confidence-interval-for-a-ratio"><i class="fa fa-check"></i><b>9.2.2</b> Confidence interval for a ratio</a></li>
+<li class="chapter" data-level="9.2.3" data-path="bootstrap.html"><a href="bootstrap.html#regression-coefficients"><i class="fa fa-check"></i><b>9.2.3</b> Regression coefficients</a></li>
+<li class="chapter" data-level="9.2.4" data-path="bootstrap.html"><a href="bootstrap.html#bootcombination"><i class="fa fa-check"></i><b>9.2.4</b> Confidence interval of parameter combinations</a></li>
+<li class="chapter" data-level="9.2.5" data-path="bootstrap.html"><a href="bootstrap.html#sec:boothetero"><i class="fa fa-check"></i><b>9.2.5</b> Regression when assumptions are violated</a></li>
+<li class="chapter" data-level="9.2.6" data-path="bootstrap.html"><a href="bootstrap.html#predictions-by-mixed-effects-models"><i class="fa fa-check"></i><b>9.2.6</b> Predictions by mixed-effects models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html"><i class="fa fa-check"></i>Data visualization with base graphics</a><ul>
+<li class="chapter" data-level="9.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#the-r-graphics-system"><i class="fa fa-check"></i><b>9.3</b> The R graphics system</a></li>
+<li class="chapter" data-level="9.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#choosing-a-plot-type"><i class="fa fa-check"></i><b>9.4</b> Choosing a plot type</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#plotfunction"><i class="fa fa-check"></i><b>9.4.1</b> Using the <code>plot</code> function</a></li>
+<li class="chapter" data-level="9.4.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#barplot"><i class="fa fa-check"></i><b>9.4.2</b> Bar plots</a></li>
+<li class="chapter" data-level="9.4.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#hist"><i class="fa fa-check"></i><b>9.4.3</b> Histograms and curves</a></li>
+<li class="chapter" data-level="9.4.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#piesbox"><i class="fa fa-check"></i><b>9.4.4</b> Pie charts</a></li>
+<li class="chapter" data-level="9.4.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#boxplot"><i class="fa fa-check"></i><b>9.4.5</b> Box plots</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#finetuning"><i class="fa fa-check"></i><b>9.5</b> Fine-tuning the formatting of plots</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#a-quick-example"><i class="fa fa-check"></i><b>9.5.1</b> A quick example</a></li>
+<li class="chapter" data-level="9.5.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#colours"><i class="fa fa-check"></i><b>9.5.2</b> Customizing and choosing colours</a></li>
+<li class="chapter" data-level="9.5.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#customizing-symbols-and-lines"><i class="fa fa-check"></i><b>9.5.3</b> Customizing symbols and lines</a></li>
+<li class="chapter" data-level="9.5.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#expressions"><i class="fa fa-check"></i><b>9.5.4</b> Formatting units, equations and special symbols</a></li>
+<li class="chapter" data-level="9.5.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#resetting-the-graphical-parameters"><i class="fa fa-check"></i><b>9.5.5</b> Resetting the graphical parameters</a></li>
+<li class="chapter" data-level="9.5.6" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#changefont"><i class="fa fa-check"></i><b>9.5.6</b> Changing the font</a></li>
+<li class="chapter" data-level="9.5.7" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#addingtoplot"><i class="fa fa-check"></i><b>9.5.7</b> Adding elements to a current plot</a></li>
+<li class="chapter" data-level="9.5.8" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#changelayout"><i class="fa fa-check"></i><b>9.5.8</b> Changing the layout</a></li>
+<li class="chapter" data-level="9.5.9" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#paroptions"><i class="fa fa-check"></i><b>9.5.9</b> Finding out about more options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#formatting-examples"><i class="fa fa-check"></i><b>9.6</b> Formatting examples</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#vesselexample"><i class="fa fa-check"></i><b>9.6.1</b> Vessel data</a></li>
+<li class="chapter" data-level="9.6.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#weather-data"><i class="fa fa-check"></i><b>9.6.2</b> Weather data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#specialplots"><i class="fa fa-check"></i><b>9.7</b> Special plots</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#symbolplot"><i class="fa fa-check"></i><b>9.7.1</b> Scatter plot with varying symbol sizes</a></li>
+<li class="chapter" data-level="9.7.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#sciplot"><i class="fa fa-check"></i><b>9.7.2</b> Bar plots of means with confidence intervals</a></li>
+<li class="chapter" data-level="9.7.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#log-log-axes"><i class="fa fa-check"></i><b>9.7.3</b> Log-log axes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#exportfigures"><i class="fa fa-check"></i><b>9.8</b> Exporting figures</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#saving-figures"><i class="fa fa-check"></i><b>9.8.1</b> Saving figures</a></li>
+<li class="chapter" data-level="9.8.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#inserting-figures-in-word-or-powerpoint"><i class="fa fa-check"></i><b>9.8.2</b> Inserting figures in Word or Powerpoint</a></li>
+<li class="chapter" data-level="9.8.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#sharing-figures"><i class="fa fa-check"></i><b>9.8.3</b> Sharing figures</a></li>
+<li class="chapter" data-level="9.8.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#plots-with-many-points-or-lines"><i class="fa fa-check"></i><b>9.8.4</b> Plots with many points or lines</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="bootstrap" class="section level1">
+<h1><span class="header-section-number">Chapter 9</span> The bootstrap</h1>
+<div id="introduction-6" class="section level2">
+<h2><span class="header-section-number">9.1</span> Introduction</h2>
+<p>In this chapter, we introduce the bootstrap, a very powerful and flexible method to estimate standard errors (SE) and confidence intervals (CI). This chapter contains a very non-technical description of the bootstrap, unlike most other descriptions of the method. We will also limit the description of the method to the simplest version of the bootstrap, known as the <em>non-parametric bootstrap</em>. In some example applications, though, we might use different flavours of the bootstrap with little justification or explanation.</p>
+<p>There are a number of implementations of the bootstrap in R, including but not limited to the <code>boot</code>, <code>bootstrap</code> and <code>resample</code> packages, as well as numerous specific applications in many packages. We do not provide an overview of all implementations, but rather choose to use the very user-friendly implementation in the <code>resample</code> package, as well as a few more specific applications.</p>
+<p>The bootstrap is a very flexible method, and can be applied in nearly any situation to calculate standard errors and confidence intervals for parameters, model predictions, parameter combinations, and so on. We encourage you to <em>use the bootstrap when you can</em>, but it is particularly important to use in the following cases:</p>
+<ol style="list-style-type: decimal">
+<li>When we fit linear models with <code>lm</code> or <code>lmer</code>, we make several assumptions on the nature of the data (homoscedascity, residuals normally distributed, etc.). If these <em>assumptions are severely violated</em>, we cannot trust the standard errors nor the confidence intervals of the fitted parameters, and thus will likely draw wrong conclusions. The bootstrap will be far more robust to violation of these assumptions.</li>
+<li>Sometimes we want to draw conclusions about <em>parameter combinations</em> arising from a fitted model, and since there are rarely simple formulas for calculating the standard error of parameter combinations, the bootstrap offers a precise and practical method.</li>
+<li>In some, more complex models, no accurate approximation exists to calculate the standard error. Again the bootstrap can be used.</li>
+</ol>
+<p>Before we explain the method in detail, we will first explain the concepts standard error, confidence interval, and sampling distribution in the terminology used in the rest of the chapter.</p>
+<div id="standard-errors-and-confidence-intervals" class="section level3">
+<h3><span class="header-section-number">9.1.1</span> Standard errors and confidence intervals</h3>
+<p>Suppose you have a simple random sampling design: there is a population of items, and you wish to estimate the population mean by taking a random sample of 10 units. Clearly, if you take multiple random samples of 10 units, the mean estimated for each sample will differ. We know from statistical theory that the distribution of these sample means in fact follows a normal distribution (independent of the actual distribution of the population - this is the Central Limit Theorem). The distribution of the sample means is an example of a <em>sampling distribution</em>, and it describes how different our subsequent samples are, taken randomly from the population.</p>
+<p>Now, <em>the standard deviation of the sampling distribution is known as the standard error</em>. Normally we estimate the standard error of the mean using the familiar equation, which follows from statistical theory,</p>
+<p><span class="math display">\[SE = s / \sqrt{n}\]</span></p>
+<p>where <span class="math inline">\(s\)</span> is the sample standard deviation, that is, the standard deviation calculated from your sample, and <span class="math inline">\(n\)</span> is the sample size (10 in this example).</p>
+<p>In the following example, we make a population, take a sample and calculate the SE of the mean.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An example population; simulated from the Weibull distribution</span>
+Population &lt;-<span class="st"> </span><span class="kw">rweibull</span>(<span class="dv">100000</span>, <span class="dt">shape=</span><span class="dv">2</span>, <span class="dt">scale=</span><span class="dv">20</span>)
+
+<span class="co"># A random sample of 10 taken from the population</span>
+mysample &lt;-<span class="st"> </span><span class="kw">sample</span>(Population, <span class="dv">25</span>, <span class="dt">replace=</span><span class="ot">FALSE</span>)
+
+<span class="co"># The mean and SE of the mean</span>
+<span class="kw">mean</span>(mysample)</code></pre>
+<pre><code>## [1] 19.73009</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sd</span>(mysample)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">25</span>)</code></pre>
+<pre><code>## [1] 1.649341</code></pre>
+<p>Using standard statistical theory, the confidence interval is calculated using the sample standard error and quantiles from the t-distribution with n-1 degrees of freedom,</p>
+<pre class="sourceCode r"><code class="sourceCode r">ciwidth &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">25-1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(mysample)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">25</span>)
+<span class="kw">c</span>(<span class="kw">mean</span>(mysample) <span class="op">-</span><span class="st"> </span>ciwidth, <span class="kw">mean</span>(mysample) <span class="op">+</span><span class="st"> </span>ciwidth)</code></pre>
+<pre><code>## [1] 16.32602 23.13416</code></pre>
+</div>
+<div id="understanding-the-bootstrap" class="section level3">
+<h3><span class="header-section-number">9.1.2</span> Understanding the bootstrap</h3>
+<p>In this section we illustrate what the bootstrap does, and compare the calculated standard error and confidence interval from standard theory to those estimated with the bootstrap. If you want to skip straight to practical examples in R, simply continue in Section <a href="bootstrap.html#applybootstrap">9.2</a>.</p>
+<p>The basic idea of the bootstrap is very simple, and it is surprising that it actually works. To reiterate the point from the previous section, consider a population from which you have drawn a random sample, and you want to estimate the population mean based on your sample. The distribution of the means calculated from independent samples from the population is the sampling distribution, and this distribution cannot be observed because we only have one sample.</p>
+<p>This is where the bootstrap comes in. If you draw a new sample based only on resampling your data <em>with replacement</em>, and repeat this many times, you then approximate the actual sampling distribution. This is rather strange, but should become more clear with some examples. The first example demonstrates that the sampling distribution is indeed very well approximated by the distribution of the bootstrap samples.</p>
+<p>If you follow this example, you will see that <em>the standard deviation of the bootstrap sample means is equal to the standard error of the mean</em>, a point that we cannot reiterate often enough - because so often the meaning of ‘standard error’ is lost to the user.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Set the sample size.</span>
+n &lt;-<span class="st"> </span><span class="dv">25</span>
+
+<span class="co"># This is the sample that you randomly selected from a population.</span>
+<span class="co"># (Population was generated in the above example)</span>
+mysample &lt;-<span class="st"> </span><span class="kw">sample</span>(Population, n)
+
+<span class="co"># Calculate bootstrap sample means, 999 times. Store in vector.</span>
+<span class="co"># Note how we resample the sample with replacement.</span>
+means_boot &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">999</span>, <span class="kw">mean</span>(<span class="kw">sample</span>(mysample, <span class="dt">replace=</span><span class="ot">TRUE</span>)))
+
+<span class="co"># The curve is the sampling distribution as calculated for the normal distribution.</span>
+<span class="co"># Due to the Central Limit Theorem, the sampling distribution should be approx. normal.</span>
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">mean=</span><span class="kw">mean</span>(mysample), <span class="dt">sd=</span><span class="kw">sd</span>(mysample)<span class="op">/</span><span class="kw">sqrt</span>(n)), <span class="dt">from=</span><span class="dv">10</span>, <span class="dt">to=</span><span class="dv">25</span>,
+      <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="fl">0.3</span>))
+
+<span class="co"># The histogram shows the sampling distribution for the bootstrap.</span>
+<span class="kw">hist</span>(means_boot, <span class="dt">freq=</span><span class="ot">FALSE</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">breaks=</span><span class="dv">25</span>, <span class="dt">col=</span><span class="st">&quot;#D3D3D380&quot;</span>)</code></pre>
+<p><img src="08_bootstrap_files/figure-html/unnamed-chunk-5-1.svg" width=".6\linewidth" /></p>
+<p>Also note that the sampling distribution converges to a normal distribution, as it should, even though in this example the underlying distribution was highly skewed (it was simulated from a Weibull distribution).</p>
+<p>Now recall the example above where we calculated the SE based on just a single sample, using the well-known equation for the SE for the mean. The estimate was 1.5. In this particular case, we actually know the entire population (it is <code>Population</code>), and can test the bootstrap estimate of the SE via simulation. We can simply take a sample of 10 a thousand (or so) times, calculate the sample mean each time, and calculate the standard deviation across these 1000 sample means. Is it similar to our SE calculated for a single sample?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Use replicate to take 1000 samples without replacement, calculate the mean.</span>
+<span class="co"># Here, &#39;means_sampled&#39; can be interpreted as the real sampling distribution,</span>
+<span class="co"># since in this example we know the entire population.</span>
+means_sampled &lt;-<span class="st"> </span><span class="kw">replicate</span>(<span class="dv">1000</span>, <span class="kw">mean</span>(<span class="kw">sample</span>(Population, n, <span class="dt">replace=</span><span class="ot">FALSE</span>)))
+
+<span class="co"># The standard deviation of the sampling distribution is the standard error:</span>
+<span class="kw">sd</span>(means_sampled)</code></pre>
+<pre><code>## [1] 1.838504</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Note that this value is very similar to the SE calculated with the</span>
+<span class="co"># usual formula, when based on a single sample:</span>
+<span class="kw">sd</span>(mysample) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(n)</code></pre>
+<pre><code>## [1] 1.504826</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># In the bootstrap, we resample *the single sample* many times, with replacement.</span>
+<span class="co"># Resample our sample 999 times, and calculate the mean each time.</span>
+<span class="co"># We already calculated these as the &#39;means_boot&#39; object from the previous example.</span>
+
+<span class="co"># As before, the SD of the sampling distribution (here approximated via the bootstrap)</span>
+<span class="co"># is the standard error of the mean.</span>
+<span class="kw">sd</span>(means_boot)</code></pre>
+<pre><code>## [1] 1.493463</code></pre>
+<p>Indeed the three calculated standard errors are very similar. Since the bootstrap depends on randomly selecting samples, of course it will be different every time you calculate it. However, if you take enough samples, the differences will be very small. If you find that the subsequent runs give quite different estimates, simply increase the number of replicates.</p>
+
+<div class="rmdtry">
+In the above example, change the sample size (increase or decrease from the current value of 25), and see what happens to the standard errors.
+</div>
+
+<div id="confidence-intervals-for-the-mean" class="section level4">
+<h4><span class="header-section-number">9.1.2.1</span> Confidence intervals for the mean</h4>
+<p>The confidence interval can be interpreted from the sampling distribution as a <em>quantile</em>. A 95% confidence interval is constructed as we find the lower value and upper value between which 95% of the sample means can be found (that is, 95% of the means calculated from the independent random samples taken from the population). In our example simulation we both have the “real” sampling distribution (based on taking many independent samples from the population), and the approximated sampling distribution from the bootstrap.</p>
+<p>The following code compares the three methods to calculate the confidence interval.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard theory</span>
+ciwidth &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">25-1</span>) <span class="op">*</span><span class="st"> </span><span class="kw">sd</span>(mysample)<span class="op">/</span><span class="kw">sqrt</span>(<span class="dv">25</span>)
+<span class="kw">c</span>(<span class="kw">mean</span>(mysample) <span class="op">-</span><span class="st"> </span>ciwidth, <span class="kw">mean</span>(mysample) <span class="op">+</span><span class="st"> </span>ciwidth)</code></pre>
+<pre><code>## [1] 12.82733 19.03894</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Based on real sampling distribution </span>
+<span class="co"># (normally unknown, this only works in our simulation example)</span>
+<span class="kw">quantile</span>(means_sampled, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 14.06163 21.29133</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Based on the bootstrap resampling</span>
+<span class="kw">quantile</span>(means_boot, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 13.06603 19.14264</code></pre>
+<p>It turns out that a correction (known as the ‘bias-corrected bootstrap’, or ‘accelerated bootstrap’) has to be applied when calculating the confidence interval with the bootstrap, but this correction is usually small. It is however included in the <code>resample</code> package that we use further, but we will ignore it in the examples where we implement the bootstrap ourselves for reasons of clarity.</p>
+</div>
+</div>
+</div>
+<div id="applybootstrap" class="section level2">
+<h2><span class="header-section-number">9.2</span> Applying the bootstrap</h2>
+<p>In the following sections, we will show a number of practical applications of the bootstrap. A few different functions are used as implementation of the bootstrap, we summarize them in the table below. Note that you can always fall back to writing loops and sampling yourself, as we have done in the previous section. However, it is recommended you use built-in implementations to save time and avoid mistakes.</p>
+<ul>
+<li><code>bootstrap</code> (from <code>resample</code>) for any sample-based statistics that you can calculate</li>
+<li><code>Boot</code> (from <code>car</code>) for bootstrapping regression (<code>lm</code> or <code>nls</code>) models. Use to calculate SE and CI of regression coefficients.</li>
+<li><code>bootMer</code> (from <code>lme4</code>) for bootstrapping mixed-effects models with with <code>lmer</code>.</li>
+<li><code>PBmodcomp</code> for likelihood ratio tests based on the bootstrap (for <code>lmer</code>, <code>lm</code>, and others)</li>
+</ul>
+<div id="a-simple-coin-toss-experiment" class="section level3">
+<h3><span class="header-section-number">9.2.1</span> A simple coin toss experiment</h3>
+<p>To get started with the <code>resample</code> package, we will look at a very simple example. You tossed a coin 14 times and would like to calculate a confidence interval on the probability of landing heads.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Observations of coin tosses (1 = heads)</span>
+coins &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">0</span>)
+
+<span class="co"># For the bootstrap function</span>
+<span class="kw">library</span>(resample)
+
+<span class="co"># Bootstrap on series of heads/tails defined above.</span>
+<span class="co"># (we use resample:: here, as boots)</span>
+b &lt;-<span class="st"> </span>resample<span class="op">::</span><span class="kw">bootstrap</span>(coins, mean)
+
+<span class="co"># Take a look at the estimated standard error and bias.</span>
+b</code></pre>
+<pre><code>## Call:
+## resample::bootstrap(data = coins, statistic = mean)
+## Replications: 10000
+## 
+## Summary Statistics:
+##      Observed        SE      Mean        Bias
+## mean      0.5 0.1325894 0.5021143 0.002114286</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The confidence interval can be calculated as,</span>
+<span class="kw">CI.percentile</span>(b)</code></pre>
+<pre><code>##           2.5%     97.5%
+## mean 0.2142857 0.7857143</code></pre>
+<p>In this above example, we chose the <code>CI.percentile</code> function to calculate the confidence interval, to be consistent with the quantile-based confidence intervals that we calculated in the previous examples. Note that a method with slightly better performance, known as the BCA interval, can be computed with <code>CI.bca</code>. The difference between the two methods is usually small, but it’s worth trying for yourself.</p>
+</div>
+<div id="confidence-interval-for-a-ratio" class="section level3">
+<h3><span class="header-section-number">9.2.2</span> Confidence interval for a ratio</h3>
+<p>The usual method to calculate confidence intervals relies on the variable being approximately normally distributed. Ratios of two variables, for example the ratio between two treatments, can be far from normally distributed. The following example shows how to calculate the treatment ratio between irrigated and control trees in the HFE irrigation by fertilisation experiment. The idea here is that we would like to calculate the <em>relative</em> effect of a treatment, for example, “irrigation increased growth by 20-30%”.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(hfeifplotmeans)
+
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(lubridate)
+
+<span class="co"># Take subset, only 2012, and select only two variables.</span>
+hfe &lt;-<span class="st"> </span><span class="kw">filter</span>(hfeifplotmeans,
+                     <span class="kw">year</span>(<span class="kw">mdy</span>(Date)) <span class="op">==</span><span class="st"> </span><span class="dv">2012</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(height, treat)
+                                       
+<span class="co"># A quick and simple way to place treatments next to each </span>
+<span class="co"># other, as columns:</span>
+hfe_wide &lt;-<span class="st"> </span><span class="kw">unstack</span>(hfe)
+
+<span class="co"># If the first argument is a dataframe, simply refer</span>
+<span class="co"># to the column names like this.</span>
+hfeboot &lt;-<span class="st"> </span>resample<span class="op">::</span><span class="kw">bootstrap</span>(hfe_wide, <span class="kw">mean</span>(I<span class="op">/</span>C))
+
+<span class="co"># Inspect object</span>
+hfeboot</code></pre>
+<pre><code>## Call:
+## resample::bootstrap(data = hfe_wide, statistic = mean(I/C))
+## Replications: 10000
+## 
+## Summary Statistics:
+##           Observed         SE     Mean          Bias
+## mean(I/C) 1.314896 0.07113488 1.314642 -0.0002548568</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># And print the confidence interval for the treatment ratio</span>
+resample<span class="op">::</span><span class="kw">CI.bca</span>(hfeboot)</code></pre>
+<pre><code>##               2.5%    97.5%
+## mean(I/C) 1.091542 1.485517</code></pre>
+</div>
+<div id="regression-coefficients" class="section level3">
+<h3><span class="header-section-number">9.2.3</span> Regression coefficients</h3>
+<p>In this example, we will look at the SE’s of regression coefficients, for which we use the <code>Boot</code> function in the <code>car</code> package. We continue with the Allometry data, fitting a quadratic linear model to <code>height</code> as a function of <code>diameter</code> (see Section <a href="linmodel.html#quadlm">6.9.4</a>). Here, we use only data for the <code>psme</code> species in the dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(allometry)
+psme &lt;-<span class="st"> </span><span class="kw">subset</span>(allometry, species <span class="op">==</span><span class="st"> &quot;PSME&quot;</span>)
+
+<span class="co"># Fit a quadratic linear model to the simulated dataset.</span>
+lmq &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>psme)
+
+<span class="co"># Look at the fitted coefficients, the standard errors, and confidence intervals</span>
+broom<span class="op">::</span><span class="kw">tidy</span>(lmq, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>)</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   term          estimate std.error statistic  p.value conf.low conf.high
+##   &lt;chr&gt;            &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 (Intercept)    -3.09     1.45        -2.13 4.68e- 2  -6.13    -0.0485 
+## 2 diameter        1.34     0.0938      14.2  1.35e-11   1.14     1.53   
+## 3 I(diameter^2)  -0.0126   0.00134     -9.41 1.39e- 8  -0.0154  -0.00981</code></pre>
+<p>Using <code>tidy</code>, we quickly computed confidence intervals using standard theory. Now, let’s compare those calculated with the bootstrap.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For &#39;Boot&#39; (a convenient function to bootstrap regression models)</span>
+<span class="kw">library</span>(car)
+
+<span class="co"># By default, Boot will run the model many (R) times, and save the</span>
+<span class="co"># fitted coefficients each time (see ?Boot on how to extract other metrics)</span>
+B &lt;-<span class="st"> </span><span class="kw">Boot</span>(lmq, <span class="dt">R=</span><span class="dv">999</span>)
+
+<span class="co"># Extract the standard errors and confidence interval</span>
+<span class="co"># (compare to above example, they are very close!)</span>
+<span class="kw">cbind</span>(<span class="dt">SE =</span> <span class="kw">summary</span>(B)<span class="op">$</span>bootSE, <span class="kw">confint</span>(B))</code></pre>
+<pre><code>##                        SE       2.5 %       97.5 %
+## (Intercept)   1.494112625 -5.78483900  0.101605230
+## diameter      0.116515621  1.13068429  1.561703931
+## I(diameter^2) 0.001962631 -0.01685629 -0.009739028</code></pre>
+<p>In addition to calculating the SE and CI,We can also inspect the sampling distribution of the regression coefficients. All coefficients estimated for the bootstrap replicates is stored in the object returned by <code>Boot</code>, as a matrix where every row contains the coefficients for a fit.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract coefficients, give the matrix column names</span>
+coefs &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(B<span class="op">$</span>t)
+<span class="kw">names</span>(coefs) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;b0&quot;</span>,<span class="st">&quot;b1&quot;</span>,<span class="st">&quot;b2&quot;</span>)
+
+<span class="co"># Histograms of all distributions</span>
+<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">3</span>))
+<span class="kw">with</span>(coefs, { 
+      <span class="kw">hist</span>(b0, <span class="dt">col=</span><span class="st">&quot;royalblue&quot;</span>, <span class="dt">main=</span><span class="st">&quot;b0&quot;</span>)
+      <span class="kw">hist</span>(b1, <span class="dt">col=</span><span class="st">&quot;darkorange&quot;</span>, <span class="dt">main=</span><span class="st">&quot;b1&quot;</span>)
+      <span class="kw">hist</span>(b2, <span class="dt">col=</span><span class="st">&quot;purple&quot;</span>, <span class="dt">main=</span><span class="st">&quot;b2&quot;</span>)
+})</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:histbootlm"></span>
+<img src="08_bootstrap_files/figure-html/histbootlm-1.svg" alt="Histograms of the three coefficients of the quadratic linear model fit to the bootstrapped simulated data. These histograms approximate the sampling distribution of the regression coefficients, and we can calculate the SE and CI from them." width=".8\linewidth" />
+<p class="caption">
+Figure 9.1: Histograms of the three coefficients of the quadratic linear model fit to the bootstrapped simulated data. These histograms approximate the sampling distribution of the regression coefficients, and we can calculate the SE and CI from them.
+</p>
+</div>
+<p>In this particular case the calculated SE with the bootstrap is quite close to the SE’s reported by <code>lm</code>, which gives us some confidence that the bootstrap really works. Most importantly, the bootstrap will give better estimates of the SE when the assumptions underlying <code>lm</code> are violated. We come back to this point in Section <a href="#boothetero"><strong>??</strong></a>.</p>
+</div>
+<div id="bootcombination" class="section level3">
+<h3><span class="header-section-number">9.2.4</span> Confidence interval of parameter combinations</h3>
+<p>Let’s continue with the quadratic regression from the previous example, and try to calculate the confidence interval of the location of the optimum. Where is the value x where y is optimal (<span class="math inline">\(X_{opt}\)</span>) and what is its approximate CI?</p>
+<p>First, let’s figure out how we can find Xopt if all we have is the fitted equation,
+<span class="math display">\[Y = b_0 + b_1 \cdot Y + b_2 \cdot X^2\]</span></p>
+<p>First, we take the derivative with respect to X, and find the point where the derivative is zero (the slope of the curve is zero at its optimum), and solve for X.</p>
+<p><span class="math display">\[Y&#39;(X) = b_1 + 2 \cdot b_2*X\]</span></p>
+<p>Now set this equal to 0, and solve for <span class="math inline">\(X_{opt}\)</span>,</p>
+<p><span class="math display">\[b_1 + 2 \cdot b_2 \cdot X_{opt} = 0\]</span>
+<span class="math display">\[X_{opt} = -b_1 / (2 \cdot b_2)\]</span></p>
+<p>For a non-linear parameter combination like this, you have only limited alternatives to the bootstrap (most notably the ‘Delta method’, see <code>deltaMethod</code> in the <code>car</code> package).</p>
+<p>With the bootstrap, we can just calculate the sampling distribution of <span class="math inline">\(X_{opt}\)</span> and find the CI from the quantiles of this distribution.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We already have the sampling distribution from the previous example.</span>
+Xopt &lt;-<span class="st"> </span><span class="kw">with</span>(coefs, <span class="op">-</span>b1<span class="op">/</span>(<span class="dv">2</span><span class="op">*</span>b2))
+
+<span class="co"># An approximate 95% confidence interval</span>
+Xopt_CI &lt;-<span class="st"> </span><span class="kw">quantile</span>(Xopt, <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))
+Xopt_CI</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 45.26817 56.37367</code></pre>
+<p>And now we can make a plot with the prediction, the location of the optimum and its confidence interval (Fig. <a href="bootstrap.html#fig:bootoptfig">9.2</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Dataset along with model fits (and other useful metrics)</span>
+<span class="co"># We sort (&#39;arrange&#39;) the data by diameter, to allow a line plot as below</span>
+psme_mod &lt;-<span class="st"> </span>broom<span class="op">::</span><span class="kw">augment</span>(lmq, psme) 
+
+<span class="kw">ggplot</span>(psme_mod, <span class="kw">aes</span>(<span class="dt">x =</span> diameter, <span class="dt">y =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> diameter, <span class="dt">y =</span> .fitted), <span class="dt">col=</span><span class="st">&quot;red2&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span><span class="kw">mean</span>(Xopt), <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lwd=</span><span class="dv">2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span>Xopt_CI, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>, <span class="dt">lty=</span><span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x =</span> <span class="dv">0</span>, <span class="dt">y =</span> <span class="dv">0</span>)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bootoptfig"></span>
+<img src="08_bootstrap_files/figure-html/bootoptfig-1.svg" alt="Confidence interval for the location of the optimum as estimated with the bootstrap." width=".6\linewidth" />
+<p class="caption">
+Figure 9.2: Confidence interval for the location of the optimum as estimated with the bootstrap.
+</p>
+</div>
+</div>
+<div id="sec:boothetero" class="section level3">
+<h3><span class="header-section-number">9.2.5</span> Regression when assumptions are violated</h3>
+<p>Two key assumptions in linear regression are that the errors are normally distributed, and that the error variance is constant (with respect to the predictors). If one or both of these assumptions is violated, then the standard errors of the coefficients will be especially biased. This could lead to wrong conclusions being drawn from the analysis.</p>
+<p>In this example, we use the Coweeta tree data (already used in Section <a href="linmodel.html#logtransform">6.9.3</a>), an example where the variance increases quite strongly with <code>x</code>, and then compare the SE calculated in standard linear regression to the bootstrap SE. The bootstrap SE should be viewed as much closer to the ‘true’ SE, whereas the SE from linear regression will be biased because a key assumption is violated.</p>
+<p>Now we calculate the SE of the slope and intercept with the bootstrap, and compare the results to the standard estimate as reported by <code>lm</code>. As we will see, standard errors are always underestimated by <code>lm</code> when the variance increases with the x-variable. This means that you are more likely to conclude a significant slope effect even when in fact there isn’t one.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(coweeta)
+
+<span class="co"># Standard lm fit</span>
+lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(folmass <span class="op">~</span><span class="st"> </span>biomass, <span class="dt">data =</span> coweeta)
+
+<span class="co"># Bootstrap replicates.</span>
+<span class="co"># Inspect the b object : it contains slopes and intercepts of 999 fits </span>
+<span class="co"># to bootstrap resampled datasets.</span>
+b &lt;-<span class="st"> </span><span class="kw">Boot</span>(lmfit)
+
+<span class="co"># Standard SE as reported by lm:</span>
+<span class="kw">summary</span>(lmfit)<span class="op">$</span>coef[<span class="dv">2</span>,<span class="st">&quot;Std. Error&quot;</span>]</code></pre>
+<pre><code>## [1] 0.0009271403</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Bootstrap SE</span>
+<span class="kw">summary</span>(b)<span class="op">$</span>bootSE[<span class="dv">2</span>]</code></pre>
+<pre><code>## [1] 0.001717881</code></pre>
+<p>This example shows that the standard error calculated with the bootstrap is more than 50% larger than the one calculated with standard linear regression. Thus, if we trusted the usual standard errors, we would calculate confidence intervals that are 50% too narrow as well, giving too much confidence in our regression model.</p>
+</div>
+<div id="predictions-by-mixed-effects-models" class="section level3">
+<h3><span class="header-section-number">9.2.6</span> Predictions by mixed-effects models</h3>
+<p>I will illustrate the use of the bootstrap in mixed-effects models with the ‘ChickWeight’ data (a built-in dataset in base R, see <code>?ChickWeight</code>). In this dataset we have weights over time of chicks being fed one of four diets. The same chicks were reweighed, so we have a clear random effects structure (because the weighings are not independent observations). Suppose I am interested in the weight of chicks at a specified time, and want to test whether the diets have a significant effect on weight at that time.</p>
+<p>First I will demonstrate the use of the bootstrap for this situation for <code>lm</code>, where we can compare the resulting SE’s also to <code>predict.lm</code>, if we set <code>se=TRUE</code>. This is a useful thing to do just to check that we set up the code correctly.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit a linear model (ignoring repeated measures!)</span>
+fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(weight <span class="op">~</span><span class="st"> </span>Time<span class="op">*</span>Diet, <span class="dt">data=</span>ChickWeight)
+
+<span class="co"># Make dataframe for which we want predictions (recall from the </span>
+<span class="co"># above we are interested in Time=15)</span>
+newdat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Time=</span><span class="dv">15</span>, <span class="dt">Diet=</span><span class="kw">levels</span>(ChickWeight<span class="op">$</span>Diet))
+
+<span class="co"># And predict from the model, also get SE</span>
+p &lt;-<span class="st"> </span><span class="kw">predict</span>(fit1, newdat, <span class="dt">se=</span><span class="ot">TRUE</span>)
+
+<span class="co"># Inspect the estimated SEs:</span>
+p<span class="op">$</span>se.fit</code></pre>
+<pre><code>##        1        2        3        4 
+## 2.765187 3.630985 3.630985 3.710340</code></pre>
+<p>Now we do the same using the bootstrap. When bootstrapping, we resample our data, fit the model, and repeat. We could program this from scratch, but we can also use <code>Boot</code> from <code>car</code>, like this.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+
+<span class="co"># Fit the model 999 times, apply a function each time. In this case, </span>
+<span class="co"># we predict from the model.</span>
+bootfit1 &lt;-<span class="st"> </span><span class="kw">Boot</span>(fit1, <span class="cf">function</span>(x)<span class="kw">predict</span>(x, newdat), <span class="dt">R=</span><span class="dv">999</span>)
+
+<span class="co"># The standard errors can be found with summary(),</span>
+<span class="co"># here showing only the one column with the SEs.</span>
+<span class="kw">summary</span>(bootfit1)<span class="op">$</span>bootSE</code></pre>
+<pre><code>## [1] 3.743735 6.345572 5.649095 3.340820</code></pre>
+<p>These four values are the SE of the predicted values of chick weight at Time=15 for each of the four Diets. Compared to the ones we calculated with <code>predict</code> above, the bootstrap SEs are much larger. It turns out, and you can check this for yourself, that we violated every single assumption in fitting the linear model to the ChickWeight data. Particularly in the case of non-constant variance, the SEs calculated by <code>predict</code> (and <code>lm</code>) are too small (which, as we already saw, is the case when the variance increases with the independent variable).</p>
+<p>When your regression assumptions are violated and you cannot find a solution, use the bootstrap as the standard errors calculated with that are still valid.</p>
+<div id="bootstrapping-a-linear-mixed-effects-model" class="section level4">
+<h4><span class="header-section-number">9.2.6.1</span> Bootstrapping a linear mixed-effects model</h4>
+<p>We repeat the above using a mixed-effects model, where we can take into account the fact that the same chicks were measured over time, that is, we have a repeated-measures structure. The approach is identical to the example with lm(), just the details of the implementation are different. Note that because mixed-effects models take some effort to fit, the bootstrap may take quite a while on a slower machine.</p>
+<p>You may receive some warnings about the model not converging, you can safely ignore that (the model won’t fit to some rare resampled datasets).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load lmerTest so we can use the rand function below.</span>
+<span class="kw">library</span>(lmerTest)
+
+<span class="co"># Chicks are remeasured, we will use a random intercept for each Chick.</span>
+fit2 &lt;-<span class="st"> </span><span class="kw">lmer</span>(weight <span class="op">~</span><span class="st"> </span>Time<span class="op">*</span>Diet <span class="op">+</span><span class="st"> </span>(<span class="dv">1</span><span class="op">|</span>Chick),
+             <span class="dt">data=</span>ChickWeight)
+
+<span class="co"># quickly test if we need a random effect, in other words, are </span>
+<span class="co"># individual chicks really that different?</span>
+<span class="kw">ranova</span>(fit2)</code></pre>
+<pre><code>## ANOVA-like table for random-effects: Single term deletions
+## 
+## Model:
+## weight ~ Time + Diet + (1 | Chick) + Time:Diet
+##             npar  logLik    AIC    LRT Df Pr(&gt;Chisq)    
+## &lt;none&gt;        10 -2733.4 5486.9                         
+## (1 | Chick)    9 -2847.3 5712.7 227.75  1  &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># bootMer from lme4 is similar to bootCase from car (but poorly documented)</span>
+<span class="co"># Make sure to set re.form=NA to output only predictions using the fixed effects.</span>
+bootfit2 &lt;-<span class="st"> </span><span class="kw">bootMer</span>(fit2, <span class="dt">FUN=</span><span class="cf">function</span>(x)<span class="kw">predict</span>(x, newdat, <span class="dt">re.form=</span><span class="ot">NA</span>),
+                    <span class="dt">nsim=</span><span class="dv">999</span>)
+
+<span class="co"># We have to find that the $t element contains the predictions output by bootMer.</span>
+<span class="kw">apply</span>(bootfit2<span class="op">$</span>t, <span class="dv">2</span>, sd)</code></pre>
+<pre><code>##        1        2        3        4 
+## 5.886949 7.848398 7.987054 7.657460</code></pre>
+<p>Once again the standard errors of the predictions are even larger. This makes sense because we included random <code>Chick</code> effect in the model. The added uncertainty comes from the fact that the Chicks differ a lot in weight at Time=15, and this uncertainty has an effect on the estimates of the fixed effects as well (which in turn, affects the predicted weight of the chicks at Time=15).</p>
+</div>
+<div id="confidence-intervals-on-model-predictions" class="section level4">
+<h4><span class="header-section-number">9.2.6.2</span> Confidence intervals on model predictions</h4>
+<p>Finally, instead of just predicting at Time=15, it is now straightforward to predict across the entire range of the data, so we can plot confidence intervals around the prediction.</p>
+<p>To generate the figure with a confidence interval around the fitted line, we will redo the bootstrap, since this time we want predictions for all values of Time (not just Time=15). It is convenient to know that if we call <code>predict</code> without a data argument, it will predict for all X values used when fitting the model. The following example makes Fig. <a href="bootstrap.html#fig:bootchickfig">9.3</a>).</p>
+<p><em>Note</em> that we use here the <code>broom</code> package for <code>augment</code>, <code>dplyr</code> for <code>mutate</code>, <code>ggplot2</code> and <code>ggthemes</code> for plotting, and <code>scales</code> for transparency.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Bootstrap on a fitted model with lmer()</span>
+<span class="co"># Note that we are excluding the random effects, thus showing only</span>
+<span class="co"># the uncertainty associated with the fixed effects.</span>
+bb &lt;-<span class="st"> </span><span class="kw">bootMer</span>(fit2,
+              <span class="dt">FUN=</span><span class="cf">function</span>(x)<span class="kw">predict</span>(x, <span class="dt">re.form=</span><span class="ot">NA</span>),
+              <span class="dt">nsim=</span><span class="dv">500</span>)
+
+<span class="kw">augment</span>(fit2, ChickWeight) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lci =</span> <span class="kw">apply</span>(bb<span class="op">$</span>t, <span class="dv">2</span>, quantile, <span class="fl">0.025</span>),
+       <span class="dt">uci =</span> <span class="kw">apply</span>(bb<span class="op">$</span>t, <span class="dv">2</span>, quantile, <span class="fl">0.975</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y =</span> weight, <span class="dt">group =</span> Diet)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_ribbon</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">ymin =</span> lci, <span class="dt">ymax=</span>uci),
+              <span class="dt">fill =</span> scales<span class="op">::</span><span class="kw">alpha</span>(<span class="st">&quot;grey&quot;</span>, <span class="fl">0.7</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="kw">aes</span>(<span class="dt">x =</span> Time, <span class="dt">y=</span>.fixed, <span class="dt">col=</span>Diet), <span class="dt">size=</span><span class="fl">1.5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_colour_tableau</span>()</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bootchickfig"></span>
+<img src="08_bootstrap_files/figure-html/bootchickfig-1.svg" alt="Confidence interval for the increase in chick weight over time as estimated with the bootstrap." width=".6\linewidth" />
+<p class="caption">
+Figure 9.3: Confidence interval for the increase in chick weight over time as estimated with the bootstrap.
+</p>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="data-visualization-with-base-graphics.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

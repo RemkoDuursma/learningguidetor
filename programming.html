@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="This book teaches introductory to intermediate skills in R." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-06-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linmodel.html">
+<link rel="next" href="webservices.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="summarize.html"><a href="summarize.html#including-data-in-a-script"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="summarize.html"><a href="summarize.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="summarize.html"><a href="summarize.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="summarize.html"><a href="summarize.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="summarize.html"><a href="summarize.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.8</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.8.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="3.8.2" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.8.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.8.3" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.8.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.8.4" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.8.4</b> Reordering factor levels based on a summary variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.9</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.9.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.9.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.9.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.10</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.10.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.10.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.11</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.11.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.11.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.11.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>4.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.2</b> Tips</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.3</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>5</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="5.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>5.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>5.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>5.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>5.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="5.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="5.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>5.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="5.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>5.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="5.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>5.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="5.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>5.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="5.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>5.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="5.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>5.4.9</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>5.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>5.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="5.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>5.5.2</b> Simple and multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>5.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>5.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="5.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>5.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="5.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>5.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="5.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>5.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="5.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>5.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>6</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>6.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>6.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="6.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>6.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="6.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>6.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="6.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>6.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="6.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>6.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>6.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>6.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="6.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>6.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="6.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>6.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="6.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>6.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="6.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>6.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="6.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>6.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>6.4</b> Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>7</b> R on the web</a><ul>
+<li class="chapter" data-level="7.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>7.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>7.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>7.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>7.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="7.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>7.4</b> Deploying an API with <code>plumber</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="webservices.html"><a href="webservices.html#deploying-a-simple-api"><i class="fa fa-check"></i><b>7.4.1</b> Deploying a simple API</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="programming" class="section level1">
+<h1><span class="header-section-number">Chapter 6</span> Functions, lists and loops</h1>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<p>This chapter demonstrates some building blocks of programming with R. The main purpose here is to allow batch analyses - repeating similar tasks for many subsets of data. To do this, we first have to know how to write our own functions, so that we can apply the custom function to any new subset of data. This approach results in far less, and much more readable code than copy-pasting similar code for different datasets.</p>
+<p>We also delve into “lists” in R, a versatile data object that you have worked with already - even if you didn’t know it. Understanding lists well in R is the key to more complex analyses, and more readable workflows.</p>
+<p>Finally we take a brief look at ‘for loops’, a basic programming utility that we rarely need in R, since almost all functions are vectorized. Sometimes it is however more convenient to use loops, or makes the code just a little more easy to work with.</p>
+<p><strong>Packages used in this chapter</strong></p>
+<p>We use no new packages in this chapter except the <code>wrapr</code> package. All other functionality is included in base R, or commonly used packages <code>dplyr</code>, <code>ggplot2</code>, <code>lubridate</code>, and <code>lgrdata</code> for the example data.</p>
+</div>
+<div id="writefunctions" class="section level2">
+<h2><span class="header-section-number">6.2</span> Writing simple functions</h2>
+<p>We have already used many built-in functions throughout this tutorial, but you can become very efficient at complex data tasks when you write your own simple functions. Writing your own functions can help with tasks that are carried out many times, which would otherwise result in a lot of code.</p>
+<p>For example, suppose you frequently convert units from pounds to kilograms. It would be useful to have a function that does this, so you don’t have to type the conversion factor every time. This is also good practice, as it reduces the probability of making typos.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function takes a &#39;weight&#39; argument and multiplies it with some number </span>
+<span class="co"># to return kilograms.</span>
+poundsToKg &lt;-<span class="st"> </span><span class="cf">function</span>(weight){
+  weight <span class="op">*</span><span class="st"> </span><span class="fl">0.453592</span>
+}</code></pre>
+<p>We can use this <code>function</code> just like any other in R, for example, let’s convert ‘weight’ to kilograms in the weightloss data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">library</span>(lgrdata)
+<span class="kw">data</span>(weightloss)
+
+<span class="co"># Convert weight to kg.</span>
+weightloss<span class="op">$</span>Weight &lt;-<span class="st"> </span><span class="kw">poundsToKg</span>(weightloss<span class="op">$</span>Weight)</code></pre>
+<p>Let’s write a function for the standard error of the mean, a function that is not built-in in R.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compute the standard error of the mean for a vector</span>
+SEmean &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  se &lt;-<span class="st"> </span><span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))
+  <span class="kw">return</span>(se)
+}</code></pre>
+<p>Here, the <code>function</code> SEmean takes one ‘argument’ called <code>x</code> (i.e., input), which is a numeric vector. The standard error for the mean is calculated in the first line, and stored in an object called <code>se</code>, which is then returned as output. We can now use the function on a numeric vector like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A numeric vector</span>
+unifvec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">1</span>,<span class="dv">2</span>)
+
+<span class="co"># The sample mean</span>
+<span class="kw">mean</span>(unifvec)</code></pre>
+<pre><code>## [1] 1.630647</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard error for the mean</span>
+<span class="kw">SEmean</span>(unifvec)</code></pre>
+<pre><code>## [1] 0.09575152</code></pre>
+
+<div class="rmdtry">
+You can use functions that you defined yourself just like any other function, for example in <code>summaryBy</code>. First read in the <code>SEmean</code> function defined in the example above, and then use the cereal data to calculate the mean and SE of <code>rating</code> by <code>Manufacturer</code> (or use data of your choosing).
+</div>
+
+<div id="functions-with-many-arguments" class="section level3">
+<h3><span class="header-section-number">6.2.1</span> Functions with many arguments</h3>
+<p>Functions can also have multiple arguments. The following very simple function takes two numbers, and finds the absolute difference between them, using <code>abs</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define function</span>
+absDiff &lt;-<span class="st"> </span><span class="cf">function</span>(num1,num2)<span class="kw">abs</span>(num1 <span class="op">-</span><span class="st"> </span>num2)
+
+<span class="co"># Test it with two numbers:</span>
+<span class="kw">absDiff</span>(<span class="dv">5</span>,<span class="dv">1</span>)</code></pre>
+<pre><code>## [1] 4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># As in many functions in R, you can also give multiple values</span>
+<span class="co"># as an argument.</span>
+<span class="co"># The following returns the absolute difference between </span>
+<span class="co"># 1 and 3, then 5 and 6, and 9 and 0 (in that order).</span>
+<span class="kw">absDiff</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">0</span>))</code></pre>
+<pre><code>## [1] 2 1 9</code></pre>
+</div>
+<div id="functions-can-return-many-results" class="section level3">
+<h3><span class="header-section-number">6.2.2</span> Functions can return many results</h3>
+<p>What if a function should return not just one result, as in the examples above, but many results?</p>
+<p>For example, this function computes the standard deviation and standard error of a vector, and returns both stored in a vector. Note that we also use the <code>SEmean</code> function, which we defined above.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An function that computes the SE and SD of a vector</span>
+seandsd &lt;-<span class="st"> </span><span class="cf">function</span>(x){
+  
+  seresult &lt;-<span class="st"> </span><span class="kw">SEmean</span>(x)
+  sdresult &lt;-<span class="st"> </span><span class="kw">sd</span>(x)
+
+  <span class="co"># Store results in a vector with names</span>
+  vec &lt;-<span class="st"> </span><span class="kw">c</span>(seresult, sdresult)
+  <span class="kw">names</span>(vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SE&quot;</span>,<span class="st">&quot;SD&quot;</span>)
+
+<span class="kw">return</span>(vec)
+}
+
+<span class="co"># Test it:</span>
+x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)
+<span class="kw">seandsd</span>(x)</code></pre>
+<pre><code>##        SE        SD 
+## 0.3807795 3.8077952</code></pre>
+</div>
+<div id="functions-without-arguments" class="section level3">
+<h3><span class="header-section-number">6.2.3</span> Functions without arguments</h3>
+<p>Sometimes, a function takes no arguments (input) at all. Consider this very helpful example.</p>
+<pre class="sourceCode r"><code class="sourceCode r">sayhello &lt;-<span class="st"> </span><span class="cf">function</span>()<span class="kw">message</span>(<span class="st">&quot;Hello!&quot;</span>)
+
+<span class="kw">sayhello</span>()</code></pre>
+<pre><code>## Hello!</code></pre>
+<p>We will return to defining our own functions when we look at applying functions many times to sections of a dataframe (Section <a href="programming.html#lapply">6.3.6</a>).</p>
+</div>
+<div id="wrapfunctions" class="section level3">
+<h3><span class="header-section-number">6.2.4</span> Wrapper functions</h3>
+<p>We often need to write simple functions that adjust one or two arguments to other functions. For example, suppose we often make plots with filled circles, with our favorit color (“dimgrey”) :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)
+<span class="kw">data</span>(howell)
+<span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)</code></pre>
+<p>We could of course <em>always</em> specify these arguments, or we can write a function that sets those defaults. It would look like the following, except this function is incomplete, since we have <em>hardcoded</em> the other plotting arguments (the dataset, and the x and y variables):</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function is not how we want it yet!</span>
+plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(){
+  <span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
+}</code></pre>
+<p>We would like to be able to call the function via <code>plot_filled_grey(age, height, data=howell)</code>, in other words all arguments to our <em>wrapper function</em> should be passed to the underlying function. We have a very handy utility in R to do this, the three dots (<code>...</code>) :</p>
+<pre class="sourceCode r"><code class="sourceCode r">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(...){
+  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
+}</code></pre>
+<p>The function now works as intended. It can be further improved if we realize that the plotting color cannot be changed - it is always “dimgrey”. We want the <em>default</em> value to be “dimgrey”, but with an option to change it. This can be achieved like so,</p>
+<pre class="sourceCode r"><code class="sourceCode r">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>){
+  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span>col)
+}</code></pre>
+<p>Here, <code>col=col</code> sets the color in the call to <code>plot</code> with the default value specified in the wrapper function (“dimgrey”), but the user can also change it as usual.</p>
+
+<div class="rmdtry">
+Take the <code>plot_filled_grey</code> function above, test it on some data, and modify it so that the plotting symbol can also be changed, but has a default value of 19.
+</div>
+
+</div>
+<div id="wrapper-functions-to-ggplot2-or-dplyr" class="section level3">
+<h3><span class="header-section-number">6.2.5</span> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></h3>
+<p>In the previous section we saw how to write wrapper functions, functions that change a few arguments to some other function. These sort of functions are very helpful because we can save a lot of space by reusing a certain template. Suppose we want to make a plot with <code>ggplot2</code>, a scatter plot with a loess smoother line. We can achieve this via (result not shown),</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(howell)
+<span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">span =</span> <span class="fl">0.7</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</code></pre>
+<p>We already used quite a bit of code for this simple plot, but imagine you have set various other options, formatting changes, axis limits and so on - you end up with a lot of code for one plot. If we want to reuse the code for another plot, for two other variables from the same dataframe, copy-pasting the code and modifying leads to even more code. Writing wrapper functions for <code>ggplot2</code> (or <code>dplyr</code>, see below, or many other cases) is more difficult because the arguments in the <code>ggplot2</code> code we want to change (height and weight) <em>are not quoted</em> - they are variables inside a dataframe (<code>howell</code> in our case). We avoid a more technical explanation of this problem, but simply present a solution with the <code>wrapr</code> package.</p>
+<p>Using <code>let</code> from <code>wrapr</code>, we can turn our unquoted variables into quoted ones, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wrapr)
+
+<span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> <span class="st">&quot;weight&quot;</span>, <span class="dt">yvar =</span> <span class="st">&quot;height&quot;</span>), {
+  <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
+})</code></pre>
+<p>The point of placing our plotting code inside <code>let</code> is that we can now write our simple wrapper function like before:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make a scatter plot with the howell data.</span>
+plot_scatter_howell &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol){
+  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {
+    <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
+  })
+}
+
+<span class="co"># The function can be used with quoted names:</span>
+<span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>)</code></pre>
+<p>It is important to understand that, in this example, <code>let</code> is used <em>only to turn character arguments into unquoted names</em>, in this case “height” turns into <code>height</code> for use in <code>ggplot</code>, and so on. We cannot pass <code>height</code> and <code>weight</code> as unquoted names, because R would look for those objects directly (from the ‘global environment’), rather than as variables in the <code>howell</code> dataset.</p>
+<p>To also pass the dataset as an argument (making the function more general), we do not have to use <code>let</code>, but can immediately set it as an argument (because it is available in the global environment).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Our function now also takes a dataset as an argument</span>
+plot_scatter &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol, dataset){
+  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {
+    <span class="kw">ggplot</span>(dataset, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
+  })
+}
+
+<span class="co"># We can use it as,</span>
+<span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>, howell)</code></pre>
+</div>
+</div>
+<div id="workinglists" class="section level2">
+<h2><span class="header-section-number">6.3</span> Working with lists</h2>
+<p>Sofar, we have worked a lot with vectors, with are basically strings of numbers or bits of text. In a vector, each element has to be of the same data type. Lists are a more general and powerful type of vector, where each element of the <code>list</code> can be anything at all. This way, lists are a very flexible type of object to store a lot of information that may be in different formats.</p>
+<p>Lists can be somewhat daunting for the beginning <code>R</code> user, which is why most introductory texts and tutorials skip them altogether. However, with some practice, lists can be mastered from the start. Mastering a few basic skills with lists can really help increase your efficiency in dealing with more complex data analysis tasks.</p>
+<p>To make a list from scratch, you simply use the <code>list</code> function. Here is a list that contains a numeric vector, a character vector, and a dataframe:</p>
+<pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">txt=</span><span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>), <span class="dt">dfr=</span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)))</code></pre>
+<div id="indexing-lists" class="section level3">
+<h3><span class="header-section-number">6.3.1</span> Indexing lists</h3>
+<p>To extract an element from this list, you may do this by its name (‘a’,‘txt’ or ‘dfr’ in this case), or by the element number (1,2,3). For lists, we use a double square bracket for indexing. Consider these examples,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the dataframe:</span>
+mylist[[<span class="st">&quot;dfr&quot;</span>]]</code></pre>
+<pre><code>##   x y
+## 1 2 5
+## 2 3 6
+## 3 4 7</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Is the same as:</span>
+mylist<span class="op">$</span>dfr</code></pre>
+<pre><code>##   x y
+## 1 2 5
+## 2 3 6
+## 3 4 7</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the first element:</span>
+mylist[[<span class="dv">1</span>]]</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<p>Note that in these examples, the contents of the elements of the list are returned (for ‘dfr’, a dataframe), but the result itself is not a list anymore. If we select multiple elements, the result should still be a list. To do this, use the single square bracket.</p>
+<p>Look at these examples:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the &#39;a&#39; vector, result is a vector:</span>
+mylist[[<span class="st">&#39;a&#39;</span>]]</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the &#39;a&#39; vector, result is a list:</span>
+mylist[<span class="st">&#39;a&#39;</span>]</code></pre>
+<pre><code>## $a
+##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract multiple elements (result is still a list):</span>
+mylist[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</code></pre>
+<pre><code>## $txt
+## [1] &quot;hello&quot; &quot;world&quot;
+## 
+## $dfr
+##   x y
+## 1 2 5
+## 2 3 6
+## 3 4 7</code></pre>
+</div>
+<div id="converting-lists-to-dataframes-or-vectors" class="section level3">
+<h3><span class="header-section-number">6.3.2</span> Converting lists to dataframes or vectors</h3>
+<p>Although lists are the most flexible way to store data and other objects in larger, more complex, analyses, ultimately you would prefer to output as a dataframe or vector.</p>
+<p>Let’s look at some examples using <code>do.call(rbind,...)</code> and <code>unlist</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A list of dataframes:</span>
+dfrlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">data1=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">data2=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,<span class="dt">b=</span><span class="dv">15</span><span class="op">:</span><span class="dv">17</span>))
+dfrlis</code></pre>
+<pre><code>## $data1
+##   a b
+## 1 1 2
+## 2 2 3
+## 3 3 4
+## 
+## $data2
+##    a  b
+## 1  9 15
+## 2 10 16
+## 3 11 17</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Since both dataframes in the list have the same number of columns and names, </span>
+<span class="co"># we can &#39;successively row-bind&#39; the list like this:</span>
+<span class="kw">do.call</span>(rbind, dfrlis)</code></pre>
+<pre><code>##          a  b
+## data1.1  1  2
+## data1.2  2  3
+## data1.3  3  4
+## data2.1  9 15
+## data2.2 10 16
+## data2.3 11 17</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A list of vectors:</span>
+veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)
+
+<span class="co"># In this case, we can use the &#39;unlist&#39; function, which will </span>
+<span class="co"># successively combine the three vectors into one:</span>
+<span class="kw">unlist</span>(veclis)</code></pre>
+<pre><code>## a1 a2 a3 b1 b2 b3 f1 f2 f3 
+##  1  2  3  2  3  4  9 10 11</code></pre>
+<p>In real-world applications, some trial-and-error will be necessary to convert lists to more pretty formats.</p>
+</div>
+<div id="combining-lists" class="section level3">
+<h3><span class="header-section-number">6.3.3</span> Combining lists</h3>
+<p>Combining two lists can be achieved using <code>c()</code>, like this:</p>
+<pre class="sourceCode r"><code class="sourceCode r">veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)
+qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">q=</span><span class="dv">17</span><span class="op">:</span><span class="dv">15</span>)
+<span class="kw">c</span>(veclis,qlis)</code></pre>
+<pre><code>## $a
+## [1] 1 2 3
+## 
+## $b
+## [1] 2 3 4
+## 
+## $f
+## [1]  9 10 11
+## 
+## $q
+## [1] 17 16 15</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># But be careful when you like to quickly add a vector</span>
+<span class="co"># the &#39;veclis&#39;. You must specify list() like this</span>
+veclis &lt;-<span class="st"> </span><span class="kw">c</span>(veclis, <span class="kw">list</span>(<span class="dt">r=</span><span class="dv">3</span><span class="op">:</span><span class="dv">1</span>))</code></pre>
+</div>
+<div id="extracting-output-from-built-in-functions" class="section level3">
+<h3><span class="header-section-number">6.3.4</span> Extracting output from built-in functions</h3>
+<p>One reason to gain a better understanding of lists is that many built-in functions return not just single numbers, but a diverse collection of outputs, organized in lists. Think of the linear model function (<code>lm</code>), it returns a lot of things at the same time (not just the p-value).</p>
+<p>Let’s take a closer look at the <code>lm</code> output to see if we can extract the adjusted R<span class="math inline">\(^2\)</span>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">data</span>(allometry)
+
+<span class="co"># Fit a linear model</span>
+lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter, <span class="dt">data=</span>allometry)
+
+<span class="co"># And save the summary statement of the model:</span>
+lmfit_summary &lt;-<span class="st"> </span><span class="kw">summary</span>(lmfit)
+
+<span class="co"># We already know that simply typing &#39;summary(lmfit)&#39; will give </span>
+<span class="co"># lots of text output. How to extract numbers from there?</span>
+<span class="co"># Let&#39;s look at the structure of lmfit:</span>
+<span class="kw">str</span>(lmfit_summary)</code></pre>
+<pre><code>## List of 11
+##  $ call         : language lm(formula = height ~ diameter, data = allometry)
+##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language height ~ diameter
+##   .. ..- attr(*, &quot;variables&quot;)= language list(height, diameter)
+##   .. ..- attr(*, &quot;factors&quot;)= int [1:2, 1] 0 1
+##   .. .. ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. .. .. ..$ : chr [1:2] &quot;height&quot; &quot;diameter&quot;
+##   .. .. .. ..$ : chr &quot;diameter&quot;
+##   .. ..- attr(*, &quot;term.labels&quot;)= chr &quot;diameter&quot;
+##   .. ..- attr(*, &quot;order&quot;)= int 1
+##   .. ..- attr(*, &quot;intercept&quot;)= int 1
+##   .. ..- attr(*, &quot;response&quot;)= int 1
+##   .. ..- attr(*, &quot;.Environment&quot;)=&lt;environment: R_GlobalEnv&gt; 
+##   .. ..- attr(*, &quot;predvars&quot;)= language list(height, diameter)
+##   .. ..- attr(*, &quot;dataClasses&quot;)= Named chr [1:2] &quot;numeric&quot; &quot;numeric&quot;
+##   .. .. ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;height&quot; &quot;diameter&quot;
+##  $ residuals    : Named num [1:63] -8.84 1.8 0.743 2.499 4.37 ...
+##   ..- attr(*, &quot;names&quot;)= chr [1:63] &quot;1&quot; &quot;2&quot; &quot;3&quot; &quot;4&quot; ...
+##  $ coefficients : num [1:2, 1:4] 7.5967 0.5179 1.4731 0.0365 5.157 ...
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
+##   .. ..$ : chr [1:4] &quot;Estimate&quot; &quot;Std. Error&quot; &quot;t value&quot; &quot;Pr(&gt;|t|)&quot;
+##  $ aliased      : Named logi [1:2] FALSE FALSE
+##   ..- attr(*, &quot;names&quot;)= chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
+##  $ sigma        : num 5.55
+##  $ df           : int [1:3] 2 61 2
+##  $ r.squared    : num 0.768
+##  $ adj.r.squared: num 0.764
+##  $ fstatistic   : Named num [1:3] 202 1 61
+##   ..- attr(*, &quot;names&quot;)= chr [1:3] &quot;value&quot; &quot;numdf&quot; &quot;dendf&quot;
+##  $ cov.unscaled : num [1:2, 1:2] 7.05e-02 -1.54e-03 -1.54e-03 4.32e-05
+##   ..- attr(*, &quot;dimnames&quot;)=List of 2
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
+##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
+##  - attr(*, &quot;class&quot;)= chr &quot;summary.lm&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The output of lm is a list, so we can look at the names of # that list as well:</span>
+<span class="kw">names</span>(lmfit_summary)</code></pre>
+<pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;     &quot;coefficients&quot; 
+##  [5] &quot;aliased&quot;       &quot;sigma&quot;         &quot;df&quot;            &quot;r.squared&quot;    
+##  [9] &quot;adj.r.squared&quot; &quot;fstatistic&quot;    &quot;cov.unscaled&quot;</code></pre>
+<p>So, now we can extract results from the summary of the fitted regression. Also look at the help file <code>?summary.lm</code>, in the section ‘Values’ for a description of the fields contained here.</p>
+<p>To extract the adjusted R<span class="math inline">\(^2\)</span>, for example:</p>
+<pre class="sourceCode r"><code class="sourceCode r">lmfit_summary[[<span class="st">&quot;adj.r.squared&quot;</span>]]</code></pre>
+<pre><code>## [1] 0.7639735</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Is the same as:</span>
+lmfit_summary<span class="op">$</span>adj.r.squared</code></pre>
+<pre><code>## [1] 0.7639735</code></pre>
+<p>This sort of analysis will be very useful when we do many regressions, and want to summarize the results in a table.</p>
+
+<div class="rmdtry">
+Run the code in the above examples, and practice extracting some other elements from the linear regression. Compare the output to the summary of the <code>lm</code> fit (that is, compare it to what <code>summary(lmfit)</code> shows on screen).
+</div>
+
+</div>
+<div id="dfrlists" class="section level3">
+<h3><span class="header-section-number">6.3.5</span> Creating lists from dataframes</h3>
+<p>For more advanced analyses, it is often necessary to repeat a particular analysis many times, for example for sections of a dataframe.</p>
+<p>Using the <code>allom</code> data for example, we might want to split the dataframe into three dataframes (one for each species), and repeat some analysis for each of the species. One option is to make three subsets (using <code>subset</code>), and repeating the analysis for each of them. But what if we have hundreds of species?</p>
+<p>A more efficient approach is to <code>split</code> the dataframe into a list, so that the first element of the list is the dataframe for species 1, the 2nd element species 2, and so on. In case of the allom dataset, the resulting list will have three components.</p>
+<p>Let’s look at an example on how to construct a list of dataframes from the allom dataset, one per species:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read allom data and make sure &#39;species&#39; is a factor:</span>
+<span class="kw">data</span>(allometry)
+<span class="kw">is.factor</span>(allometry<span class="op">$</span>species)</code></pre>
+<pre><code>## [1] TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The levels of the factor variable &#39;species&#39;</span>
+<span class="kw">levels</span>(allometry<span class="op">$</span>species)</code></pre>
+<pre><code>## [1] &quot;PIMO&quot; &quot;PIPO&quot; &quot;PSME&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now use &#39;split&#39; to construct a list:</span>
+allomsp &lt;-<span class="st"> </span><span class="kw">split</span>(allometry, allometry<span class="op">$</span>species)
+
+<span class="co"># The length of the list should be 3, with the names equal to the </span>
+<span class="co"># original factor levels:</span>
+<span class="kw">length</span>(allomsp)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(allomsp)</code></pre>
+<pre><code>## [1] &quot;PIMO&quot; &quot;PIPO&quot; &quot;PSME&quot;</code></pre>
+
+<div class="rmdtry">
+Run the code in the above example, and confirm that <code>allomsp[[2]]</code> is identical to taking a subset of <code>allom</code> of the second species in the dataset (where ‘second’ refers to the second level of the factor variable <code>species</code>, which you can find out with <code>levels</code>).
+</div>
+
+<p>Let’s look at an example using the <code>hydro</code> data. The data contains water levels of a hydrodam in Tasmania, from 2005 to 2011.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read hydro data, and convert Date to a proper date class.</span>
+<span class="kw">data</span>(hydro)
+
+<span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(dplyr)
+
+hydro &lt;-<span class="st"> </span><span class="kw">mutate</span>(hydro, 
+                <span class="dt">Date =</span> <span class="kw">dmy</span>(Date),
+                <span class="dt">year =</span> <span class="kw">year</span>(Date))
+
+<span class="co"># Look at the Date range:</span>
+<span class="kw">range</span>(hydro<span class="op">$</span>Date)</code></pre>
+<pre><code>## [1] &quot;2005-08-08&quot; &quot;2011-08-08&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s get rid of the first and last years (2005 and 2011) since they are incomplete</span>
+hydro &lt;-<span class="st"> </span><span class="kw">filter</span>(hydro, <span class="op">!</span>year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2005</span>,<span class="dv">2011</span>))
+
+<span class="co"># Now split the dataframe by year. This results in a list, where every</span>
+<span class="co"># element contains the data for one year:</span>
+hydrosp &lt;-<span class="st"> </span><span class="kw">split</span>(hydro, hydro<span class="op">$</span>year)
+
+<span class="co"># Properties of this list:</span>
+<span class="kw">length</span>(hydrosp)</code></pre>
+<pre><code>## [1] 5</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(hydrosp)</code></pre>
+<pre><code>## [1] &quot;2006&quot; &quot;2007&quot; &quot;2008&quot; &quot;2009&quot; &quot;2010&quot;</code></pre>
+<p>To extract one element of the two lists that we created (<code>allomsp</code> and <code>hydrosp</code>), recall the section on indexing lists.</p>
+</div>
+<div id="lapply" class="section level3">
+<h3><span class="header-section-number">6.3.6</span> Applying functions to lists</h3>
+<p>We will introduce two basic tools that we use to apply functions to each element of a list: <code>sapply</code> and <code>lapply</code>. The <code>lapply</code> function always returns a list, whereas <code>sapply</code> will attempt to <code>s</code>implify the result. When the function returns a single value, or a vector, <code>sapply</code> can often be used. In practice, try both and see what happens!</p>
+<div id="using-sapply" class="section level4">
+<h4><span class="header-section-number">6.3.6.1</span> Using <code>sapply</code></h4>
+<p>First let’s look at some simple examples:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s make a simple list with only numeric vectors (of varying length)</span>
+numlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="dv">1000</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="fl">2.1</span>,<span class="fl">0.1</span>,<span class="op">-</span><span class="dv">19</span>), <span class="dt">z=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">100</span>))
+
+<span class="co"># For the numeric list, let&#39;s get the mean for every element, and count </span>
+<span class="co"># the length of the three vectors.</span>
+<span class="co"># Here, sapply takes a list and a function as its two arguments,</span>
+<span class="co"># and applies that function to each element of the list.</span>
+<span class="kw">sapply</span>(numlis, mean)</code></pre>
+<pre><code>##      x      y      z 
+## 1000.0   -5.6  125.0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(numlis, length)</code></pre>
+<pre><code>## x y z 
+## 1 3 4</code></pre>
+<p>You can of course also define your own functions, and use them here. Let’s look at another simple example using the <code>numlis</code> object defined above.</p>
+<p>For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s find out if any diameters are duplicated in the allom dataset.</span>
+<span class="co"># A function that does this would be the combination of &#39;any&#39; and &#39;duplicated&#39;,</span>
+anydup &lt;-<span class="st"> </span><span class="cf">function</span>(vec)<span class="kw">any</span>(<span class="kw">duplicated</span>(vec))
+<span class="co"># This function returns TRUE or FALSE</span>
+
+<span class="co"># Apply this function to numlis (see above):</span>
+<span class="kw">sapply</span>(numlis, anydup)</code></pre>
+<pre><code>##     x     y     z 
+## FALSE FALSE  TRUE</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can also define the function on the fly like this:</span>
+<span class="kw">sapply</span>(numlis, <span class="cf">function</span>(x)<span class="kw">any</span>(<span class="kw">duplicated</span>(x)))</code></pre>
+<pre><code>##     x     y     z 
+## FALSE FALSE  TRUE</code></pre>
+<p>Now, you can use any function in <code>sapply</code> as long as it returns a single number based on the element of the list that you used it on. Consider this example with <code>strsplit</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Recall that the &#39;strsplit&#39; (string split) function usually returns a list of values. </span>
+<span class="co"># Consider the following example, where the data provider has included the units in </span>
+<span class="co"># the measurements of fish lengths. How do we extract the number bits?</span>
+fishlength &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;120 mm&quot;</span>, <span class="st">&quot;240 mm&quot;</span>, <span class="st">&quot;159 mm&quot;</span>, <span class="st">&quot;201 mm&quot;</span>)
+
+<span class="co"># Here is one solution, using strsplit</span>
+<span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)</code></pre>
+<pre><code>## [[1]]
+## [1] &quot;120&quot; &quot;mm&quot; 
+## 
+## [[2]]
+## [1] &quot;240&quot; &quot;mm&quot; 
+## 
+## [[3]]
+## [1] &quot;159&quot; &quot;mm&quot; 
+## 
+## [[4]]
+## [1] &quot;201&quot; &quot;mm&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We see that strsplit returns a list, let&#39;s use sapply to extract only </span>
+<span class="co"># the first element (the number)</span>
+splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)
+<span class="kw">sapply</span>(splitlen, <span class="cf">function</span>(x)x[<span class="dv">1</span>])</code></pre>
+<pre><code>## [1] &quot;120&quot; &quot;240&quot; &quot;159&quot; &quot;201&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now all you need to do is use &#39;as.numeric&#39; to convert these bits of text to numbers.</span></code></pre>
+<p>The main purpose of splitting dataframes into lists, as we have done above, is so that we can save time with analyses that have to be repeated many times. In the following examples, you must have already produced the objects <code>hydrosp</code> and <code>allomsp</code> (from examples in the previous section).Both those objects are <em>lists of dataframes</em>, that is, each element of the list is a dataframe in itself. Let’s look at a few examples with <code>sapply</code> first.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># How many observations per species in the allom dataset?</span>
+<span class="kw">sapply</span>(allomsp, nrow)</code></pre>
+<pre><code>## PIMO PIPO PSME 
+##   19   22   22</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Here, we applied the &#39;nrow&#39; function to each separate dataframe.</span>
+<span class="co"># (note that there are easier ways to find the number of observations per species!,</span>
+<span class="co"># this is just illustrating sapply.)</span>
+
+<span class="co"># Things get more interesting when you define your own functions on the fly:</span>
+<span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">range</span>(x<span class="op">$</span>diameter))</code></pre>
+<pre><code>##       PIMO  PIPO  PSME
+## [1,]  6.48  4.83  5.33
+## [2,] 73.66 70.61 69.85</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Here, we define a function that takes &#39;x&#39; as an argument:</span>
+<span class="co"># sapply will apply this function to each element of the list,</span>
+<span class="co"># one at a time. In this case, we get a matrix with ranges of the diameter per species.</span>
+
+<span class="co"># How about the correlation of two variables, separate by species:</span>
+<span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">cor</span>(x<span class="op">$</span>diameter, x<span class="op">$</span>height))</code></pre>
+<pre><code>##      PIMO      PIPO      PSME 
+## 0.9140428 0.8594689 0.8782781</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For hydro, find the number of days that storage was below 235, for each year.</span>
+<span class="kw">sapply</span>(hydrosp, <span class="cf">function</span>(x)<span class="kw">sum</span>(x<span class="op">$</span>storage <span class="op">&lt;</span><span class="st"> </span><span class="dv">235</span>))</code></pre>
+<pre><code>## 2006 2007 2008 2009 2010 
+##    0   18    6    0    0</code></pre>
+</div>
+<div id="using-lapply" class="section level4">
+<h4><span class="header-section-number">6.3.6.2</span> Using <code>lapply</code></h4>
+<p>The <code>lapply</code> function is much like <code>sapply</code>, except it always returns a list.</p>
+<p>For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a summary of the hydro dataset by year:</span>
+<span class="kw">lapply</span>(hydrosp, summary)</code></pre>
+<pre><code>## $`2006`
+##       Date               storage           year     
+##  Min.   :2006-01-02   Min.   :411.0   Min.   :2006  
+##  1st Qu.:2006-04-01   1st Qu.:449.5   1st Qu.:2006  
+##  Median :2006-06-29   Median :493.0   Median :2006  
+##  Mean   :2006-06-29   Mean   :514.3   Mean   :2006  
+##  3rd Qu.:2006-09-26   3rd Qu.:553.8   3rd Qu.:2006  
+##  Max.   :2006-12-25   Max.   :744.0   Max.   :2006  
+## 
+## $`2007`
+##       Date               storage           year     
+##  Min.   :2007-01-01   Min.   :137.0   Min.   :2007  
+##  1st Qu.:2007-04-02   1st Qu.:223.0   1st Qu.:2007  
+##  Median :2007-07-02   Median :319.0   Median :2007  
+##  Mean   :2007-07-02   Mean   :363.2   Mean   :2007  
+##  3rd Qu.:2007-10-01   3rd Qu.:477.0   3rd Qu.:2007  
+##  Max.   :2007-12-31   Max.   :683.0   Max.   :2007  
+## 
+## $`2008`
+##       Date               storage           year     
+##  Min.   :2008-01-07   Min.   :202.0   Min.   :2008  
+##  1st Qu.:2008-04-05   1st Qu.:267.8   1st Qu.:2008  
+##  Median :2008-07-03   Median :345.0   Median :2008  
+##  Mean   :2008-07-03   Mean   :389.5   Mean   :2008  
+##  3rd Qu.:2008-09-30   3rd Qu.:551.8   3rd Qu.:2008  
+##  Max.   :2008-12-29   Max.   :637.0   Max.   :2008  
+## 
+## $`2009`
+##       Date               storage           year     
+##  Min.   :2009-01-05   Min.   :398.0   Min.   :2009  
+##  1st Qu.:2009-04-04   1st Qu.:467.0   1st Qu.:2009  
+##  Median :2009-07-02   Median :525.5   Median :2009  
+##  Mean   :2009-07-02   Mean   :567.6   Mean   :2009  
+##  3rd Qu.:2009-09-29   3rd Qu.:677.8   3rd Qu.:2009  
+##  Max.   :2009-12-28   Max.   :791.0   Max.   :2009  
+## 
+## $`2010`
+##       Date               storage           year     
+##  Min.   :2010-01-04   Min.   :251.0   Min.   :2010  
+##  1st Qu.:2010-04-03   1st Qu.:316.0   1st Qu.:2010  
+##  Median :2010-07-01   Median :368.5   Median :2010  
+##  Mean   :2010-07-01   Mean   :428.5   Mean   :2010  
+##  3rd Qu.:2010-09-28   3rd Qu.:577.5   3rd Qu.:2010  
+##  Max.   :2010-12-27   Max.   :649.0   Max.   :2010</code></pre>
+<p>Suppose you have multiple similar datasets in your working directory, and you want to read all of these into one list, use <code>lapply</code> like this (run this example yourself and inspect the results).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Names of your datasets:</span>
+filenames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>)
+<span class="co"># (This toy example will read the same file three times).</span>
+
+<span class="co"># Read all files into one list,</span>
+alldata &lt;-<span class="st"> </span><span class="kw">lapply</span>(filenames, read.csv)
+
+<span class="co"># Then, if you are sure the datasets have the same number of columns and names,</span>
+<span class="co"># use do.call to collapse the list:</span>
+dfrall &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, alldata)</code></pre>
+
+<div class="rmdtry">
+Recall the use of <code>dir</code> to list files, and even to find files that match a specific pattern (see Section <a href="intro.html#fileswd">2.6</a>. Read all CSV files in your working directory (or elsewhere) into a single list, and count the number of rows for each dataframe.
+</div>
+
+<p>Finally, we can use <code>lapply</code> to do all sorts of complex analyses that return any kind of object. The use of <code>lapply</code> with lists ensures that we can organize even large amounts of data in this way.</p>
+<p>Let’s do a simple linear regression of log(leafarea) on log(diameter) for the Allometry dataset, by species:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Run the linear regression on each element of the list, store in a new object:</span>
+lmresults &lt;-<span class="st"> </span><span class="kw">lapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">lm</span>(<span class="kw">log10</span>(leafarea) <span class="op">~</span><span class="st"> </span><span class="kw">log10</span>(diameter), <span class="dt">data=</span>x))
+
+<span class="co"># Now, lmresults is itself a list (where each element is an object as returned by lm)</span>
+<span class="co"># We can extract the coefficients like this:</span>
+<span class="kw">sapply</span>(lmresults, coef)</code></pre>
+<pre><code>##                       PIMO       PIPO       PSME
+## (Intercept)     -0.3570268 -0.7368336 -0.3135996
+## log10(diameter)  1.5408859  1.6427773  1.4841361</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This shows the intercept and slope by species.</span>
+<span class="co"># Also look at (results not shown):</span>
+<span class="co"># lapply(lmresults, summary) </span>
+
+<span class="co"># Get R2 for each model. First write a function that extracts it.</span>
+getR2 &lt;-<span class="st"> </span><span class="cf">function</span>(x)<span class="kw">summary</span>(x)<span class="op">$</span>adj.r.squared
+<span class="kw">sapply</span>(lmresults, getR2)</code></pre>
+<pre><code>##      PIMO      PIPO      PSME 
+## 0.8738252 0.8441844 0.6983126</code></pre>
+
+<div class="rmdtry">
+Try to fully understand the difference between <code>sapply</code> and <code>lapply</code> by using <code>lapply</code> in some of the examples where we used <code>sapply</code> (and vice versa).
+</div>
+
+</div>
+</div>
+</div>
+<div id="simpleloops" class="section level2">
+<h2><span class="header-section-number">6.4</span> Loops</h2>
+<p>Loops can be useful when we need to repeat certain analyses many times, and it is difficult to achieve this with <code>lapply</code> or <code>sapply</code>. To understand how a <code>for</code> loop works, look at this example:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){
+  <span class="kw">message</span>(i)
+}</code></pre>
+<pre><code>## 1</code></pre>
+<pre><code>## 2</code></pre>
+<pre><code>## 3</code></pre>
+<pre><code>## 4</code></pre>
+<pre><code>## 5</code></pre>
+<p>Here, the bit of code between {} is executed five times, and the object <code>i</code> has the values 1,2,3,4 and 5, in that order. Instead of just printing <code>i</code> as we have done above, we can also index a vector with this object:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make a vector</span>
+myvec &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">5</span>),<span class="dv">1</span>)
+
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myvec)){
+  <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])
+}</code></pre>
+<pre><code>## Element 1 of the vector is: 0.8</code></pre>
+<pre><code>## Element 2 of the vector is: 0.3</code></pre>
+<pre><code>## Element 3 of the vector is: 0.4</code></pre>
+<pre><code>## Element 4 of the vector is: 0</code></pre>
+<pre><code>## Element 5 of the vector is: 0.2</code></pre>
+<p>Note that this is only a toy example: the same result can be achieved by simply typing <code>myvec</code>.</p>
+<p>Now let’s look at a useful application of a <code>for</code> loop: producing multiple plots in a <code>pdf</code>, using the <code>allomsp</code> object we created earlier.</p>
+<p>This bit of code produces a <code>pdf</code> in your current working directory. If you can’t find it, recall that you can use <code>getwd</code>() to get the current working directory.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Open a pdf to send the plots to:</span>
+<span class="kw">pdf</span>(<span class="st">&quot;Allom plot by species.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){
+  <span class="kw">with</span>(allomsp[[i]],
+       <span class="kw">plot</span>(diameter, leafarea, <span class="dt">pch=</span><span class="dv">15</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">80</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">450</span>),
+            <span class="dt">main=</span><span class="kw">levels</span>(allom<span class="op">$</span>species)[i]))
+}
+<span class="co"># Close the pdf (important!)</span>
+<span class="kw">dev.off</span>()</code></pre>
+<p>Here, we create three plots (<code>i</code> goes from 1 to 3), every time using a different element of the list <code>allomsp</code>. First, <code>i</code> will have the value 1, so that we end up using the dataframe <code>allomsp[[1]]</code>, the first element of the list. And so on. Take a look at the resulting PDF to understand how the code works.</p>
+<p><em>Note:</em> On windows (with Adobe reader) If the pdf (<code>Allom plot by species.pdf</code>) is open, the above will fail. If you try this anyway, close the pdf and try again. You may have to run the command <code>dev.off</code>() another time to make sure the device is ready.</p>
+<p>Another way to achieve the same result is to avoid splitting the dataframe into a list first, and simply take subsets on the fly. Consider this template (make your own working example based on any dataset).</p>
+<p>We assume here you have a dataframe called ‘dataset’ with a factor ‘species’, for which you want to create separate plots of Y vs. X.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&quot;somefilename.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)
+<span class="cf">for</span>(lev <span class="cf">in</span> <span class="kw">levels</span>(dataset<span class="op">$</span>species)){
+  
+  <span class="kw">with</span>(<span class="kw">subset</span>(dataset, species<span class="op">==</span>lev),
+       <span class="kw">plot</span>(X,Y, 
+            <span class="dt">main=</span><span class="kw">as.character</span>(lev)))
+}
+<span class="kw">dev.off</span>()</code></pre>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linmodel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="webservices.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

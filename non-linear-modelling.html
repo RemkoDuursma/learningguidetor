@@ -1,0 +1,1312 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 7 Non-linear Modelling | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="The HIERmanual has new clothes." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 7 Non-linear Modelling | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The HIERmanual has new clothes." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 7 Non-linear Modelling | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="The HIERmanual has new clothes." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-05-29" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="linmodel.html">
+<link rel="next" href="programming.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.2</b> Reading data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.2.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.2.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.2.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.2.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.2.4" data-path="summarize.html"><a href="summarize.html#reading-typed-data"><i class="fa fa-check"></i><b>3.2.4</b> Reading typed data</a></li>
+<li class="chapter" data-level="3.2.5" data-path="summarize.html"><a href="summarize.html#other-data-formats"><i class="fa fa-check"></i><b>3.2.5</b> Other data formats</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.3.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.3.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.3.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.4</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.4.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.4.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.4.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.5</b> Exporting data</a></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7</b> Working with factors</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#turn-numeric-data-into-factors"><i class="fa fa-check"></i><b>3.7.1</b> Turn numeric data into factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#empty-factor-levels"><i class="fa fa-check"></i><b>3.7.2</b> Empty factor levels</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#changelevels"><i class="fa fa-check"></i><b>3.7.3</b> Changing the levels of a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.8</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.9</b> Working with missing values</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#making-missing-values"><i class="fa fa-check"></i><b>3.9.1</b> Making missing values</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#not-a-number"><i class="fa fa-check"></i><b>3.9.2</b> Not A Number</a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#naindataframe"><i class="fa fa-check"></i><b>3.9.3</b> Missing values in dataframes</a></li>
+<li class="chapter" data-level="3.9.4" data-path="summarize.html"><a href="summarize.html#subsetmissing"><i class="fa fa-check"></i><b>3.9.4</b> Subsetting when there are missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.10</b> Working with text</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#paste"><i class="fa fa-check"></i><b>3.10.1</b> Combining text</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#textgrep"><i class="fa fa-check"></i><b>3.10.2</b> Text in dataframes and <code>grep</code></a></li>
+<li class="chapter" data-level="3.10.3" data-path="summarize.html"><a href="summarize.html#more-control-with-the-stringr-package"><i class="fa fa-check"></i><b>3.10.3</b> More control with the <code>stringr</code> package</a></li>
+<li class="chapter" data-level="3.10.4" data-path="summarize.html"><a href="summarize.html#combining-text-and-r-objects-with-glue"><i class="fa fa-check"></i><b>3.10.4</b> Combining text and R objects with <code>glue</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.11</b> Working with dates and times</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#readingdates"><i class="fa fa-check"></i><b>3.11.1</b> Reading dates</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#datetime"><i class="fa fa-check"></i><b>3.11.2</b> Date-Time combinations</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.11.3</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.12</b> Summarizing dataframes</a></li>
+<li class="chapter" data-level="3.13" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.13</b> Making summary tables</a><ul>
+<li class="chapter" data-level="3.13.1" data-path="summarize.html"><a href="summarize.html#tapply"><i class="fa fa-check"></i><b>3.13.1</b> Summarizing vectors with <code>tapply</code></a></li>
+<li class="chapter" data-level="3.13.2" data-path="summarize.html"><a href="summarize.html#summaryby"><i class="fa fa-check"></i><b>3.13.2</b> Quick summary tables with <code>summaryBy</code></a></li>
+<li class="chapter" data-level="3.13.3" data-path="summarize.html"><a href="summarize.html#dplyr"><i class="fa fa-check"></i><b>3.13.3</b> Summarizing dataframes with <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.14</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.15" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.15</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.16" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.16</b> Reordering factor levels based on a summary variable</a></li>
+<li class="chapter" data-level="3.17" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.17</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.17.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.17.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.17.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.17.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.17.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.17.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.18</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.18.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.18.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.18.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.18.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.19</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.19.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.19.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.19.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.19.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.19.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.19.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.1</b> Tips</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.2</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>5</b> Basic statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic.html"><a href="basic.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="basic.html"><a href="basic.html#descstat"><i class="fa fa-check"></i><b>5.2</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.3" data-path="basic.html"><a href="basic.html#inference"><i class="fa fa-check"></i><b>5.3</b> Inference for a single population</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="basic.html"><a href="basic.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3.1</b> Hypothesis testing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="basic.html"><a href="basic.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4</b> Inference for two populations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="basic.html"><a href="basic.html#paired-data"><i class="fa fa-check"></i><b>5.4.1</b> Paired data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="basic.html"><a href="basic.html#unequal-variances"><i class="fa fa-check"></i><b>5.4.2</b> Unequal variances</a></li>
+<li class="chapter" data-level="5.4.3" data-path="basic.html"><a href="basic.html#assumed-normality"><i class="fa fa-check"></i><b>5.4.3</b> Assumed normality</a></li>
+<li class="chapter" data-level="5.4.4" data-path="basic.html"><a href="basic.html#power"><i class="fa fa-check"></i><b>5.4.4</b> Power</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="basic.html"><a href="basic.html#simpleregression"><i class="fa fa-check"></i><b>5.5</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="basic.html"><a href="basic.html#adding-regression-lines-to-a-plot"><i class="fa fa-check"></i><b>5.5.1</b> Adding regression lines to a plot</a></li>
+<li class="chapter" data-level="5.5.2" data-path="basic.html"><a href="basic.html#diagplots"><i class="fa fa-check"></i><b>5.5.2</b> Diagnostic plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="linmodel.html"><a href="linmodel.html#what-is-linear-modelling"><i class="fa fa-check"></i><b>6.2</b> What is linear modelling</a></li>
+<li class="chapter" data-level="6.3" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.3</b> A motivating example</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="linmodel.html"><a href="linmodel.html#testing-or-predicting"><i class="fa fa-check"></i><b>6.3.1</b> Testing or predicting?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations-1"><i class="fa fa-check"></i><b>6.5</b> Inference for two populations</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#paired-data-1"><i class="fa fa-check"></i><b>6.5.1</b> Paired data</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#unequal-variances-1"><i class="fa fa-check"></i><b>6.5.2</b> Unequal variances</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#one-way-anova"><i class="fa fa-check"></i><b>6.6</b> One-way ANOVA</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.6.1</b> Multiple comparisons</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.7</b> Comparing means by two variables (two-way ANOVA)</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.7.1</b> Interactions</a></li>
+<li class="chapter" data-level="6.7.2" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.7.2</b> Comparing models</a></li>
+<li class="chapter" data-level="6.7.3" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.7.3</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.8</b> Linear regression</a></li>
+<li class="chapter" data-level="6.9" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.9</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.9.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.9.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.9.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.9.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.9.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.9.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.9.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.9.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>6.9.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html"><i class="fa fa-check"></i><b>7</b> Non-linear Modelling</a><ul>
+<li class="chapter" data-level="7.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#transformations"><i class="fa fa-check"></i><b>7.1.1</b> Transformations</a></li>
+<li class="chapter" data-level="7.1.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#parametric-or-non-parametric"><i class="fa fa-check"></i><b>7.1.2</b> Parametric or non-parametric?</a></li>
+<li class="chapter" data-level="7.1.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#means-or-quantiles"><i class="fa fa-check"></i><b>7.1.3</b> Means or quantiles?</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nls"><i class="fa fa-check"></i><b>7.2</b> Non-linear regression</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#introduction-4"><i class="fa fa-check"></i><b>7.2.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#model-selection"><i class="fa fa-check"></i><b>7.2.2</b> Model selection</a></li>
+<li class="chapter" data-level="7.2.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#selfstart"><i class="fa fa-check"></i><b>7.2.3</b> Self-starting functions</a></li>
+<li class="chapter" data-level="7.2.4" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#custom-models-require-starting-values"><i class="fa fa-check"></i><b>7.2.4</b> Custom models require starting values</a></li>
+<li class="chapter" data-level="7.2.5" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsdiagnos"><i class="fa fa-check"></i><b>7.2.5</b> Model summary and diagnostics</a></li>
+<li class="chapter" data-level="7.2.6" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#comparing-models-1"><i class="fa fa-check"></i><b>7.2.6</b> Comparing models</a></li>
+<li class="chapter" data-level="7.2.7" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsfactor"><i class="fa fa-check"></i><b>7.2.7</b> Adding factor variables</a></li>
+<li class="chapter" data-level="7.2.8" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlspredict"><i class="fa fa-check"></i><b>7.2.8</b> Predicting</a></li>
+<li class="chapter" data-level="7.2.9" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#confidence-intervals"><i class="fa fa-check"></i><b>7.2.9</b> Confidence intervals</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#other-regression-techniques"><i class="fa fa-check"></i><b>7.3</b> Other regression techniques</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#loess"><i class="fa fa-check"></i><b>7.3.1</b> Local regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rq"><i class="fa fa-check"></i><b>7.4</b> Quantile regression</a><ul>
+<li class="chapter" data-level="7.4.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rqci"><i class="fa fa-check"></i><b>7.4.1</b> Confidence intervals</a></li>
+<li class="chapter" data-level="7.4.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#rqnonlinear"><i class="fa fa-check"></i><b>7.4.2</b> Non-linear quantile regression</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#nlsboot"><i class="fa fa-check"></i><b>7.5</b> Bootstrapping</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#parameter-combinations"><i class="fa fa-check"></i><b>7.5.1</b> Parameter combinations</a></li>
+<li class="chapter" data-level="7.5.2" data-path="non-linear-modelling.html"><a href="non-linear-modelling.html#bootpredictionnls"><i class="fa fa-check"></i><b>7.5.2</b> Predictions</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>8</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="8.1" data-path="programming.html"><a href="programming.html#introduction-5"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>8.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>8.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="8.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>8.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="8.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>8.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="8.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>8.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="8.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>8.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>8.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="8.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>8.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="8.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>8.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="8.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>8.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="8.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>8.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="8.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>8.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="8.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>8.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>8.4</b> Loops</a></li>
+<li class="chapter" data-level="8.5" data-path="programming.html"><a href="programming.html#advanced-working-example"><i class="fa fa-check"></i><b>8.5</b> Advanced working example</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="bootstrap.html"><a href="bootstrap.html"><i class="fa fa-check"></i><b>9</b> The bootstrap</a><ul>
+<li class="chapter" data-level="9.1" data-path="bootstrap.html"><a href="bootstrap.html#introduction-6"><i class="fa fa-check"></i><b>9.1</b> Introduction</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="bootstrap.html"><a href="bootstrap.html#standard-errors-and-confidence-intervals"><i class="fa fa-check"></i><b>9.1.1</b> Standard errors and confidence intervals</a></li>
+<li class="chapter" data-level="9.1.2" data-path="bootstrap.html"><a href="bootstrap.html#understanding-the-bootstrap"><i class="fa fa-check"></i><b>9.1.2</b> Understanding the bootstrap</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="bootstrap.html"><a href="bootstrap.html#applybootstrap"><i class="fa fa-check"></i><b>9.2</b> Applying the bootstrap</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="bootstrap.html"><a href="bootstrap.html#a-simple-coin-toss-experiment"><i class="fa fa-check"></i><b>9.2.1</b> A simple coin toss experiment</a></li>
+<li class="chapter" data-level="9.2.2" data-path="bootstrap.html"><a href="bootstrap.html#confidence-interval-for-a-ratio"><i class="fa fa-check"></i><b>9.2.2</b> Confidence interval for a ratio</a></li>
+<li class="chapter" data-level="9.2.3" data-path="bootstrap.html"><a href="bootstrap.html#regression-coefficients"><i class="fa fa-check"></i><b>9.2.3</b> Regression coefficients</a></li>
+<li class="chapter" data-level="9.2.4" data-path="bootstrap.html"><a href="bootstrap.html#bootcombination"><i class="fa fa-check"></i><b>9.2.4</b> Confidence interval of parameter combinations</a></li>
+<li class="chapter" data-level="9.2.5" data-path="bootstrap.html"><a href="bootstrap.html#sec:boothetero"><i class="fa fa-check"></i><b>9.2.5</b> Regression when assumptions are violated</a></li>
+<li class="chapter" data-level="9.2.6" data-path="bootstrap.html"><a href="bootstrap.html#predictions-by-mixed-effects-models"><i class="fa fa-check"></i><b>9.2.6</b> Predictions by mixed-effects models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html"><i class="fa fa-check"></i>Data visualization with base graphics</a><ul>
+<li class="chapter" data-level="9.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#the-r-graphics-system"><i class="fa fa-check"></i><b>9.3</b> The R graphics system</a></li>
+<li class="chapter" data-level="9.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#choosing-a-plot-type"><i class="fa fa-check"></i><b>9.4</b> Choosing a plot type</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#plotfunction"><i class="fa fa-check"></i><b>9.4.1</b> Using the <code>plot</code> function</a></li>
+<li class="chapter" data-level="9.4.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#barplot"><i class="fa fa-check"></i><b>9.4.2</b> Bar plots</a></li>
+<li class="chapter" data-level="9.4.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#hist"><i class="fa fa-check"></i><b>9.4.3</b> Histograms and curves</a></li>
+<li class="chapter" data-level="9.4.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#piesbox"><i class="fa fa-check"></i><b>9.4.4</b> Pie charts</a></li>
+<li class="chapter" data-level="9.4.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#boxplot"><i class="fa fa-check"></i><b>9.4.5</b> Box plots</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#finetuning"><i class="fa fa-check"></i><b>9.5</b> Fine-tuning the formatting of plots</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#a-quick-example"><i class="fa fa-check"></i><b>9.5.1</b> A quick example</a></li>
+<li class="chapter" data-level="9.5.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#colours"><i class="fa fa-check"></i><b>9.5.2</b> Customizing and choosing colours</a></li>
+<li class="chapter" data-level="9.5.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#customizing-symbols-and-lines"><i class="fa fa-check"></i><b>9.5.3</b> Customizing symbols and lines</a></li>
+<li class="chapter" data-level="9.5.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#expressions"><i class="fa fa-check"></i><b>9.5.4</b> Formatting units, equations and special symbols</a></li>
+<li class="chapter" data-level="9.5.5" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#resetting-the-graphical-parameters"><i class="fa fa-check"></i><b>9.5.5</b> Resetting the graphical parameters</a></li>
+<li class="chapter" data-level="9.5.6" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#changefont"><i class="fa fa-check"></i><b>9.5.6</b> Changing the font</a></li>
+<li class="chapter" data-level="9.5.7" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#addingtoplot"><i class="fa fa-check"></i><b>9.5.7</b> Adding elements to a current plot</a></li>
+<li class="chapter" data-level="9.5.8" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#changelayout"><i class="fa fa-check"></i><b>9.5.8</b> Changing the layout</a></li>
+<li class="chapter" data-level="9.5.9" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#paroptions"><i class="fa fa-check"></i><b>9.5.9</b> Finding out about more options</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#formatting-examples"><i class="fa fa-check"></i><b>9.6</b> Formatting examples</a><ul>
+<li class="chapter" data-level="9.6.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#vesselexample"><i class="fa fa-check"></i><b>9.6.1</b> Vessel data</a></li>
+<li class="chapter" data-level="9.6.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#weather-data"><i class="fa fa-check"></i><b>9.6.2</b> Weather data</a></li>
+</ul></li>
+<li class="chapter" data-level="9.7" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#specialplots"><i class="fa fa-check"></i><b>9.7</b> Special plots</a><ul>
+<li class="chapter" data-level="9.7.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#symbolplot"><i class="fa fa-check"></i><b>9.7.1</b> Scatter plot with varying symbol sizes</a></li>
+<li class="chapter" data-level="9.7.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#sciplot"><i class="fa fa-check"></i><b>9.7.2</b> Bar plots of means with confidence intervals</a></li>
+<li class="chapter" data-level="9.7.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#log-log-axes"><i class="fa fa-check"></i><b>9.7.3</b> Log-log axes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.8" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#exportfigures"><i class="fa fa-check"></i><b>9.8</b> Exporting figures</a><ul>
+<li class="chapter" data-level="9.8.1" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#saving-figures"><i class="fa fa-check"></i><b>9.8.1</b> Saving figures</a></li>
+<li class="chapter" data-level="9.8.2" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#inserting-figures-in-word-or-powerpoint"><i class="fa fa-check"></i><b>9.8.2</b> Inserting figures in Word or Powerpoint</a></li>
+<li class="chapter" data-level="9.8.3" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#sharing-figures"><i class="fa fa-check"></i><b>9.8.3</b> Sharing figures</a></li>
+<li class="chapter" data-level="9.8.4" data-path="data-visualization-with-base-graphics.html"><a href="data-visualization-with-base-graphics.html#plots-with-many-points-or-lines"><i class="fa fa-check"></i><b>9.8.4</b> Plots with many points or lines</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="non-linear-modelling" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Non-linear Modelling</h1>
+<div id="introduction-3" class="section level2">
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
+<p>This chapter introduces alternatives to linear models, with an emphasis on non-linear least-squares regression (Section <a href="non-linear-modelling.html#nls">7.2</a>). Very brief introductions to local regression smoothers (loess, Section <a href="non-linear-modelling.html#loess">7.3.1</a> and quantile regression (Section <a href="non-linear-modelling.html#rq">7.4</a>) are also included. In each case, we avoid technical descriptions of theory and implementation, and instead illustrate each technique with examples, and many figures.</p>
+<p>Before we delve into non-linear regression, we first briefly describe when each of these techniques is useful. In general, linear models are preferable when you can use them, since they are robust, easy to use, and the theory for inference (hypothesis testing) is well developed and not very sensitive to violation of the usual assumptions.</p>
+<p>In general, as the name suggests, non-linear methods are to be used when the relationship between your response variable and predictor is not linear.</p>
+<p><strong>Packages used in this chapter</strong></p>
+<p>Packages used in this chapter. The <code>nls</code> function and associated methods are in the <code>stats</code> package, which is base R, and therefore not mentioned in this table.</p>
+<table style="width:94%;">
+<colgroup>
+<col width="26%" />
+<col width="68%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Package</th>
+<th>Key functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>nlstools</code></td>
+<td><code>overview</code>, <code>confint2</code></td>
+</tr>
+<tr class="even">
+<td><code>nlshelper</code></td>
+<td><code>plot_nls</code>, <code>anova_nlslist</code>, <code>tidy.nlsList</code></td>
+</tr>
+<tr class="odd">
+<td><code>nlme</code></td>
+<td><code>nlsList</code></td>
+</tr>
+<tr class="even">
+<td><code>car</code></td>
+<td><code>qqPlot</code>, <code>bootCase</code></td>
+</tr>
+<tr class="odd">
+<td><code>mgcv</code></td>
+<td><code>gam</code></td>
+</tr>
+<tr class="even">
+<td><code>quantreg</code></td>
+<td><code>rq</code>, <code>nlrq</code></td>
+</tr>
+<tr class="odd">
+<td><code>broom</code></td>
+<td><code>tidy</code>, <code>glance</code></td>
+</tr>
+</tbody>
+</table>
+<div id="transformations" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Transformations</h3>
+<p>When the relationship between the response and the predictor(s) seems very non-linear, one common approach is to transform the predictor and/or response in order to linearize the relationship. When a suitable transformation can be found, this is often the preferred approach as we can use the standard linear regression approach. For example, you may find that your data can be well described with an equation of the form:</p>
+<p><span class="math display">\[Y = a \cdot X^b\]</span></p>
+<p>This is the so-called power function. You could go ahead and use non-linear regression to fit this curve, but it would be better to linearize this relationship by taking the logarithm of both sides, which gives:</p>
+<p><span class="math display">\[log(Y) = a + b \cdot log(X)\]</span></p>
+<p>And thus we can use linear regression of <span class="math inline">\(log(Y)\)</span> against <span class="math inline">\(log(X)\)</span>.</p>
+<p>In a number of cases, though, there is no simple transformation that linearizes the relationship. Typical cases are relationships with a clear asymptote (though exceptions exist), peaked relationships, or very irregular relationships with lots of peaks and curves.</p>
+</div>
+<div id="parametric-or-non-parametric" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Parametric or non-parametric?</h3>
+<p>In the case where no transformation can be found, or you have a specific equation that you want to fit to your data, non-linear regression may be an appropriate technique. This is an example of a parametric method, because you end up estimating specific parameters, and in doing so making assumptions about the underlying distribution. This can be useful because a fitted non-linear regression model can be applied in a new setting, for example predicting for a new dataset, or reliably extrapolating beyond your data.</p>
+<p>In non-parametric approaches, you either cannot find or are not interested in finding an equation that describes your data. You may simply be interested in describing or visualizing a (potentially irregular) trend, maybe comparing groups, but not estimating specific parameters or predicting for new situations (let alone extrapolation). In this chapter we will briefly look at <code>loess</code> (Section <a href="non-linear-modelling.html#loess">7.3.1</a>, a flexible non-parametric regression method, and generalized additive models (Section <a href="#gam"><strong>??</strong></a>), a semi-parametric approach.</p>
+</div>
+<div id="means-or-quantiles" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Means or quantiles?</h3>
+<p>In the usual linear models, as well as non-parametric regression, we are usually forced to be interested in the mean relationship between response and predictor. Often this is what you want, but there are many cases in which you are actually interested in questions like ‘What is the maximum value of my response as a function of my predictors?’. Instead of actually estimating the maximum, a particular quantile will be much more robust to outliers (for example, the 95% quantile). In this case we can use quantile regression, which will be introduced in Section <a href="non-linear-modelling.html#rq">7.4</a>. This is not strictly a non-linear method, but we present it in this chapter because it is such a constrast to the usual linear models, and because non-linear quantile regression can also be applied (Section <a href="non-linear-modelling.html#rqnonlinear">7.4.2</a>).</p>
+<div class="figure"><span id="fig:unnamed-chunk-2"></span>
+<img src="screenshots/lmflow_3.png" alt="A simple flow chart to select regression methods." width="66%" />
+<p class="caption">
+Figure 7.1: A simple flow chart to select regression methods.
+</p>
+</div>
+
+<div class="rmdreading">
+<p>As mentioned, we present a practical, visual approach to non-linear models in this chapter. We recommend further reading if you are interested in technical aspects of non-linear regression :</p>
+<ul>
+<li>Ritz, C., Streibig, J.C., 2008. Nonlinear regression with R. Springer. (from the developers of the <code>nlstools</code> package)</li>
+<li>Fox, J. Nonlinear regression and nonlinear least squares in R (Online appendix to ‘Companion to applied regression’, <a href="http://socserv.mcmaster.ca/jfox/Books/Companion/appendix/Appendix-Nonlinear-Regression.pdf" class="uri">http://socserv.mcmaster.ca/jfox/Books/Companion/appendix/Appendix-Nonlinear-Regression.pdf</a>).</li>
+</ul>
+<p>For generalized additive models, the book by Simon Wood accompanies the <code>mgcv</code> package:</p>
+<ul>
+<li>Wood, S.N., 2006. Generalized additive models: an introduction with R, Texts in Statistical Science. Chapman &amp; Hall/CRC.</li>
+</ul>
+</div>
+
+</div>
+</div>
+<div id="nls" class="section level2">
+<h2><span class="header-section-number">7.2</span> Non-linear regression</h2>
+<div id="introduction-4" class="section level3">
+<h3><span class="header-section-number">7.2.1</span> Introduction</h3>
+<p>A model is <em>linear</em> when you can write it like this:</p>
+<p><span class="math display">\[
+Y = b_0 + b_1 \cdot X_1 + b_2 \cdot X_2 + b_3 \cdot X_3
+\]</span></p>
+<p>where Y is the dependent variable, and the X’s are the predictors. The predictors can be any variable or some transformation thereof (for example, squared terms, two variables multiplied together, etc.). This model is <em>linear in the coefficients</em> <span class="math inline">\(b_1\)</span>, <span class="math inline">\(b_2\)</span>, etc, though it may contain terms that are non-linear in the X’s (such as squared terms of X).</p>
+<p>A non-linear model is anything that cannot be written in a linear form. An example of a non-linear model is the Chapman-Richards growth equation,</p>
+<p><span class="math display">\[
+Y = Y_{max}\cdot(1-e^{-b \cdot x})^c
+\]</span></p>
+<p>Here the coefficients (<em>Ymax</em>, <em>b</em> and <em>c</em>) occur non-linearly in the equation, and you cannot write this in a form similar to the linear model as shown above. We can look at the shape of this curve by using <code>curve</code>, like in the following example (Fig. <a href="non-linear-modelling.html#fig:chapmcurve">7.2</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define function</span>
+chapm &lt;-<span class="st"> </span><span class="cf">function</span>(x,Asym,b,c)Asym<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>b<span class="op">*</span>x))<span class="op">^</span>c
+
+<span class="co"># Plot (curve must use an x argument)</span>
+<span class="kw">curve</span>(<span class="kw">chapm</span>(x, <span class="dt">Asym=</span><span class="dv">100</span>, <span class="dt">b=</span><span class="fl">0.15</span>, <span class="dt">c=</span><span class="dv">3</span>), <span class="dt">from=</span><span class="dv">0</span>, <span class="dt">to=</span><span class="dv">50</span>, <span class="dt">ylab=</span><span class="st">&quot;Y&quot;</span>)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:chapmcurve"></span>
+<img src="06-nonlinear_files/figure-html/chapmcurve-1.svg" alt="The Chapman-Richards growth equation." width="672" />
+<p class="caption">
+Figure 7.2: The Chapman-Richards growth equation.
+</p>
+</div>
+<p>We can use non-linear regression to fit curves like that one to data, which gives estimates of the coefficients <code>Ymax</code>, <code>b</code> and <code>c</code>. The majority of useful applications of non-linear regression are when you have an equation already specified (arising from theory), and you wish the estimate the parameters of the curve, or use the curve for prediction (as in lots of modelling applications).</p>
+<p>In the following examples of non-linear regression, we use the <code>nls</code> function, but point out the <code>nlsLM</code> function (in package <code>minpack.lm</code>) for a very promising alternative, and <code>nls2</code> (package of same name) for an alternative that can be used to find starting values.</p>
+</div>
+<div id="model-selection" class="section level3">
+<h3><span class="header-section-number">7.2.2</span> Model selection</h3>
+<p>How do you choose the right model to fit to your data? In some applications of non-linear regression, you already know the model you want to fit, as it arises from theory. The Michaelis-Menten model, very commonly applied in enzyme kinetics, is an example.</p>
+<p>In other cases you have to choose a model from various options, and select the best fitting one, or the one that has certain properties. One reason to apply non-linear regression, as stated above, is that the model can be expected to behave well outside the range of the data used for fitting. Models with an asymptote are a good example. Take the following equation,
+<span class="math display">\[Y = Y_{max}(1 - e^{-kX})\]</span></p>
+<p>we can see that this model reaches an asymptote for very large X (because <span class="math inline">\(e^{-x}\)</span> goes to zero for large <span class="math inline">\(x\)</span>), given by the parameter <span class="math inline">\(Y_{max}\)</span>. Also, this model has the, possible useful, quality that Y is zero when X is zero.</p>
+</div>
+<div id="selfstart" class="section level3">
+<h3><span class="header-section-number">7.2.3</span> Self-starting functions</h3>
+<p>To avoid the need for starting values, we can use one of many ‘self-starting functions’. These are common non-linear models that do not require starting values, and instead estimate them from the data with clever methods. In the Appendix (see Chapter <a href="#nonlinearappendix"><strong>??</strong></a>) we have listed nearly all available self-starting models in R, together with a visualization of the kinds of curves that can be fit. It is also possible to develop your own models, but this is tricky, and outside the scope of this book.</p>
+<p>I won’t go into much detail on these functions, but simply show an example with the built-in <code>Loblolly</code> dataset. We decide to fit the ‘Gompertz’ growth model to the data, using the <code>SSgompertz</code> function.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit same model, using a self-starting model</span>
+nlsfitSS &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3),
+              <span class="dt">data=</span>Loblolly)</code></pre>
+<p>Next, it is useful to add the fitted curve to a plot, which is particularly easy to do with the <code>nlshelper</code> package. In Section <a href="non-linear-modelling.html#nlspredict">7.2.8</a>, we return to predicting from a non-linear regression model, using the <code>predict</code> function. The following code makes Fig. <a href="non-linear-modelling.html#fig:plotnlslob1">7.3</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlshelper)
+<span class="kw">plot_nls</span>(nlsfitSS,  <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">80</span>), <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:plotnlslob1"></span>
+<img src="06-nonlinear_files/figure-html/plotnlslob1-1.svg" alt="The Chapman-Richards growth equation fitted to the Loblolly data, using the nlshelper package." width="672" />
+<p class="caption">
+Figure 7.3: The Chapman-Richards growth equation fitted to the Loblolly data, using the nlshelper package.
+</p>
+</div>
+</div>
+<div id="custom-models-require-starting-values" class="section level3">
+<h3><span class="header-section-number">7.2.4</span> Custom models require starting values</h3>
+<p>In this section, we define our model by hand, which is the most flexible approach but it comes at a cost: you have to specify suitable <em>starting values</em> for the parameters, otherwise <code>nls</code> will in many cases not converge to a solution. Depending on the situation, these starting values need to be quite good. This will depend a lot on the type of curve you are fitting, the number of data points, and the number of parameters describing the curve.</p>
+<p>To find suitable starting values, you can either guess them based on the meaning of the parameters (for example, the asymptote, or value of y when x is zero, and so on), or otherwise find them with trial and error.</p>
+<p>Here we use the built-in <code>Loblolly</code> data (see <code>?Loblolly</code>), which contains age and height of Loblolly pine (<em>Pinus taeda</em>), for several seedlots. We will fit the Chapman-Richards equation, a type of sigmoidal curve that fits these data quite well.</p>
+<p>To try out some starting values, you can use <code>curve</code> to plot the model on top of the data, and adjust the parameters until the curve is ‘pretty close’ to the data:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using the built-in Loblolly data</span>
+<span class="kw">with</span>(Loblolly, <span class="kw">plot</span>(age, height))
+<span class="kw">curve</span>(<span class="kw">chapm</span>(x, <span class="dt">Asym=</span><span class="dv">30</span>, <span class="dt">b=</span><span class="fl">0.2</span>, <span class="dt">c=</span><span class="dv">2</span>), <span class="dt">add=</span><span class="ot">TRUE</span>)</code></pre>
+<p><img src="06-nonlinear_files/figure-html/unnamed-chunk-5-1.svg" width="672" /></p>
+<p>Now that you are satisfied with the starting values, we can use them to fit the non-linear model, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define function to fit</span>
+chapm &lt;-<span class="st"> </span><span class="cf">function</span>(x,Asym,b,c)Asym<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>b<span class="op">*</span>x))<span class="op">^</span>c
+
+<span class="co"># Note the specification of the starting values.</span>
+nls_lob &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">chapm</span>(age, Asym, b,c),
+               <span class="dt">data=</span>Loblolly,
+               <span class="dt">start=</span><span class="kw">list</span>(<span class="dt">Asym=</span><span class="dv">100</span>, <span class="dt">b=</span><span class="fl">0.1</span>, <span class="dt">c=</span><span class="fl">2.5</span>))</code></pre>
+<p>If the model does not converge, it will report an error. Note that you do not have to write a function first and use it within <code>nls</code>, you can also write the equation in the formula interface of <code>nls</code> directly. However, it is usually convenient to have the function defined separately.</p>
+</div>
+<div id="nlsdiagnos" class="section level3">
+<h3><span class="header-section-number">7.2.5</span> Model summary and diagnostics</h3>
+<div id="summarizing-the-fit" class="section level4">
+<h4><span class="header-section-number">7.2.5.1</span> Summarizing the fit</h4>
+<p>The usual <code>summary</code> does not print a lot of useful information for <code>nls</code> models - a much better alternative is the <code>overview</code> function from the <code>nlstools</code> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlstools)
+<span class="kw">overview</span>(nlsfitSS)</code></pre>
+<pre><code>## 
+## ------
+## Formula: height ~ SSgompertz(age, Asym, b2, b3)
+## 
+## Parameters:
+##       Estimate Std. Error t value Pr(&gt;|t|)    
+## Asym 67.133033   1.237334   54.26   &lt;2e-16 ***
+## b2    3.745814   0.125297   29.89   &lt;2e-16 ***
+## b3    0.872434   0.004424  197.19   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 2.004 on 81 degrees of freedom
+## 
+## Number of iterations to convergence: 0 
+## Achieved convergence tolerance: 4.585e-06
+## 
+## ------
+## Residual sum of squares: 325 
+## 
+## ------
+## t-based confidence interval:
+##            2.5%      97.5%
+## Asym 64.6711271 69.5949383
+## b2    3.4965119  3.9951163
+## b3    0.8636308  0.8812372
+## 
+## ------
+## Correlation matrix:
+##            Asym         b2         b3
+## Asym  1.0000000 -0.5775202  0.8954782
+## b2   -0.5775202  1.0000000 -0.8390550
+## b3    0.8954782 -0.8390550  1.0000000</code></pre>
+<p>The <code>overview</code> statement shows:</p>
+<ul>
+<li>The parameter estimates, standard error (<code>Std. Error</code>), and a t-test against zero (<code>t value</code> and the p-value, <code>Pr(&gt;|t|)</code>). The test against zero is rarely useful.</li>
+<li>The residual standard error, calculated as <span class="math inline">\(\sqrt{\sum{r^2}/df}\)</span>, where <span class="math inline">\(r\)</span> is the residual, and df the residual degrees of freedom (sample size minus number of estimated parameters). This metric is also known as the root-mean square error (RMSE).</li>
+<li>Some information on the convergence, normally can be ignored.</li>
+<li>The residual sum of squares, simply the sum of the squared residuals.</li>
+<li>Confidence intervals for the parameters. Note that these will be somewhat different from those calculated with <code>confint</code>.</li>
+<li>Correlation matrix of the parameters.</li>
+</ul>
+<p>The disadvantage of <code>overview</code> is that none of the printed results can be extracted. A convenient way to print the coefficients, standard error and confidence interval is the <code>tidy</code> function from the <code>broom</code> package. The <code>glance</code> function returns things like the RMSE (<code>sigma</code>), log-likelihood, AIC, etc. Both functions return a dataframe and are thus convenient as a basis for further calculation, or use in tables.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
+<span class="kw">tidy</span>(nlsfitSS, <span class="dt">conf.int=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   term  estimate std.error statistic   p.value conf.low conf.high
+##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Asym    67.1     1.24         54.3 1.90e- 65   64.8      69.9  
+## 2 b2       3.75    0.125        29.9 1.62e- 45    3.52      4.01 
+## 3 b3       0.872   0.00442     197.  2.08e-110    0.863     0.881</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(nlsfitSS)</code></pre>
+<pre><code>## # A tibble: 1 x 8
+##   sigma isConv     finTol logLik   AIC   BIC deviance df.residual
+##   &lt;dbl&gt; &lt;lgl&gt;       &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;    &lt;dbl&gt;       &lt;int&gt;
+## 1  2.00 TRUE   0.00000458  -176.  360.  370.     325.          81</code></pre>
+<p>If you only want to extract the coefficients, use the base function <code>coef</code>, which gives a named vector as a result:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">coef</span>(nlsfitSS)</code></pre>
+<pre><code>##      Asym        b2        b3 
+## 67.133033  3.745814  0.872434</code></pre>
+</div>
+<div id="residual-diagnostics" class="section level4">
+<h4><span class="header-section-number">7.2.5.2</span> Residual diagnostics</h4>
+<p>As in linear regression, an important assumption in non-linear regression is that the residuals are normally distributed. This can be inspected visually, as we strongly recommend against the use of tests for normality. The <code>qqPlot</code> function from the <code>car</code> package is very handy because it adds a confidence region for the qq-plot. The following example makes Fig. <a href="non-linear-modelling.html#fig:carqq">7.4</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">qqPlot</span>(<span class="kw">residuals</span>(nlsfitSS))</code></pre>
+<div class="figure"><span id="fig:carqq"></span>
+<img src="06-nonlinear_files/figure-html/carqq-1.svg" alt="Normal QQ plot for the Chapman-Richards growth equation fitted to the Loblolly dataset." width="672" />
+<p class="caption">
+Figure 7.4: Normal QQ plot for the Chapman-Richards growth equation fitted to the Loblolly dataset.
+</p>
+</div>
+<pre><code>## [1] 18 15</code></pre>
+<p>When interpreting QQ plots for non-linear regression models, don’t get too upset if the residuals aren’t perfectly normal. This is rarely a problem unless the deviation is very large. Most importantly, it does not affect the estimates of your parameters, but it does affect the estimated standard errors and confidence intervals. If you are mostly interested in fitting the curve and moving on, it is not important.</p>
+<p>A more important test, again visually, is to check whether there is no pattern in the residuals with respect to the predictor(s). If there is, clearly the model does not fit very well and another model should be chosen. The following code makes a plot of the residuals against the fitted values, and a plot of the fitted values against the predictor (with a comparison to a 1:1 line) (Fig. <a href="non-linear-modelling.html#fig:diagfit">7.5</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(<span class="kw">fitted</span>(nlsfitSS), <span class="kw">residuals</span>(nlsfitSS), <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
+<span class="kw">abline</span>(<span class="dt">h=</span><span class="dv">0</span>)
+
+<span class="kw">plot</span>(Loblolly<span class="op">$</span>height, <span class="kw">fitted</span>(nlsfitSS), <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
+<span class="kw">abline</span>(<span class="dv">0</span>,<span class="dv">1</span>)</code></pre>
+<div class="figure"><span id="fig:diagfit"></span>
+<img src="06-nonlinear_files/figure-html/diagfit-1.svg" alt="Residuals against fitted values, and fitted values against the predictor for a non-linear regression model (nls) fit to the Loblolly data." width="672" />
+<p class="caption">
+Figure 7.5: Residuals against fitted values, and fitted values against the predictor for a non-linear regression model (nls) fit to the Loblolly data.
+</p>
+</div>
+</div>
+<div id="goodness-of-fit" class="section level4">
+<h4><span class="header-section-number">7.2.5.3</span> Goodness of fit</h4>
+<p>It is well known that the R<sup>2</sup> is a very poor measure of goodness of fit in non-linear models. Much better is the RMSE (the residual standard error), which can be conveniently computed with <code>glance</code>. The RMSE can be roughly interpreted as the standard deviation of the residuals (‘roughly’ because it is adjusted slightly for the number of fitted parameters).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(nlsfitSS)<span class="op">$</span>sigma</code></pre>
+<pre><code>## [1] 2.004153</code></pre>
+</div>
+<div id="correlation-between-parameters" class="section level4">
+<h4><span class="header-section-number">7.2.5.4</span> Correlation between parameters</h4>
+<p>This is not a problem in model fitting, but it is important that you are aware that the coefficients in a non-linear regression models are often highly correlated. A correlation matrix between the parameters is shown with the <code>overview</code> function from the <code>nlstools</code> package (see example above).</p>
+<p>A nice way to visualize the correlation between parameters is the <code>ellipse</code> function from the <code>ellipse</code> package. For a fitted nls model, try the following code after setting the <code>which</code> argument to two parameters of interest:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># (results not shown)</span>
+<span class="kw">library</span>(ellipse)
+<span class="kw">plot</span>(ellipse<span class="op">::</span><span class="kw">ellipse</span>(nlsfitSS, <span class="dt">which=</span><span class="kw">c</span>(<span class="st">&quot;Asym&quot;</span>,<span class="st">&quot;b2&quot;</span>)), <span class="dt">type=</span><span class="st">&#39;l&#39;</span>)
+
+<span class="co"># Optionally, add the estimated coefficients as a point</span>
+p &lt;-<span class="st"> </span><span class="kw">coef</span>(nlsfitSS)
+<span class="kw">points</span>(p[<span class="st">&quot;Asym&quot;</span>], p[<span class="st">&quot;b2&quot;</span>], <span class="dt">pch=</span><span class="dv">19</span>)
+
+
+<span class="co">#It is also possible to plot all confidence ellipses with the `plotcorr` function, </span>
+<span class="co"># for a quick visualization of correlation and confidence regions of the </span>
+<span class="kw">plotcorr</span>(<span class="kw">summary</span>(nlsfitSS, <span class="dt">correlation=</span><span class="ot">TRUE</span>)<span class="op">$</span>correlation)</code></pre>
+</div>
+</div>
+<div id="comparing-models-1" class="section level3">
+<h3><span class="header-section-number">7.2.6</span> Comparing models</h3>
+<p>Thus, when comparing different models <em>fit to the same dataset</em>, we can use the RMSE as a basis for comparing their relative goodness of fit. Probably even better (though in practice usually equivalent), we can use Akaike’s Information Criterion (AIC) as a basis for ranking model fit. This is quickly done with <code>AIC</code>,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AIC</span>(model1, model2, model3)</code></pre>
+<p>The model with the lowest AIC can be deemed the ‘best’.</p>
+<p>When comparing two (or more) models fit to the same dataset, but with different number of parameters, an F-test can be applied providing a direct test of model superiority. For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Chapman-Richard model (equivalent to nls_lob used above)</span>
+nls_fit1 &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span>Asym<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>b<span class="op">*</span>age))<span class="op">^</span>c,
+               <span class="dt">data=</span>Loblolly,
+               <span class="dt">start=</span><span class="kw">list</span>(<span class="dt">Asym=</span><span class="dv">100</span>, <span class="dt">b=</span><span class="fl">0.1</span>, <span class="dt">c=</span><span class="fl">2.5</span>))
+
+<span class="co"># Drop the &#39;c&#39; parameter</span>
+nls_fit2 &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span>Asym<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>b<span class="op">*</span>age)),
+               <span class="dt">data=</span>Loblolly,
+               <span class="dt">start=</span><span class="kw">list</span>(<span class="dt">Asym=</span><span class="dv">100</span>, <span class="dt">b=</span><span class="fl">0.1</span>))
+
+<span class="kw">anova</span>(nls_fit2, nls_fit1)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: height ~ Asym * (1 - exp(-b * age))
+## Model 2: height ~ Asym * (1 - exp(-b * age))^c
+##   Res.Df Res.Sum Sq Df Sum Sq F value    Pr(&gt;F)    
+## 1     82     693.12                                
+## 2     81     242.70  1 450.43  150.33 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>The F-test in the above <code>anova</code> statement shows overwhelming support for a better fit for the model that includes the <code>c</code> parameter.</p>
+
+<div class="rmdtry">
+In the example above, confirm that use of <code>AIC</code> would give the same conclusions.
+</div>
+
+</div>
+<div id="nlsfactor" class="section level3">
+<h3><span class="header-section-number">7.2.7</span> Adding factor variables</h3>
+<p>A very common question in non-linear modelling is whether estimated coefficients are different between groups, for example species, treatment, location. It is not straightforward to compare coefficients by group, unfortunately, but we can produce estimates and confidence intervals for each group, and base our conclusions on those.</p>
+<p>The following example fits the Gompertz growth model to foot length as a function of age, to ask the question whether foot length growth is different between boys and girls. The divergent curves, and the very different estimated parameters show a clear difference, as the following example demonstrates:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data.</span>
+<span class="kw">data</span>(anthropometry)
+
+<span class="co"># nlsList does not like missing values. We can set an option there,</span>
+<span class="co"># or just remove missing values now</span>
+anthropometry &lt;-<span class="st"> </span>anthropometry[<span class="kw">complete.cases</span>(anthropometry),]
+
+<span class="co"># nlsList is from the nlme package</span>
+<span class="kw">library</span>(nlme)
+
+<span class="co"># Note the grouping operator &#39;|&#39; to specify to fit the curve by gender</span>
+fit_foot_gender &lt;-<span class="st"> </span><span class="kw">nlsList</span>(foot_length <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3) <span class="op">|</span><span class="st"> </span>gender,
+            <span class="dt">data=</span>anthropometry)
+
+<span class="co"># Load nlshelper to allow a tidy statement of the fit</span>
+<span class="kw">library</span>(nlshelper)
+<span class="kw">tidy</span>(fit_foot_gender)</code></pre>
+<pre><code>##    group term    estimate   std.error statistic p.value
+## 1 female Asym 253.3809781 1.443232852 175.56486       0
+## 2 female   b2   0.9444377 0.015901843  59.39171       0
+## 3 female   b3   0.8391462 0.004492360 186.79407       0
+## 4   male Asym 339.4641987 6.445086818  52.67023       0
+## 5   male   b2   1.0629669 0.011426645  93.02528       0
+## 6   male   b3   0.9149823 0.003572622 256.10950       0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define two colours for the plot</span>
+cols &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#FF4E37FF&quot;</span>,<span class="st">&quot;#008DFFFF&quot;</span>)
+<span class="kw">library</span>(scales) <span class="co"># for alpha()</span>
+
+<span class="co"># (from nlshelper package)</span>
+<span class="kw">plot_nls</span>(fit_foot_gender, <span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">cex=</span><span class="fl">0.6</span>, 
+         <span class="dt">points.col=</span><span class="kw">alpha</span>(cols, <span class="fl">0.5</span>),
+         <span class="dt">lines.col=</span>cols,
+         <span class="dt">lwd=</span><span class="dv">2</span>)
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">levels</span>(anthropometry<span class="op">$</span>gender), <span class="dt">col=</span>cols, <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>,<span class="dt">lwd=</span><span class="dv">2</span>)        </code></pre>
+<div class="figure"><span id="fig:anthronls"></span>
+<img src="06-nonlinear_files/figure-html/anthronls-1.svg" alt="The Gompertz growth model fitted to the anthropometry dataset, for males and females separately." width="672" />
+<p class="caption">
+Figure 7.6: The Gompertz growth model fitted to the anthropometry dataset, for males and females separately.
+</p>
+</div>
+<p>Using the <code>nlshelper</code> package, we can test directly whether adding the grouping variable (<code>gender</code> in the above example) improves the fit, that is, whether the relationship between foot length and age differs significantly between genders.</p>
+<p>To do so, we need the full model (fit with <code>nlsList</code>), and a simple <code>nls</code> model without the grouping variable, and then use <code>anova\_nlslist</code>, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r">fit_foot_<span class="dv">0</span> &lt;-<span class="st"> </span><span class="kw">nls</span>(foot_length <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3),
+            <span class="dt">data=</span>anthropometry)
+
+<span class="kw">library</span>(nlshelper)
+<span class="kw">anova_nlslist</span>(fit_foot_gender, fit_foot_<span class="dv">0</span>)</code></pre>
+<pre><code>## Analysis of Variance Table
+## 
+## Model 1: foot_length ~ SSgompertz(age, Asym, b2, b3)
+## Model 2: foot_length ~ SSgompertz(age, Asym, b2, b3) | gender
+##   Res.Df Res.Sum Sq Df Sum Sq F value    Pr(&gt;F)    
+## 1   3828     763924                                
+## 2   3825     587806  3 176119  382.02 &lt; 2.2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Clearly there is plenty of support for gender affecting the relationship, but that should have been abundantly clear from Fig. <a href="non-linear-modelling.html#fig:anthronls">7.6</a>!</p>
+
+<div class="rmdnote">
+In the above example, all three parameters were allowed to vary between the two groups (boys and girls). In many cases it makes sense to keep some parameters the same between groups, and vary other ones. Unfortunately this is less straightforward than it sounds, but we will introduce an approach using non-linear mixed-effects models in Section XXX.
+</div>
+
+</div>
+<div id="nlspredict" class="section level3">
+<h3><span class="header-section-number">7.2.8</span> Predicting</h3>
+<p>It is easy to predict a fitted value for a new value of the predictor variable with the <code>predict</code> function. Note that <code>predict</code> is a generic function, so if you want to read the help file when applied to <code>nls</code>, read <code>?predict.nls</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make dataframe with X variable that we wish to predict Y values for.</span>
+<span class="co"># Make sure it has the same name as in the dataframe we used to fit the model!</span>
+newdat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age=</span><span class="kw">c</span>(<span class="dv">18</span>, <span class="dv">30</span>))
+
+<span class="co"># Predict from the fitted model for the new dataframe:</span>
+<span class="kw">predict</span>(nls_lob, <span class="dt">newdata=</span>newdat)</code></pre>
+<pre><code>## [1] 47.94869 65.45555</code></pre>
+
+<div class="rmdnote">
+Unlike the predict method for linear models (<code>predict.lm</code> in particular), we cannot easily estimate standard errors or confidence intervals for predictions (although <code>predict.nls</code> does have an argument <code>se.fit</code> which is actually ignored!).
+</div>
+
+<p>In Section <a href="non-linear-modelling.html#bootpredictionnls">7.5.2</a> we use the bootstrap to produce confidence intervals on predictions.</p>
+
+<div class="rmdtry">
+For the <code>nlsfitSS</code> model, verify that the estimated asymptote (‘<code>Asym</code>’) is equal to the value of the curve when age is infinity (<code>Inf</code>). Extra points if you can write a statement that gives <code>TRUE</code>, if this is true.
+</div>
+
+</div>
+<div id="confidence-intervals" class="section level3">
+<h3><span class="header-section-number">7.2.9</span> Confidence intervals</h3>
+<p>To calculate confidence intervals on the parameters, we can use the base function <code>confint</code>, which uses a so-called ‘profiling’ method.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">confint</span>(nls_lob)</code></pre>
+<pre><code>## Waiting for profiling to be done...</code></pre>
+<pre><code>##             2.5%       97.5%
+## Asym 72.37773289 82.98962856
+## b     0.07050617  0.09483768
+## c     1.67095139  2.04444265</code></pre>
+<p>It is important to know that this standard (and preferred) method does not always work, in particular for more complex curves fitted to smaller datasets. In this case, one may use the <code>confint2</code> function from the <code>nlstools</code> package. A warning here is that these confidence intervals will be approximate, and particularly poor for smaller sample sizes.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlstools)
+<span class="kw">confint2</span>(nls_lob)</code></pre>
+<pre><code>##            2.5 %     97.5 %
+## Asym 71.79994733 82.0669900
+## b     0.07058745  0.0947305
+## c     1.66043435  2.0334445</code></pre>
+<p>In this particular example the two methods give very similar confidence intervals. Finally, to make a quick table including the fitted coefficients and their confidence intervals, use <code>coef</code> like so,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">cbind</span>(<span class="dt">Estimate=</span><span class="kw">coef</span>(nls_lob), <span class="kw">confint2</span>(nls_lob))</code></pre>
+<pre><code>##         Estimate       2.5 %     97.5 %
+## Asym 76.93346868 71.79994733 82.0669900
+## b     0.08265897  0.07058745  0.0947305
+## c     1.84693944  1.66043435  2.0334445</code></pre>
+<p>Even more convenient is the <code>tidy</code> function from the <code>broom</code> package, but in that case the <code>confint2</code> function cannot be used.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
+<span class="kw">tidy</span>(nls_lob, <span class="dt">conf.int=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## # A tibble: 3 x 7
+##   term  estimate std.error statistic  p.value conf.low conf.high
+##   &lt;chr&gt;    &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;    &lt;dbl&gt;     &lt;dbl&gt;
+## 1 Asym   76.9      2.58         29.8 1.96e-45  72.4      83.0   
+## 2 b       0.0827   0.00607      13.6 1.17e-22   0.0705    0.0948
+## 3 c       1.85     0.0937       19.7 1.23e-32   1.67      2.04</code></pre>
+<p>For models fit with <code>nlsList</code>, you can also use the <code>tidy</code> function but only after loading the <code>nlshelper</code> package:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(nlshelper)
+
+fit_foot &lt;-<span class="st"> </span><span class="kw">nlsList</span>(foot_length <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3) <span class="op">|</span><span class="st"> </span>gender,
+            <span class="dt">data=</span>anthropometry)
+<span class="kw">tidy</span>(fit_foot, <span class="dt">conf.int=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>##    group term    estimate   std.error statistic p.value    conf.low
+## 1 female Asym 253.3809781 1.443232852 175.56486       0 250.8477773
+## 2 female   b2   0.9444377 0.015901843  59.39171       0   0.9153123
+## 3 female   b3   0.8391462 0.004492360 186.79407       0   0.8309367
+## 4   male Asym 339.4641987 6.445086818  52.67023       0 328.2035127
+## 5   male   b2   1.0629669 0.011426645  93.02528       0   1.0419459
+## 6   male   b3   0.9149823 0.003572622 256.10950       0   0.9081367
+##     conf.high
+## 1 256.1612994
+## 2   0.9755073
+## 3   0.8473201
+## 4 353.1134574
+## 5   1.0868262
+## 6   0.9218169</code></pre>
+</div>
+</div>
+<div id="other-regression-techniques" class="section level2">
+<h2><span class="header-section-number">7.3</span> Other regression techniques</h2>
+<div id="loess" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> Local regression</h3>
+<p>In this section we briefly introduce <code>loess</code>, a non-parametric method to fit local regression smoothers to data. This method is useful when you want to illustrate non-linear patterns in the data, but it cannot be used for serious inference.</p>
+<p>In a loess model, you have to set the degree of smoothness yourself, via the <code>span</code> argument. Thus you can fit a model with an arbitrary smoothness to it, which makes the method less dependable for inference. The following example demonstrates its use.</p>
+<p>Here we also show how to extract predictions, calculate a confidence interval for the prediction, and use both in a plot. Note that this is for illustration only, since the <code>ggplot2</code> package provides a very straightforward way to make this plot.</p>
+<p>The following code produces Fig. <a href="non-linear-modelling.html#fig:hobartloess">7.7</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Finish times of the Sydney to Hobart race</span>
+<span class="kw">library</span>(lgrdata)
+<span class="kw">data</span>(sydney_hobart_times)
+
+<span class="co"># Fit the local regression model. Note that we always set the span.</span>
+loes1 &lt;-<span class="st"> </span><span class="kw">loess</span>(Time <span class="op">~</span><span class="st"> </span>Year, <span class="dt">data=</span>sydney_hobart_times, <span class="dt">span=</span><span class="fl">0.6</span>)
+
+<span class="co"># Extract predictions from the model, including the standard errors.</span>
+<span class="co"># If we don&#39;t give a newdata argument, predictions for the original data </span>
+<span class="co"># are returned.</span>
+<span class="co"># Use dplyr::mutate() to add new variables to the predictions, including</span>
+<span class="co"># lower confidence interval (lci), upper (uci), and Year from the original</span>
+<span class="co"># dataset. Here, as.data.frame is necessary because predict returns a list.</span>
+<span class="kw">library</span>(dplyr)
+loes1_pred &lt;-<span class="st"> </span><span class="kw">predict</span>(loes1, <span class="dt">se=</span><span class="ot">TRUE</span>) <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span>as.data.frame <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">lci =</span> fit <span class="op">-</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>se.fit,
+         <span class="dt">uci =</span> fit <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">*</span><span class="st"> </span>se.fit,
+         <span class="dt">Year =</span> sydney_hobart_times<span class="op">$</span>Year)
+
+<span class="co"># Make a plot with data, predictions, and confidence interval.</span>
+<span class="kw">ggplot</span>(sydney_hobart_times, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> Time)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> loes1_pred, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> fit)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> loes1_pred, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> lci), <span class="dt">lty =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> loes1_pred, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> uci), <span class="dt">lty =</span> <span class="dv">5</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(sydney_hobart_times<span class="op">$</span>Time)))</code></pre>
+<div class="figure"><span id="fig:hobartloess"></span>
+<img src="06-nonlinear_files/figure-html/hobartloess-1.svg" alt="A loess fit to the Sydney to Hobart race finish time data, including the confidence interval for the fit." width="672" />
+<p class="caption">
+Figure 7.7: A loess fit to the Sydney to Hobart race finish time data, including the confidence interval for the fit.
+</p>
+</div>
+<p>Alternatively, and much more practically appealling, is to use <code>stat_smooth</code> from the <code>ggplot2</code> package to make this plot with much less code. The following figure is not shown, but will be very similar to Fig. <a href="non-linear-modelling.html#fig:hobartloess">7.7</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(sydney_hobart_times, <span class="kw">aes</span>(<span class="dt">x =</span> Year, <span class="dt">y =</span> Time)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">span =</span> <span class="fl">0.6</span>, <span class="dt">se =</span> <span class="ot">TRUE</span>)</code></pre>
+<p><img src="06-nonlinear_files/figure-html/unnamed-chunk-25-1.svg" width="672" /></p>
+<p>In general, we use a loess model to visualize patterns in the data. However, it is rarely a good idea to use loess models for any formal conclusions regarding your data, and numerous examples exist where loess models may give misleading conclusions.</p>
+<pre class="sourceCode r"><code class="sourceCode r">l &lt;-<span class="st"> </span><span class="kw">loess</span>(Petal.Length <span class="op">~</span><span class="st"> </span>Sepal.Width <span class="op">*</span><span class="st"> </span>Sepal.Length, <span class="dt">data=</span>iris, <span class="dt">span=</span><span class="fl">0.5</span>)
+
+out &lt;-<span class="st"> </span><span class="kw">with</span>(iris, 
+            <span class="kw">expand.grid</span>(<span class="dt">Sepal.Width =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Sepal.Width), 
+                                          <span class="kw">max</span>(Sepal.Width), <span class="dt">length=</span><span class="dv">50</span>),
+                        <span class="dt">Sepal.Length =</span> <span class="kw">seq</span>(<span class="kw">min</span>(Sepal.Length), 
+                                           <span class="kw">max</span>(Sepal.Length), <span class="dt">length=</span><span class="dv">50</span>))
+) 
+
+<span class="co"># A hack to make sure the predict() statement below returns the </span>
+<span class="co"># right kind of object for a ggplot.</span>
+<span class="kw">attr</span>(out, <span class="st">&quot;out.attrs&quot;</span>) &lt;-<span class="st"> </span><span class="ot">NULL</span>
+
+<span class="co"># Add the prediction</span>
+out<span class="op">$</span>pred &lt;-<span class="st"> </span><span class="kw">predict</span>(l, <span class="dt">newdata =</span> out, <span class="dt">se =</span> <span class="ot">FALSE</span>)
+
+<span class="co"># For a nice colour palette</span>
+<span class="kw">library</span>(viridis)
+
+<span class="kw">ggplot</span>(out, <span class="kw">aes</span>(<span class="dt">x =</span> Sepal.Width, <span class="dt">y =</span> Sepal.Length, <span class="dt">fill =</span> pred)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_tile</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_viridis</span>(<span class="dt">option =</span> <span class="st">&quot;inferno&quot;</span>)</code></pre>
+<p><img src="06-nonlinear_files/figure-html/unnamed-chunk-26-1.svg" width="672" /></p>
+<p>Although we just made a pretty picture, we cannot tell from the figure whether the model provided an adequate fit to the data. For models that include multiple predictors, and you want to use smooth functions, it is recommended to instead use a generalized additive model instead (see Chapter <a href="#gam"><strong>??</strong></a>).</p>
+</div>
+</div>
+<div id="rq" class="section level2">
+<h2><span class="header-section-number">7.4</span> Quantile regression</h2>
+<p>There are surprisingly many situations where you might be interested in relationships other than the ‘mean’ relationship, which is what you study with the usual regression techniques.</p>
+<p>The next example uses a dataset which includes measurements of plant drought tolerance (P50, more negative values indicate higher tolerance for drought) and mean annual precipitation for 115 plant species. Although significant, the data show no convincing relationship between the two variables in terms of the mean response. It does seem that the lower end (i.e. the minimum P50) is much more constrained by mean annual precipitation. We can thus ask the question: does the 10% quantile of P50 increase with precipitation?</p>
+<p>We use <code>rq</code> from the <code>quantreg</code> package to perform quantile regression. The argument <code>tau</code> sets the quantile to be estimated, for example if <code>tau = 0.5</code>, we would perform ‘median regression’.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">data</span>(choat_precipp50)
+choat_precipp50 &lt;-<span class="st"> </span><span class="kw">mutate</span>(choat_precipp50, 
+                           <span class="dt">drought_tolerance =</span> <span class="op">-</span>P50)
+
+<span class="co"># A basic quantile regression fit</span>
+<span class="kw">library</span>(quantreg)
+choat_rq &lt;-<span class="st"> </span><span class="kw">rq</span>(drought_tolerance <span class="op">~</span><span class="st"> </span>annualprecip, <span class="dt">tau=</span><span class="fl">0.1</span>, <span class="dt">data=</span>choat_precipp50)
+
+<span class="co"># Test for significance, use bootstrapped standard errors</span>
+<span class="kw">summary</span>(choat_rq, <span class="dt">se=</span><span class="st">&quot;boot&quot;</span>)</code></pre>
+<pre><code>## 
+## Call: rq(formula = drought_tolerance ~ annualprecip, tau = 0.1, data = choat_precipp50)
+## 
+## tau: [1] 0.1
+## 
+## Coefficients:
+##              Value    Std. Error t value  Pr(&gt;|t|)
+## (Intercept)   1.69255  0.26643    6.35267  0.00000
+## annualprecip -0.00022  0.00019   -1.15710  0.24967</code></pre>
+<p>In the above code, to calculate p-values, we must specify <code>se="boot"</code> to <code>summary.rq</code>, so that standard errors are calculated with a bootstrap.</p>
+<p>As with <code>lm</code>, <code>rq</code> also returns a slope and intercept when you run <code>coef(f1)</code>, and you can also use <code>abline</code> to add a line to a plot. We can also fit multiple quantiles at once, by passing a vector of <code>tau</code> to <code>rq</code>. The result can be added to a plot with a simple <code>for</code> loop. The next example makes Fig. <a href="non-linear-modelling.html#fig:choatplot2">7.8</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit multiple quantiles</span>
+tau_choice &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="fl">0.1</span>,<span class="fl">0.25</span>,<span class="fl">0.5</span>,<span class="fl">0.75</span>,<span class="fl">0.9</span>)
+choat_rq_<span class="dv">2</span> &lt;-<span class="st"> </span><span class="kw">rq</span>(drought_tolerance <span class="op">~</span><span class="st"> </span>annualprecip, 
+                 <span class="dt">tau=</span>tau_choice, <span class="dt">data=</span>choat_precipp50)
+ 
+<span class="co"># Store coefficients (inspect p, it is a matrix)</span>
+p &lt;-<span class="st"> </span><span class="kw">coef</span>(choat_rq_<span class="dv">2</span>)
+
+<span class="co"># Make base ggplot (points only)</span>
+g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(choat_precipp50, <span class="kw">aes</span>(<span class="dt">x =</span> annualprecip, <span class="dt">y =</span> drought_tolerance)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Annual rainfall (mm)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Plant drought tolerance&quot;</span>)
+
+<span class="co">#- Now loop, and add fitted lines for each quantile.</span>
+lwds &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="fl">0.5</span>, <span class="fl">1.8</span>, <span class="dt">length=</span><span class="kw">ncol</span>(p))
+<span class="cf">for</span>(i <span class="cf">in</span> <span class="kw">seq_len</span>(<span class="kw">ncol</span>(p))){
+  g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_abline</span>(<span class="dt">intercept =</span> p[<span class="dv">1</span>,i], <span class="dt">slope=</span>p[<span class="dv">2</span>,i], <span class="dt">lwd=</span>lwds[i])
+}
+<span class="kw">print</span>(g)</code></pre>
+<div class="figure"><span id="fig:choatplot2"></span>
+<img src="06-nonlinear_files/figure-html/choatplot2-1.svg" alt="The Choat dataset fitted with a range of quantiles." width="672" />
+<p class="caption">
+Figure 7.8: The Choat dataset fitted with a range of quantiles.
+</p>
+</div>
+<div id="rqci" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> Confidence intervals</h3>
+<p>In the next example we show how to calculate confidence intervals for quantile regression fits and add it to a plot.</p>
+<p>The following code makes Fig. @ref{fig:fluxplotrq}. Note that in a previous example (Section <a href="non-linear-modelling.html#loess">7.3.1</a>), we realized that <code>ggplot2::stat_smooth</code> could be used to make a similar plot, however, that function does not include an option for quantile regression. The approach shown here is general, and can be adapted to other models as well.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit the quantile regression model. Using the data from the previous example,</span>
+<span class="co"># with only the 95% quantile.</span>
+choat_rq_<span class="dv">95</span> &lt;-<span class="st"> </span><span class="kw">rq</span>(drought_tolerance <span class="op">~</span><span class="st"> </span>annualprecip, <span class="dt">tau=</span><span class="fl">0.95</span>, <span class="dt">data=</span>choat_precipp50)
+
+<span class="co"># Set up a &#39;prediction&#39; dataframe, we will obtain fitted values for these</span>
+<span class="co"># values of annualprecip. A range of values is chosen to make a smooth plot.</span>
+preddfr &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">annualprecip =</span> <span class="kw">seq</span>(<span class="dv">130</span>, <span class="dv">3100</span>, <span class="dt">length =</span> <span class="dv">101</span>))
+
+<span class="co"># Predict from the fitted quantile regression model, and return a </span>
+<span class="co"># confidence interval. Look at the &#39;type&#39; argument in ?rq for options</span>
+<span class="co"># used to calculate the confidence interval (here we use the default).</span>
+choat_rq_<span class="dv">95</span>_pred &lt;-<span class="st"> </span><span class="kw">as.data.frame</span>(<span class="kw">predict</span>(choat_rq_<span class="dv">95</span>, preddfr, <span class="dt">interval=</span><span class="st">&quot;confidence&quot;</span>))
+preddfr &lt;-<span class="st"> </span><span class="kw">cbind</span>(preddfr, choat_rq_<span class="dv">95</span>_pred)
+
+<span class="co"># Make the plot.</span>
+<span class="kw">ggplot</span>(choat_precipp50, <span class="kw">aes</span>(<span class="dt">x =</span> annualprecip)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>, <span class="kw">aes</span>(<span class="dt">y =</span> drought_tolerance)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_ribbon</span>(<span class="dt">data =</span> preddfr, <span class="kw">aes</span>(<span class="dt">ymin =</span> lower,
+                                  <span class="dt">ymax =</span> higher),
+              <span class="dt">fill=</span>scales<span class="op">::</span><span class="kw">alpha</span>(<span class="st">&quot;lightgrey&quot;</span>, <span class="fl">0.7</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">data =</span> preddfr, <span class="kw">aes</span>(<span class="dt">y =</span> fit), <span class="dt">col =</span> <span class="st">&quot;cornflowerblue&quot;</span>, <span class="dt">lwd =</span> <span class="fl">1.2</span>)</code></pre>
+<div class="figure"><span id="fig:fluxplotrq"></span>
+<img src="06-nonlinear_files/figure-html/fluxplotrq-1.svg" alt="Relative humidity (RH) and air temperature (Tair)" width="672" />
+<p class="caption">
+Figure 7.9: Relative humidity (RH) and air temperature (Tair)
+</p>
+</div>
+</div>
+<div id="rqnonlinear" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> Non-linear quantile regression</h3>
+<p>Finally we can combine two techniques introduced in this chapter: non-linear regression and quantile regression. Using <code>nlrq</code> from <code>quantreg</code>, we can perform non-linear quantile regression.</p>
+<p>The following example shows how to estimate quantiles of growth over time - similar to growth charts for childrens’ heights - in this case for foot length against age.</p>
+<p>First we read and prepare the data, and fit a single model for closer inspection.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># for nlrq</span>
+<span class="kw">library</span>(quantreg) 
+
+<span class="co"># The anthropometry dataset, with foot length, age, and sex</span>
+<span class="co"># Use male subset only for this example</span>
+<span class="kw">data</span>(anthropometry)
+
+foot_male &lt;-<span class="st"> </span>anthropometry <span class="op">%&gt;%</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">complete.cases</span>(.),
+         gender <span class="op">==</span><span class="st"> &quot;male&quot;</span>)
+  
+<span class="co"># Fitting an upper quantile, can be interpreted as the 90% quantile of</span>
+<span class="co"># foot length at a given age (i.e. only 10% of children would have feet</span>
+<span class="co"># longer than this at some age).</span>
+foot90 &lt;-<span class="st"> </span><span class="kw">nlrq</span>(foot_length <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3),
+               <span class="dt">tau=</span><span class="fl">0.9</span>, <span class="dt">data=</span>foot_male)</code></pre>
+<p>There are very few things you can do with the fitted model, other than predicting from it (see below, but no confidence intervals!), and summarizing the fit, which tests each coefficient against zero (not very informative in this case, see for yourself: <code>summary(foot90)</code>). The coefficients can be extracted with, <code>coef(foot90)</code>.</p>
+<p>Now we are ready to make our growth chart. To do this, we loop through a few values of <code>tau</code>, each time adding a line to a plot.</p>
+<p>The following code makes Fig. <a href="non-linear-modelling.html#fig:footexample3">7.10</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Setup a base plot with the data.</span>
+g &lt;-<span class="st"> </span><span class="kw">ggplot</span>(foot_male, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> foot_length)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">16</span>, <span class="dt">size=</span><span class="fl">0.7</span>, <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)
+  
+<span class="co"># Loop through desired quantiles, and add fitted lines to the plot.</span>
+<span class="cf">for</span>(TAU <span class="cf">in</span> <span class="kw">c</span>(<span class="fl">0.1</span>, <span class="fl">0.5</span>, <span class="fl">0.9</span>)){
+  
+  <span class="co"># ... use them in a non-linear quantile regression</span>
+  fit_mod &lt;-<span class="st"> </span><span class="kw">nlrq</span>(foot_length <span class="op">~</span><span class="st"> </span><span class="kw">SSgompertz</span>(age, Asym, b2, b3),
+               <span class="dt">tau=</span>TAU, <span class="dt">data=</span>foot_male)
+  
+  <span class="co"># Set up x-values to predict over</span>
+  xpred &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="kw">min</span>(foot_male<span class="op">$</span>age), <span class="kw">max</span>(foot_male<span class="op">$</span>age), <span class="dt">length=</span><span class="dv">101</span>)
+  
+  <span class="co"># Setup dataframe for plotting</span>
+  plot_df &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">age =</span> xpred, 
+                        <span class="dt">foot_length =</span> <span class="kw">predict</span>(fit_mod, <span class="kw">data.frame</span>(<span class="dt">age=</span>xpred)),
+                        <span class="dt">TAU =</span> TAU)
+  
+  <span class="co"># And add a line to the plot</span>
+  <span class="co"># Note: the label is positioned at age=21, but the y-coordinate</span>
+  <span class="co"># determined by the fitted value at age=20.</span>
+  g &lt;-<span class="st"> </span>g <span class="op">+</span><span class="st"> </span><span class="kw">geom_line</span>(<span class="dt">data=</span>plot_df) <span class="op">+</span><span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_text</span>(<span class="dt">data =</span> <span class="kw">data.frame</span>(<span class="dt">age =</span> <span class="dv">21</span>, 
+                         <span class="dt">foot_length =</span> <span class="kw">predict</span>(fit_mod, <span class="kw">data.frame</span>(<span class="dt">age=</span><span class="dv">20</span>)),
+                         <span class="dt">label =</span> <span class="kw">as.character</span>(TAU)),
+              <span class="kw">aes</span>(<span class="dt">label=</span>label))
+  
+}
+<span class="kw">print</span>(g)</code></pre>
+<div class="figure"><span id="fig:footexample3"></span>
+<img src="06-nonlinear_files/figure-html/footexample3-1.svg" alt="Growth chart for foot length (mm) against childrens' age (years)" width="672" />
+<p class="caption">
+Figure 7.10: Growth chart for foot length (mm) against childrens’ age (years)
+</p>
+</div>
+</div>
+</div>
+<div id="nlsboot" class="section level2">
+<h2><span class="header-section-number">7.5</span> Bootstrapping</h2>
+<div id="parameter-combinations" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Parameter combinations</h3>
+<p>This example demonstrates that we can use the bootstrap to calculate any derived quantity from a fitted regression model. Consider the following example: we have a non-linear saturating dependence of <code>height</code> on <code>age</code> (Fig. <a href="non-linear-modelling.html#fig:asympsimfig">7.11</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We use an example dataset contained in the &#39;rethinking&#39; package,</span>
+<span class="co"># containing heights and ages of members of a clan of !Khosan people.</span>
+<span class="kw">data</span>(howell)
+
+<span class="co"># Plot the data. </span>
+<span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">bg=</span><span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(howell<span class="op">$</span>height)))</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:asympsimfig"></span>
+<img src="06-nonlinear_files/figure-html/asympsimfig-1.svg" alt="Height and age for a group of !Khosan people (the Howell1 dataset)." width="672" />
+<p class="caption">
+Figure 7.11: Height and age for a group of !Khosan people (the Howell1 dataset).
+</p>
+</div>
+<p>It seems reasonable to fit a function with an asymptote to this relationship. An exponential regression model seems appropriate, and it should contain an ‘offset’, since height at zero age will not be zero!</p>
+<p>Now suppose we want to know the age where height has reached 90% of the asymptotic value. We can calculate this value from the fitted curve directly, and use the bootstrap to estimate a confidence interval for this estimate.</p>
+<p>First, we are going to rearrange the fitted equation. We will fit the following equation, where <span class="math inline">\(y_{max}\)</span> is the asymptote, <span class="math inline">\(k\)</span> some curvature parameter and <span class="math inline">\(b_0\)</span> the value of y where x=0):</p>
+<p><span class="math display">\[y = b_0 + y_{max}*(1-e^{-kx})\]</span></p>
+<p>We want to know the value of <code>x</code> where <code>y = 0.9 * ymax</code>, inserting this into the equation and solving for <code>x</code> gives,</p>
+<p><span class="math display">\[x_{90} = log(1 - (0.9 - b_0)/y_{max})/-k\]</span></p>
+<p>Now let’s find the distribution of <span class="math inline">\(x_{90}\)</span>. We will use the <code>Boot</code> function from the <code>car</code> package, which is a convenient function for bootstrapping (non-)linear models.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The bootCase function is contained in the car package</span>
+<span class="kw">library</span>(car)
+
+<span class="co"># Fit nls. This particular function is not very sensitive to the </span>
+<span class="co"># starting values (try this yourself),</span>
+<span class="co"># but the maximum height has been guessed from the plot of the data.</span>
+nls_howell &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span>b0 <span class="op">+</span><span class="st"> </span>(ymax<span class="op">-</span>b0)<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>k<span class="op">*</span>age)), 
+                  <span class="dt">start=</span><span class="kw">list</span>(<span class="dt">b0=</span><span class="dv">50</span>,<span class="dt">ymax=</span><span class="dv">150</span>,<span class="dt">k=</span><span class="fl">0.1</span>), <span class="dt">data=</span>howell)
+
+<span class="co"># Perform bootstrap, 500 times</span>
+b &lt;-<span class="st"> </span>car<span class="op">::</span><span class="kw">Boot</span>(nls_howell, <span class="dt">R=</span><span class="dv">500</span>)</code></pre>
+<pre><code>## Loading required namespace: boot</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function calculates the 90% saturation point based on the fitted parameters:</span>
+x90fun &lt;-<span class="st"> </span><span class="cf">function</span>(ymax,k)<span class="kw">log</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="fl">0.9</span>)<span class="op">/-</span>k
+
+<span class="co"># Calculate all 90% saturation points. </span>
+<span class="co"># The object &#39;b$t&#39; is a matrix with the three parameters in columns.</span>
+x90 &lt;-<span class="st"> </span><span class="kw">x90fun</span>(b<span class="op">$</span>t[,<span class="st">&quot;ymax&quot;</span>], b<span class="op">$</span>t[,<span class="st">&quot;k&quot;</span>])
+
+<span class="co"># The simulated distribution of x90 is an approximation to </span>
+<span class="co"># the sampling distribution. So, we can calculate the confidence </span>
+<span class="co"># interval using quantile.</span>
+ci_x90 &lt;-<span class="st"> </span><span class="kw">quantile</span>(x90, <span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))
+ci_x90</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 18.96942 20.44259</code></pre>
+
+<div class="rmdcaution">
+When an error occurred during the execution of <code>car::Boot</code>, the function has a very annoying side-effect to switch off all error messages (and everything else, it seems). If, after using <code>Boot</code>, nothing is printed to your screen, check your code because an error has occurred. To switch error messages back on, use the command <code>options(show.error.messages = TRUE)</code>.
+</div>
+
+<p>And finally we can make a plot showing the confidence interval (Fig. <a href="non-linear-modelling.html#fig:bootsympcifig">7.12</a>) of the age where 90% of the maximum height is reached, on average. The first panel of the plot shows the sampling distribution of this age, as estimated with the bootstrap.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Store coefficients</span>
+cf &lt;-<span class="st"> </span><span class="kw">coef</span>(nls_howell)
+
+<span class="co"># Build the plot: points, fitted curve, and a confidence interval for</span>
+<span class="co"># the age where 90% of the maximum is reached.</span>
+<span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> age, <span class="dt">y =</span> height)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">21</span>, <span class="dt">bg=</span><span class="st">&quot;white&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>, <span class="kw">max</span>(howell<span class="op">$</span>height))) <span class="op">+</span>
+<span class="st">  </span>
+<span class="st">  </span><span class="co"># Add any curve using stat_function()</span>
+<span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> <span class="cf">function</span>(x){
+      cf[<span class="st">&quot;b0&quot;</span>] <span class="op">+</span><span class="st"> </span>(cf[<span class="st">&quot;ymax&quot;</span>] <span class="op">-</span><span class="st"> </span>cf[<span class="st">&quot;b0&quot;</span>])<span class="op">*</span>(<span class="dv">1</span> <span class="op">-</span><span class="st"> </span><span class="kw">exp</span>(<span class="op">-</span>cf[<span class="st">&quot;k&quot;</span>]<span class="op">*</span>x))
+    }) <span class="op">+</span>
+<span class="st">  </span>
+<span class="st">  </span><span class="co"># Age where 90% max height is reached, with confidence interval</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept =</span> <span class="kw">mean</span>(x90)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span>ci_x90, <span class="dt">lty=</span><span class="dv">5</span>)</code></pre>
+<div class="figure" style="text-align: center"><span id="fig:bootsympcifig"></span>
+<img src="06-nonlinear_files/figure-html/bootsympcifig-1.svg" alt="Confidence interval on the x-value where y reaches 90\% of its estimated asymptotic value, calculated with the bootstrap." width="672" />
+<p class="caption">
+Figure 7.12: Confidence interval on the x-value where y reaches 90% of its estimated asymptotic value, calculated with the bootstrap.
+</p>
+</div>
+
+<div class="rmdtry">
+In the above example, we fitted a single curve to the <code>howell</code> dataset. That dataset also includes information on gender (the <code>male</code> variable). Using the example code above, find out whether the age at which 90% height is reached differs significantly between men and women (as indicated by the confidence interval).
+</div>
+
+</div>
+<div id="bootpredictionnls" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Predictions</h3>
+<p>Suppose we are interested in the predicted value of tree height at an age of 22.5 years, using the fitted model from the previous example. We can find an estimate of this height by interpolating with the fitted nonlinear model. There is really no viable alternative to the bootstrap in this situation - approximate methods can be very inaccurate.</p>
+<p>Note that bootstrapping a non-linear model can be impractical because it requires the model to be refit many times to the resampled dataset. This can both be slow, and sometimes fail altogether when a large portion of the models does not converge. Both are problems with small datasets in particular (or many parameters to be estimated, relative to the size of the dataset). For small datasets, you should probably not try to estimate the uncertainty of the predictions at all, because the bootstrap will fail, and approximate methods will be particularly bad.</p>
+<p>The following example finds the prediction and 95% confidence interval for the height, using the non-parametric bootstrap (see Chapter X).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We quickly redo the nls_lob model from the start of this chapter</span>
+chapm &lt;-<span class="st"> </span><span class="cf">function</span>(x,Asym,b,c)Asym<span class="op">*</span>(<span class="dv">1</span><span class="op">-</span><span class="kw">exp</span>(<span class="op">-</span>b<span class="op">*</span>x))<span class="op">^</span>c
+nls_lob &lt;-<span class="st"> </span><span class="kw">nls</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">chapm</span>(age, Asym, b,c),
+               <span class="dt">data=</span>Loblolly,
+               <span class="dt">start=</span><span class="kw">list</span>(<span class="dt">Asym=</span><span class="dv">100</span>, <span class="dt">b=</span><span class="fl">0.1</span>, <span class="dt">c=</span><span class="fl">2.5</span>))
+
+<span class="co"># bootstrap resampling. The object bt$t contains coefficients of the nonlinear </span>
+<span class="co"># model fitted to 500 resampled datasets.</span>
+<span class="co"># </span><span class="al">NOTE</span><span class="co">: always try whether 500 resamples is sufficient, if not use more!</span>
+bt &lt;-<span class="st"> </span>car<span class="op">::</span><span class="kw">Boot</span>(nls_lob, <span class="dt">R=</span><span class="dv">500</span>)
+coefs &lt;-<span class="st"> </span>bt<span class="op">$</span>t
+
+<span class="co"># Calculate height at age of 22.5 years for every bootstrap replicate.</span>
+<span class="co"># Note that &#39;b&#39; is a matrix containing the model coefficients, one row for each</span>
+<span class="co"># bootstrap replicate.</span>
+h225 &lt;-<span class="st"> </span><span class="kw">chapm</span>(<span class="dt">x=</span><span class="fl">22.5</span>, <span class="dt">Asym=</span>coefs[,<span class="st">&quot;Asym&quot;</span>], <span class="dt">b=</span>coefs[,<span class="st">&quot;b&quot;</span>], <span class="dt">c=</span>coefs[,<span class="st">&quot;c&quot;</span>])
+
+<span class="co"># The 2.5 and 97.5% quantiles give the confidence interval for the prediction.</span>
+<span class="kw">quantile</span>(h225, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))</code></pre>
+<pre><code>##     2.5%    97.5% 
+## 55.47098 57.04543</code></pre>
+
+<div class="rmdtry">
+From the bootstrapped results, calculate the confidence intervals of the parameters. Compare to the results with <code>confint</code> and <code>confint2</code>. <em>Hint:</em> calculate the quantiles of the three parameters stored in the <code>bt</code> object.
+</div>
+
+<p>The next example demonstrates how to calculate a confidence interval along the entire fitted curve, again using the bootstrap.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Hydraulic restistance in Callitris branches</span>
+<span class="kw">data</span>(callitrishydraulic)
+
+<span class="co"># Fit logistic model using non-linear regression</span>
+nls_calli &lt;-<span class="st"> </span><span class="kw">nls</span>(PLC <span class="op">~</span><span class="st"> </span><span class="kw">SSlogis</span>(Psi, Asym, xmid, scal), <span class="dt">data=</span>callitrishydraulic)
+
+<span class="co"># Set up X values where we want to yield predictions (cover the range of Psi in the data).</span>
+xvals &lt;-<span class="st"> </span><span class="kw">seq</span>(<span class="dv">2</span>,<span class="dv">15</span>,<span class="dt">length=</span><span class="dv">25</span>)
+
+<span class="co"># Bootstrap the model. Note low number of replications - </span>
+<span class="co"># you may want to increase this for serious use.</span>
+b &lt;-<span class="st"> </span>car<span class="op">::</span><span class="kw">Boot</span>(nls_calli, <span class="dt">R=</span><span class="dv">100</span>, <span class="dt">f =</span> <span class="cf">function</span>(x)<span class="kw">predict</span>(x, <span class="kw">data.frame</span>(<span class="dt">Psi=</span>xvals)))</code></pre>
+<pre><code>## 
+##  Number of bootstraps was 64 out of 100 attempted</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">predictions &lt;-<span class="st"> </span>b<span class="op">$</span>t</code></pre>
+<p>We have now performed the bootstrap on the non-linear regression model, but note that a number of models could not be fitted. Recall that non-linear regression models need to converge to a solution, and for some poor-fitting datasets, the fit may be inconclusive. We can now plot each of the fitted curves to the resampled datasets, as returned by the bootstrap (Fig. <a href="#fig:callcurves"><strong>??</strong></a>). This is a case where using base graphics results in a substantially more concise solution.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the data, and a curve for each bootstrap replicate.</span>
+<span class="kw">with</span>(callitrishydraulic, <span class="kw">plot</span>(Psi, PLC, <span class="dt">pch=</span><span class="dv">19</span>, 
+                 <span class="dt">panel.first=</span>{
+                   <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">nrow</span>(predictions)){
+                     <span class="kw">lines</span>(xvals, predictions[i,], <span class="dt">col=</span><span class="st">&quot;grey&quot;</span>)
+                   }  
+                  }))</code></pre>
+<p><img src="06-nonlinear_files/figure-html/callcurves-1.svg" width="672" /></p>
+<p>Now, for an arbitrary sequence of x values, we can calculate the confidence interval for the mean location of the regression line from the quantiles across all those regression lines.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate confidence interval across the bootstrap predictions.</span>
+ci &lt;-<span class="st"> </span><span class="kw">apply</span>(<span class="kw">na.omit</span>(predictions), <span class="dv">2</span>, quantile, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.025</span>, <span class="fl">0.975</span>))
+
+<span class="co"># Plot data, and a shaded confidence interval for the location of the curve.</span>
+<span class="kw">with</span>(callitrishydraulic, <span class="kw">plot</span>(Psi, PLC, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">panel.first=</span>{
+  <span class="kw">lines</span>(xvals, ci[<span class="dv">1</span>,], <span class="dt">lty=</span><span class="dv">3</span>)
+  <span class="kw">lines</span>(xvals, ci[<span class="dv">2</span>,], <span class="dt">lty=</span><span class="dv">3</span>)
+}))
+
+<span class="co"># Add the fitted &#39;mean&#39; curve from the original fitted model.</span>
+cf &lt;-<span class="st"> </span><span class="kw">coef</span>(nls_calli)
+<span class="kw">curve</span>(<span class="kw">SSlogis</span>(x, cf[<span class="st">&quot;Asym&quot;</span>], cf[<span class="st">&quot;xmid&quot;</span>], cf[<span class="st">&quot;scal&quot;</span>]), <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">lwd=</span><span class="dv">2</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</code></pre>
+<p><img src="06-nonlinear_files/figure-html/unnamed-chunk-34-1.svg" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="linmodel.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

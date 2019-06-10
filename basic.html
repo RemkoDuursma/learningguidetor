@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 5 Basic statistics | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="The HIERmanual has new clothes." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 5 Basic statistics | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="The HIERmanual has new clothes." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 5 Basic statistics | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="The HIERmanual has new clothes." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-06-08" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="reporting.html">
+<link rel="next" href="linmodel.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.2</b> Reading data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.2.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.2.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.2.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.2.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.2.4" data-path="summarize.html"><a href="summarize.html#reading-typed-data"><i class="fa fa-check"></i><b>3.2.4</b> Reading typed data</a></li>
+<li class="chapter" data-level="" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i>JSON</a></li>
+<li class="chapter" data-level="3.2.5" data-path="summarize.html"><a href="summarize.html#reading-data-from-databases"><i class="fa fa-check"></i><b>3.2.5</b> Reading data from databases</a></li>
+<li class="chapter" data-level="3.2.6" data-path="summarize.html"><a href="summarize.html#other-data-formats"><i class="fa fa-check"></i><b>3.2.6</b> Other data formats</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.3</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.3.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.3.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.3.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.4</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.4.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.4.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.4.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.4.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.5</b> Exporting data</a></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#data-types"><i class="fa fa-check"></i><b>3.6</b> Data types</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7</b> Working with factors</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#turn-numeric-data-into-factors"><i class="fa fa-check"></i><b>3.7.1</b> Turn numeric data into factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#empty-factor-levels"><i class="fa fa-check"></i><b>3.7.2</b> Empty factor levels</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#changelevels"><i class="fa fa-check"></i><b>3.7.3</b> Changing the levels of a factor</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.8</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.9</b> Working with missing values</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#making-missing-values"><i class="fa fa-check"></i><b>3.9.1</b> Making missing values</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#not-a-number"><i class="fa fa-check"></i><b>3.9.2</b> Not A Number</a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#naindataframe"><i class="fa fa-check"></i><b>3.9.3</b> Missing values in dataframes</a></li>
+<li class="chapter" data-level="3.9.4" data-path="summarize.html"><a href="summarize.html#subsetmissing"><i class="fa fa-check"></i><b>3.9.4</b> Subsetting when there are missing values</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.10</b> Working with text</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#paste"><i class="fa fa-check"></i><b>3.10.1</b> Combining text</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#textgrep"><i class="fa fa-check"></i><b>3.10.2</b> Text in dataframes and <code>grep</code></a></li>
+<li class="chapter" data-level="3.10.3" data-path="summarize.html"><a href="summarize.html#more-control-with-the-stringr-package"><i class="fa fa-check"></i><b>3.10.3</b> More control with the <code>stringr</code> package</a></li>
+<li class="chapter" data-level="3.10.4" data-path="summarize.html"><a href="summarize.html#combining-text-and-r-objects-with-glue"><i class="fa fa-check"></i><b>3.10.4</b> Combining text and R objects with <code>glue</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.11</b> Working with dates and times</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#readingdates"><i class="fa fa-check"></i><b>3.11.1</b> Reading dates</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#datetime"><i class="fa fa-check"></i><b>3.11.2</b> Date-Time combinations</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.11.3</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.12" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.12</b> Summarizing dataframes</a></li>
+<li class="chapter" data-level="3.13" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.13</b> Making summary tables</a><ul>
+<li class="chapter" data-level="3.13.1" data-path="summarize.html"><a href="summarize.html#tapply"><i class="fa fa-check"></i><b>3.13.1</b> Summarizing vectors with <code>tapply</code></a></li>
+<li class="chapter" data-level="3.13.2" data-path="summarize.html"><a href="summarize.html#summaryby"><i class="fa fa-check"></i><b>3.13.2</b> Quick summary tables with <code>summaryBy</code></a></li>
+<li class="chapter" data-level="3.13.3" data-path="summarize.html"><a href="summarize.html#dplyr"><i class="fa fa-check"></i><b>3.13.3</b> Summarizing dataframes with <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="3.14" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.14</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.15" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.15</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.16" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.16</b> Reordering factor levels based on a summary variable</a></li>
+<li class="chapter" data-level="3.17" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.17</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.17.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.17.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.17.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.17.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.17.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.17.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.18" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.18</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.18.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.18.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.18.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.18.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.19" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.19</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.19.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.19.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.19.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.19.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.19.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.19.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.1</b> Tips</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.2</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="basic.html"><a href="basic.html"><i class="fa fa-check"></i><b>5</b> Basic statistics</a><ul>
+<li class="chapter" data-level="5.1" data-path="basic.html"><a href="basic.html#distributions"><i class="fa fa-check"></i><b>5.1</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.2" data-path="basic.html"><a href="basic.html#descstat"><i class="fa fa-check"></i><b>5.2</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.3" data-path="basic.html"><a href="basic.html#inference"><i class="fa fa-check"></i><b>5.3</b> Inference for a single population</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="basic.html"><a href="basic.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.3.1</b> Hypothesis testing</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="basic.html"><a href="basic.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4</b> Inference for two populations</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="basic.html"><a href="basic.html#paired-data"><i class="fa fa-check"></i><b>5.4.1</b> Paired data</a></li>
+<li class="chapter" data-level="5.4.2" data-path="basic.html"><a href="basic.html#unequal-variances"><i class="fa fa-check"></i><b>5.4.2</b> Unequal variances</a></li>
+<li class="chapter" data-level="5.4.3" data-path="basic.html"><a href="basic.html#assumed-normality"><i class="fa fa-check"></i><b>5.4.3</b> Assumed normality</a></li>
+<li class="chapter" data-level="5.4.4" data-path="basic.html"><a href="basic.html#power"><i class="fa fa-check"></i><b>5.4.4</b> Power</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="basic.html"><a href="basic.html#simpleregression"><i class="fa fa-check"></i><b>5.5</b> Simple linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="basic.html"><a href="basic.html#adding-regression-lines-to-a-plot"><i class="fa fa-check"></i><b>5.5.1</b> Adding regression lines to a plot</a></li>
+<li class="chapter" data-level="5.5.2" data-path="basic.html"><a href="basic.html#diagplots"><i class="fa fa-check"></i><b>5.5.2</b> Diagnostic plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="basic.html"><a href="basic.html#distributions"><i class="fa fa-check"></i><b>6.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="basic.html"><a href="basic.html#descstat"><i class="fa fa-check"></i><b>6.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing-1"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations-1"><i class="fa fa-check"></i><b>6.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>6.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="6.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="6.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="6.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.4.9</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>6.5.2</b> Simple and multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>6.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>7.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>7.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>7.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="7.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>7.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>7.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="7.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>7.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>7.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="7.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>7.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="7.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>7.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="7.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>7.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="7.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>7.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="7.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>7.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>7.4</b> Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>8</b> R on the web</a><ul>
+<li class="chapter" data-level="8.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>8.1.1</b> Reading data from remote databases</a></li>
+<li class="chapter" data-level="8.1.2" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.1.2</b> Accessing an API</a></li>
+<li class="chapter" data-level="8.1.3" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.1.3</b> Deploying an API with <code>plumber</code></a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="basic" class="section level1">
+<h1><span class="header-section-number">Chapter 5</span> Basic statistics</h1>
+<p>This book is not an <em>Introduction to statistics</em>. There are many books focused on <em>statistics</em>, with or without example R code. The focus throughout this book is on the R code itself, as we try to present clear and short solutions to common analysis tasks. In the following, we assume you have a basic understanding of linear regression, Student’s <span class="math inline">\(t\)</span>-tests, ANOVA, and confidence intervals for the mean.</p>
+<div id="distributions" class="section level2">
+<h2><span class="header-section-number">5.1</span> Probability distributions</h2>
+<p>You will have encountered a number of probability distributions before. For example, the <em>Binomial</em> distribution is a model for the distribution of the number of <em>successes</em> in a sequence of independent trials, for example, the number of heads in a coin tossing experiment. Another commonly used discrete distribution is the <em>Poisson</em>, which is a useful model for many kinds of count data. Of course, the most important distribution of all is the <em>Normal</em> or Gaussian distribution.</p>
+<p>R provides sets of functions to find densities, cumulative probabilities, quantiles, and to draw random numbers from many important distributions. The names of the functions all consist of a one letter prefix that specifies the type of function and a stem which specifies the distribution. Look at the examples in the table below.</p>
+<p><strong>Prefix</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Prefix</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>d</code></td>
+<td align="left">density</td>
+</tr>
+<tr class="even">
+<td align="left"><code>p</code></td>
+<td align="left">cumulative probability</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>q</code></td>
+<td align="left">quantile</td>
+</tr>
+<tr class="even">
+<td align="left"><code>r</code></td>
+<td align="left">simulate</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Suffix</strong></p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Suffix</th>
+<th align="left">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>binom</code></td>
+<td align="left">Binomial</td>
+</tr>
+<tr class="even">
+<td align="left"><code>pois</code></td>
+<td align="left">Poisson</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>norm</code></td>
+<td align="left">Normal</td>
+</tr>
+<tr class="even">
+<td align="left"><code>t</code></td>
+<td align="left">Student’s t</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>chisq</code></td>
+<td align="left">Chi-squared</td>
+</tr>
+<tr class="even">
+<td align="left"><code>f</code></td>
+<td align="left">F</td>
+</tr>
+</tbody>
+</table>
+<p>Using the prefix and the suffix, we can construct each desired function. For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the probability of 3 heads out of 10 tosses of a fair coin.</span>
+<span class="co"># This is a (d)ensity of a (binom)ial distribution.</span>
+<span class="kw">dbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre>
+<pre><code>## [1] 0.1171875</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the probability that a normal random variable (with </span>
+<span class="co"># mean of 3 and standard deviation of 2) is less than or equal to 4.</span>
+<span class="co"># This is a cumulative (p)robability of a (norm)al variable.</span>
+<span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>)</code></pre>
+<pre><code>## [1] 0.6914625</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the t-value that corresponds to a 2.5% right-hand tail probability</span>
+<span class="co"># with 5 degrees of freedom.</span>
+<span class="co"># This is a (q)uantile of a (t)distribution.</span>
+<span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">5</span>)</code></pre>
+<pre><code>## [1] 2.570582</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Simulate 5 Poisson random variables with a mean of 3. </span>
+<span class="co"># This is a set of (r)andom numbers from a (pois)son distribution.</span>
+<span class="kw">rpois</span>(<span class="dv">5</span>, <span class="dv">3</span>)</code></pre>
+<pre><code>## [1] 0 3 1 2 4</code></pre>
+<p>See the help page <code>?Distributions</code> for more details.</p>
+<p>To make a quick plot of a distribution, we can use the density function in combination with <code>curve</code>. The following code makes Fig. <a href="basic.html#fig:distplot">5.1</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A standard normal distribution</span>
+<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">from=</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>,
+      <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
+
+<span class="co"># Add a t-distribution with 3 degrees of freedom.</span>
+<span class="kw">curve</span>(<span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">3</span>), <span class="dt">from =</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
+
+<span class="co"># Add a legend (with a few options, see ?legend)</span>
+<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Standard normal&quot;</span>,<span class="st">&quot;t-distribution, df=3&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),
+       <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
+<div class="figure"><span id="fig:distplot"></span>
+<img src="04-basic_stats_files/figure-html/distplot-1.svg" alt="Two univariate distributions plotted with curve()" width="672" />
+<p class="caption">
+Figure 5.1: Two univariate distributions plotted with curve()
+</p>
+</div>
+
+<div class="rmdtry">
+Make a histogram (recall Section <a href="#hist"><strong>??</strong></a> of a sample of random numbers from a distribution of your choice.
+</div>
+
+</div>
+<div id="descstat" class="section level2">
+<h2><span class="header-section-number">5.2</span> Descriptive Statistics</h2>
+<p>Descriptive statistics summarise some of the properties of a given data set. Generally, we are interested in measures of location (central tendency, such as mean and median) and scale (variance or standard deviation). Other descriptions can include the sample size, the range, and so on. We already encountered a number of functions that can be used to summarize a vector.</p>
+<p>Let’s look at some examples for the Pupae dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">data</span>(pupae)
+
+<span class="co"># Extract the weights (for convenience)</span>
+weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight
+
+<span class="co"># Find the number of observations</span>
+<span class="kw">length</span>(weight)</code></pre>
+<pre><code>## [1] 84</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the average (mean) weight</span>
+<span class="kw">mean</span>(weight)</code></pre>
+<pre><code>## [1] 0.3110238</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the Variance</span>
+<span class="kw">var</span>(weight)</code></pre>
+<pre><code>## [1] 0.004113951</code></pre>
+<p>Note that R will compute the sample variance (not the population variance). The standard deviation can be calculated as the square root of the variance, or use the <code>sd</code> function directly.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard Deviation</span>
+<span class="kw">sqrt</span>(<span class="kw">var</span>(weight))</code></pre>
+<pre><code>## [1] 0.06414009</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard Deviation</span>
+<span class="kw">sd</span>(weight)</code></pre>
+<pre><code>## [1] 0.06414009</code></pre>
+<p>Robust measures of the location and scale are the median and inter-quartile range; R has functions for these.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># median and inter-quartile range</span>
+<span class="kw">median</span>(weight)</code></pre>
+<pre><code>## [1] 0.2975</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(weight)</code></pre>
+<pre><code>## [1] 0.09975</code></pre>
+<p>The median is the 50th percentile or the second quartile. The <code>quantile</code> function can compute quartiles as well as arbitrary percentiles/quantiles.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Default: computes quartiles.</span>
+<span class="kw">quantile</span>(weight)</code></pre>
+<pre><code>##      0%     25%     50%     75%    100% 
+## 0.17200 0.25625 0.29750 0.35600 0.47300</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Or set any quantiles</span>
+<span class="kw">quantile</span>(weight, <span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>))</code></pre>
+<pre><code>##     0%    10%    20%    30%    40%    50%    60%    70%    80%    90% 
+## 0.1720 0.2398 0.2490 0.2674 0.2892 0.2975 0.3230 0.3493 0.3710 0.3910 
+##   100% 
+## 0.4730</code></pre>
+<p><strong>Missing Values</strong>: All of the above functions will return <code>NA</code> if the data contains <em>any</em> missing values. However, they also provide an option to remove missing values (<code>NA</code>s) before their computations (see also Section <a href="summarize.html#workingmissing">3.9</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass)</code></pre>
+<pre><code>## [1] NA</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## [1] 1.846446</code></pre>
+<p>The <code>summary</code> function provides a lot of the above information in a single command:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(weight)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##  0.1720  0.2562  0.2975  0.3110  0.3560  0.4730</code></pre>
+<p>The <code>moments</code> package provides ‘higher moments’ if required, for example,
+the <code>skewness</code> and <code>kurtosis</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the moments package</span>
+<span class="kw">library</span>(moments)
+<span class="kw">skewness</span>(weight)</code></pre>
+<pre><code>## [1] 0.3851656</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kurtosis</span>(weight)</code></pre>
+<pre><code>## [1] 2.579144</code></pre>
+<p>The <code>pastecs</code> package includes a useful function that calculates many descriptive statistics for numeric vectors, including the standard error for the mean (for which R has no built-in function).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pastecs)
+
+<span class="co"># see ?stat.desc for description of the abbreviations</span>
+<span class="kw">stat.desc</span>(weight)</code></pre>
+<pre><code>##      nbr.val     nbr.null       nbr.na          min          max 
+## 84.000000000  0.000000000  0.000000000  0.172000000  0.473000000 
+##        range          sum       median         mean      SE.mean 
+##  0.301000000 26.126000000  0.297500000  0.311023810  0.006998258 
+## CI.mean.0.95          var      std.dev     coef.var 
+##  0.013919253  0.004113951  0.064140091  0.206222446</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># conveniently, the output is a character vector which we can index by name,</span>
+<span class="co"># for example extracting the standard error for the mean</span>
+<span class="kw">stat.desc</span>(weight)[<span class="st">&quot;SE.mean&quot;</span>]</code></pre>
+<pre><code>##     SE.mean 
+## 0.006998258</code></pre>
+<p>Sometimes you may wish to calculate descriptive statistics for subgroups in the data. We will come back to this extensively in Section <a href="summarize.html#tapplyaggregate">3.13</a> and later sections.</p>
+</div>
+<div id="inference" class="section level2">
+<h2><span class="header-section-number">5.3</span> Inference for a single population</h2>
+<p><em>Inference</em> is answering questions about population parameters based on a sample. The mean of a random sample from a population is an estimate of the population mean. Since it is a single number it is called a point estimate. It is often desirable to estimate a range within which the population parameter lies with high probability. This is called a confidence interval.</p>
+<p>One way to get confidence intervals in R is to use the quantile functions for the relevant distribution. Remember from your introductory statistics course that a <span class="math inline">\(100(1-\alpha)\)</span>% confidence interval for the mean on normal population is given by,</p>
+<p><span class="math display">\[\bar{x} \pm t_{\alpha/2, n-1} \frac{s}{\sqrt{n}}\]</span></p>
+<p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean, <span class="math inline">\(s\)</span> the sample standard deviation and <span class="math inline">\(n\)</span> is the sample size. <span class="math inline">\(t_{\alpha/2, n-1}\)</span> is the <span class="math inline">\(\alpha/2\)</span> tail point of a <span class="math inline">\(t\)</span>-distribution on <span class="math inline">\(n-1\)</span> degrees of freedom. That is, if <span class="math inline">\(T\)</span> has a <span class="math inline">\(t\)</span>-distribution on <span class="math inline">\(n-1\)</span> degrees of freedom.</p>
+<p><span class="math display">\[P(T \leq t_{\alpha/2, n-1}) = 1-\alpha/2 \]</span></p>
+<p>The R code for this confidence interval can be written as,</p>
+<pre class="sourceCode r"><code class="sourceCode r">alpha &lt;-<span class="st"> </span><span class="fl">0.05</span> <span class="co"># for a 95% confidence interval</span>
+xbar &lt;-<span class="st"> </span><span class="kw">mean</span>(weight)
+s &lt;-<span class="st"> </span><span class="kw">sd</span>(weight)
+n &lt;-<span class="st"> </span><span class="kw">length</span>(weight)
+half.width &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>, n<span class="dv">-1</span>)<span class="op">*</span>s<span class="op">/</span><span class="kw">sqrt</span>(n)
+
+<span class="co"># Confidence Interval </span>
+<span class="kw">c</span>(xbar <span class="op">-</span><span class="st"> </span>half.width, xbar <span class="op">+</span><span class="st"> </span>half.width)</code></pre>
+<pre><code>## [1] 0.2971046 0.3249431</code></pre>
+<p>Here, we assumed a normal distribution for the population. You may have been taught that if <span class="math inline">\(n\)</span> is <em>large</em>, say <span class="math inline">\(n&gt;30\)</span>, then you can use a normal approximation. That is, replace <code>qt(1-alpha/2, n-1)</code> with <code>qnorm(1-alpha/2)</code>, but there is no need, R can use the <span class="math inline">\(t\)</span>-distribution for any <span class="math inline">\(n\)</span> (and the results will be the same, as the <span class="math inline">\(t\)</span>-distribution converges to a normal distribution when the df is large).</p>
+<div id="hypothesis-testing" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Hypothesis testing</h3>
+<p>There may be a reason to ask whether a dataset is consistent with a certain mean. For example, are the pupae weights consistent with a population mean of 0.29? For normal populations, we can use Student’s <span class="math inline">\(t\)</span>-test, available in R as the <code>t.test</code> function. Let’s test the null hypothesis that the population mean is 0.29:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  weight
+## t = 3.0041, df = 83, p-value = 0.00352
+## alternative hypothesis: true mean is not equal to 0.29
+## 95 percent confidence interval:
+##  0.2971046 0.3249431
+## sample estimates:
+## mean of x 
+## 0.3110238</code></pre>
+<p>Note that we get the <span class="math inline">\(t\)</span>-statistic, degrees of freedom (<span class="math inline">\(n-1\)</span>) and a p-value for the test, with the specified alternative hypothesis (not equal, i.e. two-sided). In addition, <code>t.test</code> gives us a 95% confidence interval (compare to the above), and the estimated mean, <span class="math inline">\(\bar{x}\)</span>.</p>
+<p>We can use <code>t.test</code> to get any confidence interval, and/or to do one-sided tests,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>, <span class="dt">conf.level=</span><span class="fl">0.90</span>)</code></pre>
+<pre><code>## 
+##  One Sample t-test
+## 
+## data:  weight
+## t = 3.0041, df = 83, p-value = 0.00176
+## alternative hypothesis: true mean is greater than 0.29
+## 90 percent confidence interval:
+##  0.3019832       Inf
+## sample estimates:
+## mean of x 
+## 0.3110238</code></pre>
+<p>Note that the confidence interval is one-sided when the test is one-sided.</p>
+<p>The <code>t.test</code> is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot (see Sections~ and~). If the data is not very close to a normal distribution then the <code>t.test</code> is often still appropriate, as long as the sample is large.</p>
+<p>If the data is not normal and the sample size is small, there are a couple of alternatives: transform the data (often a log transform is enough) or use a <em>nonparametric</em> test, in this case the Wilcoxon signed rank test. We can use the <code>wilcox.test</code> function for the latter, its interface is similar to <code>t.test</code> and it tests the hypothesis that the data is symmetric about the hypothesized population mean. For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>)</code></pre>
+<pre><code>## 
+##  Wilcoxon signed rank test with continuity correction
+## 
+## data:  weight
+## V = 2316.5, p-value = 0.009279
+## alternative hypothesis: true location is not equal to 0.29</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Likewise: (result not shown)</span>
+<span class="co">#wilcox.test(weight, mu=0.29, alternative=&quot;greater&quot;)</span></code></pre>
+<div id="test-for-proportions" class="section level4">
+<h4><span class="header-section-number">5.3.1.1</span> Test for proportions</h4>
+<p>Sometimes you want to test whether observed proportions are consistent with a hypothesized population proportion. For example, consider a coin tossing experiment where you want to test the hypothesis that you have a fair coin (one with an equal probability of landing heads or tails). In your experiment, you get 60 heads out of 100 coin tosses. Do you have a fair coin? We can use the <code>prop.test</code> function:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 60 &#39;successes&#39; out of a 100 trials, the hypothesized probability is 0.5.</span>
+<span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">60</span>, <span class="dt">n=</span><span class="dv">100</span>, <span class="dt">p=</span><span class="fl">0.5</span>)</code></pre>
+<pre><code>## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  60 out of 100, null probability 0.5
+## X-squared = 3.61, df = 1, p-value = 0.05743
+## alternative hypothesis: true p is not equal to 0.5
+## 95 percent confidence interval:
+##  0.4970036 0.6952199
+## sample estimates:
+##   p 
+## 0.6</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Same as above, but for a one-sided test.</span>
+<span class="kw">prop.test</span>(<span class="dv">60</span>, <span class="dv">100</span>, <span class="dt">p=</span><span class="fl">0.5</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>)</code></pre>
+<pre><code>## 
+##  1-sample proportions test with continuity correction
+## 
+## data:  60 out of 100, null probability 0.5
+## X-squared = 3.61, df = 1, p-value = 0.02872
+## alternative hypothesis: true p is greater than 0.5
+## 95 percent confidence interval:
+##  0.5127842 1.0000000
+## sample estimates:
+##   p 
+## 0.6</code></pre>
+</div>
+</div>
+</div>
+<div id="inference-for-two-populations" class="section level2">
+<h2><span class="header-section-number">5.4</span> Inference for two populations</h2>
+<p>Commonly, we wish to compare two (or more) populations. For example, the <code>pupae</code> dataset has pupal weights for female and male pupae. We may wish to compare the weights of males (<code>gender=0</code>) and females (<code>gender=1</code>).</p>
+<p>There are two ways to use <code>t.test</code> to compare the pupal weights of males and females. In the first method, we make two vectors,</p>
+<pre class="sourceCode r"><code class="sourceCode r">weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight
+gender &lt;-<span class="st"> </span>pupae<span class="op">$</span>Gender
+weight.male &lt;-<span class="st"> </span>weight[gender<span class="op">==</span><span class="dv">0</span>]
+weight.female &lt;-<span class="st"> </span>weight[gender<span class="op">==</span><span class="dv">1</span>]
+
+<span class="co"># We will assume equal variance for male and female pupae (see Unequal variances, below):</span>
+<span class="kw">t.test</span>(weight.male, weight.female, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  weight.male and weight.female
+## t = -7.3571, df = 76, p-value = 1.854e-10
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.10012896 -0.05746573
+## sample estimates:
+## mean of x mean of y 
+## 0.2724884 0.3512857</code></pre>
+
+<div class="rmdtry">
+Confirm that there are missing data in both variables in the example above. The default action is to omit all missing values (see description under <code>na.action</code> in the help file <code>?t.test</code>).
+</div>
+
+<p>There is also a <em>formula</em> interface for <code>t.test</code>. The formula interface is important because we will use it in many other functions, like linear regression and linear modelling. For the <code>t.test</code> we can use the formula interface on the extracted variables, or without extracting the variables.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using the vectors we constructed in the previous example</span>
+<span class="kw">t.test</span>(weight <span class="op">~</span><span class="st"> </span>gender,  <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Two Sample t-test
+## 
+## data:  weight by gender
+## t = -7.3571, df = 76, p-value = 1.854e-10
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  -0.10012896 -0.05746573
+## sample estimates:
+## mean in group 0 mean in group 1 
+##       0.2724884       0.3512857</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Or by specifying the data= argument. (same result not shown)</span>
+<span class="co"># t.test(PupalWeight~Gender,  data=pupae, var.equal=TRUE)</span></code></pre>
+<div id="paired-data" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> Paired data</h3>
+<p>The <code>t.test</code> can also be used when the data are paired, for example, measurements taken before and after some treatment on the same subjects. The <code>pulse</code> dataset is an example of paired data (see Section~). We will compare pulse rates before and after exercise, including only those subjects that exercised (<code>Ran=1</code>),</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(pulse)
+pulse.before &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse1[Ran<span class="op">==</span><span class="dv">1</span>])
+pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse2[Ran<span class="op">==</span><span class="dv">1</span>])
+<span class="kw">t.test</span>(pulse.after, pulse.before, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>## 
+##  Paired t-test
+## 
+## data:  pulse.after and pulse.before
+## t = 16.527, df = 45, p-value &lt; 2.2e-16
+## alternative hypothesis: true difference in means is not equal to 0
+## 95 percent confidence interval:
+##  45.12843 57.65418
+## sample estimates:
+## mean of the differences 
+##                 51.3913</code></pre>
+</div>
+<div id="unequal-variances" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> Unequal variances</h3>
+<p>The default for the two-sample <code>t.test</code> is actually to <em>not</em> assume equal variances. The theory for this kind of test is quite complex, and the resulting <span class="math inline">\(t\)</span>-test is now only approximate, with an adjustment called the ‘Satterthwaite’ or ‘Welch’ approximation made to the degrees of freedom.</p>
+<p>Since this modified <span class="math inline">\(t\)</span>-test makes fewer assumptions, you could ask why we ever use the equal variances form. If the assumption is reasonable, then this (equal variances) form will have more power, i.e. will reject the null hypothesis more often when it is actually false.</p>
+</div>
+<div id="assumed-normality" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> Assumed normality</h3>
+<p>The two-sample <span class="math inline">\(t\)</span>-test assumes normality of the data (which you can check using a histogram or a QQ-plot) or that the sample sizes are large enough that the <em>central limit theorem</em> applies. Note that the paired <span class="math inline">\(t\)</span>-test assumes only that the differences are normal - the data themselves can still follow any number of distributions. The <code>wilcox.test</code> can be used when any of these assumptions are suspect. In the case of two samples (unpaired), this test used is called the Wilcoxon rank sum test (also known as the Mann-Whitney test).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender,  <span class="dt">data=</span>pupae, <span class="dt">exact=</span><span class="ot">FALSE</span>)</code></pre>
+<pre><code>## 
+##  Wilcoxon rank sum test with continuity correction
+## 
+## data:  PupalWeight by Gender
+## W = 152.5, p-value = 1.704e-09
+## alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+<div id="power" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> Power</h3>
+<p>When testing a hypothesis, remember that there are two types of possible errors, due to the random nature of sampling data. These are the “Type 1 error” (rejecting the null hypothesis when it is actually true), and the “Type 2 error” (failing to reject the null when it is actually false). The probability of a Type 1 error is controlled by <span class="math inline">\(\alpha\)</span>, the threshold on the <span class="math inline">\(p\)</span>-value. The <span class="math inline">\(p\)</span>-value is the probability of observing the test statistic, if the null hypothesis is actually true. So by keeping <span class="math inline">\(\alpha\)</span> small (for some reason, 0.05 is most commonly used), we control the chance of a Type 1 error.</p>
+<p>Statistical power is defined as 1 - the probability of a Type 2 error. Or in other words, the probability that we reject the null hypothesis when it is actually false. Consider the situation where we compare the means of two samples. It is easy to see that our power depends not only on <span class="math inline">\(\alpha\)</span>, but also on the actual difference in means of the populations that the samples were drawn from. If they are very different, it will be easier to find a significant difference. So, to calculate the power we must specify how different the means are under the alternative hypothesis.</p>
+<p>For a <span class="math inline">\(t\)</span>-test, we can use the <code>power.t.test</code> function to calculate the power. To approximate the power for the pupal weight t-test (as we saw in the previous section), we can use the following,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">power.t.test</span>(<span class="dt">n=</span><span class="dv">35</span>, <span class="dt">delta=</span><span class="fl">0.08</span>, <span class="dt">sd=</span><span class="fl">0.05</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>)</code></pre>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 35
+##           delta = 0.08
+##              sd = 0.05
+##       sig.level = 0.05
+##           power = 0.9999982
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>Here we have assumed equal groups of size 35 for each gender (although this is not exactly correct), a true difference in mean weights of 0.08, and a standard deviation of 0.05. The power is over 99%, meaning that, with these conditions, we will be able to reject the null hypothesis 99% of the time.</p>
+<p>We can also calculate the required sample size, if we wish to attain a certain power. For example, suppose we want to detect a difference of 0.02 with 75% power. What sample size do we need?</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">power.t.test</span>(<span class="dt">delta=</span><span class="fl">0.02</span>, <span class="dt">sd=</span><span class="fl">0.05</span>, <span class="dt">sig.level=</span><span class="fl">0.05</span>, <span class="dt">power=</span><span class="fl">0.75</span>)</code></pre>
+<pre><code>## 
+##      Two-sample t test power calculation 
+## 
+##               n = 87.7248
+##           delta = 0.02
+##              sd = 0.05
+##       sig.level = 0.05
+##           power = 0.75
+##     alternative = two.sided
+## 
+## NOTE: n is number in *each* group</code></pre>
+<p>We would need 88 observations for each gender.</p>
+
+<div class="rmdtry">
+Using <code>power.t.test</code> as in the examples above, see what happens when you set <span class="math inline">\(\alpha\)</span> (<code>sig.level</code>) to 0.01 or 0.1. Decide for yourself if the result makes sense.
+</div>
+
+</div>
+</div>
+<div id="simpleregression" class="section level2">
+<h2><span class="header-section-number">5.5</span> Simple linear regression</h2>
+<p>To fit linear models of varying complexity, we can use the <code>lm</code> function. In Chapter <a href="linmodel.html#linmodel">6</a> we will meet various more complex linear models, but here we just focus on simple relationships between two continuous variables. The simplest model is a straight-line relationship between an <em>x</em> and a <em>y</em> variable. In this situation, the assumption is that the <em>y</em>-variable (the response) is a linear function of the <em>x</em>-variable (the predictor, or independent variable), plus some random noise or measurement error. For the simplest case, both <em>x</em> and <em>y</em> are assumed to be continuous variables. In statistical notation we write this as,</p>
+<p><span class="math display">\[
+y = \alpha+\beta x +\varepsilon {#eqn:simplelin}
+\]</span></p>
+<p>Here <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> are (population) parameters that need to be estimated from the data. The error (<span class="math inline">\(\epsilon\)</span>) is assumed to follow a normal distribution with a mean of zero, and a standard deviation of <span class="math inline">\(\sigma\)</span>. It is also assumed that <span class="math inline">\(\sigma\)</span> is constant and does not depend on <em>x</em>.</p>
+<p>Let’s look at an example using the allometry data (see Fig. <a href="basic.html#fig:allomquickplot">5.2</a>),</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">data</span>(allometry)
+<span class="kw">plot</span>(leafarea<span class="op">~</span>diameter, <span class="dt">data=</span>allometry)</code></pre>
+<div class="figure"><span id="fig:allomquickplot"></span>
+<img src="04-basic_stats_files/figure-html/allomquickplot-1.svg" alt="Quick inspection of the allometry data, before we perform a linear regression." width="672" />
+<p class="caption">
+Figure 5.2: Quick inspection of the allometry data, before we perform a linear regression.
+</p>
+</div>
+<p>We can see from this plot that leaf area generally increases with tree diameter. So we can use <code>lm</code>
+to estimate the parameters in equation~, or in other words to ‘fit the model’.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit linear regression of &#39;leafarea&#39; on &#39;diameter&#39;,</span>
+<span class="co"># Results are stored in an object called model</span>
+model &lt;-<span class="st"> </span><span class="kw">lm</span>(leafarea<span class="op">~</span>diameter, <span class="dt">data=</span>allometry)
+
+<span class="co"># Print a summary of the regression:</span>
+<span class="kw">summary</span>(model)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = leafarea ~ diameter, data = allometry)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -112.057  -40.519    4.699   30.344  201.377 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) -51.3245    15.9746  -3.213   0.0021 ** 
+## diameter      4.6333     0.3955  11.716   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 60.16 on 61 degrees of freedom
+## Multiple R-squared:  0.6923, Adjusted R-squared:  0.6873 
+## F-statistic: 137.3 on 1 and 61 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Or just the coefficients (intercept and slope):</span>
+<span class="kw">coef</span>(model)</code></pre>
+<pre><code>## (Intercept)    diameter 
+##  -51.324479    4.633321</code></pre>
+<p>As you can see, <code>lm</code> uses the formula interface that we discussed earlier (it always has the form y ~ x).</p>
+<p>The <code>summary</code> function prints a lot of information about the fit. In this case, it shows that the intercept is -51.324, which is the predicted leaf area for a tree with diameter of zero (not very useful in this case).</p>
+<p>It also shows a standard error and a t-statistic for this intercept, along with a p-value which shows that the intercept is significantly different from zero (because the p-value is small). The second line in the coefficients table shows the slope is 4.633, and that this slope is highly significantly different from zero.</p>
+<p>In addition, we have a <code>Residual standard error</code> of 60.16, which is an estimate of <span class="math inline">\(\sigma\)</span>, and an <code>R-squared</code> of 0.69 (which is the squared correlation coefficient). Finally, the <code>F-statistic</code> says whether the overall fit is significant, which in this case, is the same as the test for <span class="math inline">\(\beta\)</span> (because in this situation, the F-statistic is simply the square of the t-statistic).</p>
+<div id="adding-regression-lines-to-a-plot" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> Adding regression lines to a plot</h3>
+<p>It is straightforward to add the regression line to an existing plot (Fig. <a href="basic.html#fig:allomquickplot2">5.3</a>). Simply use <code>abline</code> and the <code>model</code> object we created previously, if you are using base graphics.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(leafarea<span class="op">~</span>diameter, <span class="dt">data=</span>allometry)
+<span class="kw">abline</span>(model)</code></pre>
+<div class="figure"><span id="fig:allomquickplot2"></span>
+<img src="04-basic_stats_files/figure-html/allomquickplot2-1.svg" alt="The allometry data, with an added regression line." width="672" />
+<p class="caption">
+Figure 5.3: The allometry data, with an added regression line.
+</p>
+</div>
+<p>With <code>ggplot2</code>, we can use the handy shortcut <code>stat_smooth</code>, though the disadvantage is that it is a bit harder to control how we fit the model. For simple applications as these, though, it works fine. Results of the following example are not shown.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(ggplot2)
+
+<span class="kw">ggplot</span>(allometry, <span class="kw">aes</span>(<span class="dt">x =</span> diameter, <span class="dt">y =</span> leafarea)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>)</code></pre>
+</div>
+<div id="diagplots" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Diagnostic plots</h3>
+<p>There are many ways to examine how well a model fits the data, and this step is important in deciding whether the model is appropriate. Most diagnostics are based on the residuals, the difference between the <span class="math inline">\(\hat{y}=\hat{\alpha}+\hat{\beta} x\)</span> fitted values and the actual data points.</p>
+<p>If needed, the fitted values and residuals can be extracted using <code>fitted(model)</code> and <code>residuals(model)</code> respectively.</p>
+<p>The two simplest and most useful diagnostic plots are the scale-location plot and a QQ-plot of the residuals. These can be produced with <code>plot</code>, but we much prefer two functions from the <code>car</code> package, as shown by the following example (Fig.~):</p>
+<pre class="sourceCode r"><code class="sourceCode r">model &lt;-<span class="st"> </span><span class="kw">lm</span>(leafarea <span class="op">~</span><span class="st"> </span>diameter, <span class="dt">data=</span>allometry)
+
+<span class="kw">library</span>(car)</code></pre>
+<pre><code>## Loading required package: carData</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">residualPlot</span>(model)
+<span class="kw">qqPlot</span>(model)</code></pre>
+<div class="figure"><span id="fig:diagnos1"></span>
+<img src="04-basic_stats_files/figure-html/diagnos1-1.svg" alt="Two standard diagnostic plots for a fitted lm object." width="672" />
+<p class="caption">
+Figure 5.4: Two standard diagnostic plots for a fitted lm object.
+</p>
+</div>
+<pre><code>## [1] 41 47</code></pre>
+<p>The scale-location plot shows the square root of the <em>standardized</em> residuals against the fitted values. In an ideal situation, there should be no structure in this plot. Any curvature indicates that the model is under- or over-fitting, and a general spread-out (or contracting) from left to right indicates non-constant variance (‘heteroscedasticity’). The QQ-plot enables us to check for departures from normality. Ideally, the standardized residuals should lie on a straight line.</p>
+<p>Some departure from the straight line is to be expected though, even when the underlying distribution is really normal. The <code>qqPlot</code> function from the <code>car</code> package enhances the standard QQ-plot, by including a confidence interval (Fig~). In this case, there is some evidence of heteroscedasticity, and possibly curvature.</p>
+<p>The following code makes the QQ-plot and a plot of the data on a log-log scale (Fig. <a href="basic.html#fig:qqplotcar">5.5</a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(car)
+<span class="kw">qqPlot</span>(model)</code></pre>
+<pre><code>## [1] 41 47</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(leafarea <span class="op">~</span><span class="st"> </span>diameter, <span class="dt">data=</span>allometry, <span class="dt">log=</span><span class="st">&quot;xy&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:qqplotcar"></span>
+<img src="04-basic_stats_files/figure-html/qqplotcar-1.svg" alt="A plot of the Allometry data on a log-log scale." width="672" />
+<p class="caption">
+Figure 5.5: A plot of the Allometry data on a log-log scale.
+</p>
+</div>
+<p>On a log-log scale, it looks like the variance is much more constant, and the relationship is more linear. So, we go ahead and refit the model to log-transformed variables.</p>
+<p>As we can see in Fig. <a href="basic.html#fig:qqplotcar">5.5</a>, the diagnostic plots look much better, except for a couple of points at the lower left corner of the QQ-plot. Notice that these outliers have been marked with their row number from the dataframe.</p>
+<p>The following code produces Fig. <a href="basic.html#fig:diagnos2">5.6</a>, including diagnostic plots and a plot of the data with a regression line added. Note that the <code>abline</code> function will only work as intended (shown before) on the log-log plot if we use log to the base 10 (<code>log10</code>), in the model fit.</p>
+<pre class="sourceCode r"><code class="sourceCode r">model_log &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log10</span>(leafarea)<span class="op">~</span><span class="kw">log10</span>(diameter), <span class="dt">data=</span>allometry)
+<span class="kw">summary</span>(model_log)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = log10(leafarea) ~ log10(diameter), data = allometry)
+## 
+## Residuals:
+##      Min       1Q   Median       3Q      Max 
+## -1.10384 -0.14155  0.02161  0.15434  0.52455 
+## 
+## Coefficients:
+##                 Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)      -0.4468     0.1600  -2.793  0.00697 ** 
+## log10(diameter)   1.5387     0.1070  14.385  &lt; 2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.2611 on 61 degrees of freedom
+## Multiple R-squared:  0.7723, Adjusted R-squared:  0.7686 
+## F-statistic: 206.9 on 1 and 61 DF,  p-value: &lt; 2.2e-16</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">residualPlot</span>(model_log)
+<span class="kw">qqPlot</span>(model_log)</code></pre>
+<pre><code>## [1]  3 32</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">plot</span>(leafarea<span class="op">~</span>diameter, <span class="dt">data=</span>allometry, <span class="dt">log=</span><span class="st">&quot;xy&quot;</span>)
+<span class="kw">abline</span>(model_log)</code></pre>
+<div class="figure"><span id="fig:diagnos2"></span>
+<img src="04-basic_stats_files/figure-html/diagnos2-1.svg" alt="Diagnostic plots for the allometry data, refitted on a log-log scale (left panels). The allometry data fitted on a log-log scale, with the regression line (right panel)." width="672" />
+<p class="caption">
+Figure 5.6: Diagnostic plots for the allometry data, refitted on a log-log scale (left panels). The allometry data fitted on a log-log scale, with the regression line (right panel).
+</p>
+</div>
+
+<div class="rmdtry">
+The residuals of a linear model fit can be extracted with the <code>residuals</code> function. For one of the linear models from the above examples, extract the residuals, and make a histogram to help inspect normality of the residuals.
+</div>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="reporting.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linmodel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

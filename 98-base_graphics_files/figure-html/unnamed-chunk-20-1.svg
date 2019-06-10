@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 432.00 36.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, polygon, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<text x='23.20' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.80px' lengthAdjust='spacingAndGlyphs'>T</text>
+<text x='32.00' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>e</text>
+<text x='40.00' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='12.00px' lengthAdjust='spacingAndGlyphs'>m</text>
+<text x='52.00' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>p</text>
+<text x='60.01' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>e</text>
+<text x='68.02' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='4.80px' lengthAdjust='spacingAndGlyphs'>r</text>
+<text x='72.81' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>a</text>
+<text x='80.82' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='4.00px' lengthAdjust='spacingAndGlyphs'>t</text>
+<text x='84.82' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>u</text>
+<text x='92.83' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='4.80px' lengthAdjust='spacingAndGlyphs'>r</text>
+<text x='97.63' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='8.01px' lengthAdjust='spacingAndGlyphs'>e</text>
+<text x='105.63' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='4.00px' lengthAdjust='spacingAndGlyphs'> </text>
+<text x='109.64' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='4.00px' lengthAdjust='spacingAndGlyphs'> </text>
+<text x='113.64' y='19.84' style='font-size: 18.00px; font-family: Arial;' textLength='5.99px' lengthAdjust='spacingAndGlyphs'>(</text>
+<text x='119.63' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='5.76px' lengthAdjust='spacingAndGlyphs'>°</text>
+<text x='125.39' y='19.84' style='font-size: 14.40px; font-family: Arial;' textLength='10.40px' lengthAdjust='spacingAndGlyphs'>C</text>
+<text x='135.79' y='19.84' style='font-size: 18.00px; font-family: Arial;' textLength='5.99px' lengthAdjust='spacingAndGlyphs'>)</text>
+</svg>

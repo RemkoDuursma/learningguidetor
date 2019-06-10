@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Visualizing data and making reports | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="This book teaches introductory to intermediate skills in R." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Visualizing data and making reports | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Visualizing data and making reports | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-06-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="summarize.html">
+<link rel="next" href="linmodel.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
+<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
+<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
+<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
+<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="summarize.html"><a href="summarize.html#including-data-in-a-script"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="summarize.html"><a href="summarize.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="summarize.html"><a href="summarize.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="summarize.html"><a href="summarize.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="summarize.html"><a href="summarize.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.8</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.8.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="3.8.2" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.8.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="3.8.3" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.8.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="3.8.4" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.8.4</b> Reordering factor levels based on a summary variable</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.9</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.9.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.9.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.9.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.10</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.10.1</b> From wide to long</a></li>
+<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.10.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.11</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.11.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.11.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.11.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
+<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>4.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.2</b> Tips</a></li>
+<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.3</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>5</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="5.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>5.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="5.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>5.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="5.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>5.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>5.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="5.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="5.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="5.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>5.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="5.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>5.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="5.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>5.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="5.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>5.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="5.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>5.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="5.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>5.4.9</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>5.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>5.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="5.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>5.5.2</b> Simple and multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>5.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>5.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="5.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>5.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="5.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>5.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="5.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>5.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="5.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>5.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>6</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="6.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>6.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="6.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>6.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="6.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>6.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="6.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>6.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="6.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>6.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="6.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>6.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="6.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>6.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="6.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>6.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="6.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>6.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="6.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>6.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="6.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>6.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="6.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>6.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="6.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>6.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="6.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>6.4</b> Loops</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>7</b> R on the web</a><ul>
+<li class="chapter" data-level="7.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>7.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>7.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="7.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>7.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>7.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="7.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>7.4</b> Deploying an API with <code>plumber</code></a><ul>
+<li class="chapter" data-level="7.4.1" data-path="webservices.html"><a href="webservices.html#deploying-a-simple-api"><i class="fa fa-check"></i><b>7.4.1</b> Deploying a simple API</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reporting" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Visualizing data and making reports</h1>
+<div id="introduction-1" class="section level2">
+<h2><span class="header-section-number">4.1</span> Introduction</h2>
+<p>Data visualization is an integral part of any data analytical project. We use data viz to spot patterns in data, check model assumptions, communicate findings, and to convince the audience that our analysis and conclusions make sense. Data viz is not something you only do at the end, but we switch cycle between analysis and visualization. It is therefore not only an important skill to make beautiful visualizations in the final communication of your results, but also to be able to make quick &amp; dirty graphs at any step in the analysis.</p>
+<p>We do not only communicate with visualizations, but like to combine text, tables, figures, images, and well-formatted text in reports. We now have a powerful tool available in R, the <code>rmarkdown</code> document - a flexible toolkit to generate documents containing all results from R (with or without the code). These reports ensure that the results you see are made from the code in the document, we never have to ask: which version of my code produced those results? We already used <code>rmarkdown</code> in Chapter <a href="intro.html#intro">2</a>, but go a few steps further here and provide useful tips &amp; tricks.</p>
+<p>This chapter is different from the rest: we do not provide a complete beginners guide to either data visualization with <code>ggplot2</code>, or reporting with <code>rmarkdown</code>. We point to online resources for getting started, including comprehensive manuals, and galleries of examples. Instead, we focus on pointing out typical difficulties when getting started with these tools.</p>
+<p>For data visualization, also be aware that the entire book in front of you includes many figures produced with <code>ggplot2</code> or base graphics. As always, learning from example is the best way.</p>
+</div>
+<div id="visualizing" class="section level2">
+<h2><span class="header-section-number">4.2</span> Visualizing data</h2>
+<div id="base-graphics-or-ggplot2" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Base graphics or <code>ggplot2</code>?</h3>
+<p>R comes with two graphics systems, that cannot be used together. The <code>base</code> graphics system has been part of R from the start, and continues to be used today. The second system is the <code>grid</code> system, and the most popular package that uses this system is <code>ggplot2</code>, a package in development for over 10 years that now sees very wide application, and numerous add-ons and extensions.</p>
+<p>Personally, I have used base graphics since 2001, and resisted switching to <code>ggplot2</code> for a very long time. I now use <code>ggplot2</code> for visualizing data, but continue to use base graphics as well, for a few reasons - especially because many add-on packaged include some quick plotting function that returns a base plot.</p>
+<p>You can read around the web for many opinionated accounts on why we should use <code>ggplot2</code> or the other (<a href="http://varianceexplained.org/r/why-I-use-ggplot2/">for example here</a>).</p>
+<p>A few points to consider:</p>
+<ul>
+<li>Use <code>ggplot2</code> if you are a newcomer, because it is easier to make more complex graphs. For example, it is much easier to make multi-panel, multi-line, multi-everything figures than with base graphics. Notable examples include multi-panel figures with grouped bar plots, adding regression and smoothed lines <em>with</em> confidence bands to plots, overlapping area plots, histograms and ribbons. All of these plots are possible with base, but usually require more code and more programming.</li>
+<li>It is generally easier to achieve consistent figure formatting with <code>ggplot2</code>, through the use of themes.</li>
+<li>Many packages include some built-in plotting function, more often than not these use base graphics. It is usually much easier to use those functions directly than to implement the figure from scratch in <code>ggplot2</code>. A basic understanding of base graphics is therefore useful in practice.</li>
+<li>Sometimes, base graphics are easier, especially when you are experimenting and want to make quick and dirty plots. To plot a mathematical function, we can do <code>curve(x^3, from=-1, to=1)</code> - this is not so easy in <code>ggplot2</code>.</li>
+<li>There is no support for 3D graphics in <code>ggplot2</code>, base has a number of possibilities. That said, you probably do not want to make many 3D plots.</li>
+<li>Use base graphics when you are making a simple plot, and wish to avoid <em>dependencies</em>. Keeping dependencies to a minimum will make it more likely your code works in the future, and on someone else’s machine. The <code>ggplot2</code> package is rather stable these days, but has changed dramatically in the past - often breaking old code.</li>
+</ul>
+<p>For the reasons mentioned above, in this book we mostly use ggplot2, except when base graphics are a lot easier (that is, use less code).</p>
+</div>
+<div id="base-graphics" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Base graphics</h3>
+<p>In base graphics, we can choose from the following main plotting functions (this list is not complete, especially if you consider add-on packages):</p>
+<table>
+<colgroup>
+<col width="22%" />
+<col width="77%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>Function</th>
+<th>Key functions</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>plot</code></td>
+<td>Scatter plots, line plots, various others.</td>
+</tr>
+<tr class="even">
+<td><code>barplot</code></td>
+<td>Bar plot (including stacked and grouped bar plots)</td>
+</tr>
+<tr class="odd">
+<td><code>hist</code></td>
+<td>Histograms and (relative) frequency diagrams</td>
+</tr>
+<tr class="even">
+<td><code>curve</code></td>
+<td>Curves of mathematical expressions</td>
+</tr>
+<tr class="odd">
+<td><code>pie</code></td>
+<td>Pie charts (for less scientific uses)</td>
+</tr>
+<tr class="even">
+<td><code>boxplot</code></td>
+<td>Box-and-whisker plots</td>
+</tr>
+<tr class="odd">
+<td><code>symbols</code></td>
+<td>Like scatter plot, but symbols are sized by another variable</td>
+</tr>
+</tbody>
+</table>
+<p>Here it is useful to know that <code>plot</code> is a so-called <em>generic function</em>, which has <em>methods</em> for many special objects in R. For example, if we fit a linear regression:</p>
+<pre class="sourceCode r"><code class="sourceCode r">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(disp <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)</code></pre>
+<p>We can use the very brief command <code>plot(lmfit)</code> to produce four diagnostic plots. This works because a function called <code>plot.lm</code> is actually used when you send an <code>lm</code> object to the <code>plot</code> function (thus we can look at useful options in this case in the help page <code>?plot.lm</code>).</p>
+<p>Similarly, <code>plot</code> will make different plots based on what type of data you use. In Fig. <a href="reporting.html#fig:plotdefault">4.1</a> four examples are shown; each of these is the result from a call to <code>plot()</code>, but with different data types.</p>
+<div class="figure"><span id="fig:plotdefault"></span>
+<img src="03-reporting_files/figure-html/plotdefault-1.pdf" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-2.pdf" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-3.pdf" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-4.pdf" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" />
+<p class="caption">
+Figure 4.1: Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term ‘numeric dataframe’ means a dataframe where all columns are numeric.
+</p>
+</div>
+<p>The way that <code>plot</code> gives different results depending on data types is both a good thing (for basic plots, you need very little code), and a bad thing because reading the code often does not tell you what sort of plot will be produced, and where to read the documentation (<code>?plot</code>, <code>?plot.default</code>, <code>?plot.factor</code>?).</p>
+<!--#### Resources-->
+</div>
+<div id="ggplot2" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> ggplot2</h3>
+<p>The <code>ggplot2</code> package is an incredibly rich and powerful toolkit to construct plots. It is far beyond the scope of this book to provide a complete overview of the package, but luckily lots of free online resources are available (see Section <a href="reporting.html#ggplotresources">4.2.3.5</a>).</p>
+<p>We will show the functionality of <code>ggplot2</code> by providing two examples, one scatterplot, and one barplot. Since we use <code>ggplot2</code> throughout this book, you can find many more examples. The following three examples were chosen because they highlight a few key options.</p>
+<div id="preparing-the-data-for-plotting" class="section level4">
+<h4><span class="header-section-number">4.2.3.1</span> Preparing the data for plotting</h4>
+<p>To use <code>ggplot2</code>, our data have to always be in <em>long format</em>, where each row represents an observation, and each column in the dataframe represents a type of measurement. Most of the datasets included in the <code>lgrdata</code> package are already in long format. One exception is the <code>dutchelection</code> dataset:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(dutchelection)
+<span class="kw">head</span>(dutchelection, <span class="dv">3</span>)</code></pre>
+<pre><code>##         Date  VVD PvdA  PVV CDA   SP D66  GL  CU SGP PvdD FiftyPlus
+## 1 2012-03-22 22.1 16.8 13.9 9.4 16.8 7.7 4.5 3.3 1.5  2.4       1.1
+## 2 2012-04-05 23.6 17.1 13.3 8.8 16.3 8.7 4.1 3.2 1.4  2.0       0.8
+## 3 2012-04-19 24.0 17.3 12.0 8.2 17.0 8.8 3.5 3.3 1.6  3.1       0.8</code></pre>
+<p>We cannot really use <code>ggplot2</code> when the data are formatted like this. Instead we want to have a dataframe with columns ‘Date’, ‘party’, and ‘vote_percent’, so that we can label the graph by political party. As we will see in Section <a href="summarize.html#reshaping">3.10</a>, quite magically we can use <code>melt</code> from <code>reshape2</code> :</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
+dutchlong &lt;-<span class="st"> </span><span class="kw">melt</span>(dutchelection, <span class="dt">variable.name =</span> <span class="st">&quot;party&quot;</span>, <span class="dt">value.name=</span><span class="st">&quot;vote_percent&quot;</span>)
+<span class="kw">head</span>(dutchlong, <span class="dv">3</span>)</code></pre>
+<pre><code>##         Date party vote_percent
+## 1 2012-03-22   VVD         22.1
+## 2 2012-04-05   VVD         23.6
+## 3 2012-04-19   VVD         24.0</code></pre>
+</div>
+<div id="scatterplot-example" class="section level4">
+<h4><span class="header-section-number">4.2.3.2</span> Scatterplot example</h4>
+<p>Here we show two examples of a scatter plot. In practice you start with the simplest plot you can think of, then gradually add ‘layers’ and other elements. Here, the quickest way to make a scatter plot is like this,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Minimal</span>
+<span class="kw">data</span>(automobiles)
+
+<span class="kw">ggplot</span>(automobiles, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+<pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
+<embed src="03-reporting_files/figure-html/unnamed-chunk-5-1.pdf" width="672" type="application/pdf" />
+<p>Next, we want to extend this example by including various other elements:</p>
+<ul>
+<li>Plotting symbols colored by Region</li>
+<li>A linear regression line, one for each of the three Regions</li>
+<li>Text labels identifying outliers</li>
+<li>A legend</li>
+<li>Better axis labels</li>
+</ul>
+<p>Study the example below how each of these was included:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extended</span>
+<span class="kw">data</span>(automobiles)
+
+<span class="kw">library</span>(ggrepel)
+<span class="kw">library</span>(dplyr)
+
+automobiles2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(automobiles, 
+       <span class="dt">resid =</span> <span class="kw">residuals</span>(<span class="kw">lm</span>(fuel_efficiency <span class="op">~</span><span class="st"> </span>horsepower, 
+                            <span class="dt">na.action=</span>na.exclude)))
+
+<span class="kw">ggplot</span>(automobiles2, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency,
+                        <span class="dt">col =</span> origin, 
+                        <span class="dt">label =</span> car_name)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch =</span> <span class="kw">ifelse</span>(<span class="kw">abs</span>(automobiles2<span class="op">$</span>resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>, <span class="dv">19</span>, <span class="dv">1</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> <span class="kw">subset</span>(automobiles2, <span class="kw">abs</span>(resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>),
+                  <span class="dt">show.legend=</span><span class="ot">FALSE</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">lims</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Horse power (hp)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fuel use (liters / 100km)&quot;</span>)</code></pre>
+<embed src="03-reporting_files/figure-html/unnamed-chunk-6-1.pdf" width="672" type="application/pdf" />
+</div>
+<div id="area-plot-example" class="section level4">
+<h4><span class="header-section-number">4.2.3.3</span> Area plot example</h4>
+<p>A ‘stacked area chart’ can be quickly implemented with the <code>geom_area</code> function, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(oil)
+<span class="kw">ggplot</span>(oil, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>production<span class="op">/</span><span class="dv">1000</span>, <span class="dt">fill=</span>country)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Crude Oil Production (MOE)&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_economist</span>()</code></pre>
+<embed src="03-reporting_files/figure-html/unnamed-chunk-7-1.pdf" width="672" type="application/pdf" />
+</div>
+<div id="barplot-example" class="section level4">
+<h4><span class="header-section-number">4.2.3.4</span> Barplot example</h4>
+<p>More complex barplots is one area where <code>ggplot2</code> is much, much easier to use than base graphics. If you want to represent count data as bars - a common application of barplots - <code>ggplot2</code> does the counting for you automatically, saving a step where such tables of counts have to be constructed.</p>
+<p>If instead you want to make a barplot of data <em>as they are</em> (that is, don’t make tables first), use the setting <code>geom_bar(stat = "identity")</code>, instead of <code>stat = "count"</code>, as in the example below.</p>
+<p>In the following example we use the <code>titanic</code> data, available in the <code>lgrdata</code> package.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)
+<span class="kw">data</span>(titanic)
+
+<span class="co"># Important to convert factor variables to factors!</span>
+<span class="co"># &#39;Survived&#39; is coded as 0,1 - but this is really a factor.</span>
+titanic<span class="op">$</span>Survived &lt;-<span class="st"> </span><span class="kw">as.factor</span>(titanic<span class="op">$</span>Survived)
+
+<span class="kw">library</span>(ggplot2)
+<span class="kw">library</span>(ggthemes)</code></pre>
+<p>The following code is the minimal code needed to make a barplot with two panels (one for female passengers, one for male), counting passengers that have survived or died, for each of the three passenger classes.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Result not shown - see next example</span>
+<span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex)</code></pre>
+<p>You can run the code above yourself to see what is produced. It does not look great, so instead we re-format the legend, the colors, etc., and end up with Fig. <a href="#fig:titanicplot1"><strong>??</strong></a>. For both of these figures, <em>make sure that <code>Survived</code> is a factor variable</em>, otherwise the plot won’t look right.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span><span class="st">        </span><span class="co"># bars by passenger class,</span>
+<span class="st">                                                       </span><span class="co"># split by &#39;Survived&#39;  </span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span>
+                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span><span class="st">  </span><span class="co"># count data, bars side by side</span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># panels by Sex</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></code></pre>
+<embed src="03-reporting_files/figure-html/titanicplot1-1.pdf" width="672" type="application/pdf" />
+<p>Same figure but stacked bars, expressed as percent of total (Fig. <a href="#fig:titanicplot2"><strong>??</strong></a>).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span><span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span>
+                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_fill</span>()) <span class="op">+</span><span class="st">   </span><span class="co"># count the data, stack the bars</span>
+<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span><span class="st">         </span><span class="co"># express y-axis as % </span>
+<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># two panels for each sex</span>
+<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></code></pre>
+<embed src="03-reporting_files/figure-html/titanicplot2-1.pdf" width="672" type="application/pdf" />
+</div>
+<div id="ggplotresources" class="section level4">
+<h4><span class="header-section-number">4.2.3.5</span> Resources</h4>
+<p>The web is bursting with great <code>ggplot2</code> tutorials and collections of examples. If you are stuck on some aspect, simply type your question into Google, and you will usually end up at a useful Stackoverflow post.</p>
+<p>A selection of useful resources is:</p>
+<ul>
+<li>My favorite resources with lots of small examples: <a href="http://www.cookbook-r.com/Graphs/" class="uri">http://www.cookbook-r.com/Graphs/</a></li>
+<li>A very practical gallery guide at <a href="http://www.sthda.com/english/wiki/ggplot2-essentials" class="uri">http://www.sthda.com/english/wiki/ggplot2-essentials</a></li>
+<li>Official page with (extensive) documentation: <a href="https://ggplot2.tidyverse.org/" class="uri">https://ggplot2.tidyverse.org/</a></li>
+<li>A more gentle introduction to <code>ggplot2</code> at <a href="https://r4ds.had.co.nz/data-visualisation.html" class="uri">https://r4ds.had.co.nz/data-visualisation.html</a></li>
+<li>An attractive gallery of useful plots, with all code at <a href="http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html" class="uri">http://r-statistics.co/Top50-Ggplot2-Visualizations-MasterList-R-Code.html</a></li>
+</ul>
+<p>The <code>ggplot2</code> package has many extensions, packages that offer additional options, themes, plotting layouts, etc. In this book, we only use a couple of add-on packages for reasons of brevity. These include:</p>
+<ul>
+<li><code>ggthemes</code> : an excellent collection of themes and color palettes</li>
+<li><code>scales</code> : useful functions for formatting axes, adjusting colors</li>
+<li><code>gridExtra</code> : to arrange multiple, separate plots, on one page</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="rmarkdown" class="section level2">
+<h2><span class="header-section-number">4.3</span> Making reports</h2>
+<p>Script files are good for simple analyses, and they are great for storing small amounts of code that you would like to use in lots of different projects. They are also the right solution if you want to produce R scripts that are executed as part of a larger project, for example from the command line, or executed on a schedule (e.g. daily data quality checking). In Section <a href="intro.html#scripts">2.10.2</a> we give a few more tips.</p>
+<p>But, scripts are not the best way to share your results with others. Instead, we strongly suggest you use R markdown - a document format that includes both text with markup, and <em>code chunks</em>, bits of R code that is executed, and the results placed in the document.</p>
+<p>Markdown is a simple set of rules for formatting text files so that they are both human-readable and processable by software, and is used not just by <code>rmarkdown</code> but in many applications (like Github and Stackoverflow). R Markdown simply adds R, by allowing code chunks with various options.</p>
+<div id="getting-started" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> Getting started</h3>
+<p>RStudio offers a handy editor for markdown files, and starts with an example file that shows many of the features. Start a new markdown file by choosing <kbd>File &gt; New File &gt; R Markdown…</kbd>. For now, leave the default settings. The new R markdown document (which is just a text file with the extension <code>.Rmd</code>) already contains some example code. Run this example by clicking the button just above the markdown document (Knit HTML). The example code will generate a new document (an HTML page), which opens in your browser You can see that the output contains text, R code, and even a plot.</p>
+
+<div class="rmdtry">
+Try ‘knitting’ the example rmarkdown file (the one you see when you open your first <code>rmarkdown</code> file). First install the <code>knitr</code> and <code>rmarkdown</code> packages. Next, click the ‘Knit’ button in the upper-right hand corner just above the file. An HTML file was created. Find it and open it.
+</div>
+
+</div>
+<div id="tips" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> Tips</h3>
+<div id="start-with-an-example-document" class="section level4 unnumbered">
+<h4>Start with an example document</h4>
+<p>When you open a new rmarkdown file (see previous section), the first step is to delete everything in the example document, <em>except the top section and the first code chunk</em>. Your rmarkdown document will now look like this:</p>
+<pre><code>---
+title: &quot;Untitled&quot;
+output: html_document
+---
+</code></pre>
+<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
+</div>
+<div id="modify-the-output-style" class="section level4 unnumbered">
+<h4>Modify the output style</h4>
+<p>You can add lots of options to the header (the bit between <code>--</code>), that affect how the conversion to HTML works (including style, settings for the table of contents, author, date, etc.). See the Rstudio help page for the HTML version of <code>rmarkdown</code> <a href="https://bookdown.org/yihui/rmarkdown/html-document.html">by following this link</a>.</p>
+<p>We list a few useful options; to see how these can be used search for them on the link above.</p>
+<ul>
+<li><code>code_folding: hide</code>, hides the code in the document, but adds a button to reveal the code.</li>
+<li><code>toc_float: true</code>, a very nice floating table of contents (the contents are always visible in a menu to the left)</li>
+<li><code>theme: cosmo</code>, or lots of other choices to be <a href="https://bootswatch.com/3/">picked from this gallery</a>, changes the colors, fonts, and general appearance of the document.</li>
+</ul>
+</div>
+<div id="learn-markdown-syntax-for-text-formatting" class="section level4 unnumbered">
+<h4>Learn markdown syntax for text formatting</h4>
+<p>As mentioned, the rest of the document contains two types of input: text with markup, and code chunks. Open a new rmarkdown document to see what the text with input looks like, and note the use of sections, formatting (bold, italic, etc.), weblinks, and so on. <a href="https://rmarkdown.rstudio.com/lesson-2.html">Follow the Rstudio <code>rmarkdown</code> lessons to learn more</a>.</p>
+</div>
+<div id="set-options-for-individual-code-chunks" class="section level4 unnumbered">
+<h4>Set options for individual code chunks</h4>
+<p>The code chunks contain R code, which will be executed, and the results will be visible in the eventual document (in our case, an HTML page). An R code chunk may look like this,</p>
+<p><code>{r titanicglm, echo = TRUE, eval = TRUE} fit &lt;- glm(Survived ~ Age, data = titanic)</code></p>
+<p>Here, <code>titanicglm</code> is a label for the chunk (you don’t need to set it), and <code>echo = TRUE</code> make the code visible in the document, and <code>eval=TRUE</code> actually runs the code in the chunk. Both these options are used a lot. You use <code>echo=FALSE</code> to not show code, for example when there is too much messy code to share for this particular block. You use <code>eval = FALSE</code> to disable execution of a single code chunk. This is very useful when you have some code that simply does not work yet, but you hate using comments (<code>#</code>) to disable it, instead you can place the code in its own chunk and set <code>echo=FALSE, eval=FALSE</code>.</p>
+</div>
+<div id="set-options-for-figure-output" class="section level4 unnumbered">
+<h4>Set options for figure output</h4>
+<p>An important step is to control the output of figures. The documentation (see @Section(rmarkdownresources)) is a bit overwhelming, but here is an example with some useful settings:</p>
+<p><code>{r titanicplot1, fig.cap="Number of passengers by Sex and PClass", fig.width=4, fig.height=4, dev="svg", echo = -1}`r''` par(bg="azure") with(titanic, spineplot(Sex, PClass))</code></p>
+<p>Here, <code>fig.cap</code> makes a figure caption (but figures will not be automatically numbered, see below for an alternative), <code>fig.width</code> and <code>fig.height</code> set the figure size in inches, <code>dev="svg"</code> sets the graphic device to SVG (an outstanding format for the web) - you need to install <code>svglite</code> for this to work. Finally <code>echo=-1</code> hides the first row of the code in the output (in this case, we don’t want the reader to be bothered by graphical settings in <code>par()</code>).</p>
+</div>
+<div id="set-options-for-all-code-chunks" class="section level4 unnumbered">
+<h4>Set options for all code chunks</h4>
+<p>The section shown above that contains <code>knitr::opts_chunk$set(echo = TRUE)</code> sets <em>chunk options for the entire document</em>. An often used feature here is to hide all code from the eventual document by setting <code>echo=FALSE</code>, or set the figure size for all chunks with <code>fig.width = 5, fig.height = 5</code>, or use a particular graphics device (<code>dev = 'svg'</code>).</p>
+</div>
+<div id="auto-numbering-of-figures-and-tables" class="section level4 unnumbered">
+<h4>Auto-numbering of figures and tables</h4>
+<p>In the example above, we set a caption for a figure, but the figures are not automatically numbered in <code>rmarkdown</code>. To enable this, all you have to do is install the <code>bookdown</code> package, and replace the header with this example:</p>
+<pre><code>---
+title: &quot;Untitled&quot;
+output: bookdown::html_document2
+---
+</code></pre>
+<p>Everything else should work as expected, but now figures that contain a <code>fig.cap</code> setting will be automatically numbered!</p>
+</div>
+<div id="make-r-output-pretty" class="section level4 unnumbered">
+<h4>Make R output pretty</h4>
+<p>One thing you notice quickly is that R output that is usually printed to the screen, will look exactly the same in an rmarkdown document - ugly. For example, try this code chunk:</p>
+<pre class="{r}`r&#39;&#39;`"><code>summary(titanic) </code></pre>
+<p>The output in the HTML is not attractive, to say the least.</p>
+<p>A number of packages will convert raw R output to markdown or HTML output, which can be used effectively in rmarkdown documents. Here we recommend using the <code>pander</code> package to convert many R objects to readable output for use in rmarkdown documents, and the <code>kable</code> function from the <code>knitr</code> package to convert things that look like dataframes. Both packages are very easy to use.</p>
+<pre class="{r}`r&#39;&#39;`"><code>library(pander)    # for pander()
+library(knitr)     # for kable()
+library(magrittr)  # for %&gt;%
+
+summary(titanic) %&gt;% pander
+summary(titanic) %&gt;% kable</code></pre>
+<p>Try the <code>pander</code> function on many outputs from statistical analyses as well, for example:</p>
+<pre class="{r}`r&#39;&#39;`"><code>test_output &lt;- t.test(Age ~ Sex, data = titanic)
+pander(test_output)</code></pre>
+<!--#### Make pretty tables-->
+</div>
+</div>
+<div id="rmarkdownresources" class="section level3">
+<h3><span class="header-section-number">4.3.3</span> Resources</h3>
+<p>The documentation for <code>rmarkdown</code> based documents is a little scattered across various sources. The reason for this is that multiple packages are involved in making an HTML page from an <code>.Rmd</code> file.</p>
+<ul>
+<li>The <code>knitr</code> package handles the <em>execution</em> of the R code in the document, and the <em>integration</em> of the R output into the document. It provides all options that are set at the top of each code chunk, for example to show or hide the code, to control figure size and resolution, captions for tables. All chunk options are <a href="https://yihui.name/knitr/options/">listed on the <code>knitr</code> website</a>.</li>
+<li>The <code>rmarkdown</code> package (from Rstudio) handles the <em>conversion</em> to the desired output format, for example HTML or PDF. To do so, it uses Pandoc (see below), which is installed automatically with Rstudio. The <code>rmarkdown</code> package provides all options at the top of the <code>Rmd</code> document (the so-called YAML header), including the desired output format, and to control many options like the table of contents, format style, custom CSS, and so on. All options for <code>rmarkdown</code> <a href="https://rmarkdown.rstudio.com/">are described on Rstudio’s website</a>. (Make sure to scroll down and select an output format to read about available options).</li>
+<li>Finally, Pandoc is the actual engine to convert our raw text file (including R output formatted by <code>knitr</code>) to an HTML page, or some other format. Normally you don’t have to learn much about Pandoc’s options, since many settings are already provided by <code>rmarkdown</code>, but <a href="https://pandoc.org/MANUAL.html">the various formatting rules and conversion options are described here</a>.</li>
+</ul>
+
+<div class="rmdreading">
+A comprehensive list of useful and more advanced features in rmarkdown can be read here: <a href="https://holtzy.github.io/Pimp-my-rmd/" class="uri">https://holtzy.github.io/Pimp-my-rmd/</a>
+</div>
+
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="summarize.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="linmodel.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
