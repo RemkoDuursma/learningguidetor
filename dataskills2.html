@@ -1,0 +1,1487 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 4 Data skills - Part 2 | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <meta name="description" content="This book teaches introductory to intermediate skills in R." />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 4 Data skills - Part 2 | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 4 Data skills - Part 2 | A Learning Guide to R: data, analytical, and programming skills." />
+  
+  <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
+  
+
+<meta name="author" content="Remko Duursma" />
+
+
+<meta name="date" content="2019-06-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="dataskills1.html">
+<link rel="next" href="reporting.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css\style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Learning Guide to R</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.1</b> About the author</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+</ul></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+</ul></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="dataskills1.html"><a href="dataskills1.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="dataskills1.html"><a href="dataskills1.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="dataskills1.html"><a href="dataskills1.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="dataskills1.html"><a href="dataskills1.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="dataskills1.html"><a href="dataskills1.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="dataskills1.html"><a href="dataskills1.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataskills1.html"><a href="dataskills1.html#datainscript"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataskills1.html"><a href="dataskills1.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="dataskills1.html"><a href="dataskills1.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="dataskills1.html"><a href="dataskills1.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="dataskills1.html"><a href="dataskills1.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="dataskills1.html"><a href="dataskills1.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="dataskills1.html"><a href="dataskills1.html#vecdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="dataskills1.html"><a href="dataskills1.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataskills1.html"><a href="dataskills1.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataskills1.html"><a href="dataskills1.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataskills1.html"><a href="dataskills1.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataskills1.html"><a href="dataskills1.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="dataskills1.html"><a href="dataskills1.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="dataskills1.html"><a href="dataskills1.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="dataskills1.html"><a href="dataskills1.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="dataskills1.html"><a href="dataskills1.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="dataskills1.html"><a href="dataskills1.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="dataskills1.html"><a href="dataskills1.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="dataskills1.html"><a href="dataskills1.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="dataskills1.html"><a href="dataskills1.html#working-with-a-single-vector---indexing"><i class="fa fa-check"></i><b>3.8.1</b> Working with a single vector - indexing</a></li>
+<li class="chapter" data-level="3.8.2" data-path="dataskills1.html"><a href="dataskills1.html#alphabet-aerobics-2"><i class="fa fa-check"></i><b>3.8.2</b> Alphabet aerobics 2</a></li>
+<li class="chapter" data-level="3.8.3" data-path="dataskills1.html"><a href="dataskills1.html#basic-operations-with-the-cereals-data"><i class="fa fa-check"></i><b>3.8.3</b> Basic operations with the Cereals data</a></li>
+<li class="chapter" data-level="3.8.4" data-path="dataskills1.html"><a href="dataskills1.html#a-short-dataset"><i class="fa fa-check"></i><b>3.8.4</b> A short dataset</a></li>
+<li class="chapter" data-level="3.8.5" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-1"><i class="fa fa-check"></i><b>3.8.5</b> Titanic - Part 1</a></li>
+<li class="chapter" data-level="3.8.6" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-2"><i class="fa fa-check"></i><b>3.8.6</b> Titanic - Part 2</a></li>
+<li class="chapter" data-level="3.8.7" data-path="dataskills1.html"><a href="dataskills1.html#hydro-dam"><i class="fa fa-check"></i><b>3.8.7</b> Hydro dam</a></li>
+<li class="chapter" data-level="3.8.8" data-path="dataskills1.html"><a href="dataskills1.html#hfe-tree-measurements"><i class="fa fa-check"></i><b>3.8.8</b> HFE tree measurements</a></li>
+<li class="chapter" data-level="3.8.9" data-path="dataskills1.html"><a href="dataskills1.html#flux-data"><i class="fa fa-check"></i><b>3.8.9</b> Flux data</a></li>
+<li class="chapter" data-level="3.8.10" data-path="dataskills1.html"><a href="dataskills1.html#dna-aerobics"><i class="fa fa-check"></i><b>3.8.10</b> DNA Aerobics</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>4</b> Data skills - Part 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>4.1</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="dataskills2.html"><a href="dataskills2.html#tapplyaggregate"><i class="fa fa-check"></i><b>4.1.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataskills2.html"><a href="dataskills2.html#xtabs"><i class="fa fa-check"></i><b>4.1.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataskills2.html"><a href="dataskills2.html#summaryvars"><i class="fa fa-check"></i><b>4.1.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataskills2.html"><a href="dataskills2.html#reorder"><i class="fa fa-check"></i><b>4.1.4</b> Reordering factor levels based on a summary variable</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>4.2</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="dataskills2.html"><a href="dataskills2.html#merge"><i class="fa fa-check"></i><b>4.2.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="dataskills2.html"><a href="dataskills2.html#dplyrjoin"><i class="fa fa-check"></i><b>4.2.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="dataskills2.html"><a href="dataskills2.html#rbind"><i class="fa fa-check"></i><b>4.2.3</b> Row-binding dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>4.3</b> Reshaping data</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="dataskills2.html"><a href="dataskills2.html#from-wide-to-long"><i class="fa fa-check"></i><b>4.3.1</b> From wide to long</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataskills2.html"><a href="dataskills2.html#from-long-to-wide"><i class="fa fa-check"></i><b>4.3.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>4.4</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="dataskills2.html"><a href="dataskills2.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>4.4.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataskills2.html"><a href="dataskills2.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>4.4.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataskills2.html"><a href="dataskills2.html#weightlossdplyr"><i class="fa fa-check"></i><b>4.4.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-the-cereal-data"><i class="fa fa-check"></i><b>4.5.1</b> Summarizing the cereal data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataskills2.html"><a href="dataskills2.html#words-and-the-weather"><i class="fa fa-check"></i><b>4.5.2</b> Words and the weather</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataskills2.html"><a href="dataskills2.html#merging-data"><i class="fa fa-check"></i><b>4.5.3</b> Merging data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataskills2.html"><a href="dataskills2.html#merging-multiple-datasets"><i class="fa fa-check"></i><b>4.5.4</b> Merging multiple datasets</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataskills2.html"><a href="dataskills2.html#ordered-boxplot"><i class="fa fa-check"></i><b>4.5.5</b> Ordered boxplot</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>5</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="5.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>5.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>6.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>6.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#inference"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>6.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>6.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="6.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="6.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="6.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.4.9</b> Diagnostics</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>6.5.2</b> Simple and multiple linear regression</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.6.5" data-path="linmodel.html"><a href="linmodel.html#importance"><i class="fa fa-check"></i><b>6.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="linmodel.html"><a href="linmodel.html#exercises-3"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="linmodel.html"><a href="linmodel.html#probabilities"><i class="fa fa-check"></i><b>6.7.1</b> Probabilities</a></li>
+<li class="chapter" data-level="6.7.2" data-path="linmodel.html"><a href="linmodel.html#univariate-distributions"><i class="fa fa-check"></i><b>6.7.2</b> Univariate distributions</a></li>
+<li class="chapter" data-level="6.7.3" data-path="linmodel.html"><a href="linmodel.html#more-t-tests"><i class="fa fa-check"></i><b>6.7.3</b> More <span class="math inline">\(t\)</span>-tests</a></li>
+<li class="chapter" data-level="6.7.4" data-path="linmodel.html"><a href="linmodel.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.7.4</b> Simple linear regression</a></li>
+<li class="chapter" data-level="6.7.5" data-path="linmodel.html"><a href="linmodel.html#quantile-quest"><i class="fa fa-check"></i><b>6.7.5</b> Quantile Quest</a></li>
+<li class="chapter" data-level="6.7.6" data-path="linmodel.html"><a href="linmodel.html#one-way-anova"><i class="fa fa-check"></i><b>6.7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.7" data-path="linmodel.html"><a href="linmodel.html#two-way-anova"><i class="fa fa-check"></i><b>6.7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.8" data-path="linmodel.html"><a href="linmodel.html#multregexerc"><i class="fa fa-check"></i><b>6.7.8</b> Regression: the <code>pulse</code> dataset</a></li>
+<li class="chapter" data-level="6.7.9" data-path="linmodel.html"><a href="linmodel.html#logistic-regression"><i class="fa fa-check"></i><b>6.7.9</b> Logistic regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>7.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>7.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>7.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="7.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>7.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>7.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="7.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>7.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>7.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="7.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>7.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="7.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>7.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="7.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>7.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="7.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>7.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="7.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>7.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>7.4</b> Loops</a></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#exercises-4"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>7.5.1</b> Writing functions</a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#working-with-lists"><i class="fa fa-check"></i><b>7.5.2</b> Working with lists</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#functions-for-histograms"><i class="fa fa-check"></i><b>7.5.3</b> Functions for histograms</a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#using-functions-to-make-many-plots"><i class="fa fa-check"></i><b>7.5.4</b> Using functions to make many plots</a></li>
+<li class="chapter" data-level="7.5.5" data-path="programming.html"><a href="programming.html#monthly-weather-plots"><i class="fa fa-check"></i><b>7.5.5</b> Monthly weather plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>8</b> R on the web</a><ul>
+<li class="chapter" data-level="8.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>8.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>8.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="8.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>8.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Learning Guide to R: data, analytical, and programming skills.</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="dataskills2" class="section level1">
+<h1><span class="header-section-number">Chapter 4</span> Data skills - Part 2</h1>
+<div id="summarizing-dataframes" class="section level2">
+<h2><span class="header-section-number">4.1</span> Summarizing dataframes</h2>
+<p>There are a few useful functions to print general summaries of a dataframe, to see which variables are included, what types of data they contain, and so on. We already looked at <code>summary</code> and <code>str</code> in Section <a href="dataskills1.html#dataframes">3.4</a>.</p>
+<p>Two more very useful functions are from the <code>Hmisc</code> package. The first, <code>describe</code>, is much like <code>summary</code>, but offers slightly more sophisticated statistics. The second, <code>contents</code>, is similar to <code>str</code>, but does a very nice job of summarizing the <code>factor</code> variables in your dataframe, prints the number of missing variables, the number of rows, and so on.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load data</span>
+<span class="kw">data</span>(pupae)
+
+<span class="co"># Make sure CO2_treatment is a factor (it will be read as a number)</span>
+pupae<span class="op">$</span>CO2_treatment &lt;-<span class="st"> </span><span class="kw">as.factor</span>(pupae<span class="op">$</span>CO2_treatment)
+
+<span class="co"># Show contents:</span>
+<span class="kw">library</span>(Hmisc)  
+<span class="kw">contents</span>(pupae)</code></pre>
+<pre><code>## 
+## Data frame:pupae 84 observations and 5 variables    Maximum # NAs:6
+## 
+## 
+##               Levels Storage NAs
+## T_treatment        2 integer   0
+## CO2_treatment      2 integer   0
+## Gender               integer   6
+## PupalWeight           double   0
+## Frass                 double   1
+## 
+## +-------------+----------------+
+## |Variable     |Levels          |
+## +-------------+----------------+
+## |T_treatment  |ambient,elevated|
+## +-------------+----------------+
+## |CO2_treatment|280,400         |
+## +-------------+----------------+</code></pre>
+<p>Here, <code>storage</code> refers to the internal storage type of the variable: note that the factor variables are stored as ‘integer’, and other numbers as ‘double’ (this refers to the precision of the number).</p>
+<div id="tapplyaggregate" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Making summary tables</h3>
+<div id="tapply" class="section level4">
+<h4><span class="header-section-number">4.1.1.1</span> Summarizing vectors with <code>tapply</code></h4>
+<p>If we have the following dataset called <code>plantdat</code>,</p>
+<p><img src="screenshots/exampledata.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(plantdat, <span class="kw">tapply</span>(Plantbiomass, Treatment, mean))</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/tapplyresult.png" width="33%" /></p>
+<p>Note that the result is a <code>vector</code> (elements of a vector can have names, like columns of a dataframe).</p>
+<p>If we have the following dataset called <code>plantdat2</code>,</p>
+<p><img src="screenshots/exampledatalarger.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">with</span>(plantdat2, <span class="kw">tapply</span>(Plantbiomass, <span class="kw">list</span>(Species, Treatment), mean))</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/tapplyresultlarger.png" width="33%" /></p>
+<p>Note that the result here is a <code>matrix</code>, where <code>A</code> and <code>B</code>, the species codes, are the rownames of this matrix.</p>
+<p>Often, you want to summarize a variable by the levels of another variable. For example, in the <code>rain</code> data, the <code>Rain</code> variable gives daily values, but we might want to calculate annual sums,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+<span class="kw">data</span>(rain)
+
+<span class="co"># Annual rain totals.</span>
+<span class="kw">with</span>(rain, <span class="kw">tapply</span>(Rain, Year, <span class="dt">FUN=</span>sum))</code></pre>
+<pre><code>##   1996   1997   1998   1999   2000   2001   2002   2003   2004   2005 
+##  717.2  640.4  905.4 1021.3  693.5  791.5  645.9  691.8  709.5  678.2</code></pre>
+<p>The <code>tapply</code> function applies a function (<code>sum</code>) to a vector (<code>Rain</code>), that is split into chunks depending on another variable (<code>Year</code>).</p>
+<p>We can also use the <code>tapply</code> function on more than one variable at a time. Consider these examples on the <code>pupae</code> data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Average pupal weight by CO2 and T treatment:</span>
+<span class="kw">with</span>(pupae, <span class="kw">tapply</span>(PupalWeight, <span class="kw">list</span>(CO2_treatment, T_treatment), <span class="dt">FUN=</span>mean))</code></pre>
+<pre><code>##       ambient elevated
+## 280 0.2900000  0.30492
+## 400 0.3419565  0.29900</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Further split the averages, by gender of the pupae.</span>
+<span class="kw">with</span>(pupae, <span class="kw">tapply</span>(PupalWeight, <span class="kw">list</span>(CO2_treatment, T_treatment, Gender), <span class="dt">FUN=</span>mean))</code></pre>
+<pre><code>## , , 0
+## 
+##      ambient  elevated
+## 280 0.251625 0.2700000
+## 400 0.304000 0.2687143
+## 
+## , , 1
+## 
+##       ambient  elevated
+## 280 0.3406000 0.3386364
+## 400 0.3568333 0.3692857</code></pre>
+<p>As the examples show, the <code>tapply</code> function produces summary tables by one or more factors. The resulting object is either a vector (when using one factor), or a matrix (as in the examples using the pupae data).</p>
+<p>The limitations of <code>tapply</code> are that you can only summarize one variable at a time, and that the result is not a dataframe.</p>
+<p>The main advantage of <code>tapply</code> is that we can use it as input to <code>barplot</code>, as the following example demonstrates (Fig. fig:pupgroupedbar})</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Pupal weight by CO2 and Gender. Result is a matrix.</span>
+pupm &lt;-<span class="st"> </span><span class="kw">with</span>(pupae, <span class="kw">tapply</span>(PupalWeight, <span class="kw">list</span>(CO2_treatment,Gender), 
+                           mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))
+
+<span class="co"># When barplot is provided a matrix, it makes a grouped barplot.</span>
+<span class="co"># We specify xlim to make some room for the legend.</span>
+<span class="kw">barplot</span>(pupm, <span class="dt">beside=</span><span class="ot">TRUE</span>, <span class="dt">legend.text=</span><span class="ot">TRUE</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">8</span>),
+        <span class="dt">xlab=</span><span class="st">&quot;Gender&quot;</span>, <span class="dt">ylab=</span><span class="st">&quot;Pupal weight&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:pupgroupedbar"></span>
+<img src="02-dataskills2_files/figure-html/pupgroupedbar-1.svg" alt="A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply." width="672" />
+<p class="caption">
+Figure 4.1: A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply.
+</p>
+</div>
+</div>
+<div id="summaryby" class="section level4">
+<h4><span class="header-section-number">4.1.1.2</span> Quick summary tables with <code>summaryBy</code></h4>
+<p>If we have the following dataset called <code>plantdat</code>,</p>
+<p><img src="screenshots/exampledata.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(doBy)
+<span class="kw">summaryBy</span>(Plantbiomass <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">FUN=</span>mean, <span class="dt">data=</span>plantdat)</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/summarybyresult.png" width="33%" /></p>
+<p>Note that the result here is a <code>dataframe</code>.</p>
+<p>If we have the following dataset called <code>plantdat2</code>,</p>
+<p><img src="screenshots/exampledatalarger.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summaryBy</span>(Plantbiomass <span class="op">~</span><span class="st"> </span>Species <span class="op">+</span><span class="st"> </span>Treatment, <span class="dt">FUN=</span>mean, <span class="dt">data=</span>dfr)</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/summarybyresultlarger.png" width="33%" /></p>
+<p>Note that the result here is a <code>dataframe</code>.</p>
+<p>In practice, it is often useful to make summary tables of multiple variables at once, and to end up with a dataframe. In this book we first use <code>summaryBy</code>, from the <code>doBy</code> package, to achieve this.</p>
+<p>With <code>summaryBy</code>, we can generate multiple summaries (mean, standard deviation, etc.) on more than one variable in a dataframe at once. We can use a convenient formula interface for this. It is of the form,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summaryBy</span>(Yvar1 <span class="op">+</span><span class="st"> </span>Yvar2 <span class="op">~</span><span class="st"> </span>Groupvar1 <span class="op">+</span><span class="st"> </span>Groupvar2, <span class="dt">FUN=</span><span class="kw">c</span>(mean,sd), <span class="dt">data=</span>mydata)</code></pre>
+<p>where we summarize the (numeric) variables <code>Yvar1</code> and <code>Yvar2</code> by all combinations of the (factor) variables <code>Groupvar1</code> and <code>Groupvar2</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Load the doBy package</span>
+<span class="kw">library</span>(doBy)
+
+<span class="co"># read pupae data if you have not already</span>
+<span class="kw">data</span>(pupae)
+
+<span class="co"># Get mean and standard deviation of Frass by CO2 and T treatments</span>
+<span class="kw">summaryBy</span>(Frass <span class="op">~</span><span class="st"> </span>CO2_treatment <span class="op">+</span><span class="st"> </span>T_treatment,
+          <span class="dt">data=</span>pupae, <span class="dt">FUN=</span><span class="kw">c</span>(mean,sd))</code></pre>
+<pre><code>##   CO2_treatment T_treatment Frass.mean  Frass.sd
+## 1           280     ambient         NA        NA
+## 2           280    elevated   1.479520 0.2387150
+## 3           400     ambient   2.121783 0.4145402
+## 4           400    elevated   1.912045 0.3597471</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Note that there is a missing value. We can specify na.rm=TRUE,</span>
+<span class="co"># which will be passed to both mean() and sd(). It works because those</span>
+<span class="co"># functions recognize that argument (i.e. na.rm is NOT an argument of </span>
+<span class="co"># summaryBy itself!)</span>
+<span class="kw">summaryBy</span>(Frass <span class="op">~</span><span class="st"> </span>CO2_treatment <span class="op">+</span><span class="st"> </span>T_treatment,
+          <span class="dt">data=</span>pupae, <span class="dt">FUN=</span><span class="kw">c</span>(mean,sd), <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>##   CO2_treatment T_treatment Frass.mean  Frass.sd
+## 1           280     ambient   1.953923 0.4015635
+## 2           280    elevated   1.479520 0.2387150
+## 3           400     ambient   2.121783 0.4145402
+## 4           400    elevated   1.912045 0.3597471</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># However, if we use a function that does not recognize it, we first have to</span>
+<span class="co"># exclude all missing values before making a summary table, like this:</span>
+pupae_nona &lt;-<span class="st"> </span>pupae[<span class="kw">complete.cases</span>(pupae),]
+
+<span class="co"># Get mean and standard deviation for</span>
+<span class="co"># the pupae data (Pupal weight and Frass), by CO2 and T treatment.</span>
+<span class="co"># Note that length() does not recognize na.rm (see ?length), which is</span>
+<span class="co"># why we have excluded any NA from pupae first.</span>
+<span class="kw">summaryBy</span>(PupalWeight<span class="op">+</span>Frass <span class="op">~</span><span class="st"> </span>CO2_treatment <span class="op">+</span><span class="st"> </span>T_treatment,
+          <span class="dt">data=</span>pupae_nona,
+          <span class="dt">FUN=</span><span class="kw">c</span>(mean,sd,length))</code></pre>
+<pre><code>##   CO2_treatment T_treatment PupalWeight.mean Frass.mean PupalWeight.sd
+## 1           280     ambient        0.2912500   1.957333     0.04895847
+## 2           280    elevated        0.3014583   1.473167     0.05921000
+## 3           400     ambient        0.3357000   2.103250     0.05886479
+## 4           400    elevated        0.3022381   1.931000     0.06602189
+##    Frass.sd PupalWeight.length Frass.length
+## 1 0.4192227                 12           12
+## 2 0.2416805                 24           24
+## 3 0.4186310                 20           20
+## 4 0.3571969                 21           21</code></pre>
+<p>You can also use any function that returns a vector of results. In the following example we calculate the 5% and 95% quantiles of all numeric variables in the allometry dataset. To do this, use <code>.</code> for the left-hand side of the formula.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># . ~ species means &#39;all numeric variables by species&#39;.</span>
+<span class="co"># Extra arguments to the function used (in this case quantile) can be set here as well,</span>
+<span class="co"># they will be passed to that function (see ?quantile).</span>
+<span class="kw">data</span>(allometry)
+<span class="kw">summaryBy</span>(. <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>allometry, <span class="dt">FUN=</span>quantile, <span class="dt">probs=</span><span class="kw">c</span>(<span class="fl">0.05</span>, <span class="fl">0.95</span>))</code></pre>
+<pre><code>##   species diameter.5% diameter.95% height.5% height.95% leafarea.5%
+## 1    PIMO      8.1900      70.9150  5.373000     44.675    7.540916
+## 2    PIPO     11.4555      69.1300  5.903499     39.192   10.040843
+## 3    PSME      6.1635      56.5385  5.276000     32.602    4.988747
+##   leafarea.95% branchmass.5% branchmass.95%
+## 1     380.3984      4.283342       333.6408
+## 2     250.1295      7.591966       655.1097
+## 3     337.5367      3.515638       403.7902</code></pre>
+</div>
+<div id="dplyr" class="section level4">
+<h4><span class="header-section-number">4.1.1.3</span> Summarizing dataframes with <code>dplyr</code></h4>
+<p>We started with the <code>summaryBy</code> package, since it is so easy to use. A more modern and popular approach is to use <code>dplyr</code> for all your dataframe summarizing needs. The main advantage is that <code>dplyr</code> is very, very fast. For datasets with &gt; hundreds of thousands of rows, you will notice an incredible speed increase. For millions of rows, you really have to use <code>dplyr</code> (or <code>data.table</code>, but we don’t cover that package in this book).</p>
+<p>Making summary tables as we did in the above examples requires two steps:</p>
+<ol style="list-style-type: decimal">
+<li>Group your dataframe by one or more factor variables</li>
+<li>Apply summarizing functions to each of the groups</li>
+</ol>
+<p>As is the norm, we use the pipe operator (<code>%&gt;%</code>) to keep the steps apart. Here is a simple example to get started.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+
+<span class="kw">group_by</span>(pupae, CO2_treatment, T_treatment) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Frass_mean =</span> <span class="kw">mean</span>(Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),
+            <span class="dt">Frass_sd =</span> <span class="kw">sd</span>(Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</code></pre>
+<pre><code>## # A tibble: 4 x 4
+## # Groups:   CO2_treatment [2]
+##   CO2_treatment T_treatment Frass_mean Frass_sd
+##           &lt;int&gt; &lt;fct&gt;            &lt;dbl&gt;    &lt;dbl&gt;
+## 1           280 ambient           1.95    0.402
+## 2           280 elevated          1.48    0.239
+## 3           400 ambient           2.12    0.415
+## 4           400 elevated          1.91    0.360</code></pre>
+<p>I used <code>as.data.frame</code> at the end, so we arrive at an actual dataframe, not a tibble (only for the reason so you can compare the output to the previous examples). The <code>dplyr</code> package (and others) always produce tibbles, which are really just dataframes but with some adjusted printing methods.</p>
+<p>In <code>summarize</code> you can specify each of the new variables that should be produced, in this case giving mean and standard deviation of Frass. If we want to apply a number of functions over many variables, we can use <code>summarize_at</code>, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">group_by</span>(pupae, CO2_treatment, T_treatment) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize_at</span>(<span class="dt">.vars =</span> <span class="kw">c</span>(<span class="st">&quot;Frass&quot;</span>, <span class="st">&quot;PupalWeight&quot;</span>),
+                <span class="dt">.funs =</span> <span class="kw">c</span>(<span class="st">&quot;mean&quot;</span>, <span class="st">&quot;sd&quot;</span>))</code></pre>
+<pre><code>## # A tibble: 4 x 6
+## # Groups:   CO2_treatment [2]
+##   CO2_treatment T_treatment Frass_mean PupalWeight_mean Frass_sd
+##           &lt;int&gt; &lt;fct&gt;            &lt;dbl&gt;            &lt;dbl&gt;    &lt;dbl&gt;
+## 1           280 ambient          NA               0.290  NaN    
+## 2           280 elevated          1.48            0.305    0.239
+## 3           400 ambient           2.12            0.342    0.415
+## 4           400 elevated          1.91            0.299    0.360
+## # ... with 1 more variable: PupalWeight_sd &lt;dbl&gt;</code></pre>
+<p>The result is identical to our last example with <code>summaryBy</code>.</p>
+<p>Let’s look at a more advanced example using weather data collected at the Hawkesbury Forest Experiment in 2008. The data given are in half-hourly time steps. It is a reasonable request to provide data as daily averages (for temperature) and daily sums (for precipitation).</p>
+<p>The following code produces a daily weather dataset, and Fig. <a href="dataskills2.html#fig:hfemetaggregate">4.2</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data, convert DateTime field to a proper Datetime class using</span>
+<span class="co"># lubridate&#39;s mdy_hm function, and add a Date column with as.Date.</span>
+<span class="co"># Instead of loading packages, we use :: in the example below to make sure</span>
+<span class="co"># the functions are used from the right package.</span>
+<span class="kw">data</span>(hfemet2008)
+
+hfemet_agg &lt;-<span class="st"> </span>hfemet2008 <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">DateTime =</span> lubridate<span class="op">::</span><span class="kw">mdy_hm</span>(DateTime),
+         <span class="dt">Date =</span> <span class="kw">as.Date</span>(DateTime)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(Date) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Rain =</span> <span class="kw">sum</span>(Rain),
+            <span class="dt">Tair =</span> <span class="kw">mean</span>(Tair))
+
+<span class="co"># A simple plot of daily rainfall.</span>
+<span class="kw">library</span>(ggplot2)
+<span class="kw">ggplot</span>(hfemet_agg, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Rain)) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:hfemetaggregate"></span>
+<img src="02-dataskills2_files/figure-html/hfemetaggregate-1.svg" alt="Daily rainfall at the HFE in 2008" width="672" />
+<p class="caption">
+Figure 4.2: Daily rainfall at the HFE in 2008
+</p>
+</div>
+</div>
+<div id="using-padr-to-aggregate-timeseries-data" class="section level4">
+<h4><span class="header-section-number">4.1.1.4</span> Using <code>padr</code> to aggregate timeseries data</h4>
+<p>In the previous example we saw a quick and concise methods to aggregate and filter a dataframe that includes a single date-time column (here roughly referred to as timeseries data). In the example, we calculated daily totals and averages, but what if we want to aggregate by other timespans, like two-week intervals, 6 months, or 15 minutes? The <code>padr</code> package is very convenient for this sort of mutation.</p>
+<p>The following example uses <code>padr</code> in combination with several functions from <code>dplyr</code> to make a table of total rainfall in 4 hour increments for one day, using the <code>hfemet2008</code> dataset.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(padr)
+<span class="kw">library</span>(lubridate)
+
+<span class="co"># From the lgrdata package</span>
+<span class="kw">data</span>(hfemet2008)
+
+<span class="kw">mutate</span>(hfemet2008, <span class="dt">DateTime =</span> <span class="kw">mdy_hm</span>(DateTime)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># convert to proper DateTime</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">as.Date</span>(DateTime) <span class="op">==</span><span class="st"> &quot;2008-6-3&quot;</span>) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># select a single day</span>
+<span class="st">  </span><span class="kw">thicken</span>(<span class="st">&quot;4 hours&quot;</span>, <span class="dt">round=</span><span class="st">&quot;down&quot;</span>) <span class="op">%&gt;%</span><span class="st">              </span><span class="co"># add datetime in 4hour steps</span>
+<span class="st">  </span><span class="kw">group_by</span>(DateTime_<span class="dv">4</span>_hour) <span class="op">%&gt;%</span><span class="st">                     </span><span class="co"># set grouping variable</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">Rain =</span> <span class="kw">sum</span>(Rain)) <span class="op">%&gt;%</span><span class="st">                   </span><span class="co"># sum over the grouping variable</span>
+<span class="st">  </span><span class="kw">select</span>(<span class="dt">DateTime =</span> DateTime_<span class="dv">4</span>_hour, Rain)          <span class="co"># show two variables</span></code></pre>
+<pre><code>## # A tibble: 6 x 2
+##   DateTime             Rain
+##   &lt;dttm&gt;              &lt;dbl&gt;
+## 1 2008-06-03 00:00:00   2.4
+## 2 2008-06-03 04:00:00   1.8
+## 3 2008-06-03 08:00:00  11.8
+## 4 2008-06-03 12:00:00   5.6
+## 5 2008-06-03 16:00:00   6.6
+## 6 2008-06-03 20:00:00  26.4</code></pre>
+</div>
+</div>
+<div id="xtabs" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Tables of counts</h3>
+<p>It is often useful to count the number of observations by one or more multiple factors. One option is to use <code>tapply</code> or <code>summaryBy</code> in combination with the <code>length</code> function. A much better alternative is to use the <code>xtabs</code> and <code>ftable</code> functions, in addition to the simple use of <code>table</code>. Alternatively, <code>dplyr</code> provides a <code>count</code> function. We will look at both options.</p>
+<p>Consider these examples using the Titanic data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read titanic data</span>
+<span class="kw">data</span>(titanic)
+
+<span class="co"># Count observations by passenger class</span>
+<span class="kw">table</span>(titanic<span class="op">$</span>PClass)</code></pre>
+<pre><code>## 
+## 1st 2nd 3rd 
+## 322 280 711</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># With more grouping variables, it is more convenient to use xtabs.</span>
+<span class="co"># Count observations by combinations of passenger class, sex, and whether they survived:</span>
+<span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>PClass <span class="op">+</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data=</span>titanic)</code></pre>
+<pre><code>## , , Survived = 0
+## 
+##       Sex
+## PClass female male
+##    1st      9  120
+##    2nd     13  148
+##    3rd    132  441
+## 
+## , , Survived = 1
+## 
+##       Sex
+## PClass female male
+##    1st    134   59
+##    2nd     94   25
+##    3rd     80   58</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The previous output is hard to read, consider using ftable on the result:</span>
+<span class="kw">ftable</span>(<span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>PClass <span class="op">+</span><span class="st"> </span>Sex <span class="op">+</span><span class="st"> </span>Survived, <span class="dt">data=</span>titanic))</code></pre>
+<pre><code>##               Survived   0   1
+## PClass Sex                    
+## 1st    female            9 134
+##        male            120  59
+## 2nd    female           13  94
+##        male            148  25
+## 3rd    female          132  80
+##        male            441  58</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Using dplyr, the result is a dataframe (actually, a tibble)</span>
+<span class="kw">library</span>(dplyr)
+titanic <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">count</span>(PClass, Sex, Survived)</code></pre>
+<pre><code>## # A tibble: 12 x 4
+##    PClass Sex    Survived     n
+##    &lt;fct&gt;  &lt;fct&gt;     &lt;int&gt; &lt;int&gt;
+##  1 1st    female        0     9
+##  2 1st    female        1   134
+##  3 1st    male          0   120
+##  4 1st    male          1    59
+##  5 2nd    female        0    13
+##  6 2nd    female        1    94
+##  7 2nd    male          0   148
+##  8 2nd    male          1    25
+##  9 3rd    female        0   132
+## 10 3rd    female        1    80
+## 11 3rd    male          0   441
+## 12 3rd    male          1    58</code></pre>
+</div>
+<div id="summaryvars" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> Adding summary variables to dataframes</h3>
+<p>We saw how <code>tapply</code> can make simple tables of averages (or totals, or other functions) of some variable by the levels of one or more factor variables. The result of <code>tapply</code> is typically a vector with a length equal to the number of levels of the factor you summarized by (see examples in Section <a href="dataskills2.html#tapply">4.1.1.1</a>).</p>
+<p>Consider the <code>allometry</code> dataset, which includes tree height for three species. Suppose you want to add a new variable ‘MaxHeight’, that is the maximum tree height observed per species. We can use <code>ave</code> to achieve this:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
+allom &lt;-<span class="st"> </span>allometry <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">MaxHeight =</span> <span class="kw">ave</span>(height, species, <span class="dt">FUN=</span>max))
+
+<span class="co"># Look at first few rows (or just type allom to see whole dataset)</span>
+<span class="kw">head</span>(allom)</code></pre>
+<pre><code>##   species diameter height   leafarea branchmass MaxHeight
+## 1    PSME    54.61  27.04 338.485622  410.24638      33.3
+## 2    PSME    34.80  27.42 122.157864   83.65030      33.3
+## 3    PSME    24.89  21.23   3.958274    3.51270      33.3
+## 4    PSME    28.70  24.96  86.350653   73.13027      33.3
+## 5    PSME    34.80  29.99  63.350906   62.39044      33.3
+## 6    PSME    37.85  28.07  61.372765   53.86594      33.3</code></pre>
+<p>Note that you can use any function in place of <code>max</code>, as long as that function can take a vector as an argument, and returns a single number.</p>
+
+<div class="rmdtry">
+If you want results similar to <code>ave</code>, you can use <code>summaryBy</code> with the argument <code>full.dimension=TRUE</code>. Try <code>summaryBy</code> on the <code>pupae</code> dataset with that argument set, and compare the result to <code>full.dimension=FALSE</code>, which is the default.
+</div>
+
+</div>
+<div id="reorder" class="section level3">
+<h3><span class="header-section-number">4.1.4</span> Reordering factor levels based on a summary variable</h3>
+<p>It is often useful to tabulate your data in a meaningful order. We saw that, when using <code>summaryBy</code>, <code>tapply</code> or similar functions, that the results are always in the order of your factor levels. Recall that the default order is alphabetical. This is rarely what you want.</p>
+<p>You can reorder the factor levels by some summary variable. For example,</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Reorder factor levels for &#39;Manufacturer&#39; in the cereal data </span>
+<span class="co"># by the mean amount of sodium.</span>
+
+<span class="co"># Read data, show default (alphabetical) levels:</span>
+<span class="kw">data</span>(cereals)
+<span class="kw">levels</span>(cereals<span class="op">$</span>Manufacturer)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;G&quot; &quot;K&quot; &quot;N&quot; &quot;P&quot; &quot;Q&quot; &quot;R&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now reorder:</span>
+cereals &lt;-<span class="st"> </span><span class="kw">mutate</span>(cereals, 
+                 <span class="dt">Manufacturer =</span> <span class="kw">reorder</span>(Manufacturer, sodium, 
+                                        median, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))
+
+<span class="co"># And inspect the new levels</span>
+<span class="kw">levels</span>(cereals<span class="op">$</span>Manufacturer)</code></pre>
+<pre><code>## [1] &quot;A&quot; &quot;N&quot; &quot;Q&quot; &quot;P&quot; &quot;K&quot; &quot;G&quot; &quot;R&quot;</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Tables are now printed in order:</span>
+<span class="kw">with</span>(cereals, <span class="kw">tapply</span>(sodium, Manufacturer, median))</code></pre>
+<pre><code>##     A     N     Q     P     K     G     R 
+##   0.0   7.5  75.0 160.0 170.0 200.0 200.0</code></pre>
+<p>This trick comes in handy when making barplots; it is customary to plot them in ascending order if there is no specific order to the factor levels, as in this example.</p>
+<p>The following code produces Fig. <a href="dataskills2.html#fig:coweetabar">4.3</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Here we read the data, add a reordered factor variable,</span>
+<span class="co"># and continue with making the summary table used in the plot.</span>
+<span class="kw">data</span>(coweeta)
+
+coweeta_table &lt;-<span class="st"> </span>coweeta <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">species =</span> <span class="kw">reorder</span>(species, height, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">group_by</span>(species) <span class="op">%&gt;%</span>
+<span class="st">  </span>dplyr<span class="op">::</span><span class="kw">summarize</span>(<span class="dt">height_mean =</span> <span class="kw">mean</span>(height, <span class="dt">na.rm=</span><span class="ot">TRUE</span>),
+            <span class="dt">height_sd =</span> <span class="kw">sd</span>(height, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))
+
+<span class="kw">ggplot</span>(coweeta_table, <span class="kw">aes</span>(<span class="dt">x =</span> species, <span class="dt">y =</span> height_mean)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="dt">fill=</span><span class="st">&quot;red&quot;</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_errorbar</span>(<span class="kw">aes</span>(<span class="dt">ymin =</span> height_mean <span class="op">-</span><span class="st"> </span>height_sd,
+                    <span class="dt">ymax =</span> height_mean <span class="op">+</span><span class="st"> </span>height_sd), <span class="dt">width=</span><span class="fl">0.2</span>) <span class="op">+</span>
+<span class="st">  </span><span class="kw">labs</span>(<span class="dt">y =</span> <span class="st">&quot;Height (m)&quot;</span>, <span class="dt">x =</span> <span class="st">&quot;Species&quot;</span>)</code></pre>
+<div class="figure"><span id="fig:coweetabar"></span>
+<img src="02-dataskills2_files/figure-html/coweetabar-1.svg" alt="An ordered barplot for the coweeta tree data (error bars are 1 SD)." width="672" />
+<p class="caption">
+Figure 4.3: An ordered barplot for the coweeta tree data (error bars are 1 SD).
+</p>
+</div>
+<p>The above example uses the more modern approach with <code>ggplot2</code> and <code>dplyr</code>, but we can get practically the same result with <code>doBy</code> and <code>gplots</code> - below is the code for comparison (output not shown).</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(doBy)
+coweeta<span class="op">$</span>species &lt;-<span class="st"> </span><span class="kw">with</span>(coweeta, <span class="kw">reorder</span>(species, height, mean, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))
+coweeta_agg &lt;-<span class="st"> </span><span class="kw">summaryBy</span>(height <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>coweeta, <span class="dt">FUN=</span><span class="kw">c</span>(mean,sd))
+
+<span class="co"># For barplot2, which adds options for error bars</span>
+<span class="kw">library</span>(gplots)
+
+<span class="co"># This par setting makes the x-axis labels vertical, so they don&#39;t overlap.</span>
+<span class="kw">par</span>(<span class="dt">las=</span><span class="dv">2</span>)
+<span class="kw">with</span>(coweeta_agg, <span class="kw">barplot2</span>(height.mean, <span class="dt">names.arg=</span>species,
+                           <span class="dt">space=</span><span class="fl">0.3</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>,<span class="dt">plot.grid=</span><span class="ot">TRUE</span>,
+                           <span class="dt">ylab=</span><span class="st">&quot;Height (m)&quot;</span>,
+                           <span class="dt">plot.ci=</span><span class="ot">TRUE</span>,
+                           <span class="dt">ci.l=</span>height.mean <span class="op">-</span><span class="st"> </span>height.sd,
+                           <span class="dt">ci.u=</span>height.mean <span class="op">+</span><span class="st"> </span>height.sd))</code></pre>
+
+<div class="rmdtry">
+The above example orders the factor levels by increasing median sodium levels.
+Try reversing the factor levels, using the following code after <code>reorder</code>.
+<code>coweeta$species &lt;- factor(coweeta$species, levels=rev(levels(coweeta$species)))</code>
+Here we used <code>rev</code> to reverse the levels.
+</div>
+
+</div>
+</div>
+<div id="combining-dataframes" class="section level2">
+<h2><span class="header-section-number">4.2</span> Combining dataframes</h2>
+<div id="merge" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Merging dataframes</h3>
+<p>If we have the following dataset called <code>plantdat</code>,</p>
+<p><img src="screenshots/exampledata.png" width="33%" /></p>
+<p>and we have another dataset, that includes the same <code>PlantID</code> variable (but is not necessarily ordered, nor does it have to include values for every plant):</p>
+<p><img src="screenshots/leafnitrogendata.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">merge</span>(plantdat, leafnitrogendata, <span class="dt">by=</span><span class="st">&quot;PlantID&quot;</span>)</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/mergeresult.png" width="33%" /></p>
+<p>Note the missing value (<code>NA</code>) for the plant for which no leaf nitrogen data was available.</p>
+<p>In many problems, you do not have a single dataset that contains all the measurements you are interested in – unlike most of the example datasets in this tutorial. Suppose you have two datasets that you would like to combine, or <code>merge</code>. This is straightforward in R, but there are some pitfalls.</p>
+<p>Let’s start with a common situation when you need to combine two datasets that have a different number of rows.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Two dataframes</span>
+data1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">unit=</span><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>,<span class="st">&quot;z&quot;</span>),<span class="dt">Time=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">1</span>,<span class="dv">2</span>))
+data2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">unit=</span><span class="kw">c</span>(<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>,<span class="st">&quot;x&quot;</span>), <span class="dt">height=</span><span class="kw">c</span>(<span class="fl">3.4</span>,<span class="fl">5.6</span>,<span class="fl">1.2</span>))
+
+<span class="co"># Look at the dataframes</span>
+data1</code></pre>
+<pre><code>##   unit Time
+## 1    x    1
+## 2    x    2
+## 3    x    3
+## 4    y    1
+## 5    z    1
+## 6    z    2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">data2</code></pre>
+<pre><code>##   unit height
+## 1    y    3.4
+## 2    z    5.6
+## 3    x    1.2</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Merge dataframes:</span>
+combdata &lt;-<span class="st"> </span><span class="kw">merge</span>(data1, data2, <span class="dt">by=</span><span class="st">&quot;unit&quot;</span>)
+
+<span class="co"># Combined data</span>
+combdata</code></pre>
+<pre><code>##   unit Time height
+## 1    x    1    1.2
+## 2    x    2    1.2
+## 3    x    3    1.2
+## 4    y    1    3.4
+## 5    z    1    5.6
+## 6    z    2    5.6</code></pre>
+<p>Sometimes, the variable you are merging with has a different name in either dataframe. In that case, you can either rename the variable before merging, or use the following option:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">merge</span>(data1, data2, <span class="dt">by.x=</span><span class="st">&quot;unit&quot;</span>, <span class="dt">by.y=</span><span class="st">&quot;item&quot;</span>)</code></pre>
+<p>Where <code>data1</code> has a variable called ‘unit’, and <code>data2</code> has a variable called ‘item’.</p>
+<p>Other times you need to merge two dataframes with multiple key variables. Consider this example, where two dataframes have measurements on the same units at some of the the same times, but on different variables:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Two dataframes</span>
+data1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">unit=</span><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>,<span class="st">&quot;z&quot;</span>,<span class="st">&quot;z&quot;</span>),
+<span class="dt">Time=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>),
+<span class="dt">Weight=</span><span class="kw">c</span>(<span class="fl">3.1</span>,<span class="fl">5.2</span>,<span class="fl">6.9</span>,<span class="fl">2.2</span>,<span class="fl">5.1</span>,<span class="fl">7.5</span>,<span class="fl">3.5</span>,<span class="fl">6.1</span>,<span class="fl">8.0</span>))
+data2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">unit=</span><span class="kw">c</span>(<span class="st">&quot;x&quot;</span>,<span class="st">&quot;x&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;y&quot;</span>,<span class="st">&quot;z&quot;</span>,<span class="st">&quot;z&quot;</span>),
+<span class="dt">Time=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">1</span>,<span class="dv">3</span>),
+<span class="dt">Height=</span><span class="kw">c</span>(<span class="fl">12.1</span>,<span class="fl">24.4</span>,<span class="fl">18.0</span>,<span class="fl">30.8</span>,<span class="fl">10.4</span>,<span class="fl">32.9</span>))
+
+<span class="co"># Look at the dataframes</span>
+data1</code></pre>
+<pre><code>##   unit Time Weight
+## 1    x    1    3.1
+## 2    x    2    5.2
+## 3    x    3    6.9
+## 4    y    1    2.2
+## 5    y    2    5.1
+## 6    y    3    7.5
+## 7    z    1    3.5
+## 8    z    2    6.1
+## 9    z    3    8.0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">data2</code></pre>
+<pre><code>##   unit Time Height
+## 1    x    1   12.1
+## 2    x    2   24.4
+## 3    y    2   18.0
+## 4    y    3   30.8
+## 5    z    1   10.4
+## 6    z    3   32.9</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Merge dataframes:</span>
+combdata &lt;-<span class="st"> </span><span class="kw">merge</span>(data1, data2, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;unit&quot;</span>,<span class="st">&quot;Time&quot;</span>))
+
+<span class="co"># By default, only those times appear in the dataset that have measurements</span>
+<span class="co"># for both Weight (data1) and Height (data2)</span>
+combdata</code></pre>
+<pre><code>##   unit Time Weight Height
+## 1    x    1    3.1   12.1
+## 2    x    2    5.2   24.4
+## 3    y    2    5.1   18.0
+## 4    y    3    7.5   30.8
+## 5    z    1    3.5   10.4
+## 6    z    3    8.0   32.9</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># To include all data, use this command. This produces missing values for some times:</span>
+<span class="kw">merge</span>(data1, data2, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;unit&quot;</span>,<span class="st">&quot;Time&quot;</span>), <span class="dt">all=</span><span class="ot">TRUE</span>)</code></pre>
+<pre><code>##   unit Time Weight Height
+## 1    x    1    3.1   12.1
+## 2    x    2    5.2   24.4
+## 3    x    3    6.9     NA
+## 4    y    1    2.2     NA
+## 5    y    2    5.1   18.0
+## 6    y    3    7.5   30.8
+## 7    z    1    3.5   10.4
+## 8    z    2    6.1     NA
+## 9    z    3    8.0   32.9</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compare this result with &#39;combdata&#39; above!</span></code></pre>
+</div>
+<div id="dplyrjoin" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Using join from <code>dplyr</code></h3>
+<p>We showed how to use the <code>merge</code> function above, which is provided by base R. For larger datasets, it is advisable to use the <code>join*</code> functions from <code>dplyr</code>.</p>
+<p>Instead of specifying which rows to keep with arguments <code>all.x</code>, <code>all</code>, etc., <code>dplyr</code> provides several functions that should make some intuitive sense. The table below compares <code>merge</code> and <code>join*</code>.</p>
+<table style="width:96%;">
+<colgroup>
+<col width="51%" />
+<col width="44%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th><code>merge()</code></th>
+<th><code>dplyr::join*</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>merge(dat1, dat2, all = FALSE)</code></td>
+<td><code>inner_join(dat1, dat2)</code></td>
+</tr>
+<tr class="even">
+<td><code>merge(dat1, dat2, all.x = TRUE)</code></td>
+<td><code>left_join(dat1, dat2)</code></td>
+</tr>
+<tr class="odd">
+<td><code>merge(dat1, dat2, all.y = TRUE)</code></td>
+<td><code>right_join(dat1, dat2)</code></td>
+</tr>
+<tr class="even">
+<td><code>merge(dat1, dat2, all = TRUE)</code></td>
+<td><code>full_join(dat1, dat2)</code></td>
+</tr>
+</tbody>
+</table>
+<p>One other function is provided that has no simple equivalent in base R, <code>anti_join</code>, which can be used to find all observations that have <em>no match</em> between the two datasets. This can be handy for error-checking.</p>
+<p>Consider the cereal dataset, which gives measurements of all sorts of contents of cereals. Suppose the measurements for ‘protein’, ‘vitamins’ and ‘sugars’ were all produced by different laboratories, and each lab sent you a separate dataset. To make things worse, some measurements for sugars and vitamins are missing, because samples were lost in those labs.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the three datasets given to you from the three different labs:</span>
+<span class="kw">data</span>(cereal1)
+<span class="kw">data</span>(cereal2)
+<span class="kw">data</span>(cereal3)
+
+<span class="co"># As always, look at the first few rows of each dataset.</span>
+<span class="kw">head</span>(cereal1, <span class="dv">3</span>)</code></pre>
+<pre><code>##      Cereal.name protein
+## 1 Frosted_Flakes       1
+## 2     Product_19       3
+## 3  Count_Chocula       1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(cereal2, <span class="dv">3</span>)</code></pre>
+<pre><code>##     cerealbrand vitamins
+## 1    Product_19      100
+## 2 Count_Chocula       25
+## 3    Wheat_Chex       25</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(cereal3, <span class="dv">3</span>)</code></pre>
+<pre><code>##             cerealname sugars
+## 1       Frosted_Flakes     11
+## 2           Product_19      3
+## 3 Mueslix_Crispy_Blend     13</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The name of the variable that ties the datasets together, </span>
+<span class="co"># the &#39;cereal name&#39; differs between the datasets, as do the number of rows.</span>
+<span class="co"># We can use merge() three times, but the data are easiest to merge with dplyr:</span>
+<span class="kw">library</span>(dplyr)
+
+cereal_combined &lt;-<span class="st"> </span><span class="kw">full_join</span>(cereal1, cereal2, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Cereal.name&quot;</span> =<span class="st"> &quot;cerealbrand&quot;</span>)) <span class="op">%&gt;%</span>
+<span class="st">                   </span><span class="kw">full_join</span>(cereal3, <span class="dt">by=</span><span class="kw">c</span>(<span class="st">&quot;Cereal.name&quot;</span> =<span class="st"> &quot;cerealname&quot;</span>))
+
+cereal_combined</code></pre>
+<pre><code>##                  Cereal.name protein vitamins sugars
+## 1             Frosted_Flakes       1       NA     11
+## 2                 Product_19       3      100      3
+## 3              Count_Chocula       1       25     NA
+## 4                 Wheat_Chex       3       25     NA
+## 5                 Honey-comb       1       25     NA
+## 6  Shredded_Wheat_spoon_size       3        0     NA
+## 7       Mueslix_Crispy_Blend       3       25     13
+## 8          Grape_Nuts_Flakes       3       25      5
+## 9    Strawberry_Fruit_Wheats       2       NA      5
+## 10                  Cheerios       6       25      1</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Note that missing values (NA) have been inserted where some data were not available.</span></code></pre>
+</div>
+<div id="rbind" class="section level3">
+<h3><span class="header-section-number">4.2.3</span> Row-binding dataframes</h3>
+<p>If we have the following dataset called <code>plantdat</code>,</p>
+<p><img src="screenshots/rbindinput.png" width="33%" /></p>
+<p>and we have another dataset (<code>plantdatmore</code>), <em>with exactly the same columns</em> (including the names and order of the columns),</p>
+<p><img src="screenshots/moredataforrbind.png" width="33%" /></p>
+<p>and execute the command</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(plantdat, plantdatmore)</code></pre>
+<p>we get the result</p>
+<p><img src="screenshots/rbindresult.png" width="33%" /></p>
+<p>Using <code>merge</code>, we were able to glue dataframes together side-by-side based on one or more ‘index’ variables. Sometimes you have multiple datasets that can be glued together top-to-bottom, for example when you have multiple very similar dataframes. We can use the <code>rbind</code> function, like so:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some fake data</span>
+mydata1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">var1=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">var2=</span><span class="dv">5</span><span class="op">:</span><span class="dv">7</span>) 
+mydata2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">var1=</span><span class="dv">4</span><span class="op">:</span><span class="dv">6</span>, <span class="dt">var2=</span><span class="dv">8</span><span class="op">:</span><span class="dv">10</span>) 
+
+<span class="co"># The dataframes have the same column names, in the same order:</span>
+mydata1</code></pre>
+<pre><code>##   var1 var2
+## 1    1    5
+## 2    2    6
+## 3    3    7</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mydata2</code></pre>
+<pre><code>##   var1 var2
+## 1    4    8
+## 2    5    9
+## 3    6   10</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># So we can use rbind to row-bind them together:</span>
+<span class="kw">rbind</span>(mydata1, mydata2)</code></pre>
+<pre><code>##   var1 var2
+## 1    1    5
+## 2    2    6
+## 3    3    7
+## 4    4    8
+## 5    5    9
+## 6    6   10</code></pre>
+<p>Let’s look at the above <code>rbind</code> example again but with a modification where some observations are duplicated between dataframes. This might happen, for example, when working with files containing time-series data and where there is some overlap between the two datasets. The <code>union</code> function from the <code>dplyr</code> package only returns unique observations:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some fake data</span>
+mydata1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">var1=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">var2=</span><span class="dv">5</span><span class="op">:</span><span class="dv">7</span>) 
+mydata2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">var1=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">var2=</span><span class="dv">6</span><span class="op">:</span><span class="dv">8</span>) 
+
+<span class="co"># The dataframes have the same column names, in the same order:</span>
+mydata1</code></pre>
+<pre><code>##   var1 var2
+## 1    1    5
+## 2    2    6
+## 3    3    7</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r">mydata2</code></pre>
+<pre><code>##   var1 var2
+## 1    2    6
+## 2    3    7
+## 3    4    8</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># &#39;rbind&#39; leads to duplicate observations, &#39;union&#39; removes these:</span>
+dplyr<span class="op">::</span><span class="kw">union</span>(mydata1, mydata2)</code></pre>
+<pre><code>##   var1 var2
+## 1    1    5
+## 2    2    6
+## 3    3    7
+## 4    4    8</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">rbind</span>(mydata1, mydata2)</code></pre>
+<pre><code>##   var1 var2
+## 1    1    5
+## 2    2    6
+## 3    3    7
+## 4    2    6
+## 5    3    7
+## 6    4    8</code></pre>
+<p>Sometimes, you want to <code>rbind</code> dataframes together but the column names do not exactly match. One option is to first process the dataframes so that they do match (using subscripting). Or, just use the <code>bind_rows</code> function from <code>dplyr</code>. Look at this example where we have two dataframes that have only one column in common, but we want to keep all the columns (and fill with <code>NA</code> where necessary),</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some fake data</span>
+mydata1 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">index=</span><span class="kw">c</span>(<span class="st">&quot;A&quot;</span>,<span class="st">&quot;B&quot;</span>,<span class="st">&quot;C&quot;</span>), <span class="dt">var1=</span><span class="dv">5</span><span class="op">:</span><span class="dv">7</span>) 
+mydata2 &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">var1=</span><span class="dv">8</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">species=</span><span class="kw">c</span>(<span class="st">&quot;one&quot;</span>,<span class="st">&quot;two&quot;</span>,<span class="st">&quot;three&quot;</span>)) 
+
+<span class="co"># smartbind the dataframes together</span>
+dplyr<span class="op">::</span><span class="kw">bind_rows</span>(mydata1, mydata2)</code></pre>
+<pre><code>##   index var1 species
+## 1     A    5    &lt;NA&gt;
+## 2     B    6    &lt;NA&gt;
+## 3     C    7    &lt;NA&gt;
+## 4  &lt;NA&gt;    8     one
+## 5  &lt;NA&gt;    9     two
+## 6  &lt;NA&gt;   10   three</code></pre>
+<p><em>Note:</em> an equivalent function to bind dataframes side-by-side is <code>cbind</code>, which can be used instead of <code>merge</code> when no index variables are present. However, in this book, the use of <code>cbind</code> is discouraged for dataframes as it can lead to problems that are difficult to fix, and in all practical applications a merge is preferable.</p>
+</div>
+</div>
+<div id="reshaping" class="section level2">
+<h2><span class="header-section-number">4.3</span> Reshaping data</h2>
+<div id="from-wide-to-long" class="section level3">
+<h3><span class="header-section-number">4.3.1</span> From wide to long</h3>
+<p>In the majority of analyses in R, we like to have our data in ‘long’ format (nowadays sometimes called the ‘tidy’ format), where the data for some kind of measurement are in one column, and we have one or more factor variables distinguishing groups like individual, date, treatment, and so on. It is however common encounter data in ‘wide format’, which can be converted to long format by reshaping appropriately.</p>
+<p>The first example uses the dutch election data.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(dutchelection)
+<span class="kw">head</span>(dutchelection,<span class="dv">3</span>)</code></pre>
+<pre><code>##         Date  VVD PvdA  PVV CDA   SP D66  GL  CU SGP PvdD FiftyPlus
+## 1 2012-03-22 22.1 16.8 13.9 9.4 16.8 7.7 4.5 3.3 1.5  2.4       1.1
+## 2 2012-04-05 23.6 17.1 13.3 8.8 16.3 8.7 4.1 3.2 1.4  2.0       0.8
+## 3 2012-04-19 24.0 17.3 12.0 8.2 17.0 8.8 3.5 3.3 1.6  3.1       0.8</code></pre>
+<p>The data include percentage votes for 11 Dutch political parties in a 2012 election, and somewhat intuitively the parties have been ordered as columns (so that each row adds up to ca. 100%, ignoring some tiny parties). For purposes of analysis, we would like to reshape this dataset to long format, so that we have just columns ‘Date’, ‘Party’, and ‘Poll’. Right now ‘Party’ is in the column names, and ‘Poll’ represents the polling numbers; the actual data in the cells.</p>
+<p>As is often the case, there are many ways to solve this. For most basic reshaping tasks we recommend the <code>tidyr</code> package, however some other methods may be needed for more complex tasks, as we find in further examples below.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+<span class="co"># The new dataframe will have a column &#39;Party&#39; with current columns,</span>
+<span class="co"># *except* Date (hence the -Date),</span>
+<span class="co"># and values will be stored in &#39;Poll&#39;</span>
+elect_long &lt;-<span class="st"> </span><span class="kw">gather</span>(dutchelection, Party, Poll, <span class="op">-</span>Date)
+<span class="kw">head</span>(elect_long,<span class="dv">3</span>)</code></pre>
+<pre><code>##         Date Party Poll
+## 1 2012-03-22   VVD 22.1
+## 2 2012-04-05   VVD 23.6
+## 3 2012-04-19   VVD 24.0</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Identical results can be had with melt() from reshape2,</span>
+<span class="co"># a function which otherwise includes more options.</span>
+<span class="co"># See `?melt.data.frame` for more options (not `?melt`, </span>
+<span class="co"># which is the generic function).</span>
+<span class="kw">library</span>(reshape2)
+elect_long &lt;-<span class="st"> </span><span class="kw">melt</span>(dutchelection, <span class="dt">variable.name=</span><span class="st">&quot;Party&quot;</span>, <span class="dt">value.name=</span><span class="st">&quot;Poll&quot;</span>, <span class="dt">id.vars=</span><span class="st">&quot;Date&quot;</span>)</code></pre>
+<p>The advantage of <code>melt</code> is that we can include more than one ID variables, like in the following example. This example also shows the common need for some text processing after reshaping.</p>
+<p>In this simple dataset, length of feet and hands was measured on two persons on three consecutive days. We want to reshape it to end up with columns ‘Day’, ‘Person’, ‘Length’ and ‘BodyPart’ (feet or hands).</p>
+<pre class="sourceCode r"><code class="sourceCode r">dat &lt;-<span class="st"> </span><span class="kw">data.frame</span>(<span class="dt">Day=</span><span class="kw">rep</span>(<span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">each=</span><span class="dv">2</span>), <span class="dt">Person=</span><span class="kw">rep</span>(letters[<span class="dv">1</span><span class="op">:</span><span class="dv">2</span>], <span class="dv">3</span>), 
+                  <span class="dt">Length.feet =</span> <span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="dv">3</span>),
+                  <span class="dt">Length.hands=</span><span class="kw">rep</span>(<span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">4</span>),<span class="dv">3</span>))
+dat</code></pre>
+<pre><code>##   Day Person Length.feet Length.hands
+## 1   1      a           2            3
+## 2   1      b           3            4
+## 3   2      a           2            3
+## 4   2      b           3            4
+## 5   3      a           2            3
+## 6   3      b           3            4</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now reshape to long format, using melt.data.frame</span>
+dat_long &lt;-<span class="st"> </span><span class="kw">melt</span>(dat, <span class="dt">id.vars=</span><span class="kw">c</span>(<span class="st">&quot;Day&quot;</span>,<span class="st">&quot;Person&quot;</span>), <span class="dt">value.name=</span><span class="st">&quot;Length&quot;</span>, 
+    <span class="dt">variable.name=</span><span class="st">&quot;BodyPart&quot;</span>) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">BodyPart =</span> <span class="kw">gsub</span>(<span class="st">&quot;Length.&quot;</span>, <span class="st">&quot;&quot;</span>, BodyPart))
+
+dat_long</code></pre>
+<pre><code>##    Day Person BodyPart Length
+## 1    1      a     feet      2
+## 2    1      b     feet      3
+## 3    2      a     feet      2
+## 4    2      b     feet      3
+## 5    3      a     feet      2
+## 6    3      b     feet      3
+## 7    1      a    hands      3
+## 8    1      b    hands      4
+## 9    2      a    hands      3
+## 10   2      b    hands      4
+## 11   3      a    hands      3
+## 12   3      b    hands      4</code></pre>
+</div>
+<div id="from-long-to-wide" class="section level3">
+<h3><span class="header-section-number">4.3.2</span> From long to wide</h3>
+<p>Occasionally we like to use wide format, where groups of data are placed next to each other instead of on top of each other. For the first example consider this simple dataset with a set of questions asked to two persons,</p>
+<pre class="sourceCode r"><code class="sourceCode r">survey &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">text=</span><span class="st">&quot;user question    answer</span>
+<span class="st">a   question_1  hi</span>
+<span class="st">a   question_2  hey</span>
+<span class="st">a   question_3  oh</span>
+<span class="st">a   question_4  no</span>
+<span class="st">a   question_5  yes</span>
+<span class="st">a   question_6  obv</span>
+<span class="st">b   question_1  cool</span>
+<span class="st">b   question_2  good</span>
+<span class="st">b   question_3  yes</span>
+<span class="st">b   question_4  sweet</span>
+<span class="st">b   question_5  wow</span>
+<span class="st">b   question_6  no&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)
+
+survey</code></pre>
+<pre><code>##    user   question answer
+## 1     a question_1     hi
+## 2     a question_2    hey
+## 3     a question_3     oh
+## 4     a question_4     no
+## 5     a question_5    yes
+## 6     a question_6    obv
+## 7     b question_1   cool
+## 8     b question_2   good
+## 9     b question_3    yes
+## 10    b question_4  sweet
+## 11    b question_5    wow
+## 12    b question_6     no</code></pre>
+<p>In this case we actually want to have all data for each ‘user’ in a single row, thus creating columns ‘question_1’, ‘question_2’ and so on. The first solution uses <code>spread</code> from <code>tidyr</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyr)
+<span class="kw">spread</span>(survey, question, answer)</code></pre>
+<pre><code>##   user question_1 question_2 question_3 question_4 question_5 question_6
+## 1    a         hi        hey         oh         no        yes        obv
+## 2    b       cool       good        yes      sweet        wow         no</code></pre>
+<p>The second solution uses <code>dcast</code> from <code>reshape2</code>. I show this solution because unlike <code>spread</code>, <code>dcast</code> can be used for more complicated reshaping problems.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
+<span class="kw">dcast</span>(survey, user <span class="op">~</span><span class="st"> </span>question, <span class="dt">value.var=</span><span class="st">&quot;answer&quot;</span>)</code></pre>
+<pre><code>##   user question_1 question_2 question_3 question_4 question_5 question_6
+## 1    a         hi        hey         oh         no        yes        obv
+## 2    b       cool       good        yes      sweet        wow         no</code></pre>
+<p>Here, the formula indicates ‘user goes in rows, question in columns’, and <code>value.var</code> is the name of the variable used to populate the cells.</p>
+<p>For the second, more complex, example we use a small version of the <code>eucface_gasexchange</code> dataset, which includes measurements of photosynthesis (<code>Photo</code>) on two experimental plots (<code>Plot</code>) on three Dates (<code>Date</code>), under two experimental treatments (<code>treatment</code>). Clearly we have multiple levels of nesting of our data, and each of these nesting levels is represented by a different variable.</p>
+<pre class="sourceCode r"><code class="sourceCode r">gas &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="dt">text=</span><span class="st">&quot;Date    Plot    treatment   Photo</span>
+<span class="st">A   1   Amb 14.4</span>
+<span class="st">A   1   Ele 16.3</span>
+<span class="st">A   2   Amb 17.8</span>
+<span class="st">A   2   Ele 13.3</span>
+<span class="st">B   1   Amb 16.4</span>
+<span class="st">B   1   Ele 19</span>
+<span class="st">B   2   Amb 15</span>
+<span class="st">B   2   Ele 10.8</span>
+<span class="st">C   1   Amb 17.5</span>
+<span class="st">C   1   Ele 19.8</span>
+<span class="st">C   2   Amb 13.5</span>
+<span class="st">C   2   Ele 12.1</span>
+<span class="st">&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</code></pre>
+<p>Now we have two variables that describe which measurements ‘belong together’ (experimental plot, and treatment). We can no longer use <code>spread</code> (which uses just one of those variables), but <code>dcast</code> does work nicely with multiple groupings:</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dcast</span>(gas, Date <span class="op">+</span><span class="st"> </span>Plot <span class="op">~</span><span class="st"> </span>treatment, <span class="dt">value.var=</span><span class="st">&quot;Photo&quot;</span>)</code></pre>
+<pre><code>##   Date Plot  Amb  Ele
+## 1    A    1 14.4 16.3
+## 2    A    2 17.8 13.3
+## 3    B    1 16.4 19.0
+## 4    B    2 15.0 10.8
+## 5    C    1 17.5 19.8
+## 6    C    2 13.5 12.1</code></pre>
+<p>We have another possibility here, to instead place the values for the individual plots and treatments next to each other. Note we now move <code>Plot</code> to the right-hand side of the formula in <code>dcast</code>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">dcast</span>(gas, Date <span class="op">~</span><span class="st"> </span>Plot <span class="op">+</span><span class="st"> </span>treatment, <span class="dt">value.var=</span><span class="st">&quot;Photo&quot;</span>)</code></pre>
+<pre><code>##   Date 1_Amb 1_Ele 2_Amb 2_Ele
+## 1    A  14.4  16.3  17.8  13.3
+## 2    B  16.4  19.0  15.0  10.8
+## 3    C  17.5  19.8  13.5  12.1</code></pre>
+</div>
+</div>
+<div id="more-complex-dplyr-examples" class="section level2">
+<h2><span class="header-section-number">4.4</span> More complex <code>dplyr</code> examples</h2>
+<p>In this chapter, we have learned many new tools to work with data - filtering, summarizing, reshaping, and so on. One advantage of the <code>dplyr</code> package over functions in base R is that the various operations can be efficiently combined with the <code>%&gt;%</code> operator, combining all your data converting and shaping steps into one.</p>
+<p>This will become clear with some examples.</p>
+<div id="tree-growth-data-filter-and-multiple-groupings" class="section level3">
+<h3><span class="header-section-number">4.4.1</span> Tree growth data: filter and multiple groupings</h3>
+<p>The first example uses the <code>hfeifbytree</code> data from the <code>lgrdata</code> package. This dataset contains measurements of height and stem diameter on nearly 1200 Eucalyptus trees in Sydney, repeated 17 times. The trees grow in plots subjected to different treatments (control, fertilization, irrigation, or both).</p>
+<p>On some of the dates, all trees were measured, while on other dates a small subsample was taken (ca. 10% of all trees). We want to make a plot of average tree height by treatment over time, but use only the dates were all trees were measured. The following code makes Fig. <a href="dataskills2.html#fig:hfeifmeanplot">4.4</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(hfeifbytree)
+
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(ggplot2)   
+<span class="kw">library</span>(ggthemes)
+
+hfeif_meanh &lt;-<span class="st"> </span>
+<span class="st">  </span><span class="kw">mutate</span>(hfeifbytree, <span class="dt">Date =</span> <span class="kw">as.Date</span>(Date)) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Convert to proper Date</span>
+<span class="st">  </span><span class="kw">group_by</span>(Date) <span class="op">%&gt;%</span><span class="st">              </span><span class="co"># Set up the grouping variable</span>
+<span class="st">  </span><span class="kw">filter</span>(<span class="kw">n</span>() <span class="op">&gt;</span><span class="st"> </span><span class="dv">500</span>) <span class="op">%&gt;%</span><span class="st">           </span><span class="co"># Keep groups with more than 500 observations</span>
+<span class="st">  </span><span class="kw">group_by</span>(Date, treat) <span class="op">%&gt;%</span><span class="st">       </span><span class="co"># New grouping; to get average by Date and treatment</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">height =</span> <span class="kw">mean</span>(height, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)) <span class="op">%&gt;%</span><span class="st"> </span><span class="co"># Average height, discard NA.</span>
+<span class="st">  </span><span class="kw">rename</span>(<span class="dt">treatment =</span> treat)       <span class="co"># rename a variable</span>
+  
+<span class="co"># It is possible to make the plot inside the data pipeline, but</span>
+<span class="co"># we recommend separating them!</span>
+<span class="kw">ggplot</span>(hfeif_meanh, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> height, <span class="dt">col =</span> treatment)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="dv">2</span>) <span class="op">+</span><span class="st"> </span>
+<span class="st">  </span><span class="kw">geom_line</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span>
+<span class="st">  </span><span class="kw">ylim</span>(<span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">20</span>))</code></pre>
+<div class="figure"><span id="fig:hfeifmeanplot"></span>
+<img src="02-dataskills2_files/figure-html/hfeifmeanplot-1.svg" alt="Average tree height by treatment over time, for the hfeifbytree data" width="672" />
+<p class="caption">
+Figure 4.4: Average tree height by treatment over time, for the hfeifbytree data
+</p>
+</div>
+</div>
+<div id="crude-oil-production-find-top-exporters" class="section level3">
+<h3><span class="header-section-number">4.4.2</span> Crude oil production: find top exporters</h3>
+<p>In the second example we will use the <code>oil</code> data, a dataset with annual crude oil production for the top 8 oil-producing countries since 1971. We want to find the top three countries for the period 1980-1985, sort them, and replace the country abbreviations with country names.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(oil)
+
+<span class="co"># First we make a dataframe with the abbreviations.</span>
+<span class="co"># Very handy here is tribble from tibble; making it easier to write</span>
+<span class="co"># small dataframes directly into your script.</span>
+<span class="kw">library</span>(tibble)
+abb_key &lt;-<span class="st"> </span><span class="kw">tribble</span>(<span class="op">~</span>country, <span class="op">~</span>country_full,
+                      <span class="st">&quot;MEX&quot;</span>,    <span class="st">&quot;Mexico&quot;</span>,
+                      <span class="st">&quot;USA&quot;</span>,    <span class="st">&quot;USA&quot;</span>,
+                      <span class="st">&quot;CHN&quot;</span>,    <span class="st">&quot;China&quot;</span>,
+                      <span class="st">&quot;IRN&quot;</span>,    <span class="st">&quot;Iran&quot;</span>,
+                      <span class="st">&quot;SAU&quot;</span>,    <span class="st">&quot;Saudi-Arabia&quot;</span>,
+                      <span class="st">&quot;IRQ&quot;</span>,    <span class="st">&quot;Iraq&quot;</span>,
+                      <span class="st">&quot;KWT&quot;</span>,    <span class="st">&quot;Kuwait&quot;</span>,
+                      <span class="st">&quot;VEN&quot;</span>,    <span class="st">&quot;Venezuela&quot;</span>)
+
+<span class="co"># To avoid a warning, we first convert country to character</span>
+<span class="co"># (not strictly necessary)</span>
+oil_top &lt;-
+<span class="st">  </span><span class="kw">mutate</span>(oil, 
+         <span class="dt">country =</span> <span class="kw">as.character</span>(country),
+         <span class="dt">production_M =</span> production <span class="op">/</span><span class="st"> </span><span class="dv">1000</span>) <span class="op">%&gt;%</span><span class="st">  </span><span class="co"># Convert to million tonnes.</span>
+<span class="st">  </span><span class="kw">full_join</span>(abb_key, <span class="dt">by=</span><span class="st">&quot;country&quot;</span>) <span class="op">%&gt;%</span><span class="st">          </span><span class="co"># Add full country name</span>
+<span class="st">  </span><span class="kw">filter</span>(year <span class="op">%in%</span><span class="st"> </span><span class="dv">1980</span><span class="op">:</span><span class="dv">1985</span>) <span class="op">%&gt;%</span><span class="st">               </span><span class="co"># Subset for years between 1980-1985</span>
+<span class="st">  </span><span class="kw">group_by</span>(country_full) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">production_M =</span> <span class="kw">mean</span>(production_M)) <span class="op">%&gt;%</span>
+<span class="st">  </span><span class="kw">arrange</span>(<span class="kw">desc</span>(production_M)) <span class="op">%&gt;%</span><span class="st">               </span><span class="co"># Sort by production; in descending order</span>
+<span class="st">  </span>as.data.frame <span class="op">%&gt;%</span><span class="st">                             </span><span class="co"># To be consistent, output a dataframe</span>
+<span class="st">  </span><span class="kw">head</span>(., <span class="dv">3</span>)                                    <span class="co"># Only show the top 32</span>
+
+<span class="co"># Finally make a table that looks nice in an rmarkdown document</span>
+<span class="kw">library</span>(pander)
+oil_top <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">pander</span>(., 
+                   <span class="dt">caption =</span> <span class="st">&quot;Top three oil producing countries, 1980-1985.&quot;</span>,
+                   <span class="dt">col.names =</span> <span class="kw">c</span>(<span class="st">&quot;Country&quot;</span>, <span class="st">&quot;Annual production (MTOE)&quot;</span>))</code></pre>
+<table style="width:58%;">
+<caption>Top three oil producing countries, 1980-1985.</caption>
+<colgroup>
+<col width="20%" />
+<col width="37%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Country</th>
+<th align="center">Annual production (MTOE)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">USA</td>
+<td align="center">443.5</td>
+</tr>
+<tr class="even">
+<td align="center">Saudi-Arabia</td>
+<td align="center">335.1</td>
+</tr>
+<tr class="odd">
+<td align="center">Mexico</td>
+<td align="center">138.8</td>
+</tr>
+</tbody>
+</table>
+
+<div class="rmdtry">
+Run the example above, and modify the code so that we find the <em>maximum</em> oil production for each country, and the table should show the 2 countries with the lowest maximum.
+</div>
+
+</div>
+<div id="weightlossdplyr" class="section level3">
+<h3><span class="header-section-number">4.4.3</span> Weight loss data: make an irregular timeseries regular</h3>
+<p>In this example we will use the <code>weightloss</code> data, again from the <code>lgrdata</code> package. A person recorded his weight on irregular intervals (1-3 days), to check if his diet was having the desired effect. Because the dataset is irregular, it is not easy to calculate daily weight loss for the entire dataset. We can use a combination of <code>dplyr</code>, <code>zoo</code> and <code>padr</code> to clean up this dataset.</p>
+<p>The <code>pad</code> function is quite powerful: it takes a dataframe, figures the time-indexing variable (in our case, Date), and stretches the dataset to include all Dates along the dataset, filling NA where no data were available.</p>
+<p>The <code>zoo</code> package contains many useful functions for timeseries data. Here we use <code>na.approx</code> to linearly interpolate missing values. We also make a plot of the weight loss data, clarifying which data were interpolated. The following code make Fig. <a href="dataskills2.html#fig:weightlossinterp">4.5</a>.</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lubridate)
+<span class="kw">library</span>(dplyr)
+<span class="kw">library</span>(zoo)
+<span class="kw">library</span>(padr)
+
+<span class="kw">data</span>(weightloss)
+
+weightloss2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(weightloss, 
+                      <span class="dt">Date =</span> <span class="kw">dmy</span>(Date),                <span class="co"># proper Date class</span>
+                      <span class="dt">Weight =</span> Weight <span class="op">*</span><span class="st"> </span><span class="fl">0.4536</span>) <span class="op">%&gt;%</span><span class="st">    </span><span class="co"># convert to kg</span>
+<span class="st">               </span><span class="kw">pad</span>(<span class="dt">interval =</span><span class="st">&quot;day&quot;</span>) <span class="op">%&gt;%</span><span class="st">                </span><span class="co"># timeseries is now regular</span>
+<span class="st">               </span><span class="kw">mutate</span>(<span class="dt">measured =</span> <span class="op">!</span><span class="kw">is.na</span>(Weight),  <span class="co"># FALSE when the value was interpolated</span>
+                      <span class="dt">Weight =</span> <span class="kw">na.approx</span>(Weight))      <span class="co"># linear interpolation (zoo)</span>
+  
+<span class="kw">ggplot</span>(weightloss2, <span class="kw">aes</span>(<span class="dt">x =</span> Date, <span class="dt">y =</span> Weight)) <span class="op">+</span>
+<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">colour =</span> <span class="kw">ifelse</span>(weightloss2<span class="op">$</span>measured, <span class="st">&quot;darkgrey&quot;</span>, <span class="st">&quot;red2&quot;</span>))</code></pre>
+<div class="figure"><span id="fig:weightlossinterp"></span>
+<img src="02-dataskills2_files/figure-html/weightlossinterp-1.svg" alt="The weightloss data, with linearly interpolated missing values (red)." width="672" />
+<p class="caption">
+Figure 4.5: The weightloss data, with linearly interpolated missing values (red).
+</p>
+</div>
+</div>
+</div>
+<div id="exercises-2" class="section level2">
+<h2><span class="header-section-number">4.5</span> Exercises</h2>
+<div id="summarizing-the-cereal-data" class="section level3">
+<h3><span class="header-section-number">4.5.1</span> Summarizing the cereal data</h3>
+<ol style="list-style-type: decimal">
+<li><p>Read the cereal data, and produce quick summaries using <code>str</code>, <code>summary</code>, <code>contents</code> and <code>describe</code> (recall that the last two are in the <code>Hmisc</code> package). Interpret the results.</p></li>
+<li><p>Find the average sodium, fiber and carbohydrate contents by <code>Manufacturer</code>. Use either <code>summaryBy</code> or <code>dplyr</code>.</p></li>
+<li><p>Add a new variable ‘SodiumClass’, which is ‘high’ when sodium &gt; 150 and ‘low’ otherwise. Make sure the new variable is a factor. Look at the examples in Section <a href="dataskills1.html#workingfactors">3.7.1</a> to recall how to do this. Now, find the average, minimum and maximum sugar content for ‘low’ and ‘high’ sodium. <em>Hint:</em> make sure to use <code>na.rm=TRUE</code>, because the dataset contains missing values.</p></li>
+<li><p>Find the maximum sugar content by Manufacturer and sodiumClass, using <code>tapply</code>. Inspect the result and notice there are missing values. Try to use <code>na.rm=TRUE</code> as an additional argument to <code>tapply</code>, only to find out that the values are still missing. Finally, use <code>xtabs</code> (see Section <a href="dataskills2.html#xtabs">4.1.2</a>, p. <a href="dataskills2.html#xtabs">4.1.2</a>) to count the number of observations by the two factors to find out if we have missing values in the <code>tapply</code> result.</p></li>
+<li><p>Repeat the previous question with <code>summaryBy</code> or <code>dplyr</code>. Compare the results.</p></li>
+<li><p>Count the number of observations by Manufacturer and whether the cereal is ‘hot’ or ‘cold’, using <code>xtabs</code> (see Section <a href="dataskills2.html#xtabs">4.1.2</a>).</p></li>
+</ol>
+<p>}</p>
+</div>
+<div id="words-and-the-weather" class="section level3">
+<h3><span class="header-section-number">4.5.2</span> Words and the weather</h3>
+<ol style="list-style-type: decimal">
+<li><p>Using the ‘Age and memory’ dataset (<code>memory</code> from the <code>lgrdata</code> package), find the mean and maximum number of words recalled by ‘Older’ and ‘Younger’ age classes.</p></li>
+<li><p>The <code>hfemet2008</code> dataset contains meteorological measurements at a station near Sydney, Australia. Find the mean air temperature by month. To do this, first add the month variable as shown in Section <a href="dataskills1.html#datetime">3.7.5.3</a>.</p></li>
+</ol>
+</div>
+<div id="merging-data" class="section level3">
+<h3><span class="header-section-number">4.5.3</span> Merging data</h3>
+<ol style="list-style-type: decimal">
+<li>Load the <code>pupae</code> dataset. The data contain measurements of larva (‘pupae’) weight and ‘frass’ (excrement) production while allowed to feed on leaves, grown under different concentrations of carbon dioxide (CO2). Also read this short dataset, which gives a label ‘roomnumber’ for each CO<span class="math inline">\(_2\)</span> treatment.</li>
+</ol>
+
+<p>To read this dataset, consider the <code>data.frame</code> function described in Section <a href="dataskills1.html#vecstodfr">3.4.1</a>.</p>
+<ol style="list-style-type: decimal">
+<li>Merge the short dataset onto the pupae data. Check the result.</li>
+</ol>
+</div>
+<div id="merging-multiple-datasets" class="section level3">
+<h3><span class="header-section-number">4.5.4</span> Merging multiple datasets</h3>
+<p>Read Section <a href="dataskills2.html#dplyrjoin">4.2.2</a>, and learn how to merge more than two datasets together.</p>
+<p>First, run the following code to construct three dataframes that we will attempt to merge together.</p>
+<pre><code>dataset1 &lt;- data.frame(unit=letters[1:9], treatment=rep(LETTERS[1:3],each=3),
+                       Damage=runif(9,50,100))
+unitweight &lt;- data.frame(unit=letters[c(1,2,4,6,8,9)], Weight = rnorm(6,100,0.3))
+treatlocation &lt;- data.frame(treatment=LETTERS[1:3], Glasshouse=c(&quot;G1&quot;,&quot;G2&quot;,&quot;G3&quot;))</code></pre>
+<ol style="list-style-type: decimal">
+<li>Merge the three datasets together, to end up with one dataframe that has the columns ‘unit’, ‘treatment’, ‘Glasshouse’, ‘Damage’ and ‘Weight’. Some units do not have measurements of <code>Weight</code>. Merge the datasets in two ways to either include or exclude the units without <code>Weight</code> measurements. To do this, either use <code>merge</code> or <code>dplyr::join</code> twice - you cannot merge more than two datasets in one step.</li>
+</ol>
+<p>}</p>
+</div>
+<div id="ordered-boxplot" class="section level3">
+<h3><span class="header-section-number">4.5.5</span> Ordered boxplot</h3>
+<ol style="list-style-type: decimal">
+<li>First read the <code>cereals</code> data and learn how to make a boxplot, using R base graphics:</li>
+</ol>
+<p>Notice the <em>ordering</em> of the boxes from left to right, and compare it to <code>levels</code> of the factor variable <code>Manufacturer</code>.</p>
+<ol start="2" style="list-style-type: decimal">
+<li><p>Now, redraw the plot with Manufacturer in order of increasing mean sodium content (use <code>reorder</code>, see Section <a href="dataskills2.html#reorder">4.1.4</a>).</p></li>
+<li><p>Inspect the help page (<code>?boxplot</code>), and change the boxplots so that the width varies with the number of observations per manufacturer (<em>Hint:</em> find the <code>varwidth</code> argument).</p></li>
+</ol>
+<!-- ### Variances in the I x F {#ifvariance} -->
+<!-- Here, we use the tree inventory data from the irrigation by fertilization (I x F) experiment in the Hawkesbury Forest Experiment (HFE) (see Section  \@ref(ifdata}, p.  \@ref(ifdata}). -->
+<!-- } -->
+<!-- 1. Use only data from 2012 for this exercise. You can use the file \file{HFEIFplotmeans2012.csv} if you want to skip this step. -->
+<!-- ```{r } -->
+<!-- # Read and prepare data. To use year(), the lubridate package must be loaded. -->
+<!-- hfeif <- read.csv('HFEIFplotmeans.csv', stringsAsFactors=FALSE) -->
+<!-- hfeif$Date <- as.Date(mdy(hfeif$Date)) -->
+<!-- hfeif$Year <- year(hfeif$Date) -->
+<!-- hfeif2012 <- subset(hfeif, Year == 2012) -->
+<!-- ``` -->
+<!-- \item{#ite:variances} \intermed There are four treatments in the dataframe. Calculate the variance of diameter for each of the treatments (this should give four values). These are the *within-treatment* variances. Also calculate the variance of tree diameter across all plots (this is one number). This is the *plot-to-plot variance*. -->
+<!-- ```{r } -->
+<!-- # Variances across plots within treatments  -->
+<!-- withinvar <- with(hfeif2012, tapply(diameter,treat,FUN=var)) -->
+<!-- # Variance of diameter across all plots -->
+<!-- plotvar <- var(hfeif2012$diameter) -->
+<!-- ``` -->
+<!-- 1. In \ref{ite:variances}, also calculate the mean within-treatment variance. Compare the value to the plot-to-plot variance. What can you tentatively conclude about the treatment effect? -->
+<!-- ```{r } -->
+<!-- # Average within-treatment variance -->
+<!-- mean(withinvar) -->
+<!-- # Variance across all plots -->
+<!-- plotvar -->
+<!-- # Variance within treatments seems much smaller than -->
+<!-- # the variance across all plots. -->
+<!-- # This indicates that there is likely a treatment effect. -->
+<!-- ``` -->
+<!-- } -->
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="dataskills1.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="reporting.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": false,
+"twitter": false,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["twitter", "linkedin"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["prcr.pdf"],
+"toc": {
+"collapse": "subsection"
+},
+"favicon": "favicon.ico",
+"githubrepo": "RemkoDuursma/prcr",
+"description": "A Learning Guide to R: : data, analytical, and programming skills"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:" && /^https?:/.test(src))
+      src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
