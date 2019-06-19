@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <title>Chapter 6 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:title" content="Chapter 6 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta name="twitter:title" content="Chapter 6 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills." />
   
   <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-10" />
+<meta name="date" content="2019-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,162 +129,216 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Learning Guide to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.1</b> About the author</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
-<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
-<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
-<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
-<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
-<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
-<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
-<li class="chapter" data-level="3.3.4" data-path="summarize.html"><a href="summarize.html#including-data-in-a-script"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
-<li class="chapter" data-level="3.3.5" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
-<li class="chapter" data-level="3.3.6" data-path="summarize.html"><a href="summarize.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
-<li class="chapter" data-level="3.3.7" data-path="summarize.html"><a href="summarize.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
-<li class="chapter" data-level="3.3.8" data-path="summarize.html"><a href="summarize.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
-<li class="chapter" data-level="3.3.9" data-path="summarize.html"><a href="summarize.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
-<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
-<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.5.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
-<li class="chapter" data-level="3.5.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
-<li class="chapter" data-level="3.5.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
-<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
-<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
-<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
-<li class="chapter" data-level="3.7.4" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
-<li class="chapter" data-level="3.7.5" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
-<li class="chapter" data-level="3.7.6" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.8</b> Summarizing dataframes</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.8.1</b> Making summary tables</a></li>
-<li class="chapter" data-level="3.8.2" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.8.2</b> Tables of counts</a></li>
-<li class="chapter" data-level="3.8.3" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.8.3</b> Adding summary variables to dataframes</a></li>
-<li class="chapter" data-level="3.8.4" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.8.4</b> Reordering factor levels based on a summary variable</a></li>
-</ul></li>
-<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.9</b> Combining dataframes</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.9.1</b> Merging dataframes</a></li>
-<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.9.2</b> Using join from <code>dplyr</code></a></li>
-<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.9.3</b> Row-binding dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.10</b> Reshaping data</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.10.1</b> From wide to long</a></li>
-<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.10.2</b> From long to wide</a></li>
-</ul></li>
-<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.11</b> More complex <code>dplyr</code> examples</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.11.1</b> Tree growth data: filter and multiple groupings</a></li>
-<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.11.2</b> Crude oil production: find top exporters</a></li>
-<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.11.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
-<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+<li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="dataskills1.html"><a href="dataskills1.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="dataskills1.html"><a href="dataskills1.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="dataskills1.html"><a href="dataskills1.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>4.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.2</b> Tips</a></li>
-<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.3</b> Resources</a></li>
+<li class="chapter" data-level="3.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="dataskills1.html"><a href="dataskills1.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="dataskills1.html"><a href="dataskills1.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="dataskills1.html"><a href="dataskills1.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataskills1.html"><a href="dataskills1.html#datainscript"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataskills1.html"><a href="dataskills1.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="dataskills1.html"><a href="dataskills1.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="dataskills1.html"><a href="dataskills1.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="dataskills1.html"><a href="dataskills1.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="dataskills1.html"><a href="dataskills1.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="dataskills1.html"><a href="dataskills1.html#vecdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="dataskills1.html"><a href="dataskills1.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataskills1.html"><a href="dataskills1.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataskills1.html"><a href="dataskills1.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataskills1.html"><a href="dataskills1.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataskills1.html"><a href="dataskills1.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="dataskills1.html"><a href="dataskills1.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="dataskills1.html"><a href="dataskills1.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="dataskills1.html"><a href="dataskills1.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="dataskills1.html"><a href="dataskills1.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="dataskills1.html"><a href="dataskills1.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="dataskills1.html"><a href="dataskills1.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="dataskills1.html"><a href="dataskills1.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="dataskills1.html"><a href="dataskills1.html#working-with-a-single-vector---indexing"><i class="fa fa-check"></i><b>3.8.1</b> Working with a single vector - indexing</a></li>
+<li class="chapter" data-level="3.8.2" data-path="dataskills1.html"><a href="dataskills1.html#alphabet-aerobics-2"><i class="fa fa-check"></i><b>3.8.2</b> Alphabet aerobics 2</a></li>
+<li class="chapter" data-level="3.8.3" data-path="dataskills1.html"><a href="dataskills1.html#basic-operations-with-the-cereals-data"><i class="fa fa-check"></i><b>3.8.3</b> Basic operations with the Cereals data</a></li>
+<li class="chapter" data-level="3.8.4" data-path="dataskills1.html"><a href="dataskills1.html#a-short-dataset"><i class="fa fa-check"></i><b>3.8.4</b> A short dataset</a></li>
+<li class="chapter" data-level="3.8.5" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-1"><i class="fa fa-check"></i><b>3.8.5</b> Titanic - Part 1</a></li>
+<li class="chapter" data-level="3.8.6" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-2"><i class="fa fa-check"></i><b>3.8.6</b> Titanic - Part 2</a></li>
+<li class="chapter" data-level="3.8.7" data-path="dataskills1.html"><a href="dataskills1.html#hydro-dam"><i class="fa fa-check"></i><b>3.8.7</b> Hydro dam</a></li>
+<li class="chapter" data-level="3.8.8" data-path="dataskills1.html"><a href="dataskills1.html#hfe-tree-measurements"><i class="fa fa-check"></i><b>3.8.8</b> HFE tree measurements</a></li>
+<li class="chapter" data-level="3.8.9" data-path="dataskills1.html"><a href="dataskills1.html#flux-data"><i class="fa fa-check"></i><b>3.8.9</b> Flux data</a></li>
+<li class="chapter" data-level="3.8.10" data-path="dataskills1.html"><a href="dataskills1.html#dna-aerobics"><i class="fa fa-check"></i><b>3.8.10</b> DNA Aerobics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>5</b> Basic statistics and linear modelling</a><ul>
-<li class="chapter" data-level="5.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>5.2</b> Probability distributions</a></li>
-<li class="chapter" data-level="5.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>5.3</b> Descriptive Statistics</a></li>
-<li class="chapter" data-level="5.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>5.4</b> Testing differences between groups</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>5.4.1</b> Testing a single sample</a></li>
-<li class="chapter" data-level="5.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="5.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4.3</b> Inference for two populations</a></li>
-<li class="chapter" data-level="5.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>5.4.4</b> Testing many groups at once (ANOVA)</a></li>
-<li class="chapter" data-level="5.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>5.4.5</b> Multiple comparisons</a></li>
-<li class="chapter" data-level="5.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>5.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
-<li class="chapter" data-level="5.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>5.4.7</b> Interactions</a></li>
-<li class="chapter" data-level="5.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>5.4.8</b> Comparing models</a></li>
-<li class="chapter" data-level="5.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>5.4.9</b> Diagnostics</a></li>
+<li class="chapter" data-level="4" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>4</b> Data skills - Part 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>4.1</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="dataskills2.html"><a href="dataskills2.html#tapplyaggregate"><i class="fa fa-check"></i><b>4.1.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataskills2.html"><a href="dataskills2.html#xtabs"><i class="fa fa-check"></i><b>4.1.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataskills2.html"><a href="dataskills2.html#summaryvars"><i class="fa fa-check"></i><b>4.1.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataskills2.html"><a href="dataskills2.html#reorder"><i class="fa fa-check"></i><b>4.1.4</b> Reordering factor levels based on a summary variable</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>5.5</b> Linear regression</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>5.5.1</b> Icecream sales: a motivating example</a></li>
-<li class="chapter" data-level="5.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>5.5.2</b> Simple and multiple linear regression</a></li>
+<li class="chapter" data-level="4.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>4.2</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="dataskills2.html"><a href="dataskills2.html#merge"><i class="fa fa-check"></i><b>4.2.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="dataskills2.html"><a href="dataskills2.html#dplyrjoin"><i class="fa fa-check"></i><b>4.2.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="dataskills2.html"><a href="dataskills2.html#rbind"><i class="fa fa-check"></i><b>4.2.3</b> Row-binding dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>5.6</b> Linear models with factors and continuous variables</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>5.6.1</b> Visualizing fitted regression models</a></li>
-<li class="chapter" data-level="5.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>5.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
-<li class="chapter" data-level="5.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>5.6.3</b> Logarithmic transformation</a></li>
-<li class="chapter" data-level="5.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>5.6.4</b> Adding quadratic and polynomial terms</a></li>
-<li class="chapter" data-level="5.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>5.6.5</b> Which predictors are more important?</a></li>
+<li class="chapter" data-level="4.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>4.3</b> Reshaping data</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="dataskills2.html"><a href="dataskills2.html#from-wide-to-long"><i class="fa fa-check"></i><b>4.3.1</b> From wide to long</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataskills2.html"><a href="dataskills2.html#from-long-to-wide"><i class="fa fa-check"></i><b>4.3.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>4.4</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="dataskills2.html"><a href="dataskills2.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>4.4.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataskills2.html"><a href="dataskills2.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>4.4.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataskills2.html"><a href="dataskills2.html#weightlossdplyr"><i class="fa fa-check"></i><b>4.4.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-the-cereal-data"><i class="fa fa-check"></i><b>4.5.1</b> Summarizing the cereal data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataskills2.html"><a href="dataskills2.html#words-and-the-weather"><i class="fa fa-check"></i><b>4.5.2</b> Words and the weather</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataskills2.html"><a href="dataskills2.html#merging-data"><i class="fa fa-check"></i><b>4.5.3</b> Merging data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataskills2.html"><a href="dataskills2.html#merging-multiple-datasets"><i class="fa fa-check"></i><b>4.5.4</b> Merging multiple datasets</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataskills2.html"><a href="dataskills2.html#ordered-boxplot"><i class="fa fa-check"></i><b>4.5.5</b> Ordered boxplot</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>6</b> Functions, lists and loops</a><ul>
-<li class="chapter" data-level="6.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>6.2</b> Writing simple functions</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>6.2.1</b> Functions with many arguments</a></li>
-<li class="chapter" data-level="6.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>6.2.2</b> Functions can return many results</a></li>
-<li class="chapter" data-level="6.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>6.2.3</b> Functions without arguments</a></li>
-<li class="chapter" data-level="6.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>6.2.4</b> Wrapper functions</a></li>
-<li class="chapter" data-level="6.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>6.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+<li class="chapter" data-level="5" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>5</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="5.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>5.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>6.3</b> Working with lists</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>6.3.1</b> Indexing lists</a></li>
-<li class="chapter" data-level="6.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>6.3.2</b> Converting lists to dataframes or vectors</a></li>
-<li class="chapter" data-level="6.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>6.3.3</b> Combining lists</a></li>
-<li class="chapter" data-level="6.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>6.3.4</b> Extracting output from built-in functions</a></li>
-<li class="chapter" data-level="6.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>6.3.5</b> Creating lists from dataframes</a></li>
-<li class="chapter" data-level="6.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>6.3.6</b> Applying functions to lists</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>6.4</b> Loops</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>7</b> R on the web</a><ul>
-<li class="chapter" data-level="7.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>7.2</b> Reading data from remote databases</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>7.2.1</b> NoSQL</a></li>
-<li class="chapter" data-level="7.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>7.2.2</b> SQL</a></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>6.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>6.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#inference"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>6.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>6.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="6.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="6.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="6.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.4.9</b> Diagnostics</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>7.3</b> Accessing an API</a></li>
-<li class="chapter" data-level="7.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>7.4</b> Deploying an API with <code>plumber</code></a><ul>
-<li class="chapter" data-level="7.4.1" data-path="webservices.html"><a href="webservices.html#deploying-a-simple-api"><i class="fa fa-check"></i><b>7.4.1</b> Deploying a simple API</a></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>6.5.2</b> Simple and multiple linear regression</a></li>
 </ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.6.5" data-path="linmodel.html"><a href="linmodel.html#importance"><i class="fa fa-check"></i><b>6.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="linmodel.html"><a href="linmodel.html#exercises-3"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="linmodel.html"><a href="linmodel.html#probabilities"><i class="fa fa-check"></i><b>6.7.1</b> Probabilities</a></li>
+<li class="chapter" data-level="6.7.2" data-path="linmodel.html"><a href="linmodel.html#univariate-distributions"><i class="fa fa-check"></i><b>6.7.2</b> Univariate distributions</a></li>
+<li class="chapter" data-level="6.7.3" data-path="linmodel.html"><a href="linmodel.html#more-t-tests"><i class="fa fa-check"></i><b>6.7.3</b> More <span class="math inline">\(t\)</span>-tests</a></li>
+<li class="chapter" data-level="6.7.4" data-path="linmodel.html"><a href="linmodel.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.7.4</b> Simple linear regression</a></li>
+<li class="chapter" data-level="6.7.5" data-path="linmodel.html"><a href="linmodel.html#quantile-quest"><i class="fa fa-check"></i><b>6.7.5</b> Quantile Quest</a></li>
+<li class="chapter" data-level="6.7.6" data-path="linmodel.html"><a href="linmodel.html#one-way-anova"><i class="fa fa-check"></i><b>6.7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.7" data-path="linmodel.html"><a href="linmodel.html#two-way-anova"><i class="fa fa-check"></i><b>6.7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.8" data-path="linmodel.html"><a href="linmodel.html#multregexerc"><i class="fa fa-check"></i><b>6.7.8</b> Regression: the <code>pulse</code> dataset</a></li>
+<li class="chapter" data-level="6.7.9" data-path="linmodel.html"><a href="linmodel.html#logistic-regression"><i class="fa fa-check"></i><b>6.7.9</b> Logistic regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>7.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>7.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>7.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="7.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>7.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>7.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="7.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>7.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>7.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="7.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>7.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="7.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>7.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="7.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>7.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="7.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>7.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="7.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>7.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>7.4</b> Loops</a></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#exercises-4"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>7.5.1</b> Writing functions</a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#working-with-lists"><i class="fa fa-check"></i><b>7.5.2</b> Working with lists</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#functions-for-histograms"><i class="fa fa-check"></i><b>7.5.3</b> Functions for histograms</a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#using-functions-to-make-many-plots"><i class="fa fa-check"></i><b>7.5.4</b> Using functions to make many plots</a></li>
+<li class="chapter" data-level="7.5.5" data-path="programming.html"><a href="programming.html#monthly-weather-plots"><i class="fa fa-check"></i><b>7.5.5</b> Monthly weather plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>8</b> R on the web</a><ul>
+<li class="chapter" data-level="8.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>8.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>8.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="8.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>8.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -307,9 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="linmodel" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Basic statistics and linear modelling</h1>
+<h1><span class="header-section-number">Chapter 6</span> Basic statistics and linear modelling</h1>
 <div id="introduction-2" class="section level2">
-<h2><span class="header-section-number">5.1</span> Introduction</h2>
+<h2><span class="header-section-number">6.1</span> Introduction</h2>
 <p>This book is not an <em>Introduction to statistics</em>. There are many books focused on <em>statistics</em>, with or without example R code. The focus throughout this book is on the R code itself, as we try to present clear and short solutions to common analysis tasks. In the following, we assume you have a basic understanding of linear regression, Student’s <span class="math inline">\(t\)</span>-tests, ANOVA, and confidence intervals for the mean.</p>
 <p>Linear modelling is a general technique that includes linear regression, but also basic means testing, comparing samples, and more complex combinations of class and numeric predictors.</p>
 <p>In linear modelling we are interested in understanding variation in a single <em>numeric response variable</em> (or sometimes binary). We can include all sorts of <em>predictors</em> (‘explanatory variables’, ‘independent variables’), depending on what we chose we end up with various techniques:</p>
@@ -337,7 +391,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 </div>
 <div id="distributions" class="section level2">
-<h2><span class="header-section-number">5.2</span> Probability distributions</h2>
+<h2><span class="header-section-number">6.2</span> Probability distributions</h2>
 <p>You will have encountered a number of probability distributions before. For example, the <em>Binomial</em> distribution is a model for the distribution of the number of <em>successes</em> in a sequence of independent trials, for example, the number of heads in a coin tossing experiment. Another commonly used discrete distribution is the <em>Poisson</em>, which is a useful model for many kinds of count data. Of course, the most important distribution of all is the <em>Normal</em> or Gaussian distribution.</p>
 <p>R provides sets of functions to find densities, cumulative probabilities, quantiles, and to draw random numbers from many important distributions. The names of the functions all consist of a one letter prefix that specifies the type of function and a stem which specifies the distribution. Look at the examples in the table below.</p>
 <table>
@@ -420,7 +474,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="kw">rpois</span>(<span class="dv">5</span>, <span class="dv">3</span>)</code></pre>
 <pre><code>## [1] 1 3 3 3 5</code></pre>
 <p>See the help page <code>?Distributions</code> for more details.</p>
-<p>To make a quick plot of a distribution, we can use the density function in combination with <code>curve</code>. The following code makes Fig. <a href="linmodel.html#fig:distplot">5.1</a>.</p>
+<p>To make a quick plot of a distribution, we can use the density function in combination with <code>curve</code>. The following code makes Fig. <a href="linmodel.html#fig:distplot">6.1</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A standard normal distribution</span>
 <span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">from=</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>,
       <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
@@ -432,9 +486,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Standard normal&quot;</span>,<span class="st">&quot;t-distribution, df=3&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),
        <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
 <div class="figure"><span id="fig:distplot"></span>
-<img src="05-linearregression_files/figure-html/distplot-1.pdf" alt="Two univariate distributions plotted with curve()" width="672" />
+<img src="05-linearregression_files/figure-html/distplot-1.svg" alt="Two univariate distributions plotted with curve()" width="672" />
 <p class="caption">
-Figure 5.1: Two univariate distributions plotted with curve()
+Figure 6.1: Two univariate distributions plotted with curve()
 </p>
 </div>
 
@@ -444,7 +498,7 @@ Make a histogram of a sample of random numbers from a distribution of your choic
 
 </div>
 <div id="descstat" class="section level2">
-<h2><span class="header-section-number">5.3</span> Descriptive Statistics</h2>
+<h2><span class="header-section-number">6.3</span> Descriptive Statistics</h2>
 <p>Descriptive statistics summarise some of the properties of a given data set. Generally, we are interested in measures of location (central tendency, such as mean and median) and scale (variance or standard deviation). Other descriptions can include the sample size, the range, and so on. We already encountered a number of functions that can be used to summarize a vector.</p>
 <p>Let’s look at some examples for the Pupae dataset.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
@@ -486,7 +540,7 @@ weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight
 ## 0.1720 0.2398 0.2490 0.2674 0.2892 0.2975 0.3230 0.3493 0.3710 0.3910 
 ##   100% 
 ## 0.4730</code></pre>
-<p><strong>Missing Values</strong>: All of the above functions will return <code>NA</code> if the data contains <em>any</em> missing values. However, they also provide an option to remove missing values (<code>NA</code>s) before their computations (see also Section <a href="summarize.html#workingmissing">3.7.3</a>).</p>
+<p><strong>Missing Values</strong>: All of the above functions will return <code>NA</code> if the data contains <em>any</em> missing values. However, they also provide an option to remove missing values (<code>NA</code>s) before their computations (see also Section <a href="dataskills1.html#workingmissing">3.7.3</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass)</code></pre>
 <pre><code>## [1] NA</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
@@ -526,12 +580,12 @@ the <code>skewness</code> and <code>kurtosis</code>.</p>
 <span class="kw">stat.desc</span>(weight)[<span class="st">&quot;SE.mean&quot;</span>]</code></pre>
 <pre><code>##     SE.mean 
 ## 0.006998258</code></pre>
-<p>Sometimes you may wish to calculate descriptive statistics for subgroups in the data. We will come back to this extensively in Section <a href="summarize.html#tapplyaggregate">3.8.1</a> and later sections.</p>
+<p>Sometimes you may wish to calculate descriptive statistics for subgroups in the data. We will come back to this extensively in Section <a href="dataskills2.html#tapplyaggregate">4.1.1</a> and later sections.</p>
 </div>
 <div id="testing-differences-between-groups" class="section level2">
-<h2><span class="header-section-number">5.4</span> Testing differences between groups</h2>
+<h2><span class="header-section-number">6.4</span> Testing differences between groups</h2>
 <div id="singlesample" class="section level3">
-<h3><span class="header-section-number">5.4.1</span> Testing a single sample</h3>
+<h3><span class="header-section-number">6.4.1</span> Testing a single sample</h3>
 <p>In some applications we simply want to know whether the mean of our data (the sample) is equal to some hypothesized value, or whether it is clearly higher or lower. The simplest approach is to compute a 95% <em>confidence interval for the mean</em>, and then check whether the hypothesized value falls inside this interval (in which case you cannot conclude the value is different).</p>
 <p>One way to get confidence intervals in R is to use the quantile functions for the relevant distribution. A <span class="math inline">\(100(1-\alpha)\)</span>% confidence interval for the mean on normal population is given by,</p>
 <p><span class="math display">\[\bar{x} \pm t_{\alpha/2, n-1} \frac{s}{\sqrt{n}}\]</span></p>
@@ -559,8 +613,8 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </div>
 
 </div>
-<div id="hypothesis-testing" class="section level3">
-<h3><span class="header-section-number">5.4.2</span> Hypothesis testing</h3>
+<div id="inference" class="section level3">
+<h3><span class="header-section-number">6.4.2</span> Hypothesis testing</h3>
 <p>There may be a reason to ask whether a dataset is consistent with a certain mean. For example, are the pupae weights consistent with a population mean of 0.29? For normal populations, we can use Student’s <span class="math inline">\(t\)</span>-test, available in R as the <code>t.test</code> function. In all following results, we use the <code>pander</code> function (from the <code>pander</code>) package to make the output short and readable (and in markdown format). For best results, use it in an rmarkdown document (though it works fine otherwise as well). We assume you have loaded these two packages:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pander)
 <span class="kw">library</span>(dplyr)</code></pre>
@@ -625,7 +679,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </tr>
 </tbody>
 </table>
-<p>The <code>t.test</code> is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot (see Sections sec:hist and sec:diagplots). If the data is not very close to a normal distribution then the <code>t.test</code> is often still appropriate, as long as the sample is large.</p>
+<p>The <code>t.test</code> is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot. If the data is not very close to a normal distribution then the <code>t.test</code> is often still appropriate, as long as the sample is large.</p>
 <p>If the data is not normal and the sample size is small, there are a couple of alternatives: transform the data (often a log transform is enough) or use a <em>nonparametric</em> test, in this case the Wilcoxon signed rank test. We can use the <code>wilcox.test</code> function for the latter, its interface is similar to <code>t.test</code> and it tests the hypothesis that the data is symmetric about the hypothesized population mean. For example,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
 <table style="width:79%;">
@@ -651,7 +705,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </tbody>
 </table>
 <div id="test-for-proportions" class="section level4">
-<h4><span class="header-section-number">5.4.2.1</span> Test for proportions</h4>
+<h4><span class="header-section-number">6.4.2.1</span> Test for proportions</h4>
 <p>Sometimes you want to test whether observed proportions are consistent with a hypothesized population proportion. For example, consider a coin tossing experiment where you want to test the hypothesis that you have a fair coin (one with an equal probability of landing heads or tails). In your experiment, you get 60 heads out of 100 coin tosses. Do you have a fair coin? We can use the <code>prop.test</code> function:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 60 &#39;successes&#39; out of a 100 trials, the hypothesized probability is 0.5.</span>
 <span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">60</span>, <span class="dt">n=</span><span class="dv">100</span>, <span class="dt">p=</span><span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
@@ -687,7 +741,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </div>
 </div>
 <div id="inference-for-two-populations" class="section level3">
-<h3><span class="header-section-number">5.4.3</span> Inference for two populations</h3>
+<h3><span class="header-section-number">6.4.3</span> Inference for two populations</h3>
 <p>Commonly, we wish to compare two (or more) populations. For example, the <code>pupae</code> dataset has pupal weights for female and male pupae. We may wish to compare the weights of males (<code>gender=0</code>) and females (<code>gender=1</code>).</p>
 <p>To compare the pupal weights of males and females, we use the <em>formula</em> interface for <code>t.test</code>. The formula interface is important because we will use it in many other functions, like linear regression and linear modelling.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># (output not shown)</span>
@@ -695,7 +749,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 <span class="co"># but see section &#39;unequal variances&#39; further below.</span>
 <span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data=</span>pupae, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
 <div id="paired-data" class="section level4">
-<h4><span class="header-section-number">5.4.3.1</span> Paired data</h4>
+<h4><span class="header-section-number">6.4.3.1</span> Paired data</h4>
 <p>The <code>t.test</code> can also be used when the data are paired, for example, measurements taken before and after some treatment on the same subjects. For this example, we will use the pulse data - data on pulse rates of individuals before and after exercise. We will test the simple idea that pulse rate is different after exercise. To do this, we first extract only those subjects that exercised (<code>Ran=1</code>),</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># (output not shown)</span>
 pulse &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;ms212.txt&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)
@@ -704,7 +758,7 @@ pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pu
 <span class="kw">t.test</span>(pulse.after, pulse.before, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
 </div>
 <div id="unequal-variances" class="section level4">
-<h4><span class="header-section-number">5.4.3.2</span> Unequal variances</h4>
+<h4><span class="header-section-number">6.4.3.2</span> Unequal variances</h4>
 <p>The default for the two-sample <code>t.test</code> is actually to <em>not</em> assume equal variances. The theory for this kind of test is quite complex, and the resulting <span class="math inline">\(t\)</span>-test is now only approximate, with an adjustment called the ‘Satterthwaite’ or ‘Welch’ approximation made to the degrees of freedom.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender,  <span class="dt">data=</span>pupae) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
 <table style="width:94%;">
@@ -754,7 +808,7 @@ pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pu
 </div>
 </div>
 <div id="testing-many-groups-at-once-anova" class="section level3">
-<h3><span class="header-section-number">5.4.4</span> Testing many groups at once (ANOVA)</h3>
+<h3><span class="header-section-number">6.4.4</span> Testing many groups at once (ANOVA)</h3>
 <p>One-way ANOVA (ANalysis Of VAriance) can be used to compare means across two or more populations. We will not go into the theory here, but the foundation of ANOVA is comparing the variation <em>between</em> the group means to the variation <em>within</em> the groups (using an F-statistic).</p>
 <p>We can use either the <code>aov</code> function or <code>lm</code> to perform ANOVAs. We will focus exclusively on the latter as it can be generalized more easily to other models. The use of <code>aov</code> is only appropriate when you have a balanced design (i.e., the same sample sizes in each of your groups).</p>
 <p>To use <code>lm</code> for an ANOVA, we need a dataframe containing a (continuous) response variable and a factor variable that defines the groups. For example, in the Coweeta dataset, the species variable is a factor that defines groups by species. We can compute (for example) the mean height by species. Let’s look at an example using the Coweeta data, but with only four species to simplify the output.</p>
@@ -775,12 +829,12 @@ cowsub &lt;-<span class="st"> </span><span class="kw">filter</span>(coweeta, spe
 ## 2 cofl      6.80
 ## 3 oxar     16.5 
 ## 4 quru     21.1</code></pre>
-<p>We might want to ask, does the mean height vary by species? Before you do any test for significance, a graphical summary of the data is always useful. For this type of data, box plots are preferred since they visualize not just the means but also the spread of the data (Fig. <a href="linmodel.html#fig:allombox">5.2</a>).</p>
+<p>We might want to ask, does the mean height vary by species? Before you do any test for significance, a graphical summary of the data is always useful. For this type of data, box plots are preferred since they visualize not just the means but also the spread of the data (Fig. <a href="linmodel.html#fig:allombox">6.2</a>).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(height<span class="op">~</span>species, <span class="dt">data=</span>cowsub)</code></pre>
 <div class="figure"><span id="fig:allombox"></span>
-<img src="05-linearregression_files/figure-html/allombox-1.pdf" alt="Simple box plot for the Coweeta data." width="672" />
+<img src="05-linearregression_files/figure-html/allombox-1.svg" alt="Simple box plot for the Coweeta data." width="672" />
 <p class="caption">
-Figure 5.2: Simple box plot for the Coweeta data.
+Figure 6.2: Simple box plot for the Coweeta data.
 </p>
 </div>
 <p>It seems like some of the species differences are quite large. We can fit a one-way ANOVA with <code>lm</code>, like so:</p>
@@ -806,7 +860,7 @@ Figure 5.2: Simple box plot for the Coweeta data.
 <p>Here we see various useful statistics including the R squared (goodness of fit), and the p-value of the overall model. This p-value tells us whether the whole model is significant. In this case, it is comparing a model with four coefficients (one for each species) to a model that just has the same mean for all groups. In this case, the model is highly significant – i.e. there is evidence of different means for each group. In other words, a model where the mean varies between the four species performs much better than a model with a single grand mean.</p>
 </div>
 <div id="multcomp" class="section level3">
-<h3><span class="header-section-number">5.4.5</span> Multiple comparisons</h3>
+<h3><span class="header-section-number">6.4.5</span> Multiple comparisons</h3>
 <p>The ANOVA, as used in the previous section, gives us a single p-value for the overall ‘species effect’. The summary statement further shows whether individual species are different from the first level in the model, which is not always useful. If we want to know whether the four species were all different from each other, we can use a multiple comparison test.</p>
 
 <div class="rmdcaution">
@@ -855,18 +909,18 @@ Also look at the other options in the help pages for <code>?adjusted</code> and 
 </div>
 
 <p>We can also produce a quick plot of the multiple comparison, which shows the pair-wise differences between the species with confidence intervals.</p>
-<p>This code produces Fig. <a href="linmodel.html#fig:tukeyplot">5.3</a>.</p>
+<p>This code produces Fig. <a href="linmodel.html#fig:tukeyplot">6.3</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A plot of a fitted &#39;glht&#39; object (multiple comparison)</span>
 <span class="kw">plot</span>(tukey_Spec)</code></pre>
 <div class="figure"><span id="fig:tukeyplot"></span>
-<img src="05-linearregression_files/figure-html/tukeyplot-1.pdf" alt="A standard plot of a multiple comparison." width="672" />
+<img src="05-linearregression_files/figure-html/tukeyplot-1.svg" alt="A standard plot of a multiple comparison." width="672" />
 <p class="caption">
-Figure 5.3: A standard plot of a multiple comparison.
+Figure 6.3: A standard plot of a multiple comparison.
 </p>
 </div>
 </div>
 <div id="twoway" class="section level3">
-<h3><span class="header-section-number">5.4.6</span> Comparing many groups by two predictors (two-way ANOVA)</h3>
+<h3><span class="header-section-number">6.4.6</span> Comparing many groups by two predictors (two-way ANOVA)</h3>
 <p>Sometimes there are two (or more) <em>treatment</em> factors. The ‘age and memory’ dataset (see <code>?memory</code>) includes the number of words remembered from a list for two age groups and five memory techniques.</p>
 <p>This dataset is balanced, as shown below. in a table of counts for each of the combinations. First we fit a linear model of the <em>main effects</em>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(memory)
@@ -916,7 +970,7 @@ broom<span class="op">::</span><span class="kw">tidy</span>(fit2)</code></pre>
 <p>In this form, the <span class="math inline">\(F\)</span>-statistic is formed by comparing models that do not include the term, but include all others. For example, <code>Age</code> is tested by comparing the full model against a model that includes all other terms (in this case, just <code>Process</code>).</p>
 </div>
 <div id="interactions" class="section level3">
-<h3><span class="header-section-number">5.4.7</span> Interactions</h3>
+<h3><span class="header-section-number">6.4.7</span> Interactions</h3>
 <p>An important question when we have more than one factor in an experiment is whether there are any interactions. For example, do <code>Process</code> effects differ for the two <code>Age</code> groups, or are they simply additive? We can add interactions to a model by modifying the formula. An interaction is indicated using a “<code>:</code>”. We can also include all <em>main effects and interactions</em> using the <code>*</code> operator.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Two equivalent ways of specifying a linear model that includes all main effects</span>
 <span class="co"># and interactions:</span>
@@ -936,14 +990,14 @@ fit3<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The <code>Anova</code> table shows that the interaction is significant. When an interaction is significant, this tells you nothing about the direction or magnitude of the interaction term. You can inspect the estimated coefficients in the <code>summary</code> output, but we recommend to first visualize the interaction with simple plots, as the coefficients can be easily misinterpreted. One way to visualize the interaction is to use the <code>interaction.plot</code> function, as in the following example.</p>
-<p>This code produces Fig. <a href="linmodel.html#fig:interactionplot">5.4</a>. If there were no interaction between the two factor variables, you would expect to see a series of parallel lines (because the effects of <code>Process</code> and <code>Age</code> would simply be additive).</p>
+<p>This code produces Fig. <a href="linmodel.html#fig:interactionplot">6.4</a>. If there were no interaction between the two factor variables, you would expect to see a series of parallel lines (because the effects of <code>Process</code> and <code>Age</code> would simply be additive).</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the number of words rememberd by Age and Process</span>
 <span class="co"># This standard plot can be customized in various ways, see ?interaction.plot</span>
 <span class="kw">with</span>(memory, <span class="kw">interaction.plot</span>(Age, Process, Words))</code></pre>
 <div class="figure"><span id="fig:interactionplot"></span>
-<img src="05-linearregression_files/figure-html/interactionplot-1.pdf" alt="An interaction plot for the memory data, indicating a strong interaction (because the lines are not parallel)." width="672" />
+<img src="05-linearregression_files/figure-html/interactionplot-1.svg" alt="An interaction plot for the memory data, indicating a strong interaction (because the lines are not parallel)." width="672" />
 <p class="caption">
-Figure 5.4: An interaction plot for the memory data, indicating a strong interaction (because the lines are not parallel).
+Figure 6.4: An interaction plot for the memory data, indicating a strong interaction (because the lines are not parallel).
 </p>
 </div>
 
@@ -953,7 +1007,7 @@ When there is a signficant interaction term, we might want to know under what le
 
 </div>
 <div id="comparing-models" class="section level3">
-<h3><span class="header-section-number">5.4.8</span> Comparing models</h3>
+<h3><span class="header-section-number">6.4.8</span> Comparing models</h3>
 <p>In the above example, we fitted two models for the Memory dataset: one without, and one with the interaction between <code>Process</code> and <code>Age</code>. We assessed the significance of the interaction by inspecting the p-value for the <code>Age:Process</code> term in the <code>Anova</code> statement. Another possibility is to perform a likelihood ratio test on two ‘nested’ models, the model that includes the term, and a model that excludes it. We can perform a likelihood ratio test with the <code>anova</code> function, not to be confused with <code>Anova</code> from the <code>car</code> package!</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can perform an anova on two models to compare the fit.</span>
 <span class="co"># Note that one model must be a subset of the other model. </span>
@@ -977,8 +1031,8 @@ When there is a signficant interaction term, we might want to know under what le
 <p>We once again conclude that the interaction improved the model fit substantially.</p>
 </div>
 <div id="diagnostics" class="section level3">
-<h3><span class="header-section-number">5.4.9</span> Diagnostics</h3>
-<p>The standard ANOVA assumes normality of the residuals, and we should always check this assumption with some diagnostic plots (Fig. <a href="linmodel.html#fig:anovadiag1">5.5</a>). Although R has built-in diagnostic plots, we prefer the use of <code>qqPlot</code> and <code>residualPlot</code>, both from the <code>car</code> package.</p>
+<h3><span class="header-section-number">6.4.9</span> Diagnostics</h3>
+<p>The standard ANOVA assumes normality of the residuals, and we should always check this assumption with some diagnostic plots (Fig. <a href="linmodel.html#fig:anovadiag1">6.5</a>). Although R has built-in diagnostic plots, we prefer the use of <code>qqPlot</code> and <code>residualPlot</code>, both from the <code>car</code> package.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
 
 <span class="kw">library</span>(car)
@@ -990,9 +1044,9 @@ When there is a signficant interaction term, we might want to know under what le
 <span class="kw">qqPlot</span>(fit3)</code></pre>
 <pre><code>## [1] 26 86</code></pre>
 <div class="figure"><span id="fig:anovadiag1"></span>
-<img src="05-linearregression_files/figure-html/anovadiag1-1.pdf" alt="Simple diagnostic plots for the Memory ANOVA." width="672" />
+<img src="05-linearregression_files/figure-html/anovadiag1-1.svg" alt="Simple diagnostic plots for the Memory ANOVA." width="672" />
 <p class="caption">
-Figure 5.5: Simple diagnostic plots for the Memory ANOVA.
+Figure 6.5: Simple diagnostic plots for the Memory ANOVA.
 </p>
 </div>
 <p>The QQ-plot shows some slight non-normality in the upper right. The non-normality probably stems from the fact that the <code>Words</code> variable is a ‘count’ variable.</p>
@@ -1023,9 +1077,9 @@ Check whether a log-transformation of <code>Words</code> makes the residuals clo
 </div>
 </div>
 <div id="linear-regression" class="section level2">
-<h2><span class="header-section-number">5.5</span> Linear regression</h2>
+<h2><span class="header-section-number">6.5</span> Linear regression</h2>
 <div id="icecream" class="section level3">
-<h3><span class="header-section-number">5.5.1</span> Icecream sales: a motivating example</h3>
+<h3><span class="header-section-number">6.5.1</span> Icecream sales: a motivating example</h3>
 <p>It is well known that ice cream sales are higher during warm weather. As an ice cream salesman, you hardly have to apply regression analysis to know this - it is just obvious. Suppose that one year, you sell icecream at Oosterpark in Amsterdam. Sales are pretty good, the summer is nice and warm. The next year you try your luck at the Dappermarkt, a busy market in the east of Amsterdam. You tally your sales every week, and finally make a plot comparing average weekly sales:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(icecream)
 
@@ -1038,9 +1092,9 @@ Check whether a log-transformation of <code>Words</code> makes the residuals clo
 <span class="st">  </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">2</span>, <span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span>
 <span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>))</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-38"></span>
-<img src="05-linearregression_files/figure-html/unnamed-chunk-38-1.pdf" alt="Average weekly ice cream sales at two locations, over two years" width="672" />
+<img src="05-linearregression_files/figure-html/unnamed-chunk-38-1.svg" alt="Average weekly ice cream sales at two locations, over two years" width="672" />
 <p class="caption">
-Figure 5.6: Average weekly ice cream sales at two locations, over two years
+Figure 6.6: Average weekly ice cream sales at two locations, over two years
 </p>
 </div>
 <p>Based on this simple boxplot, you would either conclude that there is no difference in sales, or that perhaps sales were slightly better in Oosterpark. We can also perform a <em>t</em>-test for two samples, which tests the hypothesis that the two means are not different (in other words, location has no effect on sales).</p>
@@ -1070,9 +1124,9 @@ The example above - as all other examples in this chapter - shows the raw output
 <span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;dimgrey&quot;</span>)) <span class="op">+</span>
 <span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>), <span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</code></pre>
 <div class="figure"><span id="fig:unnamed-chunk-41"></span>
-<img src="05-linearregression_files/figure-html/unnamed-chunk-41-1.pdf" alt="Ice cream sales by location, and varying with temperature." width="672" />
+<img src="05-linearregression_files/figure-html/unnamed-chunk-41-1.svg" alt="Ice cream sales by location, and varying with temperature." width="672" />
 <p class="caption">
-Figure 5.7: Ice cream sales by location, and varying with temperature.
+Figure 6.7: Ice cream sales by location, and varying with temperature.
 </p>
 </div>
 <p>In this figure we arrive at a completely different conclusion - but only because we have taken into account the covariate weekly temperature. Now, <em>at a given temperature</em>, ice cream sales were higher at the new location - Dappermarkt. This is an example of how a confounding variable can mask (or even reverse) effects of some other variable. It seems obvious from the figure that temperature was overall lower when you sold ice cream at the Dappermarkt, explaining why average weekly sales were in the end no different.</p>
@@ -1081,10 +1135,10 @@ Figure 5.7: Ice cream sales by location, and varying with temperature.
 Use a <em>t</em>-test to test that temperature was lower at the Dappermarkt location.
 </div>
 
-<p>Using regression analysis, we can test the assertion that ice cream sales are higher at Dappermarkt, <em>at a given temperature</em>. But before we do that, we first introduce the tools to test difference between means (as we just did with a simple two-sample t-test), and introduce basic linear regression. We return to the icecream problem in Section <a href="linmodel.html#icecreamtest">5.6.2</a>.</p>
+<p>Using regression analysis, we can test the assertion that ice cream sales are higher at Dappermarkt, <em>at a given temperature</em>. But before we do that, we first introduce the tools to test difference between means (as we just did with a simple two-sample t-test), and introduce basic linear regression. We return to the icecream problem in Section <a href="linmodel.html#icecreamtest">6.6.2</a>.</p>
 </div>
 <div id="simple-and-multiple-linear-regression" class="section level3">
-<h3><span class="header-section-number">5.5.2</span> Simple and multiple linear regression</h3>
+<h3><span class="header-section-number">6.5.2</span> Simple and multiple linear regression</h3>
 <p>To fit linear models of varying complexity, we can use the <code>lm</code> function. The simplest model is a straight-line relationship between an <code>x</code> and a <code>y</code> variable. In this situation, the assumption is that the <code>y</code>-variable (the response) is a linear function of the <code>x</code>-variable (the independent variable), plus some random noise or measurement error. For the simplest case, both <code>x</code> and <code>y</code> are assumed to be continuous variables.</p>
 <p>We use this method to study the relationship between two continuous variables: a <em>response</em> (‘y variable’) and a <em>predictor</em> (or independent variable) (‘x variable’). We can use multiple regression to study the relationship between one response and more than one predictor.</p>
 <p>We are going to use the Cereals data to inspect the “health rating” (<code>rating</code>), and two predictors: fibre content (<code>fiber</code>) and sugar content (<code>sugar</code>). To start with, let’s make two scatter plots, side by side.</p>
@@ -1105,16 +1159,16 @@ g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cereals, <span c
 
 <span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
 <div class="figure"><span id="fig:allomdiamheight"></span>
-<img src="05-linearregression_files/figure-html/allomdiamheight-1.pdf" alt="Leaf area as a function of height and diameter (note the log-log scale)." width="672" />
+<img src="05-linearregression_files/figure-html/allomdiamheight-1.svg" alt="Leaf area as a function of height and diameter (note the log-log scale)." width="672" />
 <p class="caption">
-Figure 5.8: Leaf area as a function of height and diameter (note the log-log scale).
+Figure 6.8: Leaf area as a function of height and diameter (note the log-log scale).
 </p>
 </div>
 <p>Here we make use of <code>ggplot2</code>’s built-in regression lines, which are easily added to the plot. The default behaviour is to add a 95% confidence band as well. In this case we immediately see that <code>fiber</code> is a worse predictor than <code>sugars</code> for the health rating, given the wider confidence interval for the location of the mean response (i.e. the regression line).</p>
 <p>We are going to fit a model that looks like, using statistical notation,
 <span class="math display" id="eq:multiplelin">\[\begin{equation}
 y = \alpha+\beta_1 x_1 +\beta_2 x_2 +\varepsilon
-\tag{5.1}
+\tag{6.1}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(\alpha\)</span> is the intercept, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are the two predictors (fiber and sugars), and the <em>two</em> slopes are <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. We are particularly interested in testing for significant effect of both predictors, which is akin to saying that we are testing the values of the two slopes against zero.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit a multiple regression without interactions, and inspect the summary</span>
@@ -1168,29 +1222,29 @@ fit4 <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
 </tbody>
 </table>
 <p>As you can see, we again use the <code>pander</code> package to give super clean results, which can be used in an <code>rmarkdown</code> document. We see here that overall we have an R<sup>2</sup> of 81% (not bad), and that both predictors contribute significantly (the P values are very low for both).</p>
-<p>Next, we perform some diagnostic plots (shown in Fig. <a href="linmodel.html#fig:cerealdiag">5.9</a>). The standard errors (and confidence intervals, and hypothesis tests) will be unreliable if the assumptions of normality (right panel) or linearity (left panel) are seriously violated. If you are only interested in the mean response against your predictors, but not so much their uncertainties, you can usually ignore these plots.</p>
+<p>Next, we perform some diagnostic plots (shown in Fig. <a href="linmodel.html#fig:cerealdiag">6.9</a>). The standard errors (and confidence intervals, and hypothesis tests) will be unreliable if the assumptions of normality (right panel) or linearity (left panel) are seriously violated. If you are only interested in the mean response against your predictors, but not so much their uncertainties, you can usually ignore these plots.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic diagnostic plots.</span>
 <span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
 car<span class="op">::</span><span class="kw">residualPlot</span>(fit4)
 car<span class="op">::</span><span class="kw">qqPlot</span>(fit4)</code></pre>
 <div class="figure"><span id="fig:cerealdiag"></span>
-<img src="05-linearregression_files/figure-html/cerealdiag-1.pdf" alt="Diagnostic plots for linear regression of the Cereals data." width="672" />
+<img src="05-linearregression_files/figure-html/cerealdiag-1.svg" alt="Diagnostic plots for linear regression of the Cereals data." width="672" />
 <p class="caption">
-Figure 5.9: Diagnostic plots for linear regression of the Cereals data.
+Figure 6.9: Diagnostic plots for linear regression of the Cereals data.
 </p>
 </div>
 <pre><code>## [1] 27 31</code></pre>
 <p>Now that we have a fitted model, what do its predictions actually look like? What relationship have we learned between health rating, sugars, and fiber content? The <code>visreg</code> package provides a very concise method to visualize (many kinds of) fitted regression models.</p>
-<p>In this case, the command <code>visreg::visreg(fit4)</code> would show two plots very similar to the ones above - which does not really add much information. What if we can show the effects of both predictors, in just one plot? The following code produces Fig. <a href="linmodel.html#fig:visregcereal">5.10</a>.</p>
+<p>In this case, the command <code>visreg::visreg(fit4)</code> would show two plots very similar to the ones above - which does not really add much information. What if we can show the effects of both predictors, in just one plot? The following code produces Fig. <a href="linmodel.html#fig:visregcereal">6.10</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(visreg)
 
 <span class="kw">visreg</span>(fit4, <span class="st">&quot;sugars&quot;</span>, <span class="dt">by =</span> <span class="st">&quot;fiber&quot;</span>, <span class="dt">overlay =</span> <span class="ot">TRUE</span>, 
        <span class="dt">gg =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">lims</span>(<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</code></pre>
 <div class="figure"><span id="fig:visregcereal"></span>
-<img src="05-linearregression_files/figure-html/visregcereal-1.pdf" alt="Visualizing linear regression of the Cereals data with visreg." width="672" />
+<img src="05-linearregression_files/figure-html/visregcereal-1.svg" alt="Visualizing linear regression of the Cereals data with visreg." width="672" />
 <p class="caption">
-Figure 5.10: Visualizing linear regression of the Cereals data with visreg.
+Figure 6.10: Visualizing linear regression of the Cereals data with visreg.
 </p>
 </div>
 <p>Here we clearly, and in one panel, visualize the negative effect of adding more sugar in a cereal, and the positive effect of adding more fiber. The <code>visreg</code> function plots the <em>predictions</em> from our model at an arbitrary selection of predictor values (here, 0, 1.5 and 5).</p>
@@ -1286,7 +1340,7 @@ fit5 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class
 </div>
 </div>
 <div id="lmfaccont" class="section level2">
-<h2><span class="header-section-number">5.6</span> Linear models with factors and continuous variables</h2>
+<h2><span class="header-section-number">6.6</span> Linear models with factors and continuous variables</h2>
 <p>So far we have looked at ANOVA, including two-way ANOVA, where a response variable is modelled as dependent on two treatments or factors, and <em>regression</em> including multiple linear regression where a response variable is modelled as dependent on two continuous variables. These are just special cases of the <em>linear model</em>, and we can extend these simple models by including a mix of factors and continuous predictors. The situation where we have one continuous variable and one factor variable was classically<code>known as ANCOVA (analysis of covariance), but using the</code>lm` function we can specify any model with a combination of predictors.</p>
 <p>In the following example, we inspect the height of trees against the stem diameter (<code>DBH</code>) for the Coweeta example dataset. When plotting all data, we are led to believe that the overall response of height to DBH is highly non-linear (left panel). However, when we fit a simple linear model for each species separately (right panel), the relationship appears to consist of a combination of linear responses.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(coweeta)
@@ -1300,15 +1354,15 @@ g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span c
 <span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))
 
 <span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
-<embed src="05-linearregression_files/figure-html/coweeta_twoplots-1.pdf" width="672" type="application/pdf" />
+<p><img src="05-linearregression_files/figure-html/coweeta_twoplots-1.svg" width="672" /></p>
 <p>To fit a model that allows a different response for each species, we use the notation from before:</p>
 <pre class="sourceCode r"><code class="sourceCode r">fit6 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species <span class="op">*</span><span class="st"> </span>DBH, <span class="dt">data=</span>coweeta)</code></pre>
 <div id="predictedeffects" class="section level3">
-<h3><span class="header-section-number">5.6.1</span> Visualizing fitted regression models</h3>
+<h3><span class="header-section-number">6.6.1</span> Visualizing fitted regression models</h3>
 <p>The coefficients associated with a factor predictor in a linear model are given as contrasts (i.e. differences between factor levels).</p>
 <p>While this is useful for comparisons of treatments, it is often more instructive to visualize the predictions at various combinations of factor levels.</p>
 <p>A number of options exist to extract and visualize fitted regression models - to make sense of differences between groups, the effects of covariates, and the impact of interactions. We prefer the <code>visreg</code> package, which can be used to make attractive plots of the predictions of a linear model.</p>
-<p>The following example makes Fig. <a href="linmodel.html#fig:visreg1">5.11</a>.</p>
+<p>The following example makes Fig. <a href="linmodel.html#fig:visreg1">6.11</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(visreg)
 
 <span class="co"># Load data (lgrdata package needed)</span>
@@ -1329,18 +1383,18 @@ fit8 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class=
 <span class="kw">visreg</span>(fit7, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)
 <span class="kw">visreg</span>(fit8, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</code></pre>
 <div class="figure"><span id="fig:visreg1"></span>
-<img src="05-linearregression_files/figure-html/visreg1-1.pdf" alt="Visualization of two fitted linear model with the visreg package. The model on the right includes an interaction between Process and Age, the model on the left does not." width="672" />
+<img src="05-linearregression_files/figure-html/visreg1-1.svg" alt="Visualization of two fitted linear model with the visreg package. The model on the right includes an interaction between Process and Age, the model on the left does not." width="672" />
 <p class="caption">
-Figure 5.11: Visualization of two fitted linear model with the visreg package. The model on the right includes an interaction between Process and Age, the model on the left does not.
+Figure 6.11: Visualization of two fitted linear model with the visreg package. The model on the right includes an interaction between Process and Age, the model on the left does not.
 </p>
 </div>
 <p>You can test for yourself that the interaction is a highly significant predictor in the model.</p>
 </div>
 <div id="icecreamtest" class="section level3">
-<h3><span class="header-section-number">5.6.2</span> Group differences in regression models: back to ice cream sales</h3>
-<p>At the beginning of this chapter (Section <a href="linmodel.html#icecream">5.5.1</a>), we looked at an example where including a covariate drastically changed our conclusions about an effect. Simply testing the difference between two locations where we sold ice creams showed no effect, but including temperature at a covariate, it appeared that <em>at a given temperature</em>, there was a difference between the locations.</p>
+<h3><span class="header-section-number">6.6.2</span> Group differences in regression models: back to ice cream sales</h3>
+<p>At the beginning of this chapter (Section <a href="linmodel.html#icecream">6.5.1</a>), we looked at an example where including a covariate drastically changed our conclusions about an effect. Simply testing the difference between two locations where we sold ice creams showed no effect, but including temperature at a covariate, it appeared that <em>at a given temperature</em>, there was a difference between the locations.</p>
 <p>Here, we continue this example as it shows that we need to closely inspect a fitted model before making any conclusions - and that estimated coefficients of a regression model can lead to wrong conclusions, if not carefully examined.</p>
-<p>To continue, first read in the icecream data as shown in Section <a href="linmodel.html#icecream">5.5.1</a>.
+<p>To continue, first read in the icecream data as shown in Section <a href="linmodel.html#icecream">6.5.1</a>.
 We now fit a linear model with one numeric, and one factor variable. We immediately include all effects, including the interaction.</p>
 <pre class="sourceCode r"><code class="sourceCode r">lm_ice1 &lt;-<span class="st"> </span><span class="kw">lm</span>(sales <span class="op">~</span><span class="st"> </span>location <span class="op">*</span><span class="st"> </span>temperature, <span class="dt">data=</span>icecream)</code></pre>
 <p>You can inspect all details in the summary of this model yourself (<code>summary(lm_ice1)</code>) - here we just look at the estimated coefficients from the model. Recall that in a linear model, the intercept is assigned to the first level of the factor variable in the model, in this case <code>levels(icecream$location)</code> shows that this is ‘Dappermarkt’.</p>
@@ -1407,7 +1461,7 @@ We now fit a linear model with one numeric, and one factor variable. We immediat
        <span class="dt">line.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>)),
        <span class="dt">fill.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;#BEBEBE80&quot;</span>,<span class="st">&quot;#BEBEBE80&quot;</span>)),
        <span class="dt">points.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>), <span class="dt">cex=</span><span class="fl">1.2</span>))</code></pre>
-<embed src="05-linearregression_files/figure-html/unnamed-chunk-49-1.pdf" width="672" type="application/pdf" />
+<p><img src="05-linearregression_files/figure-html/unnamed-chunk-49-1.svg" width="672" /></p>
 <p>We now see that the regression lines ‘cross over’ around a temperature of 10, giving a higher intercept for Oosterpark.</p>
 <p>A meaningful test in situations like this is to test for group differences <em>at a given value of our covariate(s)</em>. A number of approaches exist in various add-on packages, but we prefer to first show the basic approach using <code>predict</code> - a function that has methods for practically all models we use. It also offers great flexibility, and we don’t have to wonder what exactly we are testing.</p>
 <p>Somewhat arbitrarily, we want to test for location differences at a temperature of 25 degrees. To do this, I will construct confidence intervals for both locations, as follows. In the call to <code>predict</code>, it is important to list values for all variables in the model. This makes this approach less practical for models with many more regressors (see below for another approach).</p>
@@ -1429,9 +1483,9 @@ pred_ice &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_ice1,
 <p>You can ignore the warning in this case, since we have used both the predictors in our model - there are no other ‘hidden’ predictors that may complicate matters. As you can see for yourself, the <code>emmeans</code> package gives the same results as the basic <code>predict</code> approach, but it is certainly much more practical.</p>
 </div>
 <div id="logtransform" class="section level3">
-<h3><span class="header-section-number">5.6.3</span> Logarithmic transformation</h3>
+<h3><span class="header-section-number">6.6.3</span> Logarithmic transformation</h3>
 <p>For data that are very heteroscedasctic, that is, have quickly increasing variance with the value of the predictor, it is usually necessary to use a logarithm transformation of the data. In extreme cases, not applying the log-transform leads to very poor model fits, with very large influence of a few points, and possibly a fit that does not describe the data well at all.</p>
-<p>See Fig. <a href="linmodel.html#fig:cowtransform">5.12</a> for an example where a log-transform is used.</p>
+<p>See Fig. <a href="linmodel.html#fig:cowtransform">6.12</a> for an example where a log-transform is used.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(coweeta)
 <span class="kw">library</span>(scales)
 
@@ -1447,9 +1501,9 @@ g2 &lt;-<span class="st"> </span>g1 <span class="op">+</span><span class="st"> <
 
 <span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
 <div class="figure"><span id="fig:cowtransform"></span>
-<img src="05-linearregression_files/figure-html/cowtransform-1.pdf" alt="An example of a dataset that screams for a logarithmic transformation. Left panel: untransformed data, showing very non-constant variance, indicating larger variation in the response variable for larger individuals. Right panel: both variables have been log-transformed, giving a nice linear relationship with constant variance." width="672" />
+<img src="05-linearregression_files/figure-html/cowtransform-1.svg" alt="An example of a dataset that screams for a logarithmic transformation. Left panel: untransformed data, showing very non-constant variance, indicating larger variation in the response variable for larger individuals. Right panel: both variables have been log-transformed, giving a nice linear relationship with constant variance." width="672" />
 <p class="caption">
-Figure 5.12: An example of a dataset that screams for a logarithmic transformation. Left panel: untransformed data, showing very non-constant variance, indicating larger variation in the response variable for larger individuals. Right panel: both variables have been log-transformed, giving a nice linear relationship with constant variance.
+Figure 6.12: An example of a dataset that screams for a logarithmic transformation. Left panel: untransformed data, showing very non-constant variance, indicating larger variation in the response variable for larger individuals. Right panel: both variables have been log-transformed, giving a nice linear relationship with constant variance.
 </p>
 </div>
 
@@ -1470,17 +1524,17 @@ residPlot &lt;-<span class="st"> </span><span class="cf">function</span>(model){
 
 <span class="kw">grid.arrange</span>(<span class="kw">residPlot</span>(lm1), <span class="kw">residPlot</span>(lm2), <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
 <div class="figure"><span id="fig:cowdiagnostics"></span>
-<img src="05-linearregression_files/figure-html/cowdiagnostics-1.pdf" alt="Residuals versus fitted for the Coweeta biomass regression model, either without (left panel) or with (right panel) log-transformation of x and y variables." width="672" />
+<img src="05-linearregression_files/figure-html/cowdiagnostics-1.svg" alt="Residuals versus fitted for the Coweeta biomass regression model, either without (left panel) or with (right panel) log-transformation of x and y variables." width="672" />
 <p class="caption">
-Figure 5.13: Residuals versus fitted for the Coweeta biomass regression model, either without (left panel) or with (right panel) log-transformation of x and y variables.
+Figure 6.13: Residuals versus fitted for the Coweeta biomass regression model, either without (left panel) or with (right panel) log-transformation of x and y variables.
 </p>
 </div>
-<p>As Fig. <a href="linmodel.html#fig:cowdiagnostics">5.13</a> shows, the log-transformation results in much better model diagnostics. We can expect that the model will give an overall better fit to the data, because when we did not transform, the location of the regression line will be overly influenced by values far away from the line. After transformation, this effect will be much reduced, and the model will be more robust.</p>
+<p>As Fig. <a href="linmodel.html#fig:cowdiagnostics">6.13</a> shows, the log-transformation results in much better model diagnostics. We can expect that the model will give an overall better fit to the data, because when we did not transform, the location of the regression line will be overly influenced by values far away from the line. After transformation, this effect will be much reduced, and the model will be more robust.</p>
 <p>Second, the standard errors of the coefficients in the untransformed fit are very much biased, leading to confidence intervals that are much too narrow. In this case, a log-transformation could be used to remedy this problem, but in other cases we want to avoid transformations, or they are simply not adequate. In that case, we might use the bootstrap.</p>
 <p>This well known and often used transformation does have some consequences for interpreting the linear model fit that are often misunderstood. The key aspect to understand is that the model is no longer <em>additive</em> as the usual linear model (where effects of predicts are simply added), but rather <em>multiplicative</em> (effects of various predictors are <em>multiplied</em>). This has consequences for understanding interactions in the model as well.</p>
 </div>
 <div id="quadlm" class="section level3">
-<h3><span class="header-section-number">5.6.4</span> Adding quadratic and polynomial terms</h3>
+<h3><span class="header-section-number">6.6.4</span> Adding quadratic and polynomial terms</h3>
 <p>So far we have seen models with just linear terms, but it is straightforward and often necessary to add quadratic (<span class="math inline">\(x^2\)</span>) or higher-order terms (e.g. <span class="math inline">\(x^3\)</span>) when the response variable is far from linear in the predictors. You can add any transformation of the predictors in an <code>lm</code> model by nesting the transformation inside the <code>I()</code> function, like so:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(allometry)
 lmq1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>allometry)</code></pre>
@@ -1507,7 +1561,7 @@ lmq2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class
 ## Residuals     289.83 19                      
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<p>When fitting a quadratic model, it is again very useful to use <code>visreg</code> to inspect the model that is estimated, since it becomes even more difficult to make sense of the various linear, quadratic, and intercept terms, especially when interactions with factor variables are added. Consider this example for the allometry dataset, which makes Fig. <a href="linmodel.html#fig:allomquad">5.14</a>.</p>
+<p>When fitting a quadratic model, it is again very useful to use <code>visreg</code> to inspect the model that is estimated, since it becomes even more difficult to make sense of the various linear, quadratic, and intercept terms, especially when interactions with factor variables are added. Consider this example for the allometry dataset, which makes Fig. <a href="linmodel.html#fig:allomquad">6.14</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit a linear model with linear, quadratic terms, and all species interactions.</span>
 allomquadfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(diameter, <span class="dv">2</span>)<span class="op">*</span>species, <span class="dt">data=</span>allometry)
 
@@ -1517,16 +1571,16 @@ allomquadfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <sp
 <span class="co"># But plotting the predictions is much easier to understand:</span>
 <span class="kw">visreg</span>(allomquadfit, <span class="st">&quot;diameter&quot;</span>, <span class="dt">by=</span><span class="st">&quot;species&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</code></pre>
 <div class="figure"><span id="fig:allomquad"></span>
-<img src="05-linearregression_files/figure-html/allomquad-1.pdf" alt="Height modelled as a quadratic function of diameter, by species." width="672" />
+<img src="05-linearregression_files/figure-html/allomquad-1.svg" alt="Height modelled as a quadratic function of diameter, by species." width="672" />
 <p class="caption">
-Figure 5.14: Height modelled as a quadratic function of diameter, by species.
+Figure 6.14: Height modelled as a quadratic function of diameter, by species.
 </p>
 </div>
 </div>
-<div id="which-predictors-are-more-important" class="section level3">
-<h3><span class="header-section-number">5.6.5</span> Which predictors are more important?</h3>
+<div id="importance" class="section level3">
+<h3><span class="header-section-number">6.6.5</span> Which predictors are more important?</h3>
 <p>Frequently we are interested in knowing which of the predictor variables explain more variation in the response variable, in other words are more strongly correlated with the response.</p>
-<p>One often-seen approach is to compute all correlations between the response and each of the predictors, and conclude that those with higher correlation coefficients will be most important. The flaw in this approach is that predictor variables are very often correlated with each other, making the approach potentially misleading. Cross-correlations between variables can easily hide important predictor variables. Nonetheless it can be a useful start, as we do here with the <code>automobiles</code> data. The following code makes Fig. <a href="linmodel.html#fig:mobilecorplot">5.15</a>.</p>
+<p>One often-seen approach is to compute all correlations between the response and each of the predictors, and conclude that those with higher correlation coefficients will be most important. The flaw in this approach is that predictor variables are very often correlated with each other, making the approach potentially misleading. Cross-correlations between variables can easily hide important predictor variables. Nonetheless it can be a useful start, as we do here with the <code>automobiles</code> data. The following code makes Fig. <a href="linmodel.html#fig:mobilecorplot">6.15</a>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(automobiles)
 
 <span class="co"># A modern implementation of a correlation plot in the corrplot package.</span>
@@ -1534,12 +1588,12 @@ Figure 5.14: Height modelled as a quadratic function of diameter, by species.
 auto_cor &lt;-<span class="st"> </span><span class="kw">cor</span>(automobiles[,<span class="dv">4</span><span class="op">:</span><span class="dv">9</span>], <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)
 <span class="kw">corrplot</span>(auto_cor, <span class="dt">method =</span> <span class="st">&quot;ellipse&quot;</span>)</code></pre>
 <div class="figure"><span id="fig:mobilecorplot"></span>
-<img src="05-linearregression_files/figure-html/mobilecorplot-1.pdf" alt="Correlation plot for the automobiles data." width="672" />
+<img src="05-linearregression_files/figure-html/mobilecorplot-1.svg" alt="Correlation plot for the automobiles data." width="672" />
 <p class="caption">
-Figure 5.15: Correlation plot for the automobiles data.
+Figure 6.15: Correlation plot for the automobiles data.
 </p>
 </div>
-<p>As we can see in Fig. <a href="linmodel.html#fig:mobilecorplot">5.15</a>, the response variable (fuel_efficiency) seems well correlated with four of the response variables, but weaker with <code>acceleration</code>.</p>
+<p>As we can see in Fig. <a href="linmodel.html#fig:mobilecorplot">6.15</a>, the response variable (fuel_efficiency) seems well correlated with four of the response variables, but weaker with <code>acceleration</code>.</p>
 <p>Sometimes we see the use of the absolute value of the t-statistic to rank variables by ‘importance’ in the regression model. Within a single model, the t-statistic will be exactly related to the p-value (low p-values mean large t-statistic). Both t-statistics and p-values are very poor measures of importance. A large t-statistic may also arise when the sample size is large, the measurements are accurate, or there is low variability overall.</p>
 <p>Instead what we are often interested in is how much variation is explained by each variable in the model. This calculation is complicated by the fact that predictor variables tend to be correlated with each other, so you cannot simply add up the R<sup>2</sup> due to each predictor separately.</p>
 <p>The <code>relaimpo</code> package includes a number of importance measures - the recommended version can be interpreted as the % variation explained by each predictor variable:</p>
@@ -1568,6 +1622,142 @@ imp_fitfuel &lt;-<span class="st"> </span><span class="kw">calc.relimp</span>(fi
 Where RSS is the ‘residual sum of squares’ after dropping the term; higher means the variable is ‘more important’.
 </div>
 
+</div>
+</div>
+<div id="exercises-3" class="section level2">
+<h2><span class="header-section-number">6.7</span> Exercises</h2>
+<div id="probabilities" class="section level3">
+<h3><span class="header-section-number">6.7.1</span> Probabilities</h3>
+<p>For this exercise, refer to the tables and examples in Section <a href="linmodel.html#distributions">6.2</a>.</p>
+<ol style="list-style-type: decimal">
+<li><p>For a normal random variable <span class="math inline">\(X\)</span> with mean 5.0, and standard deviation 2.0, find the probability that <span class="math inline">\(X\)</span> is less than 3.0.</p></li>
+<li><p>Find the probability that <span class="math inline">\(X\)</span> is <em>greater than</em> 4.5.</p></li>
+<li><p>Find the value <span class="math inline">\(K\)</span> so that <span class="math inline">\(P(X &gt; K) = 0.05\)</span>.</p></li>
+<li><p>When tossing a fair coin 10 times, find the probability of seeing no heads (<em>Hint:</em> this is a binomial distribution).</p></li>
+<li><p>Find the probability of seeing exactly 5 heads.</p></li>
+<li><p>Find the probability of seeing more than 7 heads.</p></li>
+</ol>
+</div>
+<div id="univariate-distributions" class="section level3">
+<h3><span class="header-section-number">6.7.2</span> Univariate distributions</h3>
+<ol style="list-style-type: decimal">
+<li><p>Simulate a sample of 100 random data points from a normal distribution with mean 100 and standard deviation 5, and store the result in a vector called <code>x</code>.</p></li>
+<li><p>Plot a histogram and a boxplot of the vector you just created (see Section<a href="reporting.html#hist">5.2.3</a>). If you haven’t make a boxplot, simply use the <code>boxplot</code> function on your vector!</p></li>
+<li><p>Calculate the sample mean, standard deviation, median and interquartile range.</p></li>
+<li><p>Using the data above, test the hypothesis that the mean equals 100 (using <code>t.test</code>). In science, it is customary (though debatable) to call an effect <code>significant</code> if the p-value is smaller than 0.05. Note that here we test whether the true mean is different from 100 - in this case we <em>know</em> the true mean since the data were sampled from a normal distribution with mean 100. <strong>Bonus question</strong>: how often do we find a p-value smaller than 0.05 in this example, do you think? (that is, resampling the data from step 1., and then testing).</p></li>
+<li><p>Test the hypothesis that mean equals 90.</p></li>
+<li><p>Repeat the above two tests using a Wilcoxon signed rank test. Compare the p-values with those from the <span class="math inline">\(t\)</span>-tests you just did.</p></li>
+</ol>
+</div>
+<div id="more-t-tests" class="section level3">
+<h3><span class="header-section-number">6.7.3</span> More <span class="math inline">\(t\)</span>-tests</h3>
+<p>For this question, use the <code>pupae</code> data.</p>
+<ol style="list-style-type: decimal">
+<li><p>Use the <code>t.test</code> function to compare <code>PupalWeight</code> by <code>T_treatment</code>.</p></li>
+<li><p>Repeat above using a Wilcoxon rank sum test.</p></li>
+</ol>
+<pre><code>## Warning in wilcox.test.default(x = c(0.244, 0.319, 0.221, 0.28, 0.257,
+## 0.333, : cannot compute exact p-value with ties</code></pre>
+<ol start="3" style="list-style-type: decimal">
+<li>Run the following code to generate some data:</li>
+</ol>
+<pre><code>base &lt;- rnorm(20, 20, 5)
+x &lt;- base + rnorm(20,0,0.5)
+y &lt;- base + rnorm(20,1,0.5)</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li><p>Using a two-sample t-test compare the means of <code>x</code> and <code>y</code>, assume that the variance is equal for the two samples.</p></li>
+<li><p>Repeat the above using a paired <span class="math inline">\(t\)</span>-test. How has the <span class="math inline">\(p\)</span>-value changed?</p></li>
+<li><p>Which test is most appropriate?</p></li>
+</ol>
+</div>
+<div id="simple-linear-regression" class="section level3">
+<h3><span class="header-section-number">6.7.4</span> Simple linear regression</h3>
+<p>Continue with the <code>pupae</code> data. Perform a simple linear regression of <code>Frass</code> on <code>PupalWeight</code>. Produce and inspect the following:</p>
+<ol style="list-style-type: decimal">
+<li><p>Summary of the model.</p></li>
+<li><p>Diagnostic plots.</p></li>
+<li><p>All of the above for a subset of the data, where <code>Gender</code> is 0, and <code>CO2\_treatment</code> is 400.</p></li>
+</ol>
+</div>
+<div id="quantile-quest" class="section level3">
+<h3><span class="header-section-number">6.7.5</span> Quantile Quest</h3>
+<p>You have already used quantile-quantile (QQ) plots many times, but in this exercise you will get to the bottom of the idea of comparing quantiles of distributions.</p>
+<p>As in the previous exercises, we will use the <code>pupae</code> data.</p>
+<ol style="list-style-type: decimal">
+<li><p>From the pupae data, extract <code>PupalWeight</code> and store it as a vector called ‘pupweight’. Make a histogram of this vector (<a href="reporting.html#hist">5.2.3</a>), noticing that the distribution seems perhaps quite like the normal distribution.</p></li>
+<li><p>When we say ‘quite like the normal distribution’, we mean that the overall shape seems similar. Now simulate a histogram like the one above, using <code>rnorm</code> with the mean and standard deviation of the pupal weights (i.e. <code>pupweight</code>), and the same sample size as well. Plot it repeatedly to get an idea of whether the simulated histogram looks similar often enough.</p></li>
+<li><p>Of course a visual comparison like that is not good enough, but it is a useful place to start. We can also compare the quantiles as follows. If we calculate the 25% and 75% quantiles of <code>pupweight</code>, we are looking for the values below which 25% or 75% of all observations occur. Clearly if two distributions have the same <em>shape</em>, their quantiles should be roughly similar. Calculate the 25, 50 and 75% quantiles for <code>pupweight</code>, and also calculate them for the normal distribution using <code>qnorm</code>. Are they similar?</p></li>
+<li><p>Now repeat the above exercise, but calculate many quantiles (e.g. from 2.5% to 97.5% with steps of 2.5% or whatever you choose) for both the measured data, and the standard normal distribution. Compare the two with a simple scatter plot, and add a 1:1 line. If you are able to do this, you just made your own QQ-plot (and if not, I suggest you inspect the solutions to this Exercise). <em>Hint:</em> use <code>seq</code> to make the vector of quantiles, and use it both in <code>quantile</code> and <code>qnorm</code>. Save the results of both those as vectors, and plot. As a comparison, use <code>qqPlot(pupweight, distribution="norm")</code> (<code>car</code> package), make sure to plot the normal quantiles on the X-axis.</p></li>
+</ol>
+</div>
+<div id="one-way-anova" class="section level3">
+<h3><span class="header-section-number">6.7.6</span> One-way ANOVA</h3>
+<ol style="list-style-type: decimal">
+<li><p>For the <code>titanic</code> data, use a one-way ANOVA to compare the average passenger age by passenger class. (Note: by default, <code>lm</code> will delete all observations where <code>Age</code> is missing.)</p></li>
+<li><p>For the Age and Memory data (Section@ref(agemem}, p. sec:agemem}), make a subset of the <code>Older</code> subjects, and conduct a one-way ANOVA to compare words remembered by memory technique.</p></li>
+</ol>
+</div>
+<div id="two-way-anova" class="section level3">
+<h3><span class="header-section-number">6.7.7</span> Two-way ANOVA</h3>
+<ol style="list-style-type: decimal">
+<li><p>Using the pupae dataset, fit a two-way ANOVA to compare <code>PupalWeight</code> to <code>Gender</code> and <code>CO2_treatment</code>. Which main effects are significant? After reading in the pupae data, make sure to convert <code>Gender</code> and <code>CO2_treatment</code> to a factor first (see Section<a href="dataskills1.html#workingfactors">3.7.1</a>).</p></li>
+<li><p>Is there an interaction between <code>Gender</code> and <code>CO2_treatment</code>?</p></li>
+<li><p>Repeat the above using <code>T_treatment</code> instead of <code>CO2_treatment</code>.</p></li>
+</ol>
+</div>
+<div id="multregexerc" class="section level3">
+<h3><span class="header-section-number">6.7.8</span> Regression: the <code>pulse</code> dataset</h3>
+<p>The <code>pulse</code> data contains measurements of heart rate (“pulse”) for individuals before and after running (and some control individuals) - and the individuals’ height, weight and age (and other interesting variables). The <code>Pulse1</code> variable is the resting heart rate before any treatment, and <code>Pulse2</code> the heart rate after the treatment (half the subjects engaged in running).</p>
+<ol style="list-style-type: decimal">
+<li><p>Read the data and fit a multiple linear regression of <code>Pulse1</code> against <code>Age</code>, <code>Weight</code> and <code>Height</code> (add the variables to the model in that order). Are any terms significant at the 5% level? What is the R<sup>2</sup>?</p></li>
+<li><p>Now also include the factor <code>Exercise</code> in the regression model (an indicator of whether the subject exercises frequently or not). You will need to first convert <code>Exercise</code> to a factor as it is stored numerically in the data. Does adding <code>Exercise</code> improve the model?</p></li>
+<li><p>Using the same data, fit a model of <code>Pulse2</code> as a function of <code>Pulse1</code> and <code>Ran</code> as main effects only (Note: convert <code>Ran</code> to a factor first). Use the <code>visreg</code> package to understand the fit.</p></li>
+<li><p>Now add the interaction between <code>Pulse1</code> and <code>Ran</code>. Is it significant? Also look at the effects plot, how is it different from the model without an interaction?</p></li>
+<li><p>Read Section <a href="linmodel.html#importance">6.6.5</a> on variable importance. Add a new variable to the <code>pulse</code> dataset, as the difference between <code>Pulse2</code> and <code>Pulse1</code> (the change in heartrate after exercise). Now fit a linear regression model with all of these terms: “Height”, “Weight”, “Age”, “Gender”, “Smokes”, “Alcohol”,“Exercise”,“Ran”. As expected <code>Ran</code> wil be most important, but how do all the other variables rank in importance?</p></li>
+</ol>
+</div>
+<div id="logistic-regression" class="section level3">
+<h3><span class="header-section-number">6.7.9</span> Logistic regression</h3>
+<ol style="list-style-type: decimal">
+<li><p>Using the Pulse data once more, build a model to see if <code>Pulse2</code> can predict whether people were in the <code>Ran</code> group. Make sure that <code>Ran</code> is coded as a factor.</p></li>
+<li>The <code>visreg</code> package is very helpful in visualizing the fitted model. For the logistic regression you just fit , run the following code and make sure you understand the output. (This code assumes you called the object <code>fit6</code>, if not change <code>fit6</code> to the name you used.)</li>
+</ol>
+<!-- ### Generalized linear model (GLM) -->
+<!-- \item First run the following code to generate some data, -->
+<!-- \begin{verbatim} -->
+<!-- len <- 21 -->
+<!-- x <- seq(0,1,length=len) -->
+<!-- y <- rpois(len,exp(x-0.5)) -->
+<!-- \end{verbatim} -->
+<!-- ```{r echo=FALSE} -->
+<!-- len <- 21 -->
+<!-- x <- seq(0,1,length=len) -->
+<!-- y <- rpois(len,exp(x-0.5)) -->
+<!-- ``` -->
+<!-- 1.  Fit a Poisson GLM to model `y` on `x`. Is `x` significant in the model? -->
+<!-- ```{r } -->
+<!-- fit7 <- glm(y ~ x, family=poisson) -->
+<!-- summary(fit7) -->
+<!-- ``` -->
+<!-- 1.  Repeat above with a larger sample size (e.g., `len <- 101`). Compare the results. -->
+<!-- ```{r } -->
+<!-- len <-101 -->
+<!-- x <- seq(0, 1, length=len) -->
+<!-- y <- rpois(len, exp(x-0.5)) -->
+<!-- fit <-glm(y ~ x, family=poisson) -->
+<!-- summary(fit) -->
+<!-- ``` -->
+<!-- 1.  The `memory` data were analysed assuming a normal error distribution in Section\@ref(twoway} and using a Poisson error distribution in Section\@ref(glm}, and each approach resulted in a different outcome for the significance of the interaction term. The participants in the study were asked to remember up to 27 words, not an unlimited number, and some of the participants were remembering close to this upper limit. Therefore, it may make sense to think of the response as consisting of a number of 'successes' and a number of 'failures', as we do in a logistic regression. Use `glm` to model the response using a binomial error distribution. Refer to Section\@ref(tabuldataglm} (p. sec:tabuldataglm}) for a similar example. -->
+<!-- ```{r } -->
+<!-- # read in data -->
+<!-- memory <- read.delim('eysenck.txt') -->
+<!-- # Fit glm model, with response represented by two columns:  -->
+<!-- # number of words remembered and not remembered, or -->
+<!-- # 'successes' and 'failures'. -->
+<!-- m1 <- glm(cbind(Words, 27-Words) ~ Age * Process, data=memory, family=binomial) -->
+<!-- # estimate significance of the main effects -->
+<!-- Anova(m1) -->
+<!-- ``` -->
 
 </div>
 </div>

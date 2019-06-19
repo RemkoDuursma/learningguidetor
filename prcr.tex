@@ -124,9 +124,12 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-10}
+    \date{2019-06-19}
 
 
+
+\let\oldmaketitle\maketitle
+\AtBeginDocument{\let\maketitle\relax}
 
 
 \usepackage{booktabs}
@@ -266,6 +269,29 @@
 \begin{document}
 \maketitle
 
+\thispagestyle{empty}
+\begin{center}
+
+{ \Huge \textbf{A Learning Guide to R}}\\[0.4cm]
+{ \large \textit{Data, analytical, and programming skills}} \\
+
+
+%\end{center}
+
+\bigskip
+\large{Remko Duursma}\\
+\emph{19 June 2019}
+\vfill
+
+%\begin{center}
+\includegraphics[width=0.5\textwidth]{images/letterr.png}\\[1cm]
+
+\end{center}
+
+
+\let\maketitle\oldmaketitle
+\maketitle
+
 {
 \setcounter{tocdepth}{1}
 \tableofcontents
@@ -278,6 +304,23 @@ This book is not an introduction to statistical theory, although sometimes we re
 We have learned from experience that data practictioners, that means scientists and everyone else who has an interest in learning from data, do not learn statistical analyses by studying the underlying theory. They learn from doing, and from using examples written by others who have learned by doing. For this reason the book in front of you is largely a compendium of examples. We have chosen the examples and the exercises in the hope that they resemble real-world problems.
 
 We have placed many \emph{Try it yourself} boxes throughout the text to give you some ideas on what to try, but try to be creative and modify the examples to see what happens.
+
+\hypertarget{about-the-author}{%
+\section{About the author}\label{about-the-author}}
+
+Remko Duursma is a Data Scientist and R Trainer at \href{http://www.shintolabs.nl}{Shinto Labs}. Previously, he was a scientist in the field of forestry and plant ecology, and studied the effects of climate change with the use of data and models. He has published nearly 70 articles in the scientific literature, and more than ten R packages.
+
+A lot of the content in this book was written when Remko was an Associate Professor at the \href{https://www.westernsydney.edu.au/hie}{Hawkesbury Institute for the Environment}, where he taught a long-running R course together with \href{https://www.westernsydney.edu.au/hie/people/researchers/assoc_prof_jeff_powell}{Jeff Powell}.
+
+You can contact Remko here:
+
+\begin{itemize}
+\tightlist
+\item
+  Email: \href{mailto:remkoduursma@gmail.com}{\nolinkurl{remkoduursma@gmail.com}}
+\item
+  LinkedIn: \url{https://www.linkedin.com/in/remkoduursma/}
+\end{itemize}
 
 \hypertarget{intro}{%
 \chapter{Beginner skills}\label{intro}}
@@ -331,6 +374,10 @@ Then, you can make available any dataset from the package with :
 \end{Shaded}
 
 Each dataset has help page, inspect it (\texttt{?allometry}) to learn a bit about the dataset, the meaning and units of the variables, and sometimes a simple example plot with the data.
+
+\BeginKnitrBlock{rmdtry}
+To look at all datasets included in the \texttt{lgrdata} package, it is most convenient to use Rstudio's package explorer, under the \texttt{Packages} tab in the bottom-right hand menu. Just find the package and click on it.
+\EndKnitrBlock{rmdtry}
 
 \hypertarget{basicops}{%
 \section{Basic operations}\label{basicops}}
@@ -546,53 +593,39 @@ We can now do basic arithmetic with this \emph{numeric vector} :
 
 There are many more functions you can use directly on vectors. See the table below for a few useful ones.
 
-\begin{table}[t]
+\% latex table generated in R 3.6.0 by xtable 1.8-4 package
+\% Wed Jun 19 11:45:05 2019
 
-\caption{\label{tab:unnamed-chunk-13}A selection of useful built-in functions in R.}
+\begin{table}[ht]
 \centering
-\begin{tabular}{l|l|l}
-\hline
-Function & What it does & Example\\
-\hline
-`length` & Length of the vector & `length(nums1)`\\
-\hline
-`rev` & Reverses the elements of a vector & `rev(nums1)`\\
-\hline
-`sort` & Sorts the elements of a vector & `sort(nums1, decreasing = TRUE)`\\
-\hline
-`order` & The order of elements in a vector & `order(nums1)`\\
-\hline
-`head` & The first few elements of a vector & `head(nums1, 5)`\\
-\hline
-`max` & The maximum value & `max(nums1)`\\
-\hline
-`min` & The minimum value & `min(nums1)`\\
-\hline
-`which.max` & Which element of the vector is the max? & `which.max(nums1)`\\
-\hline
-`which.min` & Which element of the vector is the min? & `which.min(nums1)`\\
-\hline
-`mean` & Computes the average of the vector & `mean(nums1)`\\
-\hline
-`median` & Computers the median & `median(nums1)`\\
-\hline
-`var` & Variance & `var(nums1)`\\
-\hline
-`sd` & Standard deviation & `sd(nums1)`\\
-\hline
-`cumsum` & Cumulative sum (running total) & `cumsum(nums1)`\\
-\hline
-`diff` & Successive difference of a vector & `diff(nums1)`\\
-\hline
-`unique` & Unique values used in the vector & `unique(nums1)`\\
-\hline
-`round` & Rounds numbers to a specified number of decimal points & `round(nums1, 2)`\\
-\hline
+\begin{tabular}{rlll}
+  \hline
+ & Function & What it does & Example \\ 
+  \hline
+1 & \texttt{length} & Length of the vector & \texttt{length(nums1)} \\ 
+  2 & \texttt{rev} & Reverses the elements of a vector & \texttt{rev(nums1)} \\ 
+  3 & \texttt{sort} & Sorts the elements of a vector & \texttt{sort(nums1, decreasing = TRUE)} \\ 
+  4 & \texttt{order} & The order of elements in a vector & \texttt{order(nums1)} \\ 
+  5 & \texttt{head} & The first few elements of a vector & \texttt{head(nums1, 5)} \\ 
+  6 & \texttt{max} & The maximum value & \texttt{max(nums1)} \\ 
+  7 & \texttt{min} & The minimum value & \texttt{min(nums1)} \\ 
+  8 & \texttt{which.max} & Which element of the vector is the max? & \texttt{which.max(nums1)} \\ 
+  9 & \texttt{which.min} & Which element of the vector is the min? & \texttt{which.min(nums1)} \\ 
+  10 & \texttt{mean} & The average value & \texttt{mean(nums1)} \\ 
+  11 & \texttt{median} & The median & \texttt{median(nums1)} \\ 
+  12 & \texttt{var} & Variance & \texttt{var(nums1)} \\ 
+  13 & \texttt{sd} & Standard deviation & \texttt{sd(nums1)} \\ 
+  14 & \texttt{cumsum} & Cumulative sum (running total) & \texttt{cumsum(nums1)} \\ 
+  15 & \texttt{diff} & Successive difference of a vector & \texttt{diff(nums1)} \\ 
+  16 & \texttt{unique} & Unique values used in the vector & \texttt{unique(nums1)} \\ 
+  17 & \texttt{round} & Rounds numbers to a specified number of decimal points & \texttt{round(nums1, 2)} \\ 
+   \hline
 \end{tabular}
+\caption{A selection of useful built-in functions in R.} 
 \end{table}
 
-\hypertarget{vectorized-operations}{%
-\section{Vectorized operations}\label{vectorized-operations}}
+\hypertarget{vectorized}{%
+\section{Vectorized operations}\label{vectorized}}
 
 To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu File/New File/R Script. In the file that opens, try typing the examples below (or copy-pasting for the lazy). A single line can be run by placing the cursor on that line, and clicking `Run' in the menu just to the top-right of the window. Alternatively (and this is \textbf{recommended}), use the keyboard shortcut \texttt{Ctrl-Enter} (or \texttt{Cmd-Enter} on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.
 
@@ -729,6 +762,144 @@ In any of the following, we assume you have loaded either \texttt{magrittr}, or 
 
 The pipe operator has become very popular, and we use it when it greatly simplifies code, making it easier to follow what the code actually does (and in which order).
 
+\hypertarget{matrices}{%
+\section{Working with matrices}\label{matrices}}
+
+Vectors are one-dimensional collections of data; all elements are of the same type (numeric, character, etc.). A matrix has two dimensions: rows and columns, and again each element (each cell) has the same type. We do not use matrices all that often in R, since a more general data storage type (the dataframe) is generally more useful (there, each column can contain different kind of data). However, sometimes working with matrices is faster, or built-in functions return a matrix - some basic skills are useful.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Construct a matrix with the matrix function:}
+\NormalTok{mymat <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{3}\NormalTok{)}
+
+\CommentTok{# Note how the values are entered in the matrix column-by-column:}
+\NormalTok{mymat}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    4    7
+## [2,]    2    5    8
+## [3,]    3    6    9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Alternatively, add the values row-by-row:}
+\NormalTok{mymat2 <-}\StringTok{ }\KeywordTok{matrix}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{3}\NormalTok{,}\DecValTok{4}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{), }\DataTypeTok{ncol=}\DecValTok{3}\NormalTok{,  }\DataTypeTok{byrow=}\OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Note the difference:}
+\NormalTok{mymat2}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+\end{verbatim}
+
+A few built-in functions are especially handy when dealing with a matrix:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Transpose a matrix (flip it alongside the diagonal)}
+\KeywordTok{t}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    4    5    6
+## [3,]    7    8    9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Row or column-wise sums}
+\KeywordTok{rowSums}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 12 15 18
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Row or column-wise means}
+\KeywordTok{colMeans}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2 5 8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Extract the diagonal:}
+\KeywordTok{diag}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1 5 9
+\end{verbatim}
+
+Functions usually used for vectors often work with matrices, all values are simply treated as if stored in a vector:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Standard deviation}
+\KeywordTok{sd}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 2.738613
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Number of observations}
+\KeywordTok{length}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Is the same as number of columns * number of rows}
+\KeywordTok{nrow}\NormalTok{(mymat) }\OperatorTok{*}\StringTok{ }\KeywordTok{ncol}\NormalTok{(mymat)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9
+\end{verbatim}
+
+As with vectors, we can calculate directly on all elements:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mymat }\OperatorTok{*}\StringTok{ }\DecValTok{10}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      [,1] [,2] [,3]
+## [1,]   10   40   70
+## [2,]   20   50   80
+## [3,]   30   60   90
+\end{verbatim}
+
 \hypertarget{objects-in-the-workspace}{%
 \section{Objects in the workspace}\label{objects-in-the-workspace}}
 
@@ -822,8 +993,8 @@ Rstudio projects are really just small files added to a certain folder, which ``
 
 Throughout this tutorial, we will focus on the basic functionality of R, but we will also call on a number of add-on `packages' that include additional functions. These packages need to be \emph{installed} (downloaded) before first use, and \emph{loaded} every time you start a new R session.
 
-\hypertarget{install-packages-from-cran}{%
-\subsection{Install packages from CRAN}\label{install-packages-from-cran}}
+\hypertarget{installpackage}{%
+\subsection{Install packages from CRAN}\label{installpackage}}
 
 You can find a full list of packages available for R on the CRAN site (\url{http://cran.r-project.org/}, navigate to `Packages'), but be warned -- it's a very long list, with over 10000 packages. If you really want to browse a long list of packages, you should prefer the website \url{http://r-pkg.org/}, which provides a nice interface.
 
@@ -838,10 +1009,15 @@ Alternatively, to install a particular package, simply type:
 \end{Shaded}
 
 \BeginKnitrBlock{rmdcaution}
-Never use \texttt{install.packages} in an rmarkdown file (it simply does not work), and it is generally bad practice to add it to a script, since you don't want the packages to be installed every time the script is run. Instead, make it clear what the dependencies are in a README file, or use the approach outlined in ``Loading many packages'' further below, or in ``Install missing packages''.
+Never use \texttt{install.packages} in an rmarkdown file (it simply does not work), and it is generally bad practice to add it to a script, since you do not want the packages to be installed every time the script is run. Instead, make it clear what the dependencies are in a README file, or use the approach outlined in ``Loading many packages'' further below, or in ``Install missing packages''.
 \EndKnitrBlock{rmdcaution}
 
-The package needs to be installed only once (except when you need to update it, see Section \ref{updatingpackages}). To use the package in your current R session, type:
+The package needs to be installed only once (except when you need to update it, see Section \ref{updatingpackages}).
+
+\hypertarget{loadpackage}{%
+\subsection{Loading packages}\label{loadpackage}}
+
+To use the package in your current R session, type:
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -849,7 +1025,7 @@ The package needs to be installed only once (except when you need to update it, 
 \end{Highlighting}
 \end{Shaded}
 
-This loads the \texttt{gplots} package from your library into working memory. You can now use the functions available in the \texttt{gplots} package. If you close and reopen R, you will need to load the package again (but you don't have to install it again).
+This loads the \texttt{gplots} package from your local library (where all packages are stored) into working memory. You can now use the functions available in the \texttt{gplots} package. If you close and reopen R, you will need to load the package again (but you don't have to install it again).
 
 To quickly learn which functions are included in a package, type:
 
@@ -858,6 +1034,10 @@ To quickly learn which functions are included in a package, type:
 \KeywordTok{library}\NormalTok{(}\DataTypeTok{help=}\NormalTok{gplots)}
 \end{Highlighting}
 \end{Shaded}
+
+\BeginKnitrBlock{rmdtry}
+Type \texttt{.libPaths()} to see where your packages are installed. You can change the default directory permanently after setting the environment variable \texttt{R\_LIBS} on your system.
+\EndKnitrBlock{rmdtry}
 
 \hypertarget{setting-the-cran-mirror}{%
 \subsection{Setting the CRAN mirror}\label{setting-the-cran-mirror}}
@@ -868,6 +1048,7 @@ If you use R from the command line, you might want to set the mirror directly:
 
 \begin{Shaded}
 \begin{Highlighting}[]
+\CommentTok{# Not needed from Rstudio!}
 \KeywordTok{options}\NormalTok{(}\DataTypeTok{repos =} \KeywordTok{c}\NormalTok{(}\DataTypeTok{CRAN =} \StringTok{"https://cran.rstudio.com/"}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -1091,8 +1272,223 @@ Suppose you have a script that takes a long time to complete. You want to run th
 
 There, click `Start Job', and select an R script you would like to run, and the working directory that should be used. The script will be run in the background, and the results will be shown in the Jobs tab. This way you can run an R script for every core you have available to you.
 
-\hypertarget{summarize}{%
-\chapter{Data skills}\label{summarize}}
+\hypertarget{exercises}{%
+\section{Exercises}\label{exercises}}
+
+\hypertarget{calculating}{%
+\subsection{Calculating}\label{calculating}}
+
+First inspect Section \ref{basicops} and \ref{vectorintro} (``Working with vectors'').
+
+Calculate the following quantities:
+
+\textbf{1.} The sum of \texttt{100.1}, \texttt{234.9} and \texttt{12.01}
+
+\textbf{2.} The square root of \texttt{256}
+
+\textbf{3.} Calculate the 10-based logarithm of \texttt{100}, and multiply the result with the cosine of \(\pi\). \emph{Hint:} see \texttt{?log} and \texttt{?pi}.
+
+\textbf{4.} Calculate the cumulative sum (`running total') of the numbers 2,3,4,5,6.
+
+\textbf{5.} Calculate the cumulative sum of those numbers, but in reverse order. \emph{Hint:} use the \texttt{rev} function.
+
+\textbf{6.} Find 10 random numbers between 0 and 100, rounded to the nearest whole number (\emph{Hint:} you can use either \texttt{sample} or a combination of \texttt{round} and \texttt{runif}).
+
+\hypertarget{simple-objects}{%
+\subsection{Simple objects}\label{simple-objects}}
+
+Type the following code, which assigns numbers to objects \texttt{x} and \texttt{y}.
+
+\begin{verbatim}
+x <- 10
+y <- 20
+\end{verbatim}
+
+\textbf{1.} Calculate the product of \texttt{x} and \texttt{y}
+
+\textbf{2.} Store the result in a new object called \texttt{z}
+
+\textbf{3.} Inspect your workspace by typing \texttt{ls()}, and by clicking the \texttt{Environment} tab in Rstudio, and find the three objects you created.
+
+\textbf{4.} Make a vector of the objects \texttt{x}, \texttt{y} and \texttt{z}. Use this command,
+
+\begin{verbatim}
+myvec <- c(x,y,z)
+\end{verbatim}
+
+\textbf{5.} Find the minimum, maximum, length, and variance of \texttt{myvec}.
+
+\textbf{6.} Remove the \texttt{myvec} object from your workspace.
+
+\hypertarget{vecexerc1}{%
+\subsection{Working with a single vector}\label{vecexerc1}}
+
+If the last exercise was easy, you can skip this one.
+
+\textbf{1.} The numbers below are the first ten days of rainfall amounts in 1996. Read them into a vector using the \texttt{c}() function.
+
+\begin{verbatim}
+ 0.1  0.6 33.8  1.9  9.6  4.3 33.7  0.3  0.0  0.1
+\end{verbatim}
+
+Inspect the table with functions in the Section \ref{vectorintro} (``Working with vectors''), and answer the following questions:
+
+\textbf{2.} Make a vector with the min, max and mean of rainfall. You can also name elements of a vector, for example \texttt{c(x\ =\ 1,\ y\ =\ 2)}.
+
+\textbf{3.} Calculate the cumulative rainfall (`running total') over these ten days. Confirm that the last value of the vector that this produces is equal to the total sum of the rainfall.
+
+\textbf{4.} Which day saw the highest rainfall (write code to get the answer)?
+
+\hypertarget{scriptexercise}{%
+\subsection{Scripts}\label{scriptexercise}}
+
+This exercise will make sure you are able to make a `reproducable script', that is, a script that will allow you to repeat an analysis without having to start over from scratch. First, set up an R script, and save it in your current working directory.
+
+\textbf{1.} Find the \texttt{History} tab in Rstudio. Copy a few lines of history that you would like to keep to the script you just opened, by selecting the line with the mouse and clicking \texttt{To\ Source}.
+\textbf{2.} Tidy up your R script by writing a few comments starting with \texttt{\textbackslash{}\#}.
+\textbf{3.} Now make sure your script works completely (that is, it is entirely \emph{reproducible}). First clear the workspace (\texttt{rm(list=ls())} or click \texttt{Clear} from the \texttt{Environment} tab). Then, run the entire script (by clicking \texttt{Source} in the script window, top-right).
+
+\hypertarget{exquote}{%
+\subsection{To quote or not to quote}\label{exquote}}
+
+This short exercise points out the use of quotes in R.
+
+\textbf{1.} Run the following code, which makes two numeric objects.
+
+\begin{verbatim}
+one <- 1
+two <- 2
+\end{verbatim}
+
+\textbf{2.} Run the following two lines of code, and look at the resulting two vectors. The first line makes a character vector, the second line a numeric vector by recalling the objects you just constructed. Make sure you understand the difference.
+
+\begin{verbatim}
+vector1 <- c("one","two")
+vector2 <- c(one, two)
+\end{verbatim}
+
+\textbf{3.} The following lines of code contain some common errors that prevent them from being evaluated properly or result in error messages. Look at the code without running it and see if you can identify the errors and correct them all. Also execute the faulty code by copying and pasting the text into the console (not typing it, R studio will attempt to avoid these errors by default) so you get to know some common error messages (but not all of these result in errors!).
+
+\begin{verbatim}
+vector1 <- c('one', 'two', 'three', 'four, 'five', 'seven')
+
+vec.var <- var(c(1, 3, 5, 3, 5, 1)
+vec.mean <- mean(c(1, 3, 5, 3, 5, 1))
+
+vec.Min <- Min(c(1, 3, 5, 3, 5, 1))
+
+Vector2 <- c('a', 'b', 'f', 'g')
+vector2
+\end{verbatim}
+
+\hypertarget{working-with-two-vectors}{%
+\subsection{Working with two vectors}\label{working-with-two-vectors}}
+
+First make sure you understand Section \ref{vectorized}.
+
+\textbf{1.} You have measured five cylinders, their lengths are:
+
+\begin{verbatim}
+2.1, 3.4, 2.5, 2.7, 2.9
+\end{verbatim}
+
+and the diameters are :
+
+\begin{verbatim}
+0.3, 0.5, 0.6, 0.9, 1.1
+\end{verbatim}
+
+Read these data into two vectors (give the vectors appropriate names).
+
+\textbf{2.} Calculate the correlation between lengths and diameters (use the \texttt{cor} function).
+
+\textbf{3.} Calculate the volume of each cylinder (V = length * pi * (diameter / 2)\textsuperscript{2}).
+
+\textbf{4.} Calculate the mean, standard deviation, and coefficient of variation of the volumes.
+
+\textbf{5.} Assume your measurements are in centimetres. Recalculate the volumes so that their units are in cubic millimetres. Calculate the mean, standard deviation, and coefficient of variation of these new volumes.
+
+\hypertarget{alphabet-aerobics-1}{%
+\subsection{Alphabet aerobics 1}\label{alphabet-aerobics-1}}
+
+For the second question, you need to know that the 26 letters of the Roman alphabet are conveniently accessible in R via \texttt{letters} and \texttt{LETTERS}. These are not functions, but vectors that are always loaded.
+
+\textbf{1.} Using \texttt{c()} and \texttt{rep()} make this vector (in one line of code):
+
+\begin{verbatim}
+"A" "A" "A" "B" "B" "B" "C" "C" "C" "D" "D" "D"
+\end{verbatim}
+
+and this:
+
+\begin{verbatim}
+"A" "B" "C" "D" "A" "B" "C" "D" "A" "B" "C" "D"
+\end{verbatim}
+
+If you are unsure, look at \texttt{?rep}.
+
+\textbf{2.} Draw 10 random letters from the lowercase alphabet, and sort them alphabetically (\emph{Hint:} use \texttt{sample} and \texttt{sort}). The solution can be one line of code.
+
+\textbf{3.} Draw 5 random letters from each of the lowercase and uppercase alphabets, incorporating both into a single vector, and sort it alphabetically.
+
+\textbf{4.} Repeat the above exercise but sort the vector alphabetically in descending order.
+
+\hypertarget{comparing-and-combining-vectors}{%
+\subsection{Comparing and combining vectors}\label{comparing-and-combining-vectors}}
+
+This question is \textbf{harder}! You learn three new functions and have to learn by experimenting.
+
+Inspect the help page \texttt{union}, and note the useful functions \texttt{union}, \texttt{setdiff} and \texttt{intersect}. These can be used to compare and combine two vectors. Make two vectors :
+
+\begin{verbatim}
+x <- c(1,2,5,9,11)
+y <- c(2,5,1,0,23)
+\end{verbatim}
+
+Experiment with the three functions to find solutions to these questions.
+
+\textbf{1.} Find values that are contained in both \texttt{x} and \texttt{y}
+
+\textbf{2.} Find values that are in \texttt{x} but not \texttt{y} (and vice versa).
+
+\textbf{3.} Construct a vector that contains all values contained in either \texttt{x} or \texttt{y}, and compare this vector to \texttt{c(x,y)}.
+
+\hypertarget{into-the-matrix}{%
+\subsection{Into the matrix}\label{into-the-matrix}}
+
+In this exercise you will practice some basic skills with matrices. Recall Section \ref{matrices}.
+
+\textbf{1.} Construct a matrix with 10 columns and 10 rows, all filled with random numbers between 0 and 1.
+
+\textbf{2.} Calculate the row means of this matrix (\emph{Hint:} use \texttt{rowMeans}). Also calculate the standard deviation across the row means (now also use \texttt{sd}).
+
+\textbf{3.} Now remake the above matrix with 100 columns, and 10 rows. Then calculate the column means (using, of course, \texttt{colMeans}), and plot a frequency diagram (a `histogram') using \texttt{hist}. We will see this function in more detail in a later chapter, but it is easy enough to use as you just do \texttt{hist(myvector)}, where \texttt{myvector} is any numeric vector (like the column means). What sort of shape of the histogram do you expect? Now repeat the above with more rows, and more columns.
+
+\hypertarget{packages-1}{%
+\subsection{Packages}\label{packages-1}}
+
+This exercise makes sure you know how to install packages, and load them. First, read the first subsections of \ref{packages}, on installing and loading packages.
+
+\textbf{1.} Install the \texttt{car} package (you only have to do this once for any computer).
+
+\textbf{2.} Load the \texttt{car} package (you have to do this every time you open Rstudio).
+
+\textbf{3.} Look at the help file for \texttt{densityPlot}.
+
+\textbf{4.} Run the example for \texttt{densityPlot} (at the bottom of the help file), by copy-pasting the example into a script, and then executing it.
+
+\textbf{5.} Run the example for \texttt{densityPlot} again, but this time use the \texttt{example} function:
+
+\begin{verbatim}
+example(densityPlot)
+\end{verbatim}
+
+Follow the instructions to cycle through the different steps.
+
+\textbf{6.} Explore the contents of the \texttt{car} package by clicking first on the \texttt{Packages} tab, then finding the \texttt{car} package, and clicking on that. This way, you can find out about all functions a package contains (which, normally, you hope to avoid, but sometimes it is the only way to find what you are looking for). The same list can be obtained with the command \texttt{library(help=car)}, but that displays a list that is not clickable, so probably not as useful.
+
+\hypertarget{dataskills1}{%
+\chapter{Data skills - Part 1}\label{dataskills1}}
 
 \hypertarget{introduction}{%
 \section{Introduction}\label{introduction}}
@@ -1185,7 +1581,7 @@ We can generate sequences of numbers using \texttt{:}, \texttt{seq} and \texttt{
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{# Examples using seq()}
-\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{10}\NormalTok{,}\DataTypeTok{to=}\DecValTok{100}\NormalTok{,}\DataTypeTok{by=}\DecValTok{10}\NormalTok{)}
+\KeywordTok{seq}\NormalTok{(}\DataTypeTok{from=}\DecValTok{10}\NormalTok{, }\DataTypeTok{to=}\DecValTok{100}\NormalTok{, }\DataTypeTok{by=}\DecValTok{10}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -1262,8 +1658,8 @@ We can draw random numbers using the \texttt{runif} function. The \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.9155525 0.9808714 0.6954055 0.7959569 0.8144647 0.8374154 0.7861935
-##  [8] 0.5242173 0.5390675 0.7666385
+##  [1] 0.63393686 0.93156405 0.78007321 0.60078594 0.10598999 0.28205300
+##  [7] 0.85210426 0.09826439 0.95927571 0.08672263
 \end{verbatim}
 
 \begin{Shaded}
@@ -1274,7 +1670,7 @@ We can draw random numbers using the \texttt{runif} function. The \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 332.6357 648.0441 642.2567 985.0922 177.7964
+## [1] 852.5185 460.3675 813.2157 100.4623 320.1858
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -1293,7 +1689,7 @@ Next, we will \texttt{sample} numbers from an existing vector.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  4 10 11  2 10  3 12  2 11 10  1  1  7  1 12  5  3 12 11  8
+##  [1]  5  7 15  3  4 12 14  6 13  6 11 11 14  7  9  9 10 11 11 10
 \end{verbatim}
 
 This command samples 20 numbers from the \texttt{numbers} vector, with replacement.
@@ -1383,8 +1779,8 @@ In fact, \texttt{read.table} is the more general function - \texttt{read.csv} is
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{including-data-in-a-script}{%
-\subsection{Including data in a script}\label{including-data-in-a-script}}
+\hypertarget{datainscript}{%
+\subsection{Including data in a script}\label{datainscript}}
 
 You can also write the dataset in a text file, and read it as in the following examples. This is useful if you have (found) a small dataset that you typed in by hand, or for making reproducible code snippets that include the dataset.
 
@@ -1512,8 +1908,8 @@ Here, we made a dataframe with columns named \texttt{x} and \texttt{y}. \emph{No
 Modify the previous example so that the two vectors are \emph{not} the same length. Then, attempt to combine them in a dataframe and inspect the resulting error message.
 \EndKnitrBlock{rmdtry}
 
-\hypertarget{variables-in-the-dataframe}{%
-\subsection{Variables in the dataframe}\label{variables-in-the-dataframe}}
+\hypertarget{vecdataframes}{%
+\subsection{Variables in the dataframe}\label{vecdataframes}}
 
 We read the \texttt{allometry} data (make sure the \texttt{lgrdata} package is loaded) to practice basic dataframe skills.
 
@@ -1801,7 +2197,7 @@ We can also select multiple elements, by \emph{indexing} the vector with another
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  8.1 21.2  2.5 13.8  9.8
+## [1]  2.5  0.9 13.8 21.2  3.3
 \end{verbatim}
 
 \begin{Shaded}
@@ -2089,8 +2485,8 @@ We can also use one vector in a dataframe to find subsets of another. For exampl
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 376.308256 169.163842  33.713580  54.267994 253.308265   6.551044
-##  [7] 349.057010  15.476022 234.368784  91.538428
+##  [1] 319.507115  22.365837  20.743280 139.651156   6.551044  33.713580
+##  [7]   7.595163   9.806496  19.844680  45.020041
 \end{verbatim}
 
 \begin{Shaded}
@@ -2283,23 +2679,24 @@ It is also possible to save all objects that are currently loaded in memory (eve
 
 Now that we know how to read in dataframes, it is time we take a closer look at the types of data that can be contained in a dataframe. For the purpose of this book, a dataframe can contain six types of data. These are summarized in the table below:
 
-\begin{tabular}{l|l|l|l}
-\hline
-Data type & Description & Example & Section\\
-\hline
-*numeric* & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & `c(1, 12.3491, 10/2, 10\textasciicircum{}6, pi)` & \\
-\hline
-*character* & Strings of text & `c('apple', 'pear', letters[1:3])` & \textbackslash{}@ref(workingtext)\\
-\hline
-*factor* & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & `factor(c('Control','Fertilized','Irrigated'))` & \textbackslash{}@ref(workingfactors)\\
-\hline
-*logical* & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & `10 == 100/10` & \textbackslash{}@ref(workinglogic)\\
-\hline
-*Date* & Special Date class. Internally stored as number of days since 1970-1-1. & `as.Date(Sys.time())` & \textbackslash{}@ref(readingdates)\\
-\hline
-*POSIXct* & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & `lubridate::ymd\_hms('1883-08-26 14:00')` & \textbackslash{}@ref(datetime)\\
-\hline
+\% latex table generated in R 3.6.0 by xtable 1.8-4 package
+\% Wed Jun 19 11:45:16 2019
+
+\begin{table}[ht]
+\centering
+\begin{tabular}{rllll}
+  \hline
+ & Data type & Description & Example & Section \\ 
+  \hline
+1 & *numeric* & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
+  2 & *character* & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$\ref{workingtext} \\ 
+  3 & *factor* & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$\ref{workingfactors} \\ 
+  4 & *logical* & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$\ref{workinglogic} \\ 
+  5 & *Date* & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$\ref{readingdates}  \\ 
+  6 & *POSIXct* & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$\ref{datetime} \\ 
+   \hline
 \end{tabular}
+\end{table}
 
 Also, R has a very useful built-in data type to represent \textbf{missing values}. This is represented by \texttt{NA} (Not Available) (see Section \ref{workingmissing}).
 
@@ -3398,7 +3795,7 @@ Finally, here is a simple way to find the number of days since you were born, us
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2019-06-10"
+## [1] "2019-06-19"
 \end{verbatim}
 
 \begin{Shaded}
@@ -3409,11 +3806,11 @@ Finally, here is a simple way to find the number of days since you were born, us
 \end{Shaded}
 
 \begin{verbatim}
-## Time difference of 15724 days
+## Time difference of 15733 days
 \end{verbatim}
 
-\hypertarget{example-using-dates-in-a-dataframe}{%
-\subsubsection{Example: using dates in a dataframe}\label{example-using-dates-in-a-dataframe}}
+\hypertarget{datesdataframe}{%
+\subsubsection{Example: using dates in a dataframe}\label{datesdataframe}}
 
 The \texttt{as.Date} function that we met in the previous section also works with vectors of dates, and the \texttt{Date} class can also be part of a dataframe. Let's take a look at the Hydro data to practice working with dates.
 
@@ -3485,7 +3882,7 @@ Finally, the \texttt{Date} class is very handy when plotting. Let's make a simpl
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/hydroplot-1.pdf}
+\includegraphics{02-dataskills1_files/figure-latex/hydroplot-1.pdf}
 \caption{\label{fig:hydroplot}A simple plot of the hydro data.}
 \end{figure}
 
@@ -3562,7 +3959,7 @@ As with \texttt{Date} objects, we can calculate timespans using a few handy func
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2019-06-10 13:04:38 CEST"
+## [1] "2019-06-19 15:00:18 CEST"
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -3614,7 +4011,7 @@ The last command produces Fig. \ref{fig:hfemetdate}.
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/hfemetdate-1.pdf}
+\includegraphics{02-dataskills1_files/figure-latex/hfemetdate-1.pdf}
 \caption{\label{fig:hfemetdate}Air temperature for June at the HFE}
 \end{figure}
 
@@ -3877,6 +4274,171 @@ We can convert between types with the \texttt{as.*something*} class of functions
 When converting a factor to numeric (i.e.~when the factor labels can be converted to numeric values), first convert it to character: \texttt{x\ \textless{}-\ as.numeric(as.character(somefactor))}. The reason for this is that factor variables are internally stored as integer numbers, referring to the \emph{levels} of the factor.
 \EndKnitrBlock{rmdcaution}
 
+\hypertarget{exercises-1}{%
+\section{Exercises}\label{exercises-1}}
+
+\hypertarget{working-with-a-single-vector---indexing}{%
+\subsection{Working with a single vector - indexing}\label{working-with-a-single-vector---indexing}}
+
+Recall Exercise \ref{vecexerc1}. Load the \texttt{rainfall} data once more.
+
+We now practice subsetting a vector (see Section \ref{vectorindexing}).
+
+\textbf{1.} Take a subset of the rainfall data where rain is larger than 20.
+
+\textbf{1.} What is the mean rainfall for days where the rainfall was at least 4?
+
+\textbf{1.} Subset the vector where it is either exactly zero, or exactly 0.6.
+
+\hypertarget{alphabet-aerobics-2}{%
+\subsection{Alphabet aerobics 2}\label{alphabet-aerobics-2}}
+
+The 26 letters of the Roman alphabet are conveniently accessible in R via \texttt{letters} and \texttt{LETTERS}. These are not functions, but vectors that are always loaded.
+
+\textbf{1.} What is the 18th letter of the alphabet?
+
+\textbf{2.} What is the last letter of the alphabet (pretend you don't know the alphabet has 26 letters)?
+
+\textbf{3.} Use \texttt{?sample} to figure out how to sample with replacement. Generate a random subset of fifteen letters. Are any letters in the subset duplicated? \emph{Hint:} use the \texttt{any} and \texttt{duplicated} functions. Which letters?
+
+\hypertarget{basic-operations-with-the-cereals-data}{%
+\subsection{Basic operations with the Cereals data}\label{basic-operations-with-the-cereals-data}}
+
+First read or otherwise understand Section \ref{vecdataframes}.
+
+For this exercise, we will use the \texttt{cereals} dataset (from the \texttt{lgrdata} package, use \texttt{data(cereals)} to load it).
+
+\textbf{1.} Read in the dataset, look at the first few rows with \texttt{head} and inspect the data types of the variables in the dataframe with \texttt{str}.
+
+\textbf{2.} Add a new variable to the dataset called \texttt{totalcarb}, which is the sum of \texttt{carbo} and \texttt{sugars}. You can do this is in (at least) three ways! (One of which is \texttt{mutate} from \texttt{dplyr} - a good idea to start using this powerful function).
+
+\textbf{3.} How many cereals in the dataframe are `hot' cereals? Either make a subset and count the rows, or subset the \texttt{Cold.or.Hot} vector directly, and determine its \texttt{length} (do not use \texttt{table} yet, or a similar function!).
+
+\textbf{4.} How many unique manufacturers are included in the dataset? \emph{Hint:} use \texttt{length} and \texttt{unique}.
+
+\textbf{5.} Now try the \texttt{n\_distinct} function from \texttt{dplyr}.
+
+\textbf{6.} Take a subset of the dataframe of all cereals that have less than 80 calories,
+AND have more than 20 units of vitamins.
+
+\textbf{7.} Take a subset of the dataframe containing cereals that contain at least 1 unit of sugar, and keep only the variables `Cereal.name', `calories' and `vitamins'. Then inspect the first few rows of the dataframe with \texttt{head}.
+
+\textbf{8.} For one of the above subsets, write a new CSV file to disk using \texttt{write.csv} (see Section \ref{exportingdata}).
+
+\textbf{9.} Rename the column `Manufacturer' to `Producer' (see Section \ref{namesdataframe}).
+
+\hypertarget{a-short-dataset}{%
+\subsection{A short dataset}\label{a-short-dataset}}
+
+\textbf{1.} Read the following data into R (number of cuckoos seen in a week by an avid birdwatcher). Give the resulting dataframe a reasonable name. \emph{Hint:}To read this dataset, look at Section \ref{datainscript} for a possibility (there are at least two ways to read this dataset, or you can type it into Excel and save as a CSV file if you prefer).
+
+\begin{verbatim}
+Day nrbirds
+sunday 3
+monday 2
+tuesday 5
+wednesday 0
+thursday 8
+friday 1
+saturday 2
+\end{verbatim}
+
+\textbf{2.} Add a day number to the dataset you read in above (sunday=1, saturday=7). Recall the \texttt{seq} function (Section \ref{sequences}).
+
+\textbf{3.} Delete the `Day' variable (to only keep the \texttt{daynumber} that you added above).
+
+\textbf{4.} On which \texttt{daynumber} did you observe the most honeyeaters? \emph{Hint:} use \texttt{which.max}, in combination with indexing.
+
+\textbf{5.} Sort the dataset by number of birds seen. \emph{Hint:} use the \texttt{order} function to find the order of the number of birds, then use this vector to index the dataframe.
+
+\hypertarget{titanic---part-1}{%
+\subsection{Titanic - Part 1}\label{titanic---part-1}}
+
+\textbf{1.} Read the \texttt{titanic} data from the \texttt{lgrdata} package.
+
+\textbf{2.} Make two new dataframes : a subset of male survivors, and a subset of female survivors. Recall Section \ref{subsetdataframes}. Use \texttt{filter} from \texttt{dplyr}.
+
+\textbf{3.} Based on the previous question, what was the name of the oldest surviving male? In what class was the youngest surviving female? \emph{Hint:} use \texttt{which.max}, \texttt{which.min} on the subsets you just created.
+
+The easiest solution here is to use square bracket notation, but you can also solve this question in steps.
+
+\textbf{4.} Take 15 random names of passengers from the Titanic, and sort them alphabetically. \emph{Hint:} use \texttt{sort}.
+
+\hypertarget{titanic---part-2}{%
+\subsection{Titanic - Part 2}\label{titanic---part-2}}
+
+\textbf{1.} Convert the `Name' (passenger name) variable to a `character' variable, and store it in the dataframe. See Section \ref{textgrep}.
+
+\textbf{2.} How many observations of `Age' are missing from the dataframe? See examples in Section \ref{workingmissing}.
+
+\textbf{3.} Make a new variable called `Status', based on the `Survived' variable already in the dataset. For passengers that did not survive, Status should be `dead', for those who did, Status should be `alive'. Make sure this new variable is a factor. See the example with the \texttt{ifelse} function in Section \ref{workingfactors}.
+
+\textbf{4.} Count the number of passengers in each class (1st, 2nd, 3rd). \emph{Hint:} use \texttt{table} as shown in Section \ref{workingfactors}.
+
+\textbf{5.} Using \texttt{grep}, find the six passengers with the last name `Fortune'. Make this subset into a new dataframe. Did they all survive? \emph{Hint:} to do this, make sure you recall how to use one vector to index a dataframe (see Section \ref{subsetdataframes}). Also, the \texttt{all} function might be useful here (see Section \ref{workinglogic}).
+
+\textbf{6.} As in \emph{2.}, for what proportion of the passengers is the age unknown? Was this proportion higher for 3rd class than 1st and 2nd? \emph{Hint:} First make a subset of the dataframe where age is missing (see Section \ref{naindataframe}), and then use \texttt{table}, as well as \texttt{nrow}.
+
+\hypertarget{hydro-dam}{%
+\subsection{Hydro dam}\label{hydro-dam}}
+
+Use the \texttt{hydro} dam data (used in Section \ref{datesdataframe}).
+
+\textbf{1.} Start by reading in the data. Change the first variable to a \texttt{Date}
+class (see Section \ref{readingdates}).
+
+\textbf{2.} Are the successive measurements in the dataset always exactly one week apart? \emph{Hint:} use \texttt{diff}.
+
+\textbf{3.} Assume that a dangerously low level of the dam is 235 \(Gwh\). How many weeks was the dam level equal to or lower than this value?
+
+\textbf{4.} (\textbf{Hard question}). For question \emph{2.}, how many times did \texttt{storage} decrease below 235 (regardless of how long it remained below 235)? \emph{Hint:} use \texttt{diff} and \texttt{subset}).
+
+\hypertarget{hfe-tree-measurements}{%
+\subsection{HFE tree measurements}\label{hfe-tree-measurements}}
+
+Use the data for an experiment where trees were irrigated and/or fertilized (the \texttt{hfeplotmeans} dataset).
+
+\textbf{1.} Read the data, write a copy to a new object called \texttt{trees} (easier to type!) and look at various summaries of the dataset. Use \texttt{summary}, \texttt{str} and \texttt{describe} (the latter is in the \texttt{Hmisc} package).
+
+\textbf{2.} From these summaries, find out how many missing values there are for \texttt{height} and \texttt{diameter}. Also count the number of missing values as shown in Section \ref{workingmissing}.
+
+\textbf{3.} Inspect the levels of the treatment (\texttt{treat}), with the \texttt{levels} function. Also count the number of levels with the \texttt{nlevels} function. Now assign new levels to the factor, replacing the abbreviations with a more informative label. Follow the example in Section \ref{changelevels}.
+
+\textbf{4.} Using \texttt{table}, count the number of observations by \texttt{treat}, to check if the dataset is balanced. Be aware that \texttt{table} simply counts the number of rows, regardless of missing values. Now take a subset of the dataset where \texttt{height} is not missing, and check the number of observations again.
+
+\textbf{5.} For which dates do missing values occur in \texttt{height} in this dataset? \emph{Hint:} use a combination of \texttt{is.na} and \texttt{unique}.
+
+\hypertarget{flux-data}{%
+\subsection{Flux data}\label{flux-data}}
+
+In this exercise, you will practice working with Dates and Date-Time combinations, with a timeseries dataset (the \texttt{fluxtower} dataset from the \texttt{lgrdata} package).
+
+In this dataset, a new row was produced every 30min - of various meteorological measurements above a forest in Spain. For example, \texttt{FCO2} is the flux of carbon dioxide out of forest, so that negative values indicate photosynthesis.
+
+\textbf{1.} Read the dataframe. Rename the first column to `DateTime' (recall Section \ref{namesdataframe}).
+
+\textbf{2.} Convert DateTime to a \texttt{POSIXct} class. Beware of the formatting (recall Section \ref{datetime}).
+
+\textbf{3.} Did the above action produce any missing values? Were these already missing in the original dataset?
+
+\textbf{4.} Add a variable to the dataset called `Quality'. This variable should be `bad' when the variable `ustar' is less than 0.15, and `good' otherwise. Recall the example in Section \ref{workingfactors}.
+
+\textbf{5.} Add a `month' column to the dataset, as well as `year'.
+
+\textbf{6.} Look at the `Rain' column. There are some problems; re-read the data or find another way to display \texttt{NA} whenever the data have an invalid value. \emph{Hint:} look at the argument \texttt{na.strings} in \texttt{read.table}.
+
+Did it rain on this forest in Spain?
+
+\hypertarget{dna-aerobics}{%
+\subsection{DNA Aerobics}\label{dna-aerobics}}
+
+DNA sequences can also be represented using text strings. In this exercise, you will make an artificial DNA sequence.
+
+\textbf{1.} Make a random DNA sequence, consisting of a 100 random selections of the letters \texttt{C},\texttt{A},\texttt{G},\texttt{T}, and paste the result together into one character string (\emph{Hint} : use \texttt{sample} as in Section \ref{randomnumbers} with replacement, and use \texttt{paste} as shown in Section \ref{workingtext}. Write it in one line of R code.
+
+\hypertarget{dataskills2}{%
+\chapter{Data skills - Part 2}\label{dataskills2}}
+
 \hypertarget{summarizing-dataframes}{%
 \section{Summarizing dataframes}\label{summarizing-dataframes}}
 
@@ -4039,7 +4601,7 @@ The main advantage of \texttt{tapply} is that we can use it as input to \texttt{
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/pupgroupedbar-1.pdf}
+\includegraphics{02-dataskills2_files/figure-latex/pupgroupedbar-1.pdf}
 \caption{\label{fig:pupgroupedbar}A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply.}
 \end{figure}
 
@@ -4172,6 +4734,7 @@ You can also use any function that returns a vector of results. In the following
 \CommentTok{# . ~ species means 'all numeric variables by species'.}
 \CommentTok{# Extra arguments to the function used (in this case quantile) can be set here as well,}
 \CommentTok{# they will be passed to that function (see ?quantile).}
+\KeywordTok{data}\NormalTok{(allometry)}
 \KeywordTok{summaryBy}\NormalTok{(. }\OperatorTok{~}\StringTok{ }\NormalTok{species, }\DataTypeTok{data=}\NormalTok{allometry, }\DataTypeTok{FUN=}\NormalTok{quantile, }\DataTypeTok{probs=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.05}\NormalTok{, }\FloatTok{0.95}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
@@ -4280,7 +4843,7 @@ The following code produces a daily weather dataset, and Fig. \ref{fig:hfemetagg
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/hfemetaggregate-1.pdf}
+\includegraphics{02-dataskills2_files/figure-latex/hfemetaggregate-1.pdf}
 \caption{\label{fig:hfemetaggregate}Daily rainfall at the HFE in 2008}
 \end{figure}
 
@@ -4433,13 +4996,13 @@ Consider the \texttt{allometry} dataset, which includes tree height for three sp
 \end{Shaded}
 
 \begin{verbatim}
-##   species diameter height   leafarea branchmass treeSizeClass MaxHeight
-## 1    PSME    54.61  27.04 338.485622  410.24638         large      33.3
-## 2    PSME    34.80  27.42 122.157864   83.65030        medium      33.3
-## 3    PSME    24.89  21.23   3.958274    3.51270         small      33.3
-## 4    PSME    28.70  24.96  86.350653   73.13027        medium      33.3
-## 5    PSME    34.80  29.99  63.350906   62.39044        medium      33.3
-## 6    PSME    37.85  28.07  61.372765   53.86594        medium      33.3
+##   species diameter height   leafarea branchmass MaxHeight
+## 1    PSME    54.61  27.04 338.485622  410.24638      33.3
+## 2    PSME    34.80  27.42 122.157864   83.65030      33.3
+## 3    PSME    24.89  21.23   3.958274    3.51270      33.3
+## 4    PSME    28.70  24.96  86.350653   73.13027      33.3
+## 5    PSME    34.80  29.99  63.350906   62.39044      33.3
+## 6    PSME    37.85  28.07  61.372765   53.86594      33.3
 \end{verbatim}
 
 Note that you can use any function in place of \texttt{max}, as long as that function can take a vector as an argument, and returns a single number.
@@ -4524,7 +5087,7 @@ The following code produces Fig. \ref{fig:coweetabar}.
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/coweetabar-1.pdf}
+\includegraphics{02-dataskills2_files/figure-latex/coweetabar-1.pdf}
 \caption{\label{fig:coweetabar}An ordered barplot for the coweeta tree data (error bars are 1 SD).}
 \end{figure}
 
@@ -4746,8 +5309,8 @@ Other times you need to merge two dataframes with multiple key variables. Consid
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{using-join-from-dplyr}{%
-\subsection{\texorpdfstring{Using join from \texttt{dplyr}}{Using join from dplyr}}\label{using-join-from-dplyr}}
+\hypertarget{dplyrjoin}{%
+\subsection{\texorpdfstring{Using join from \texttt{dplyr}}{Using join from dplyr}}\label{dplyrjoin}}
 
 We showed how to use the \texttt{merge} function above, which is provided by base R. For larger datasets, it is advisable to use the \texttt{join*} functions from \texttt{dplyr}.
 
@@ -5306,7 +5869,7 @@ On some of the dates, all trees were measured, while on other dates a small subs
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/hfeifmeanplot-1.pdf}
+\includegraphics{02-dataskills2_files/figure-latex/hfeifmeanplot-1.pdf}
 \caption{\label{fig:hfeifmeanplot}Average tree height by treatment over time, for the hfeifbytree data}
 \end{figure}
 
@@ -5391,14 +5954,18 @@ Mexico\strut
 \bottomrule
 \end{longtable}
 
-\hypertarget{weight-loss-data-make-an-irregular-timeseries-regular}{%
-\subsection{Weight loss data: make an irregular timeseries regular}\label{weight-loss-data-make-an-irregular-timeseries-regular}}
+\BeginKnitrBlock{rmdtry}
+Run the example above, and modify the code so that we find the \emph{maximum} oil production for each country, and the table should show the 2 countries with the lowest maximum.
+\EndKnitrBlock{rmdtry}
+
+\hypertarget{weightlossdplyr}{%
+\subsection{Weight loss data: make an irregular timeseries regular}\label{weightlossdplyr}}
 
 In this example we will use the \texttt{weightloss} data, again from the \texttt{lgrdata} package. A person recorded his weight on irregular intervals (1-3 days), to check if his diet was having the desired effect. Because the dataset is irregular, it is not easy to calculate daily weight loss for the entire dataset. We can use a combination of \texttt{dplyr}, \texttt{zoo} and \texttt{padr} to clean up this dataset.
 
 The \texttt{pad} function is quite powerful: it takes a dataframe, figures the time-indexing variable (in our case, Date), and stretches the dataset to include all Dates along the dataset, filling NA where no data were available.
 
-The \texttt{zoo} package contains many useful functions for timeseries data. Here we use \texttt{na.approx} to linearly interpolate missing values. We also make a plot of the weight loss data, clarifying which data were interpolated. The following code make Fig. \ref{weightlossinterp}.
+The \texttt{zoo} package contains many useful functions for timeseries data. Here we use \texttt{na.approx} to linearly interpolate missing values. We also make a plot of the weight loss data, clarifying which data were interpolated. The following code make Fig. \ref{fig:weightlossinterp}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5423,9 +5990,114 @@ The \texttt{zoo} package contains many useful functions for timeseries data. Her
 
 \begin{figure}
 \centering
-\includegraphics{02-dataskills_files/figure-latex/weightlossinterp-1.pdf}
+\includegraphics{02-dataskills2_files/figure-latex/weightlossinterp-1.pdf}
 \caption{\label{fig:weightlossinterp}The weightloss data, with linearly interpolated missing values (red).}
 \end{figure}
+
+\hypertarget{exercises-2}{%
+\section{Exercises}\label{exercises-2}}
+
+\hypertarget{summarizing-the-cereal-data}{%
+\subsection{Summarizing the cereal data}\label{summarizing-the-cereal-data}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Read the cereal data, and produce quick summaries using \texttt{str}, \texttt{summary}, \texttt{contents} and \texttt{describe} (recall that the last two are in the \texttt{Hmisc} package). Interpret the results.
+\item
+  Find the average sodium, fiber and carbohydrate contents by \texttt{Manufacturer}. Use either \texttt{summaryBy} or \texttt{dplyr}.
+\item
+  Add a new variable `SodiumClass', which is `high' when sodium \textgreater{} 150 and `low' otherwise. Make sure the new variable is a factor. Look at the examples in Section \ref{workingfactors} to recall how to do this. Now, find the average, minimum and maximum sugar content for `low' and `high' sodium. \emph{Hint:} make sure to use \texttt{na.rm=TRUE}, because the dataset contains missing values.
+\item
+  Find the maximum sugar content by Manufacturer and sodiumClass, using \texttt{tapply}. Inspect the result and notice there are missing values. Try to use \texttt{na.rm=TRUE} as an additional argument to \texttt{tapply}, only to find out that the values are still missing. Finally, use \texttt{xtabs} (see Section \ref{xtabs}, p.~\ref{xtabs}) to count the number of observations by the two factors to find out if we have missing values in the \texttt{tapply} result.
+\item
+  Repeat the previous question with \texttt{summaryBy} or \texttt{dplyr}. Compare the results.
+\item
+  Count the number of observations by Manufacturer and whether the cereal is `hot' or `cold', using \texttt{xtabs} (see Section \ref{xtabs}).
+\end{enumerate}
+
+\}
+
+\hypertarget{words-and-the-weather}{%
+\subsection{Words and the weather}\label{words-and-the-weather}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using the `Age and memory' dataset (\texttt{memory} from the \texttt{lgrdata} package), find the mean and maximum number of words recalled by `Older' and `Younger' age classes.
+\item
+  The \texttt{hfemet2008} dataset contains meteorological measurements at a station near Sydney, Australia. Find the mean air temperature by month. To do this, first add the month variable as shown in Section \ref{datetime}.
+\end{enumerate}
+
+\hypertarget{merging-data}{%
+\subsection{Merging data}\label{merging-data}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Load the \texttt{pupae} dataset. The data contain measurements of larva (`pupae') weight and `frass' (excrement) production while allowed to feed on leaves, grown under different concentrations of carbon dioxide (CO2). Also read this short dataset, which gives a label `roomnumber' for each CO\(_2\) treatment.
+\end{enumerate}
+
+\begin{verbatim}
+|CO2_treatment |Roomnumber  |
+|-------------:|-----------:|
+|280           |1           |
+|400           |2           |
+\end{verbatim}
+
+To read this dataset, consider the \texttt{data.frame} function described in Section \ref{vecstodfr}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Merge the short dataset onto the pupae data. Check the result.
+\end{enumerate}
+
+\hypertarget{merging-multiple-datasets}{%
+\subsection{Merging multiple datasets}\label{merging-multiple-datasets}}
+
+Read Section \ref{dplyrjoin}, and learn how to merge more than two datasets together.
+
+First, run the following code to construct three dataframes that we will attempt to merge together.
+
+\begin{verbatim}
+dataset1 <- data.frame(unit=letters[1:9], treatment=rep(LETTERS[1:3],each=3),
+                       Damage=runif(9,50,100))
+unitweight <- data.frame(unit=letters[c(1,2,4,6,8,9)], Weight = rnorm(6,100,0.3))
+treatlocation <- data.frame(treatment=LETTERS[1:3], Glasshouse=c("G1","G2","G3"))
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Merge the three datasets together, to end up with one dataframe that has the columns `unit', `treatment', `Glasshouse', `Damage' and `Weight'. Some units do not have measurements of \texttt{Weight}. Merge the datasets in two ways to either include or exclude the units without \texttt{Weight} measurements. To do this, either use \texttt{merge} or \texttt{dplyr::join} twice - you cannot merge more than two datasets in one step.
+\end{enumerate}
+
+\}
+
+\hypertarget{ordered-boxplot}{%
+\subsection{Ordered boxplot}\label{ordered-boxplot}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  First read the \texttt{cereals} data and learn how to make a boxplot, using R base graphics:
+\end{enumerate}
+
+Notice the \emph{ordering} of the boxes from left to right, and compare it to \texttt{levels} of the factor variable \texttt{Manufacturer}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\item
+  Now, redraw the plot with Manufacturer in order of increasing mean sodium content (use \texttt{reorder}, see Section \ref{reorder}).
+\item
+  Inspect the help page (\texttt{?boxplot}), and change the boxplots so that the width varies with the number of observations per manufacturer (\emph{Hint:} find the \texttt{varwidth} argument).
+\end{enumerate}
 
 \hypertarget{reporting}{%
 \chapter{Visualizing data and making reports}\label{reporting}}
@@ -5433,13 +6105,13 @@ The \texttt{zoo} package contains many useful functions for timeseries data. Her
 \hypertarget{introduction-1}{%
 \section{Introduction}\label{introduction-1}}
 
-Data visualization is an integral part of any data analytical project. We use data viz to spot patterns in data, check model assumptions, communicate findings, and to convince the audience that our analysis and conclusions make sense. Data viz is not something you only do at the end, but we switch cycle between analysis and visualization. It is therefore not only an important skill to make beautiful visualizations in the final communication of your results, but also to be able to make quick \& dirty graphs at any step in the analysis.
+Data visualization is an integral part of any data analytical project. We use data viz to spot patterns in data, check model assumptions, communicate findings, and to convince the audience that our analysis and conclusions make sense. Data viz is not something you only do at the end, but we cycle between analysis and visualization. It is therefore not only an important skill to make beautiful visualizations in the final communication of your results, but also to be able to make quick \& dirty graphs at any step in the analysis.
 
-We do not only communicate with visualizations, but like to combine text, tables, figures, images, and well-formatted text in reports. We now have a powerful tool available in R, the \texttt{rmarkdown} document - a flexible toolkit to generate documents containing all results from R (with or without the code). These reports ensure that the results you see are made from the code in the document, we never have to ask: which version of my code produced those results? We already used \texttt{rmarkdown} in Chapter \ref{intro}, but go a few steps further here and provide useful tips \& tricks.
+We do not only use visualizations, but also like to combine text, tables, figures, images, and well-formatted text in reports. We now have a powerful tool available in R, the \texttt{rmarkdown} document - a flexible toolkit to generate documents containing all results from R (with or without the code). These reports ensure that the results you see are made from the code in the document, we never have to ask: which version of my code produced those results? We already used \texttt{rmarkdown} in Chapter \ref{intro}, but go a few steps further here and provide useful tips \& tricks.
 
-This chapter is different from the rest: we do not provide a complete beginners guide to either data visualization with \texttt{ggplot2}, or reporting with \texttt{rmarkdown}. We point to online resources for getting started, including comprehensive manuals, and galleries of examples. Instead, we focus on pointing out typical difficulties when getting started with these tools.
+This chapter is different from the rest: we do not provide a complete beginners guide to either data visualization with \texttt{ggplot2}, or reporting with \texttt{rmarkdown}. We point to online resources for getting started, including comprehensive manuals, and galleries of examples. Instead, we focus on pointing out typical difficulties when getting started with these tools, and give some handy tips that may go unnoticed.
 
-For data visualization, also be aware that the entire book in front of you includes many figures produced with \texttt{ggplot2} or base graphics. As always, learning from example is the best way.
+For data visualization, also be aware that the entire book in front of you includes many figures produced with \texttt{ggplot2} or base graphics - we encourage you to study the examples. As always, learning from example is the easiest.
 
 \hypertarget{visualizing}{%
 \section{Visualizing data}\label{visualizing}}
@@ -5466,12 +6138,12 @@ A few points to consider:
 \item
   Sometimes, base graphics are easier, especially when you are experimenting and want to make quick and dirty plots. To plot a mathematical function, we can do \texttt{curve(x\^{}3,\ from=-1,\ to=1)} - this is not so easy in \texttt{ggplot2}.
 \item
-  There is no support for 3D graphics in \texttt{ggplot2}, base has a number of possibilities. That said, you probably do not want to make many 3D plots.
+  There is no support for 3D graphics in \texttt{ggplot2}, but \texttt{base} has a number of possibilities. That said, you probably do not want to make many 3D plots.
 \item
   Use base graphics when you are making a simple plot, and wish to avoid \emph{dependencies}. Keeping dependencies to a minimum will make it more likely your code works in the future, and on someone else's machine. The \texttt{ggplot2} package is rather stable these days, but has changed dramatically in the past - often breaking old code.
 \end{itemize}
 
-For the reasons mentioned above, in this book we mostly use ggplot2, except when base graphics are a lot easier (that is, use less code).
+For the reasons mentioned above, in this book we mostly use \texttt{ggplot2}, except when base graphics are a lot easier (that is, use less code).
 
 \hypertarget{base-graphics}{%
 \subsection{Base graphics}\label{base-graphics}}
@@ -5541,6 +6213,40 @@ Similarly, \texttt{plot} will make different plots based on what type of data yo
 
 The way that \texttt{plot} gives different results depending on data types is both a good thing (for basic plots, you need very little code), and a bad thing because reading the code often does not tell you what sort of plot will be produced, and where to read the documentation (\texttt{?plot}, \texttt{?plot.default}, \texttt{?plot.factor}?).
 
+\hypertarget{hist}{%
+\subsection{Histograms}\label{hist}}
+
+One reason I still use base graphics is the quickest way to draw a histogram (frequency or density diagram). We often use these during analyses, to get an idea of the kind data contained in a vector.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(vessel)}
+
+\CommentTok{# Some formatting first. par() is a powerful yet difficult to learn function.}
+\CommentTok{# If you leave out 'breaks', the breaks are automatically calculated. }
+\CommentTok{# A setting worth experimenting with though!!}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar=}\KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{2}\NormalTok{), }\DataTypeTok{cex.lab=}\FloatTok{1.1}\NormalTok{)}
+\KeywordTok{hist}\NormalTok{(vessel}\OperatorTok{$}\NormalTok{vesseldiam, }\DataTypeTok{main =} \StringTok{""}\NormalTok{, }\DataTypeTok{breaks=}\DecValTok{50}\NormalTok{, }\DataTypeTok{col=}\StringTok{"darkgoldenrod3"}\NormalTok{,}
+     \DataTypeTok{xlab=}\StringTok{"Tree vessel diameter (micrometer)"}\NormalTok{)}
+\KeywordTok{box}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+\centering
+\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-3-1.pdf}
+\caption{\label{fig:unnamed-chunk-3}A simple histogram of the vessel dataset.}
+\end{figure}
+
+\BeginKnitrBlock{rmdtry}
+Make the plot above, inspect the data to find out why there are two peaks. Now make two histograms, each with one peak, based on subsets of the data.
+\EndKnitrBlock{rmdtry}
+
+\hypertarget{resources}{%
+\subsubsection{Resources}\label{resources}}
+
+One standout resource with examples and explanations is here: \url{http://www.sthda.com/english/wiki/r-base-graphs}.
+
 \hypertarget{ggplot2}{%
 \subsection{ggplot2}\label{ggplot2}}
 
@@ -5567,7 +6273,7 @@ To use \texttt{ggplot2}, our data have to always be in \emph{long format}, where
 ## 3 2012-04-19 24.0 17.3 12.0 8.2 17.0 8.8 3.5 3.3 1.6  3.1       0.8
 \end{verbatim}
 
-We cannot really use \texttt{ggplot2} when the data are formatted like this. Instead we want to have a dataframe with columns `Date', `party', and `vote\_percent', so that we can label the graph by political party. As we will see in Section \ref{reshaping}, quite magically we can use \texttt{melt} from \texttt{reshape2} :
+We cannot really use \texttt{ggplot2} when the data are formatted like this. Instead we want to have a dataframe with columns `Date', `party', and `vote\_percent', so that we can label the graph by political party. As we saw in Section \ref{reshaping}, quite magically we can use \texttt{melt} from \texttt{reshape2} :
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5603,22 +6309,34 @@ Here we show two examples of a scatter plot. In practice you start with the simp
 ## Warning: Removed 6 rows containing missing values (geom_point).
 \end{verbatim}
 
-\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-5-1.pdf}
+\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+Explanation:
+
+\begin{itemize}
+\tightlist
+\item
+  The first argument to \texttt{ggplot} is a dataframe (\texttt{automobiles})
+\item
+  The \texttt{aes} function defines the ``aesthetics'', here \texttt{x} for X-axis, and \texttt{y} for Y-axis.
+\item
+  \texttt{ggplot} doesn't really plot anything yet, just gets things ready. Layers are \emph{added} with \texttt{+}. Here, a single layer with points.
+\end{itemize}
 
 Next, we want to extend this example by including various other elements:
 
 \begin{itemize}
 \tightlist
 \item
-  Plotting symbols colored by Region
+  Plotting symbols colored by Region.
 \item
-  A linear regression line, one for each of the three Regions
+  A linear regression line, one for each of the three \texttt{Region}s.
 \item
-  Text labels identifying outliers
+  Text labels identifying outliers.
 \item
-  A legend
+  A legend.
 \item
-  Better axis labels
+  Better axis labels.
 \end{itemize}
 
 Study the example below how each of these was included:
@@ -5630,6 +6348,7 @@ Study the example below how each of these was included:
 
 \KeywordTok{library}\NormalTok{(ggrepel)}
 \KeywordTok{library}\NormalTok{(dplyr)}
+\KeywordTok{library}\NormalTok{(ggthemes)}
 
 \NormalTok{automobiles2 <-}\StringTok{ }\KeywordTok{mutate}\NormalTok{(automobiles, }
        \DataTypeTok{resid =} \KeywordTok{residuals}\NormalTok{(}\KeywordTok{lm}\NormalTok{(fuel_efficiency }\OperatorTok{~}\StringTok{ }\NormalTok{horsepower, }
@@ -5648,12 +6367,12 @@ Study the example below how each of these was included:
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-6-1.pdf}
+\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 \hypertarget{area-plot-example}{%
 \subsubsection{Area plot example}\label{area-plot-example}}
 
-A `stacked area chart' can be quickly implemented with the \texttt{geom\_area} function, like so:
+A `stacked area chart' can be quickly implemented with the \texttt{geom\_area} function, like the next example. Note how we use another aesthetic, \texttt{fill}, to set the colour of the filled areas by \texttt{country}.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -5665,7 +6384,7 @@ A `stacked area chart' can be quickly implemented with the \texttt{geom\_area} f
 \end{Highlighting}
 \end{Shaded}
 
-\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-7-1.pdf}
+\includegraphics{03-reporting_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \hypertarget{barplot-example}{%
 \subsubsection{Barplot example}\label{barplot-example}}
@@ -6375,8 +7094,8 @@ Here, we assumed a normal distribution for the population. You may have been tau
 Confirm that the \(t\)-distribution converges to a normal distribution when \emph{n} is large (using \texttt{qt} and \texttt{qnorm}).
 \EndKnitrBlock{rmdtry}
 
-\hypertarget{hypothesis-testing}{%
-\subsection{Hypothesis testing}\label{hypothesis-testing}}
+\hypertarget{inference}{%
+\subsection{Hypothesis testing}\label{inference}}
 
 There may be a reason to ask whether a dataset is consistent with a certain mean. For example, are the pupae weights consistent with a population mean of 0.29? For normal populations, we can use Student's \(t\)-test, available in R as the \texttt{t.test} function. In all following results, we use the \texttt{pander} function (from the \texttt{pander}) package to make the output short and readable (and in markdown format). For best results, use it in an rmarkdown document (though it works fine otherwise as well). We assume you have loaded these two packages:
 
@@ -6493,7 +7212,7 @@ greater\strut
 \bottomrule
 \end{longtable}
 
-The \texttt{t.test} is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot (see Sections sec:hist and sec:diagplots). If the data is not very close to a normal distribution then the \texttt{t.test} is often still appropriate, as long as the sample is large.
+The \texttt{t.test} is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot. If the data is not very close to a normal distribution then the \texttt{t.test} is often still appropriate, as long as the sample is large.
 
 If the data is not normal and the sample size is small, there are a couple of alternatives: transform the data (often a log transform is enough) or use a \emph{nonparametric} test, in this case the Wilcoxon signed rank test. We can use the \texttt{wilcox.test} function for the latter, its interface is similar to \texttt{t.test} and it tests the hypothesis that the data is symmetric about the hypothesized population mean. For example,
 
@@ -7847,8 +8566,8 @@ When fitting a quadratic model, it is again very useful to use \texttt{visreg} t
 \caption{\label{fig:allomquad}Height modelled as a quadratic function of diameter, by species.}
 \end{figure}
 
-\hypertarget{which-predictors-are-more-important}{%
-\subsection{Which predictors are more important?}\label{which-predictors-are-more-important}}
+\hypertarget{importance}{%
+\subsection{Which predictors are more important?}\label{importance}}
 
 Frequently we are interested in knowing which of the predictor variables explain more variation in the response variable, in other words are more strongly correlated with the response.
 
@@ -7913,6 +8632,185 @@ A more common approach is to test how mucb the R\textsuperscript{2} decreases if
 
 Where RSS is the `residual sum of squares' after dropping the term; higher means the variable is `more important'.
 \EndKnitrBlock{rmdtry}
+
+\hypertarget{exercises-3}{%
+\section{Exercises}\label{exercises-3}}
+
+\hypertarget{probabilities}{%
+\subsection{Probabilities}\label{probabilities}}
+
+For this exercise, refer to the tables and examples in Section \ref{distributions}.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For a normal random variable \(X\) with mean 5.0, and standard deviation 2.0, find the probability that \(X\) is less than 3.0.
+\item
+  Find the probability that \(X\) is \emph{greater than} 4.5.
+\item
+  Find the value \(K\) so that \(P(X > K) = 0.05\).
+\item
+  When tossing a fair coin 10 times, find the probability of seeing no heads (\emph{Hint:} this is a binomial distribution).
+\item
+  Find the probability of seeing exactly 5 heads.
+\item
+  Find the probability of seeing more than 7 heads.
+\end{enumerate}
+
+\hypertarget{univariate-distributions}{%
+\subsection{Univariate distributions}\label{univariate-distributions}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Simulate a sample of 100 random data points from a normal distribution with mean 100 and standard deviation 5, and store the result in a vector called \texttt{x}.
+\item
+  Plot a histogram and a boxplot of the vector you just created (see Section\ref{hist}). If you haven't make a boxplot, simply use the \texttt{boxplot} function on your vector!
+\item
+  Calculate the sample mean, standard deviation, median and interquartile range.
+\item
+  Using the data above, test the hypothesis that the mean equals 100 (using \texttt{t.test}). In science, it is customary (though debatable) to call an effect \texttt{significant} if the p-value is smaller than 0.05. Note that here we test whether the true mean is different from 100 - in this case we \emph{know} the true mean since the data were sampled from a normal distribution with mean 100. \textbf{Bonus question}: how often do we find a p-value smaller than 0.05 in this example, do you think? (that is, resampling the data from step 1., and then testing).
+\item
+  Test the hypothesis that mean equals 90.
+\item
+  Repeat the above two tests using a Wilcoxon signed rank test. Compare the p-values with those from the \(t\)-tests you just did.
+\end{enumerate}
+
+\hypertarget{more-t-tests}{%
+\subsection{\texorpdfstring{More \(t\)-tests}{More t-tests}}\label{more-t-tests}}
+
+For this question, use the \texttt{pupae} data.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Use the \texttt{t.test} function to compare \texttt{PupalWeight} by \texttt{T\_treatment}.
+\item
+  Repeat above using a Wilcoxon rank sum test.
+\end{enumerate}
+
+\begin{verbatim}
+## Warning in wilcox.test.default(x = c(0.244, 0.319, 0.221, 0.28, 0.257,
+## 0.333, : cannot compute exact p-value with ties
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Run the following code to generate some data:
+\end{enumerate}
+
+\begin{verbatim}
+base <- rnorm(20, 20, 5)
+x <- base + rnorm(20,0,0.5)
+y <- base + rnorm(20,1,0.5)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\item
+  Using a two-sample t-test compare the means of \texttt{x} and \texttt{y}, assume that the variance is equal for the two samples.
+\item
+  Repeat the above using a paired \(t\)-test. How has the \(p\)-value changed?
+\item
+  Which test is most appropriate?
+\end{enumerate}
+
+\hypertarget{simple-linear-regression}{%
+\subsection{Simple linear regression}\label{simple-linear-regression}}
+
+Continue with the \texttt{pupae} data. Perform a simple linear regression of \texttt{Frass} on \texttt{PupalWeight}. Produce and inspect the following:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Summary of the model.
+\item
+  Diagnostic plots.
+\item
+  All of the above for a subset of the data, where \texttt{Gender} is 0, and \texttt{CO2\textbackslash{}\_treatment} is 400.
+\end{enumerate}
+
+\hypertarget{quantile-quest}{%
+\subsection{Quantile Quest}\label{quantile-quest}}
+
+You have already used quantile-quantile (QQ) plots many times, but in this exercise you will get to the bottom of the idea of comparing quantiles of distributions.
+
+As in the previous exercises, we will use the \texttt{pupae} data.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  From the pupae data, extract \texttt{PupalWeight} and store it as a vector called `pupweight'. Make a histogram of this vector (\ref{hist}), noticing that the distribution seems perhaps quite like the normal distribution.
+\item
+  When we say `quite like the normal distribution', we mean that the overall shape seems similar. Now simulate a histogram like the one above, using \texttt{rnorm} with the mean and standard deviation of the pupal weights (i.e.~\texttt{pupweight}), and the same sample size as well. Plot it repeatedly to get an idea of whether the simulated histogram looks similar often enough.
+\item
+  Of course a visual comparison like that is not good enough, but it is a useful place to start. We can also compare the quantiles as follows. If we calculate the 25\% and 75\% quantiles of \texttt{pupweight}, we are looking for the values below which 25\% or 75\% of all observations occur. Clearly if two distributions have the same \emph{shape}, their quantiles should be roughly similar. Calculate the 25, 50 and 75\% quantiles for \texttt{pupweight}, and also calculate them for the normal distribution using \texttt{qnorm}. Are they similar?
+\item
+  Now repeat the above exercise, but calculate many quantiles (e.g.~from 2.5\% to 97.5\% with steps of 2.5\% or whatever you choose) for both the measured data, and the standard normal distribution. Compare the two with a simple scatter plot, and add a 1:1 line. If you are able to do this, you just made your own QQ-plot (and if not, I suggest you inspect the solutions to this Exercise). \emph{Hint:} use \texttt{seq} to make the vector of quantiles, and use it both in \texttt{quantile} and \texttt{qnorm}. Save the results of both those as vectors, and plot. As a comparison, use \texttt{qqPlot(pupweight,\ distribution="norm")} (\texttt{car} package), make sure to plot the normal quantiles on the X-axis.
+\end{enumerate}
+
+\hypertarget{one-way-anova}{%
+\subsection{One-way ANOVA}\label{one-way-anova}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For the \texttt{titanic} data, use a one-way ANOVA to compare the average passenger age by passenger class. (Note: by default, \texttt{lm} will delete all observations where \texttt{Age} is missing.)
+\item
+  For the Age and Memory data (Section@ref(agemem\}, p.~sec:agemem\}), make a subset of the \texttt{Older} subjects, and conduct a one-way ANOVA to compare words remembered by memory technique.
+\end{enumerate}
+
+\hypertarget{two-way-anova}{%
+\subsection{Two-way ANOVA}\label{two-way-anova}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using the pupae dataset, fit a two-way ANOVA to compare \texttt{PupalWeight} to \texttt{Gender} and \texttt{CO2\_treatment}. Which main effects are significant? After reading in the pupae data, make sure to convert \texttt{Gender} and \texttt{CO2\_treatment} to a factor first (see Section\ref{workingfactors}).
+\item
+  Is there an interaction between \texttt{Gender} and \texttt{CO2\_treatment}?
+\item
+  Repeat the above using \texttt{T\_treatment} instead of \texttt{CO2\_treatment}.
+\end{enumerate}
+
+\hypertarget{multregexerc}{%
+\subsection{\texorpdfstring{Regression: the \texttt{pulse} dataset}{Regression: the pulse dataset}}\label{multregexerc}}
+
+The \texttt{pulse} data contains measurements of heart rate (``pulse'') for individuals before and after running (and some control individuals) - and the individuals' height, weight and age (and other interesting variables). The \texttt{Pulse1} variable is the resting heart rate before any treatment, and \texttt{Pulse2} the heart rate after the treatment (half the subjects engaged in running).
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Read the data and fit a multiple linear regression of \texttt{Pulse1} against \texttt{Age}, \texttt{Weight} and \texttt{Height} (add the variables to the model in that order). Are any terms significant at the 5\% level? What is the R\textsuperscript{2}?
+\item
+  Now also include the factor \texttt{Exercise} in the regression model (an indicator of whether the subject exercises frequently or not). You will need to first convert \texttt{Exercise} to a factor as it is stored numerically in the data. Does adding \texttt{Exercise} improve the model?
+\item
+  Using the same data, fit a model of \texttt{Pulse2} as a function of \texttt{Pulse1} and \texttt{Ran} as main effects only (Note: convert \texttt{Ran} to a factor first). Use the \texttt{visreg} package to understand the fit.
+\item
+  Now add the interaction between \texttt{Pulse1} and \texttt{Ran}. Is it significant? Also look at the effects plot, how is it different from the model without an interaction?
+\item
+  Read Section \ref{importance} on variable importance. Add a new variable to the \texttt{pulse} dataset, as the difference between \texttt{Pulse2} and \texttt{Pulse1} (the change in heartrate after exercise). Now fit a linear regression model with all of these terms: ``Height'', ``Weight'', ``Age'', ``Gender'', ``Smokes'', ``Alcohol'',``Exercise'',``Ran''. As expected \texttt{Ran} wil be most important, but how do all the other variables rank in importance?
+\end{enumerate}
+
+\hypertarget{logistic-regression}{%
+\subsection{Logistic regression}\label{logistic-regression}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using the Pulse data once more, build a model to see if \texttt{Pulse2} can predict whether people were in the \texttt{Ran} group. Make sure that \texttt{Ran} is coded as a factor.
+\item
+  The \texttt{visreg} package is very helpful in visualizing the fitted model. For the logistic regression you just fit , run the following code and make sure you understand the output. (This code assumes you called the object \texttt{fit6}, if not change \texttt{fit6} to the name you used.)
+
+  \begin{verbatim}
+  library(visreg)
+  visreg(fit6, scale="response")
+  \end{verbatim}
+\end{enumerate}
 
 \hypertarget{programming}{%
 \chapter{Functions, lists and loops}\label{programming}}
@@ -7985,7 +8883,7 @@ Here, the \texttt{function} SEmean takes one `argument' called \texttt{x} (i.e.,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.38083
+## [1] 1.540123
 \end{verbatim}
 
 \begin{Shaded}
@@ -7996,7 +8894,7 @@ Here, the \texttt{function} SEmean takes one `argument' called \texttt{x} (i.e.,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.0767329
+## [1] 0.09165783
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -8066,7 +8964,7 @@ For example, this function computes the standard deviation and standard error of
 
 \begin{verbatim}
 ##        SE        SD 
-## 0.3553867 3.5538671
+## 0.4024563 4.0245630
 \end{verbatim}
 
 \hypertarget{functions-without-arguments}{%
@@ -8985,19 +9883,19 @@ Here, the bit of code between \{\} is executed five times, and the object \textt
 \end{verbatim}
 
 \begin{verbatim}
-## Element 2 of the vector is: 0.1
+## Element 2 of the vector is: 0.3
 \end{verbatim}
 
 \begin{verbatim}
-## Element 3 of the vector is: 0.1
+## Element 3 of the vector is: 0.6
 \end{verbatim}
 
 \begin{verbatim}
-## Element 4 of the vector is: 0.7
+## Element 4 of the vector is: 0.4
 \end{verbatim}
 
 \begin{verbatim}
-## Element 5 of the vector is: 0.2
+## Element 5 of the vector is: 0.4
 \end{verbatim}
 
 Note that this is only a toy example: the same result can be achieved by simply typing \texttt{myvec}.
@@ -9040,6 +9938,93 @@ We assume here you have a dataframe called `dataset' with a factor `species', fo
 \KeywordTok{dev.off}\NormalTok{()}
 \end{Highlighting}
 \end{Shaded}
+
+\hypertarget{exercises-4}{%
+\section{Exercises}\label{exercises-4}}
+
+\hypertarget{writing-functions}{%
+\subsection{Writing functions}\label{writing-functions}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Write a function that adds two numbers, and divides the result by 2.
+\item
+  You learned in Section \ref{workingtext} that you can take subset of a string using the \texttt{substr} function. First, using that function to extract the first 2 characters of a bit of text. Then, write a function called \texttt{firstTwoChars} that extracts the first two characters of any bit of text.
+\item
+  Write a function that checks if there are any missing values in a vector (using \texttt{is.na} and \texttt{any}). The function should return \texttt{TRUE} if there are missing values, and \texttt{FALSE} if not.
+\item
+  Improve the function so that it tells you which of the values are missing, if any (\emph{Hint:}use the \texttt{which} function). You can use \texttt{message} to write messages to the console.
+\item
+  The function \texttt{readline} can be used to ask for data to be typed in. First, figure out how to use \texttt{readline} by reading the corresponding help file. Then, construct a function called \texttt{getAge} that asks the user to type his/her age. (\emph{Hint:} check the examples in the \texttt{readline} help page).
+\item
+  \textbf{Hard}. Look at the calculations for a confidence interval of the mean in the example in Section \ref{inference}. Write a function that returns the confidence interval for a vector. The function should have two inputs: the vector, and the desired `alpha'.
+\item
+  \textbf{hard} Recall the functions \texttt{head} and \texttt{tail}. Write a function called \texttt{middle} that shows a few rows around (approx.) the `middle' of the dataset. \emph{Hint:} use \texttt{nrow}, \texttt{print}, and possibly \texttt{floor}.
+\end{enumerate}
+
+\hypertarget{working-with-lists}{%
+\subsection{Working with lists}\label{working-with-lists}}
+
+First read the following list:
+
+\begin{verbatim}
+veclist <- list(x=1:5, y=2:6, z=3:7)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Using \texttt{sapply}, check that all elements of the list are vectors of the same length. Also calculate the sum of each element.
+\item
+  Add an element to the list called `norms' that is a vector of 10 numbers drawn from the standard normal distribution (recall Section \ref{distributions}).
+\item
+  Using the \texttt{pupae} data, use a \(t\)-test to find if PupalWeight varies with temperature treatment, separate for the two CO\(_2\) treatments (so, do two \(t\)-tests). You \textbf{must} use \texttt{split} and \texttt{lapply}.
+\item
+  For this exercise use the \texttt{coweeta} data - a dataset with measurements of tree size. Split the data by \texttt{species}, to produce a list called \texttt{coweeta\_sp}. Keep only those species that have at least 10 observations. (\emph{Hint:} first count the number of observations per species, save that as a vector, find which are at least 10, and use that to subscript the list.) If you don't know how to do this last step, skip it and continue to the next item.
+\item
+  Using the split Coweeta data, perform a linear regression of \texttt{log10(biomass)} on \texttt{log10(height)}, separately by species. Use \texttt{lapply}.
+\end{enumerate}
+
+\hypertarget{functions-for-histograms}{%
+\subsection{Functions for histograms}\label{functions-for-histograms}}
+
+First run this code to produce two vectors.
+
+\begin{verbatim}
+x <- rnorm(100)
+y <- x + rnorm(100)
+\end{verbatim}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Run a linear regression y = f(x), save the resulting object. Look at the structure of this object, and note the names of the elements. Extract the residuals and make a histogram.
+\item
+  \textbf{Hard}. From the previous question, write a function that takes an \texttt{lm} object as an argument, and plots a histogram of the residuals.
+\end{enumerate}
+
+\hypertarget{using-functions-to-make-many-plots}{%
+\subsection{Using functions to make many plots}\label{using-functions-to-make-many-plots}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  Read the cereals data. Create a subset of data where the \texttt{Manufacturer} has at least two observations (use \texttt{table} to find out which you want to keep first). Don't forget to drop the empty factor level you may have created!
+\item
+  Make a single PDF with six plots, with a scatter plot between potassium and fiber for each of the six (or seven?) Manufacturers. (\emph{Hint:} ook at the template for producing a PDF with multiple pages at the bottom of Section \ref{simpleloops}.
+\end{enumerate}
+
+\hypertarget{monthly-weather-plots}{%
+\subsection{Monthly weather plots}\label{monthly-weather-plots}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  For the HFE weather dataset (\texttt{hfemet2008}) that makes a scatter plot between PAR (a measure of light intensity) and VPD (a measure of the dryness of air).
+\item
+  Then, split the dataset by month (recall Section \ref{dfrlists}), and make twelve such scatter plots. Save the result in a single PDF, or on one page with 12 small figures.
+\end{enumerate}
 
 \hypertarget{webservices}{%
 \chapter{R on the web}\label{webservices}}
@@ -9239,9 +10224,6 @@ Try downloading data from this URL (containing Dutch demography data since 1898)
 
 \hypertarget{deploying-an-api-with-plumber}{%
 \section{\texorpdfstring{Deploying an API with \texttt{plumber}}{Deploying an API with plumber}}\label{deploying-an-api-with-plumber}}
-
-\hypertarget{deploying-a-simple-api}{%
-\subsection{Deploying a simple API}\label{deploying-a-simple-api}}
 
 With \texttt{plumber} we can quickly set up an API, that we can use from within any other programming language, web site, or program. Normally you would deploy the API on a server running R, so that the R service can be used from anywhere. Here, to keep things simple, we deploy the API on your own machine (`locally'), but it will work similarly to when it runs on a remote server.
 

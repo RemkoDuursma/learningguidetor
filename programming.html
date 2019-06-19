@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <title>Chapter 7 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
   <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:title" content="Chapter 7 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta name="twitter:title" content="Chapter 7 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
   
   <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-10" />
+<meta name="date" content="2019-06-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -129,162 +129,216 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Learning Guide to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#about-the-author"><i class="fa fa-check"></i><b>1.1</b> About the author</a></li>
+</ul></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Beginner skills</a><ul>
 <li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>2.1</b> Installing R and Rstudio</a><ul>
 <li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>2.1.1</b> Example data used throughout this book</a></li>
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized-operations"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
 <li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.5</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.6</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.7</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.8</b> Packages</a><ul>
-<li class="chapter" data-level="2.8.1" data-path="intro.html"><a href="intro.html#install-packages-from-cran"><i class="fa fa-check"></i><b>2.8.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.8.2" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.8.2</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.8.3" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.8.3</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.8.4" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.8.4</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.8.5" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.8.5</b> Updating packages</a></li>
-<li class="chapter" data-level="2.8.6" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.8.6</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.8.7" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.8.7</b> Conflicts</a></li>
-<li class="chapter" data-level="2.8.8" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.8.8</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
+<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.9</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.10</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.10.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.10.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
 </ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="summarize.html"><a href="summarize.html"><i class="fa fa-check"></i><b>3</b> Data skills</a><ul>
-<li class="chapter" data-level="3.1" data-path="summarize.html"><a href="summarize.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
-<li class="chapter" data-level="3.2" data-path="summarize.html"><a href="summarize.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="summarize.html"><a href="summarize.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
-<li class="chapter" data-level="3.2.2" data-path="summarize.html"><a href="summarize.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="summarize.html"><a href="summarize.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="summarize.html"><a href="summarize.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
-<li class="chapter" data-level="3.3.2" data-path="summarize.html"><a href="summarize.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
-<li class="chapter" data-level="3.3.3" data-path="summarize.html"><a href="summarize.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
-<li class="chapter" data-level="3.3.4" data-path="summarize.html"><a href="summarize.html#including-data-in-a-script"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
-<li class="chapter" data-level="3.3.5" data-path="summarize.html"><a href="summarize.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
-<li class="chapter" data-level="3.3.6" data-path="summarize.html"><a href="summarize.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
-<li class="chapter" data-level="3.3.7" data-path="summarize.html"><a href="summarize.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
-<li class="chapter" data-level="3.3.8" data-path="summarize.html"><a href="summarize.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
-<li class="chapter" data-level="3.3.9" data-path="summarize.html"><a href="summarize.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="summarize.html"><a href="summarize.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
-<li class="chapter" data-level="3.4.1" data-path="summarize.html"><a href="summarize.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
-<li class="chapter" data-level="3.4.2" data-path="summarize.html"><a href="summarize.html#variables-in-the-dataframe"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
-<li class="chapter" data-level="3.4.3" data-path="summarize.html"><a href="summarize.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.5" data-path="summarize.html"><a href="summarize.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
-<li class="chapter" data-level="3.5.1" data-path="summarize.html"><a href="summarize.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
-<li class="chapter" data-level="3.5.2" data-path="summarize.html"><a href="summarize.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
-<li class="chapter" data-level="3.5.3" data-path="summarize.html"><a href="summarize.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
-<li class="chapter" data-level="3.5.4" data-path="summarize.html"><a href="summarize.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
-</ul></li>
-<li class="chapter" data-level="3.6" data-path="summarize.html"><a href="summarize.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
-<li class="chapter" data-level="3.7" data-path="summarize.html"><a href="summarize.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
-<li class="chapter" data-level="3.7.1" data-path="summarize.html"><a href="summarize.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
-<li class="chapter" data-level="3.7.2" data-path="summarize.html"><a href="summarize.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
-<li class="chapter" data-level="3.7.3" data-path="summarize.html"><a href="summarize.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
-<li class="chapter" data-level="3.7.4" data-path="summarize.html"><a href="summarize.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
-<li class="chapter" data-level="3.7.5" data-path="summarize.html"><a href="summarize.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
-<li class="chapter" data-level="3.7.6" data-path="summarize.html"><a href="summarize.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
-</ul></li>
-<li class="chapter" data-level="3.8" data-path="summarize.html"><a href="summarize.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.8</b> Summarizing dataframes</a><ul>
-<li class="chapter" data-level="3.8.1" data-path="summarize.html"><a href="summarize.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.8.1</b> Making summary tables</a></li>
-<li class="chapter" data-level="3.8.2" data-path="summarize.html"><a href="summarize.html#xtabs"><i class="fa fa-check"></i><b>3.8.2</b> Tables of counts</a></li>
-<li class="chapter" data-level="3.8.3" data-path="summarize.html"><a href="summarize.html#summaryvars"><i class="fa fa-check"></i><b>3.8.3</b> Adding summary variables to dataframes</a></li>
-<li class="chapter" data-level="3.8.4" data-path="summarize.html"><a href="summarize.html#reorder"><i class="fa fa-check"></i><b>3.8.4</b> Reordering factor levels based on a summary variable</a></li>
-</ul></li>
-<li class="chapter" data-level="3.9" data-path="summarize.html"><a href="summarize.html#combining-dataframes"><i class="fa fa-check"></i><b>3.9</b> Combining dataframes</a><ul>
-<li class="chapter" data-level="3.9.1" data-path="summarize.html"><a href="summarize.html#merge"><i class="fa fa-check"></i><b>3.9.1</b> Merging dataframes</a></li>
-<li class="chapter" data-level="3.9.2" data-path="summarize.html"><a href="summarize.html#using-join-from-dplyr"><i class="fa fa-check"></i><b>3.9.2</b> Using join from <code>dplyr</code></a></li>
-<li class="chapter" data-level="3.9.3" data-path="summarize.html"><a href="summarize.html#rbind"><i class="fa fa-check"></i><b>3.9.3</b> Row-binding dataframes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.10" data-path="summarize.html"><a href="summarize.html#reshaping"><i class="fa fa-check"></i><b>3.10</b> Reshaping data</a><ul>
-<li class="chapter" data-level="3.10.1" data-path="summarize.html"><a href="summarize.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.10.1</b> From wide to long</a></li>
-<li class="chapter" data-level="3.10.2" data-path="summarize.html"><a href="summarize.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.10.2</b> From long to wide</a></li>
-</ul></li>
-<li class="chapter" data-level="3.11" data-path="summarize.html"><a href="summarize.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.11</b> More complex <code>dplyr</code> examples</a><ul>
-<li class="chapter" data-level="3.11.1" data-path="summarize.html"><a href="summarize.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.11.1</b> Tree growth data: filter and multiple groupings</a></li>
-<li class="chapter" data-level="3.11.2" data-path="summarize.html"><a href="summarize.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.11.2</b> Crude oil production: find top exporters</a></li>
-<li class="chapter" data-level="3.11.3" data-path="summarize.html"><a href="summarize.html#weight-loss-data-make-an-irregular-timeseries-regular"><i class="fa fa-check"></i><b>3.11.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>4</b> Visualizing data and making reports</a><ul>
-<li class="chapter" data-level="4.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>4.2</b> Visualizing data</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>4.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
-<li class="chapter" data-level="4.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>4.2.2</b> Base graphics</a></li>
-<li class="chapter" data-level="4.2.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>4.2.3</b> ggplot2</a></li>
+<li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
+<li class="chapter" data-level="3.1" data-path="dataskills1.html"><a href="dataskills1.html#introduction"><i class="fa fa-check"></i><b>3.1</b> Introduction</a></li>
+<li class="chapter" data-level="3.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>3.2</b> Generating data</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="dataskills1.html"><a href="dataskills1.html#sequences"><i class="fa fa-check"></i><b>3.2.1</b> Sequences of numbers</a></li>
+<li class="chapter" data-level="3.2.2" data-path="dataskills1.html"><a href="dataskills1.html#randomnumbers"><i class="fa fa-check"></i><b>3.2.2</b> Random numbers</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>4.3</b> Making reports</a><ul>
-<li class="chapter" data-level="4.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>4.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="4.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>4.3.2</b> Tips</a></li>
-<li class="chapter" data-level="4.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>4.3.3</b> Resources</a></li>
+<li class="chapter" data-level="3.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>3.3</b> Reading data</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="dataskills1.html"><a href="dataskills1.html#readcsv"><i class="fa fa-check"></i><b>3.3.1</b> Reading CSV files</a></li>
+<li class="chapter" data-level="3.3.2" data-path="dataskills1.html"><a href="dataskills1.html#reading-large-csv-files"><i class="fa fa-check"></i><b>3.3.2</b> Reading large CSV files</a></li>
+<li class="chapter" data-level="3.3.3" data-path="dataskills1.html"><a href="dataskills1.html#tabdelimtext"><i class="fa fa-check"></i><b>3.3.3</b> Reading Tab-delimited text files</a></li>
+<li class="chapter" data-level="3.3.4" data-path="dataskills1.html"><a href="dataskills1.html#datainscript"><i class="fa fa-check"></i><b>3.3.4</b> Including data in a script</a></li>
+<li class="chapter" data-level="3.3.5" data-path="dataskills1.html"><a href="dataskills1.html#json"><i class="fa fa-check"></i><b>3.3.5</b> JSON</a></li>
+<li class="chapter" data-level="3.3.6" data-path="dataskills1.html"><a href="dataskills1.html#nosql-databases"><i class="fa fa-check"></i><b>3.3.6</b> (No)SQL databases</a></li>
+<li class="chapter" data-level="3.3.7" data-path="dataskills1.html"><a href="dataskills1.html#excel-spreadsheets"><i class="fa fa-check"></i><b>3.3.7</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="3.3.8" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>3.3.8</b> Proprietary formats</a></li>
+<li class="chapter" data-level="3.3.9" data-path="dataskills1.html"><a href="dataskills1.html#web-services"><i class="fa fa-check"></i><b>3.3.9</b> Web services</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>3.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="dataskills1.html"><a href="dataskills1.html#vecstodfr"><i class="fa fa-check"></i><b>3.4.1</b> Convert vectors into a dataframe</a></li>
+<li class="chapter" data-level="3.4.2" data-path="dataskills1.html"><a href="dataskills1.html#vecdataframes"><i class="fa fa-check"></i><b>3.4.2</b> Variables in the dataframe</a></li>
+<li class="chapter" data-level="3.4.3" data-path="dataskills1.html"><a href="dataskills1.html#namesdataframe"><i class="fa fa-check"></i><b>3.4.3</b> Changing column names in dataframes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>3.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="dataskills1.html"><a href="dataskills1.html#vectorindexing"><i class="fa fa-check"></i><b>3.5.1</b> Vectors</a></li>
+<li class="chapter" data-level="3.5.2" data-path="dataskills1.html"><a href="dataskills1.html#subsetdataframes"><i class="fa fa-check"></i><b>3.5.2</b> Dataframes</a></li>
+<li class="chapter" data-level="3.5.3" data-path="dataskills1.html"><a href="dataskills1.html#a-faster-method"><i class="fa fa-check"></i><b>3.5.3</b> A faster method</a></li>
+<li class="chapter" data-level="3.5.4" data-path="dataskills1.html"><a href="dataskills1.html#deleting-columns"><i class="fa fa-check"></i><b>3.5.4</b> Deleting columns</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="dataskills1.html"><a href="dataskills1.html#exportingdata"><i class="fa fa-check"></i><b>3.6</b> Exporting data</a></li>
+<li class="chapter" data-level="3.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>3.7</b> Special data types</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="dataskills1.html"><a href="dataskills1.html#workingfactors"><i class="fa fa-check"></i><b>3.7.1</b> Working with factors</a></li>
+<li class="chapter" data-level="3.7.2" data-path="dataskills1.html"><a href="dataskills1.html#workinglogic"><i class="fa fa-check"></i><b>3.7.2</b> Working with logical data</a></li>
+<li class="chapter" data-level="3.7.3" data-path="dataskills1.html"><a href="dataskills1.html#workingmissing"><i class="fa fa-check"></i><b>3.7.3</b> Working with missing values</a></li>
+<li class="chapter" data-level="3.7.4" data-path="dataskills1.html"><a href="dataskills1.html#workingtext"><i class="fa fa-check"></i><b>3.7.4</b> Working with text</a></li>
+<li class="chapter" data-level="3.7.5" data-path="dataskills1.html"><a href="dataskills1.html#workingwithdates"><i class="fa fa-check"></i><b>3.7.5</b> Working with dates and times</a></li>
+<li class="chapter" data-level="3.7.6" data-path="dataskills1.html"><a href="dataskills1.html#converttype"><i class="fa fa-check"></i><b>3.7.6</b> Converting between data types</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>3.8</b> Exercises</a><ul>
+<li class="chapter" data-level="3.8.1" data-path="dataskills1.html"><a href="dataskills1.html#working-with-a-single-vector---indexing"><i class="fa fa-check"></i><b>3.8.1</b> Working with a single vector - indexing</a></li>
+<li class="chapter" data-level="3.8.2" data-path="dataskills1.html"><a href="dataskills1.html#alphabet-aerobics-2"><i class="fa fa-check"></i><b>3.8.2</b> Alphabet aerobics 2</a></li>
+<li class="chapter" data-level="3.8.3" data-path="dataskills1.html"><a href="dataskills1.html#basic-operations-with-the-cereals-data"><i class="fa fa-check"></i><b>3.8.3</b> Basic operations with the Cereals data</a></li>
+<li class="chapter" data-level="3.8.4" data-path="dataskills1.html"><a href="dataskills1.html#a-short-dataset"><i class="fa fa-check"></i><b>3.8.4</b> A short dataset</a></li>
+<li class="chapter" data-level="3.8.5" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-1"><i class="fa fa-check"></i><b>3.8.5</b> Titanic - Part 1</a></li>
+<li class="chapter" data-level="3.8.6" data-path="dataskills1.html"><a href="dataskills1.html#titanic---part-2"><i class="fa fa-check"></i><b>3.8.6</b> Titanic - Part 2</a></li>
+<li class="chapter" data-level="3.8.7" data-path="dataskills1.html"><a href="dataskills1.html#hydro-dam"><i class="fa fa-check"></i><b>3.8.7</b> Hydro dam</a></li>
+<li class="chapter" data-level="3.8.8" data-path="dataskills1.html"><a href="dataskills1.html#hfe-tree-measurements"><i class="fa fa-check"></i><b>3.8.8</b> HFE tree measurements</a></li>
+<li class="chapter" data-level="3.8.9" data-path="dataskills1.html"><a href="dataskills1.html#flux-data"><i class="fa fa-check"></i><b>3.8.9</b> Flux data</a></li>
+<li class="chapter" data-level="3.8.10" data-path="dataskills1.html"><a href="dataskills1.html#dna-aerobics"><i class="fa fa-check"></i><b>3.8.10</b> DNA Aerobics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>5</b> Basic statistics and linear modelling</a><ul>
-<li class="chapter" data-level="5.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>5.2</b> Probability distributions</a></li>
-<li class="chapter" data-level="5.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>5.3</b> Descriptive Statistics</a></li>
-<li class="chapter" data-level="5.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>5.4</b> Testing differences between groups</a><ul>
-<li class="chapter" data-level="5.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>5.4.1</b> Testing a single sample</a></li>
-<li class="chapter" data-level="5.4.2" data-path="linmodel.html"><a href="linmodel.html#hypothesis-testing"><i class="fa fa-check"></i><b>5.4.2</b> Hypothesis testing</a></li>
-<li class="chapter" data-level="5.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>5.4.3</b> Inference for two populations</a></li>
-<li class="chapter" data-level="5.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>5.4.4</b> Testing many groups at once (ANOVA)</a></li>
-<li class="chapter" data-level="5.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>5.4.5</b> Multiple comparisons</a></li>
-<li class="chapter" data-level="5.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>5.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
-<li class="chapter" data-level="5.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>5.4.7</b> Interactions</a></li>
-<li class="chapter" data-level="5.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>5.4.8</b> Comparing models</a></li>
-<li class="chapter" data-level="5.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>5.4.9</b> Diagnostics</a></li>
+<li class="chapter" data-level="4" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>4</b> Data skills - Part 2</a><ul>
+<li class="chapter" data-level="4.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>4.1</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="dataskills2.html"><a href="dataskills2.html#tapplyaggregate"><i class="fa fa-check"></i><b>4.1.1</b> Making summary tables</a></li>
+<li class="chapter" data-level="4.1.2" data-path="dataskills2.html"><a href="dataskills2.html#xtabs"><i class="fa fa-check"></i><b>4.1.2</b> Tables of counts</a></li>
+<li class="chapter" data-level="4.1.3" data-path="dataskills2.html"><a href="dataskills2.html#summaryvars"><i class="fa fa-check"></i><b>4.1.3</b> Adding summary variables to dataframes</a></li>
+<li class="chapter" data-level="4.1.4" data-path="dataskills2.html"><a href="dataskills2.html#reorder"><i class="fa fa-check"></i><b>4.1.4</b> Reordering factor levels based on a summary variable</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>5.5</b> Linear regression</a><ul>
-<li class="chapter" data-level="5.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>5.5.1</b> Icecream sales: a motivating example</a></li>
-<li class="chapter" data-level="5.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>5.5.2</b> Simple and multiple linear regression</a></li>
+<li class="chapter" data-level="4.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>4.2</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="dataskills2.html"><a href="dataskills2.html#merge"><i class="fa fa-check"></i><b>4.2.1</b> Merging dataframes</a></li>
+<li class="chapter" data-level="4.2.2" data-path="dataskills2.html"><a href="dataskills2.html#dplyrjoin"><i class="fa fa-check"></i><b>4.2.2</b> Using join from <code>dplyr</code></a></li>
+<li class="chapter" data-level="4.2.3" data-path="dataskills2.html"><a href="dataskills2.html#rbind"><i class="fa fa-check"></i><b>4.2.3</b> Row-binding dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>5.6</b> Linear models with factors and continuous variables</a><ul>
-<li class="chapter" data-level="5.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>5.6.1</b> Visualizing fitted regression models</a></li>
-<li class="chapter" data-level="5.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>5.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
-<li class="chapter" data-level="5.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>5.6.3</b> Logarithmic transformation</a></li>
-<li class="chapter" data-level="5.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>5.6.4</b> Adding quadratic and polynomial terms</a></li>
-<li class="chapter" data-level="5.6.5" data-path="linmodel.html"><a href="linmodel.html#which-predictors-are-more-important"><i class="fa fa-check"></i><b>5.6.5</b> Which predictors are more important?</a></li>
+<li class="chapter" data-level="4.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>4.3</b> Reshaping data</a><ul>
+<li class="chapter" data-level="4.3.1" data-path="dataskills2.html"><a href="dataskills2.html#from-wide-to-long"><i class="fa fa-check"></i><b>4.3.1</b> From wide to long</a></li>
+<li class="chapter" data-level="4.3.2" data-path="dataskills2.html"><a href="dataskills2.html#from-long-to-wide"><i class="fa fa-check"></i><b>4.3.2</b> From long to wide</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>4.4</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="4.4.1" data-path="dataskills2.html"><a href="dataskills2.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>4.4.1</b> Tree growth data: filter and multiple groupings</a></li>
+<li class="chapter" data-level="4.4.2" data-path="dataskills2.html"><a href="dataskills2.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>4.4.2</b> Crude oil production: find top exporters</a></li>
+<li class="chapter" data-level="4.4.3" data-path="dataskills2.html"><a href="dataskills2.html#weightlossdplyr"><i class="fa fa-check"></i><b>4.4.3</b> Weight loss data: make an irregular timeseries regular</a></li>
+</ul></li>
+<li class="chapter" data-level="4.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>4.5</b> Exercises</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-the-cereal-data"><i class="fa fa-check"></i><b>4.5.1</b> Summarizing the cereal data</a></li>
+<li class="chapter" data-level="4.5.2" data-path="dataskills2.html"><a href="dataskills2.html#words-and-the-weather"><i class="fa fa-check"></i><b>4.5.2</b> Words and the weather</a></li>
+<li class="chapter" data-level="4.5.3" data-path="dataskills2.html"><a href="dataskills2.html#merging-data"><i class="fa fa-check"></i><b>4.5.3</b> Merging data</a></li>
+<li class="chapter" data-level="4.5.4" data-path="dataskills2.html"><a href="dataskills2.html#merging-multiple-datasets"><i class="fa fa-check"></i><b>4.5.4</b> Merging multiple datasets</a></li>
+<li class="chapter" data-level="4.5.5" data-path="dataskills2.html"><a href="dataskills2.html#ordered-boxplot"><i class="fa fa-check"></i><b>4.5.5</b> Ordered boxplot</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>6</b> Functions, lists and loops</a><ul>
-<li class="chapter" data-level="6.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
-<li class="chapter" data-level="6.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>6.2</b> Writing simple functions</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>6.2.1</b> Functions with many arguments</a></li>
-<li class="chapter" data-level="6.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>6.2.2</b> Functions can return many results</a></li>
-<li class="chapter" data-level="6.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>6.2.3</b> Functions without arguments</a></li>
-<li class="chapter" data-level="6.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>6.2.4</b> Wrapper functions</a></li>
-<li class="chapter" data-level="6.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>6.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+<li class="chapter" data-level="5" data-path="reporting.html"><a href="reporting.html"><i class="fa fa-check"></i><b>5</b> Visualizing data and making reports</a><ul>
+<li class="chapter" data-level="5.1" data-path="reporting.html"><a href="reporting.html#introduction-1"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
+<li class="chapter" data-level="5.2" data-path="reporting.html"><a href="reporting.html#visualizing"><i class="fa fa-check"></i><b>5.2</b> Visualizing data</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
+<li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
+<li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>6.3</b> Working with lists</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>6.3.1</b> Indexing lists</a></li>
-<li class="chapter" data-level="6.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>6.3.2</b> Converting lists to dataframes or vectors</a></li>
-<li class="chapter" data-level="6.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>6.3.3</b> Combining lists</a></li>
-<li class="chapter" data-level="6.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>6.3.4</b> Extracting output from built-in functions</a></li>
-<li class="chapter" data-level="6.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>6.3.5</b> Creating lists from dataframes</a></li>
-<li class="chapter" data-level="6.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>6.3.6</b> Applying functions to lists</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>6.4</b> Loops</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>7</b> R on the web</a><ul>
-<li class="chapter" data-level="7.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
-<li class="chapter" data-level="7.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>7.2</b> Reading data from remote databases</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>7.2.1</b> NoSQL</a></li>
-<li class="chapter" data-level="7.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>7.2.2</b> SQL</a></li>
+<li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
+<li class="chapter" data-level="6.1" data-path="linmodel.html"><a href="linmodel.html#introduction-2"><i class="fa fa-check"></i><b>6.1</b> Introduction</a></li>
+<li class="chapter" data-level="6.2" data-path="linmodel.html"><a href="linmodel.html#distributions"><i class="fa fa-check"></i><b>6.2</b> Probability distributions</a></li>
+<li class="chapter" data-level="6.3" data-path="linmodel.html"><a href="linmodel.html#descstat"><i class="fa fa-check"></i><b>6.3</b> Descriptive Statistics</a></li>
+<li class="chapter" data-level="6.4" data-path="linmodel.html"><a href="linmodel.html#testing-differences-between-groups"><i class="fa fa-check"></i><b>6.4</b> Testing differences between groups</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="linmodel.html"><a href="linmodel.html#singlesample"><i class="fa fa-check"></i><b>6.4.1</b> Testing a single sample</a></li>
+<li class="chapter" data-level="6.4.2" data-path="linmodel.html"><a href="linmodel.html#inference"><i class="fa fa-check"></i><b>6.4.2</b> Hypothesis testing</a></li>
+<li class="chapter" data-level="6.4.3" data-path="linmodel.html"><a href="linmodel.html#inference-for-two-populations"><i class="fa fa-check"></i><b>6.4.3</b> Inference for two populations</a></li>
+<li class="chapter" data-level="6.4.4" data-path="linmodel.html"><a href="linmodel.html#testing-many-groups-at-once-anova"><i class="fa fa-check"></i><b>6.4.4</b> Testing many groups at once (ANOVA)</a></li>
+<li class="chapter" data-level="6.4.5" data-path="linmodel.html"><a href="linmodel.html#multcomp"><i class="fa fa-check"></i><b>6.4.5</b> Multiple comparisons</a></li>
+<li class="chapter" data-level="6.4.6" data-path="linmodel.html"><a href="linmodel.html#twoway"><i class="fa fa-check"></i><b>6.4.6</b> Comparing many groups by two predictors (two-way ANOVA)</a></li>
+<li class="chapter" data-level="6.4.7" data-path="linmodel.html"><a href="linmodel.html#interactions"><i class="fa fa-check"></i><b>6.4.7</b> Interactions</a></li>
+<li class="chapter" data-level="6.4.8" data-path="linmodel.html"><a href="linmodel.html#comparing-models"><i class="fa fa-check"></i><b>6.4.8</b> Comparing models</a></li>
+<li class="chapter" data-level="6.4.9" data-path="linmodel.html"><a href="linmodel.html#diagnostics"><i class="fa fa-check"></i><b>6.4.9</b> Diagnostics</a></li>
 </ul></li>
-<li class="chapter" data-level="7.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>7.3</b> Accessing an API</a></li>
-<li class="chapter" data-level="7.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>7.4</b> Deploying an API with <code>plumber</code></a><ul>
-<li class="chapter" data-level="7.4.1" data-path="webservices.html"><a href="webservices.html#deploying-a-simple-api"><i class="fa fa-check"></i><b>7.4.1</b> Deploying a simple API</a></li>
+<li class="chapter" data-level="6.5" data-path="linmodel.html"><a href="linmodel.html#linear-regression"><i class="fa fa-check"></i><b>6.5</b> Linear regression</a><ul>
+<li class="chapter" data-level="6.5.1" data-path="linmodel.html"><a href="linmodel.html#icecream"><i class="fa fa-check"></i><b>6.5.1</b> Icecream sales: a motivating example</a></li>
+<li class="chapter" data-level="6.5.2" data-path="linmodel.html"><a href="linmodel.html#simple-and-multiple-linear-regression"><i class="fa fa-check"></i><b>6.5.2</b> Simple and multiple linear regression</a></li>
 </ul></li>
+<li class="chapter" data-level="6.6" data-path="linmodel.html"><a href="linmodel.html#lmfaccont"><i class="fa fa-check"></i><b>6.6</b> Linear models with factors and continuous variables</a><ul>
+<li class="chapter" data-level="6.6.1" data-path="linmodel.html"><a href="linmodel.html#predictedeffects"><i class="fa fa-check"></i><b>6.6.1</b> Visualizing fitted regression models</a></li>
+<li class="chapter" data-level="6.6.2" data-path="linmodel.html"><a href="linmodel.html#icecreamtest"><i class="fa fa-check"></i><b>6.6.2</b> Group differences in regression models: back to ice cream sales</a></li>
+<li class="chapter" data-level="6.6.3" data-path="linmodel.html"><a href="linmodel.html#logtransform"><i class="fa fa-check"></i><b>6.6.3</b> Logarithmic transformation</a></li>
+<li class="chapter" data-level="6.6.4" data-path="linmodel.html"><a href="linmodel.html#quadlm"><i class="fa fa-check"></i><b>6.6.4</b> Adding quadratic and polynomial terms</a></li>
+<li class="chapter" data-level="6.6.5" data-path="linmodel.html"><a href="linmodel.html#importance"><i class="fa fa-check"></i><b>6.6.5</b> Which predictors are more important?</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="linmodel.html"><a href="linmodel.html#exercises-3"><i class="fa fa-check"></i><b>6.7</b> Exercises</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="linmodel.html"><a href="linmodel.html#probabilities"><i class="fa fa-check"></i><b>6.7.1</b> Probabilities</a></li>
+<li class="chapter" data-level="6.7.2" data-path="linmodel.html"><a href="linmodel.html#univariate-distributions"><i class="fa fa-check"></i><b>6.7.2</b> Univariate distributions</a></li>
+<li class="chapter" data-level="6.7.3" data-path="linmodel.html"><a href="linmodel.html#more-t-tests"><i class="fa fa-check"></i><b>6.7.3</b> More <span class="math inline">\(t\)</span>-tests</a></li>
+<li class="chapter" data-level="6.7.4" data-path="linmodel.html"><a href="linmodel.html#simple-linear-regression"><i class="fa fa-check"></i><b>6.7.4</b> Simple linear regression</a></li>
+<li class="chapter" data-level="6.7.5" data-path="linmodel.html"><a href="linmodel.html#quantile-quest"><i class="fa fa-check"></i><b>6.7.5</b> Quantile Quest</a></li>
+<li class="chapter" data-level="6.7.6" data-path="linmodel.html"><a href="linmodel.html#one-way-anova"><i class="fa fa-check"></i><b>6.7.6</b> One-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.7" data-path="linmodel.html"><a href="linmodel.html#two-way-anova"><i class="fa fa-check"></i><b>6.7.7</b> Two-way ANOVA</a></li>
+<li class="chapter" data-level="6.7.8" data-path="linmodel.html"><a href="linmodel.html#multregexerc"><i class="fa fa-check"></i><b>6.7.8</b> Regression: the <code>pulse</code> dataset</a></li>
+<li class="chapter" data-level="6.7.9" data-path="linmodel.html"><a href="linmodel.html#logistic-regression"><i class="fa fa-check"></i><b>6.7.9</b> Logistic regression</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>7</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="7.1" data-path="programming.html"><a href="programming.html#introduction-3"><i class="fa fa-check"></i><b>7.1</b> Introduction</a></li>
+<li class="chapter" data-level="7.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>7.2</b> Writing simple functions</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="programming.html"><a href="programming.html#functions-with-many-arguments"><i class="fa fa-check"></i><b>7.2.1</b> Functions with many arguments</a></li>
+<li class="chapter" data-level="7.2.2" data-path="programming.html"><a href="programming.html#functions-can-return-many-results"><i class="fa fa-check"></i><b>7.2.2</b> Functions can return many results</a></li>
+<li class="chapter" data-level="7.2.3" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>7.2.3</b> Functions without arguments</a></li>
+<li class="chapter" data-level="7.2.4" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>7.2.4</b> Wrapper functions</a></li>
+<li class="chapter" data-level="7.2.5" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>7.2.5</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>7.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="7.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>7.3.1</b> Indexing lists</a></li>
+<li class="chapter" data-level="7.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>7.3.2</b> Converting lists to dataframes or vectors</a></li>
+<li class="chapter" data-level="7.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>7.3.3</b> Combining lists</a></li>
+<li class="chapter" data-level="7.3.4" data-path="programming.html"><a href="programming.html#extracting-output-from-built-in-functions"><i class="fa fa-check"></i><b>7.3.4</b> Extracting output from built-in functions</a></li>
+<li class="chapter" data-level="7.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>7.3.5</b> Creating lists from dataframes</a></li>
+<li class="chapter" data-level="7.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>7.3.6</b> Applying functions to lists</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>7.4</b> Loops</a></li>
+<li class="chapter" data-level="7.5" data-path="programming.html"><a href="programming.html#exercises-4"><i class="fa fa-check"></i><b>7.5</b> Exercises</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>7.5.1</b> Writing functions</a></li>
+<li class="chapter" data-level="7.5.2" data-path="programming.html"><a href="programming.html#working-with-lists"><i class="fa fa-check"></i><b>7.5.2</b> Working with lists</a></li>
+<li class="chapter" data-level="7.5.3" data-path="programming.html"><a href="programming.html#functions-for-histograms"><i class="fa fa-check"></i><b>7.5.3</b> Functions for histograms</a></li>
+<li class="chapter" data-level="7.5.4" data-path="programming.html"><a href="programming.html#using-functions-to-make-many-plots"><i class="fa fa-check"></i><b>7.5.4</b> Using functions to make many plots</a></li>
+<li class="chapter" data-level="7.5.5" data-path="programming.html"><a href="programming.html#monthly-weather-plots"><i class="fa fa-check"></i><b>7.5.5</b> Monthly weather plots</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>8</b> R on the web</a><ul>
+<li class="chapter" data-level="8.1" data-path="webservices.html"><a href="webservices.html#introduction-4"><i class="fa fa-check"></i><b>8.1</b> Introduction</a></li>
+<li class="chapter" data-level="8.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>8.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>8.2.1</b> NoSQL</a></li>
+<li class="chapter" data-level="8.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>8.2.2</b> SQL</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
+<li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -307,9 +361,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="programming" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Functions, lists and loops</h1>
+<h1><span class="header-section-number">Chapter 7</span> Functions, lists and loops</h1>
 <div id="introduction-3" class="section level2">
-<h2><span class="header-section-number">6.1</span> Introduction</h2>
+<h2><span class="header-section-number">7.1</span> Introduction</h2>
 <p>This chapter demonstrates some building blocks of programming with R. The main purpose here is to allow batch analyses - repeating similar tasks for many subsets of data. To do this, we first have to know how to write our own functions, so that we can apply the custom function to any new subset of data. This approach results in far less, and much more readable code than copy-pasting similar code for different datasets.</p>
 <p>We also delve into “lists” in R, a versatile data object that you have worked with already - even if you didn’t know it. Understanding lists well in R is the key to more complex analyses, and more readable workflows.</p>
 <p>Finally we take a brief look at ‘for loops’, a basic programming utility that we rarely need in R, since almost all functions are vectorized. Sometimes it is however more convenient to use loops, or makes the code just a little more easy to work with.</p>
@@ -317,7 +371,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>We use no new packages in this chapter except the <code>wrapr</code> package. All other functionality is included in base R, or commonly used packages <code>dplyr</code>, <code>ggplot2</code>, <code>lubridate</code>, and <code>lgrdata</code> for the example data.</p>
 </div>
 <div id="writefunctions" class="section level2">
-<h2><span class="header-section-number">6.2</span> Writing simple functions</h2>
+<h2><span class="header-section-number">7.2</span> Writing simple functions</h2>
 <p>We have already used many built-in functions throughout this tutorial, but you can become very efficient at complex data tasks when you write your own simple functions. Writing your own functions can help with tasks that are carried out many times, which would otherwise result in a lot of code.</p>
 <p>For example, suppose you frequently convert units from pounds to kilograms. It would be useful to have a function that does this, so you don’t have to type the conversion factor every time. This is also good practice, as it reduces the probability of making typos.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function takes a &#39;weight&#39; argument and multiplies it with some number </span>
@@ -344,17 +398,17 @@ unifvec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class=
 
 <span class="co"># The sample mean</span>
 <span class="kw">mean</span>(unifvec)</code></pre>
-<pre><code>## [1] 1.630647</code></pre>
+<pre><code>## [1] 1.568583</code></pre>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard error for the mean</span>
 <span class="kw">SEmean</span>(unifvec)</code></pre>
-<pre><code>## [1] 0.09575152</code></pre>
+<pre><code>## [1] 0.06819358</code></pre>
 
 <div class="rmdtry">
 You can use functions that you defined yourself just like any other function, for example in <code>summaryBy</code>. First read in the <code>SEmean</code> function defined in the example above, and then use the cereal data to calculate the mean and SE of <code>rating</code> by <code>Manufacturer</code> (or use data of your choosing).
 </div>
 
 <div id="functions-with-many-arguments" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Functions with many arguments</h3>
+<h3><span class="header-section-number">7.2.1</span> Functions with many arguments</h3>
 <p>Functions can also have multiple arguments. The following very simple function takes two numbers, and finds the absolute difference between them, using <code>abs</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define function</span>
 absDiff &lt;-<span class="st"> </span><span class="cf">function</span>(num1,num2)<span class="kw">abs</span>(num1 <span class="op">-</span><span class="st"> </span>num2)
@@ -370,7 +424,7 @@ absDiff &lt;-<span class="st"> </span><span class="cf">function</span>(num1,num2
 <pre><code>## [1] 2 1 9</code></pre>
 </div>
 <div id="functions-can-return-many-results" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Functions can return many results</h3>
+<h3><span class="header-section-number">7.2.2</span> Functions can return many results</h3>
 <p>What if a function should return not just one result, as in the examples above, but many results?</p>
 <p>For example, this function computes the standard deviation and standard error of a vector, and returns both stored in a vector. Note that we also use the <code>SEmean</code> function, which we defined above.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An function that computes the SE and SD of a vector</span>
@@ -390,19 +444,19 @@ seandsd &lt;-<span class="st"> </span><span class="cf">function</span>(x){
 x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)
 <span class="kw">seandsd</span>(x)</code></pre>
 <pre><code>##        SE        SD 
-## 0.3807795 3.8077952</code></pre>
+## 0.3905827 3.9058267</code></pre>
 </div>
 <div id="functions-without-arguments" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> Functions without arguments</h3>
+<h3><span class="header-section-number">7.2.3</span> Functions without arguments</h3>
 <p>Sometimes, a function takes no arguments (input) at all. Consider this very helpful example.</p>
 <pre class="sourceCode r"><code class="sourceCode r">sayhello &lt;-<span class="st"> </span><span class="cf">function</span>()<span class="kw">message</span>(<span class="st">&quot;Hello!&quot;</span>)
 
 <span class="kw">sayhello</span>()</code></pre>
 <pre><code>## Hello!</code></pre>
-<p>We will return to defining our own functions when we look at applying functions many times to sections of a dataframe (Section <a href="programming.html#lapply">6.3.6</a>).</p>
+<p>We will return to defining our own functions when we look at applying functions many times to sections of a dataframe (Section <a href="programming.html#lapply">7.3.6</a>).</p>
 </div>
 <div id="wrapfunctions" class="section level3">
-<h3><span class="header-section-number">6.2.4</span> Wrapper functions</h3>
+<h3><span class="header-section-number">7.2.4</span> Wrapper functions</h3>
 <p>We often need to write simple functions that adjust one or two arguments to other functions. For example, suppose we often make plots with filled circles, with our favorit color (“dimgrey”) :</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)
 <span class="kw">data</span>(howell)
@@ -428,7 +482,7 @@ Take the <code>plot_filled_grey</code> function above, test it on some data, and
 
 </div>
 <div id="wrapper-functions-to-ggplot2-or-dplyr" class="section level3">
-<h3><span class="header-section-number">6.2.5</span> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></h3>
+<h3><span class="header-section-number">7.2.5</span> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></h3>
 <p>In the previous section we saw how to write wrapper functions, functions that change a few arguments to some other function. These sort of functions are very helpful because we can save a lot of space by reusing a certain template. Suppose we want to make a plot with <code>ggplot2</code>, a scatter plot with a loess smoother line. We can achieve this via (result not shown),</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(howell)
 <span class="kw">library</span>(ggplot2)
@@ -470,13 +524,13 @@ plot_scatter &lt;-<span class="st"> </span><span class="cf">function</span>(xcol
 </div>
 </div>
 <div id="workinglists" class="section level2">
-<h2><span class="header-section-number">6.3</span> Working with lists</h2>
+<h2><span class="header-section-number">7.3</span> Working with lists</h2>
 <p>Sofar, we have worked a lot with vectors, with are basically strings of numbers or bits of text. In a vector, each element has to be of the same data type. Lists are a more general and powerful type of vector, where each element of the <code>list</code> can be anything at all. This way, lists are a very flexible type of object to store a lot of information that may be in different formats.</p>
 <p>Lists can be somewhat daunting for the beginning <code>R</code> user, which is why most introductory texts and tutorials skip them altogether. However, with some practice, lists can be mastered from the start. Mastering a few basic skills with lists can really help increase your efficiency in dealing with more complex data analysis tasks.</p>
 <p>To make a list from scratch, you simply use the <code>list</code> function. Here is a list that contains a numeric vector, a character vector, and a dataframe:</p>
 <pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">txt=</span><span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>), <span class="dt">dfr=</span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)))</code></pre>
 <div id="indexing-lists" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> Indexing lists</h3>
+<h3><span class="header-section-number">7.3.1</span> Indexing lists</h3>
 <p>To extract an element from this list, you may do this by its name (‘a’,‘txt’ or ‘dfr’ in this case), or by the element number (1,2,3). For lists, we use a double square bracket for indexing. Consider these examples,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the dataframe:</span>
 mylist[[<span class="st">&quot;dfr&quot;</span>]]</code></pre>
@@ -514,7 +568,7 @@ mylist[<span class="dv">2</span><span class="op">:</span><span class="dv">3</spa
 ## 3 4 7</code></pre>
 </div>
 <div id="converting-lists-to-dataframes-or-vectors" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Converting lists to dataframes or vectors</h3>
+<h3><span class="header-section-number">7.3.2</span> Converting lists to dataframes or vectors</h3>
 <p>Although lists are the most flexible way to store data and other objects in larger, more complex, analyses, ultimately you would prefer to output as a dataframe or vector.</p>
 <p>Let’s look at some examples using <code>do.call(rbind,...)</code> and <code>unlist</code>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A list of dataframes:</span>
@@ -552,7 +606,7 @@ veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="d
 <p>In real-world applications, some trial-and-error will be necessary to convert lists to more pretty formats.</p>
 </div>
 <div id="combining-lists" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Combining lists</h3>
+<h3><span class="header-section-number">7.3.3</span> Combining lists</h3>
 <p>Combining two lists can be achieved using <code>c()</code>, like this:</p>
 <pre class="sourceCode r"><code class="sourceCode r">veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)
 qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">q=</span><span class="dv">17</span><span class="op">:</span><span class="dv">15</span>)
@@ -573,7 +627,7 @@ qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt"
 veclis &lt;-<span class="st"> </span><span class="kw">c</span>(veclis, <span class="kw">list</span>(<span class="dt">r=</span><span class="dv">3</span><span class="op">:</span><span class="dv">1</span>))</code></pre>
 </div>
 <div id="extracting-output-from-built-in-functions" class="section level3">
-<h3><span class="header-section-number">6.3.4</span> Extracting output from built-in functions</h3>
+<h3><span class="header-section-number">7.3.4</span> Extracting output from built-in functions</h3>
 <p>One reason to gain a better understanding of lists is that many built-in functions return not just single numbers, but a diverse collection of outputs, organized in lists. Think of the linear model function (<code>lm</code>), it returns a lot of things at the same time (not just the p-value).</p>
 <p>Let’s take a closer look at the <code>lm</code> output to see if we can extract the adjusted R<span class="math inline">\(^2\)</span>.</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
@@ -644,7 +698,7 @@ Run the code in the above examples, and practice extracting some other elements 
 
 </div>
 <div id="dfrlists" class="section level3">
-<h3><span class="header-section-number">6.3.5</span> Creating lists from dataframes</h3>
+<h3><span class="header-section-number">7.3.5</span> Creating lists from dataframes</h3>
 <p>For more advanced analyses, it is often necessary to repeat a particular analysis many times, for example for sections of a dataframe.</p>
 <p>Using the <code>allom</code> data for example, we might want to split the dataframe into three dataframes (one for each species), and repeat some analysis for each of the species. One option is to make three subsets (using <code>subset</code>), and repeating the analysis for each of them. But what if we have hundreds of species?</p>
 <p>A more efficient approach is to <code>split</code> the dataframe into a list, so that the first element of the list is the dataframe for species 1, the 2nd element species 2, and so on. In case of the allom dataset, the resulting list will have three components.</p>
@@ -699,10 +753,10 @@ hydrosp &lt;-<span class="st"> </span><span class="kw">split</span>(hydro, hydro
 <p>To extract one element of the two lists that we created (<code>allomsp</code> and <code>hydrosp</code>), recall the section on indexing lists.</p>
 </div>
 <div id="lapply" class="section level3">
-<h3><span class="header-section-number">6.3.6</span> Applying functions to lists</h3>
+<h3><span class="header-section-number">7.3.6</span> Applying functions to lists</h3>
 <p>We will introduce two basic tools that we use to apply functions to each element of a list: <code>sapply</code> and <code>lapply</code>. The <code>lapply</code> function always returns a list, whereas <code>sapply</code> will attempt to <code>s</code>implify the result. When the function returns a single value, or a vector, <code>sapply</code> can often be used. In practice, try both and see what happens!</p>
 <div id="using-sapply" class="section level4">
-<h4><span class="header-section-number">6.3.6.1</span> Using <code>sapply</code></h4>
+<h4><span class="header-section-number">7.3.6.1</span> Using <code>sapply</code></h4>
 <p>First let’s look at some simple examples:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s make a simple list with only numeric vectors (of varying length)</span>
 numlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="dv">1000</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="fl">2.1</span>,<span class="fl">0.1</span>,<span class="op">-</span><span class="dv">19</span>), <span class="dt">z=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">100</span>))
@@ -785,7 +839,7 @@ splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishleng
 ##    0   18    6    0    0</code></pre>
 </div>
 <div id="using-lapply" class="section level4">
-<h4><span class="header-section-number">6.3.6.2</span> Using <code>lapply</code></h4>
+<h4><span class="header-section-number">7.3.6.2</span> Using <code>lapply</code></h4>
 <p>The <code>lapply</code> function is much like <code>sapply</code>, except it always returns a list.</p>
 <p>For example,</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a summary of the hydro dataset by year:</span>
@@ -847,7 +901,7 @@ alldata &lt;-<span class="st"> </span><span class="kw">lapply</span>(filenames, 
 dfrall &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, alldata)</code></pre>
 
 <div class="rmdtry">
-Recall the use of <code>dir</code> to list files, and even to find files that match a specific pattern (see Section <a href="intro.html#fileswd">2.6</a>. Read all CSV files in your working directory (or elsewhere) into a single list, and count the number of rows for each dataframe.
+Recall the use of <code>dir</code> to list files, and even to find files that match a specific pattern (see Section <a href="intro.html#fileswd">2.7</a>. Read all CSV files in your working directory (or elsewhere) into a single list, and count the number of rows for each dataframe.
 </div>
 
 <p>Finally, we can use <code>lapply</code> to do all sorts of complex analyses that return any kind of object. The use of <code>lapply</code> with lists ensures that we can organize even large amounts of data in this way.</p>
@@ -879,7 +933,7 @@ Try to fully understand the difference between <code>sapply</code> and <code>lap
 </div>
 </div>
 <div id="simpleloops" class="section level2">
-<h2><span class="header-section-number">6.4</span> Loops</h2>
+<h2><span class="header-section-number">7.4</span> Loops</h2>
 <p>Loops can be useful when we need to repeat certain analyses many times, and it is difficult to achieve this with <code>lapply</code> or <code>sapply</code>. To understand how a <code>for</code> loop works, look at this example:</p>
 <pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){
   <span class="kw">message</span>(i)
@@ -896,11 +950,11 @@ myvec &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="k
 <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myvec)){
   <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])
 }</code></pre>
-<pre><code>## Element 1 of the vector is: 0.8</code></pre>
-<pre><code>## Element 2 of the vector is: 0.3</code></pre>
-<pre><code>## Element 3 of the vector is: 0.4</code></pre>
-<pre><code>## Element 4 of the vector is: 0</code></pre>
-<pre><code>## Element 5 of the vector is: 0.2</code></pre>
+<pre><code>## Element 1 of the vector is: 0.4</code></pre>
+<pre><code>## Element 2 of the vector is: 0.6</code></pre>
+<pre><code>## Element 3 of the vector is: 0</code></pre>
+<pre><code>## Element 4 of the vector is: 0.5</code></pre>
+<pre><code>## Element 5 of the vector is: 0.1</code></pre>
 <p>Note that this is only a toy example: the same result can be achieved by simply typing <code>myvec</code>.</p>
 <p>Now let’s look at a useful application of a <code>for</code> loop: producing multiple plots in a <code>pdf</code>, using the <code>allomsp</code> object we created earlier.</p>
 <p>This bit of code produces a <code>pdf</code> in your current working directory. If you can’t find it, recall that you can use <code>getwd</code>() to get the current working directory.</p>
@@ -925,7 +979,89 @@ myvec &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="k
             <span class="dt">main=</span><span class="kw">as.character</span>(lev)))
 }
 <span class="kw">dev.off</span>()</code></pre>
+</div>
+<div id="exercises-4" class="section level2">
+<h2><span class="header-section-number">7.5</span> Exercises</h2>
+<div id="writing-functions" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Writing functions</h3>
+<ol style="list-style-type: decimal">
+<li><p>Write a function that adds two numbers, and divides the result by 2.</p></li>
+<li><p>You learned in Section <a href="dataskills1.html#workingtext">3.7.4</a> that you can take subset of a string using the <code>substr</code> function. First, using that function to extract the first 2 characters of a bit of text. Then, write a function called <code>firstTwoChars</code> that extracts the first two characters of any bit of text.</p></li>
+<li><p>Write a function that checks if there are any missing values in a vector (using <code>is.na</code> and <code>any</code>). The function should return <code>TRUE</code> if there are missing values, and <code>FALSE</code> if not.</p></li>
+<li><p>Improve the function so that it tells you which of the values are missing, if any (<em>Hint:</em>use the <code>which</code> function). You can use <code>message</code> to write messages to the console.</p></li>
+<li><p>The function <code>readline</code> can be used to ask for data to be typed in. First, figure out how to use <code>readline</code> by reading the corresponding help file. Then, construct a function called <code>getAge</code> that asks the user to type his/her age. (<em>Hint:</em> check the examples in the <code>readline</code> help page).</p></li>
+<li><p><strong>Hard</strong>. Look at the calculations for a confidence interval of the mean in the example in Section <a href="linmodel.html#inference">6.4.2</a>. Write a function that returns the confidence interval for a vector. The function should have two inputs: the vector, and the desired ‘alpha’.</p></li>
+<li><p><strong>hard</strong> Recall the functions <code>head</code> and <code>tail</code>. Write a function called <code>middle</code> that shows a few rows around (approx.) the ‘middle’ of the dataset. <em>Hint:</em> use <code>nrow</code>, <code>print</code>, and possibly <code>floor</code>.</p></li>
+</ol>
+</div>
+<div id="working-with-lists" class="section level3">
+<h3><span class="header-section-number">7.5.2</span> Working with lists</h3>
+<p>First read the following list:</p>
+<pre><code>veclist &lt;- list(x=1:5, y=2:6, z=3:7)</code></pre>
+<ol style="list-style-type: decimal">
+<li><p>Using <code>sapply</code>, check that all elements of the list are vectors of the same length. Also calculate the sum of each element.</p></li>
+<li><p>Add an element to the list called ‘norms’ that is a vector of 10 numbers drawn from the standard normal distribution (recall Section <a href="linmodel.html#distributions">6.2</a>).</p></li>
+<li><p>Using the <code>pupae</code> data, use a <span class="math inline">\(t\)</span>-test to find if PupalWeight varies with temperature treatment, separate for the two CO<span class="math inline">\(_2\)</span> treatments (so, do two <span class="math inline">\(t\)</span>-tests). You <strong>must</strong> use <code>split</code> and <code>lapply</code>.</p></li>
+<li><p>For this exercise use the <code>coweeta</code> data - a dataset with measurements of tree size. Split the data by <code>species</code>, to produce a list called <code>coweeta_sp</code>. Keep only those species that have at least 10 observations. (<em>Hint:</em> first count the number of observations per species, save that as a vector, find which are at least 10, and use that to subscript the list.) If you don’t know how to do this last step, skip it and continue to the next item.</p></li>
+<li><p>Using the split Coweeta data, perform a linear regression of <code>log10(biomass)</code> on <code>log10(height)</code>, separately by species. Use <code>lapply</code>.</p></li>
+</ol>
+</div>
+<div id="functions-for-histograms" class="section level3">
+<h3><span class="header-section-number">7.5.3</span> Functions for histograms</h3>
+<p>First run this code to produce two vectors.</p>
+<pre><code>x &lt;- rnorm(100)
+y &lt;- x + rnorm(100)</code></pre>
+<ol style="list-style-type: decimal">
+<li><p>Run a linear regression y = f(x), save the resulting object. Look at the structure of this object, and note the names of the elements. Extract the residuals and make a histogram.</p></li>
+<li><p><strong>Hard</strong>. From the previous question, write a function that takes an <code>lm</code> object as an argument, and plots a histogram of the residuals.</p></li>
+</ol>
+</div>
+<div id="using-functions-to-make-many-plots" class="section level3">
+<h3><span class="header-section-number">7.5.4</span> Using functions to make many plots</h3>
+<ol style="list-style-type: decimal">
+<li><p>Read the cereals data. Create a subset of data where the <code>Manufacturer</code> has at least two observations (use <code>table</code> to find out which you want to keep first). Don’t forget to drop the empty factor level you may have created!</p></li>
+<li><p>Make a single PDF with six plots, with a scatter plot between potassium and fiber for each of the six (or seven?) Manufacturers. (<em>Hint:</em> ook at the template for producing a PDF with multiple pages at the bottom of Section <a href="programming.html#simpleloops">7.4</a>.</p></li>
+</ol>
+</div>
+<div id="monthly-weather-plots" class="section level3">
+<h3><span class="header-section-number">7.5.5</span> Monthly weather plots</h3>
+<ol style="list-style-type: decimal">
+<li><p>For the HFE weather dataset (<code>hfemet2008</code>) that makes a scatter plot between PAR (a measure of light intensity) and VPD (a measure of the dryness of air).</p></li>
+<li><p>Then, split the dataset by month (recall Section <a href="programming.html#dfrlists">7.3.5</a>), and make twelve such scatter plots. Save the result in a single PDF, or on one page with 12 small figures.</p></li>
+</ol>
+<!-- ### The Central limit theorem -->
+<!-- The 'central limit theorem' (CLT) forms the backbone of inferential statistics. This theorem states (informally) that if you draw samples (of *n* units) from a population, the mean of these samples follows a normal distribution. This is true regardless of the underlying distribution you sample from.  -->
+<!-- In this exercise, you will apply a simple simulation study to test the CLT, and to make histograms and quantile-quantile plots.  -->
+<!-- 1. Draw 200 samples of size 10 from a uniform distribution. Use the `runif` function to sample from the uniform distribution, and the `replicate` function to repeat this many times. -->
+<!-- ```{r } -->
+<!-- unisamples <- replicate(200, runif(10)) -->
+<!-- ``` -->
+<!-- 1.  Compute the sample mean for each of the 200 samples in~\ref{ite:draw200}. Use `apply` or `colMeans` to calculate column-wise means of a matrix (note: `replicate` will return a matrix, if used correctly). -->
+<!-- ```{r } -->
+<!-- colMeans(unisamples) -->
+<!-- ``` -->
+<!-- 1.  Draw a histogram of the 200 sample means, using `hist`. Also draw a normal quantile-quantile plot, using `qqnorm`.  -->
+<!-- ```{r } -->
+<!-- hist(colMeans(unisamples)) -->
+<!-- qqnorm(colMeans(unisamples)) -->
+<!-- ``` -->
+<!-- 1.  On the histogram, add a normal curve using the `dnorm` function. Note: to do this, plot the histogram with the argument `freq=FALSE`, so that the histogram draws the probability density, not the frequency.  -->
+<!-- ```{r } -->
+<!-- X <- colMeans(unisamples) -->
+<!-- hist(X, freq=FALSE) -->
+<!-- curve(dnorm(x, mean=mean(X), sd=sd(X)), add=T) -->
+<!-- ``` -->
+<!-- \item \hard Write a function that does all of the above, and call it `PlotCLT`. -->
+<!-- ```{r } -->
+<!-- plotCLT <- function(n1=200, n2=10){ -->
+<!--   unisamples <- replicate(n1, runif(n2)) -->
+<!--   X <- colMeans(unisamples) -->
+<!--   hist(X, freq=FALSE) -->
+<!--   curve(dnorm(x, mean=mean(X), sd=sd(X)), add=T) -->
+<!-- } -->
+<!-- ``` -->
 
+</div>
 </div>
 </div>
             </section>

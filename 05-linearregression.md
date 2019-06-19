@@ -404,7 +404,7 @@ Here, we assumed a normal distribution for the population. You may have been tau
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">Confirm that the $t$-distribution converges to a normal distribution when *n* is large (using `qt` and `qnorm`).</div>\EndKnitrBlock{rmdtry}
 
-### Hypothesis testing
+### Hypothesis testing {#inference}
 
 There may be a reason to ask whether a dataset is consistent with a certain mean. For example, are the pupae weights consistent with a population mean of 0.29? For normal populations, we can use Student's $t$-test, available in R as the `t.test` function. In all following results, we use the `pander` function (from the `pander`) package to make the output short and readable (and in markdown format). For best results, use it in an rmarkdown document (though it works fine otherwise as well). We assume you have loaded these two packages:
 
@@ -448,7 +448,7 @@ t.test(weight, mu=0.29, alternative="greater") %>% pander
 
 Table: One Sample t-test: `weight`
 
-The `t.test` is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot (see Sections sec:hist and sec:diagplots). If the data is not very close to a normal distribution then the `t.test` is often still appropriate, as long as the sample is large.
+The `t.test` is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot. If the data is not very close to a normal distribution then the `t.test` is often still appropriate, as long as the sample is large.
 
 If the data is not normal and the sample size is small, there are a couple of alternatives: transform the data (often a log transform is enough) or use a *nonparametric* test, in this case the Wilcoxon signed rank test. We can use the `wilcox.test` function for the latter, its interface is similar to `t.test` and it tests the hypothesis that the data is symmetric about the hypothesized population mean. For example,
 
@@ -1448,7 +1448,7 @@ visreg(allomquadfit, "diameter", by="species", overlay=TRUE)
 
 
 
-### Which predictors are more important?
+### Which predictors are more important? {#importance}
 
 Frequently we are interested in knowing which of the predictor variables explain more variation in the response variable, in other words are more strongly correlated with the response.
 
@@ -1507,6 +1507,283 @@ The values mean that `weight` explains 21% of the variation, but acceleration on
 `drop1(fit_fuel1)`
 
 Where RSS is the 'residual sum of squares' after dropping the term; higher means the variable is 'more important'.</div>\EndKnitrBlock{rmdtry}
+
+## Exercises
+
+
+
+
+### Probabilities
+
+For this exercise, refer to the tables and examples in Section \@ref(distributions).
+
+
+1.  For a normal random variable $X$ with mean 5.0, and standard deviation 2.0, find the probability that $X$ is less than 3.0.
+
+
+
+2.  Find the probability that $X$ is *greater than* 4.5.
+
+
+
+3.  Find the value $K$ so that $P(X > K) = 0.05$.
+
+
+
+
+4.  When tossing a fair coin 10 times, find the probability of seeing no heads (*Hint:* this is a binomial distribution).
+
+
+
+5.  Find the probability of seeing exactly 5 heads.
+
+
+
+6.  Find the probability of seeing more than 7 heads.
+
+
+
+
+
+
+### Univariate distributions
+
+
+1.  Simulate a sample of 100 random data points from a normal distribution with mean 100 and standard deviation 5, and store the result in a vector called `x`.
+
+
+2.  Plot a histogram and a boxplot of the vector you just created (see Section\@ref(hist)). If you haven't make a boxplot, simply use the `boxplot` function on your vector!
+
+
+
+3.  Calculate the sample mean, standard deviation, median and interquartile range.
+
+
+4.  Using the data above, test the hypothesis that the mean equals 100 (using `t.test`). In science, it is customary (though debatable) to call an effect `significant` if the p-value is smaller than 0.05. Note that here we test whether the true mean is different from 100 - in this case we *know* the true mean since the data were sampled from a normal distribution with mean 100. **Bonus question**: how often do we find a p-value smaller than 0.05 in this example, do you think? (that is, resampling the data from step 1., and then testing).
+
+
+
+5.  Test the hypothesis that mean equals 90. 
+
+
+6.  Repeat the above two tests using a Wilcoxon signed rank test. Compare the p-values with those from the $t$-tests you just did.
+
+
+
+
+
+### More $t$-tests
+
+For this question, use the `pupae` data.
+
+
+1.  Use the `t.test` function to compare `PupalWeight` by `T_treatment`.
+
+
+2.  Repeat above using a Wilcoxon rank sum test. 
+
+```
+## Warning in wilcox.test.default(x = c(0.244, 0.319, 0.221, 0.28, 0.257,
+## 0.333, : cannot compute exact p-value with ties
+```
+
+3.  Run the following code to generate some data:
+
+```
+base <- rnorm(20, 20, 5)
+x <- base + rnorm(20,0,0.5)
+y <- base + rnorm(20,1,0.5)
+```
+
+
+
+
+4.  Using a two-sample t-test compare the means of `x` and `y`, assume that the variance is equal for the two samples.
+
+
+5.  Repeat the above using a paired $t$-test. How has the $p$-value changed? 
+
+
+6.  Which test is most appropriate?
+
+
+
+
+
+### Simple linear regression
+
+Continue with the `pupae` data. Perform a simple linear regression of `Frass` on `PupalWeight`. Produce and inspect the following:
+
+1.  Summary of the model.
+
+
+2.  Diagnostic plots.
+
+
+3.  All of the above for a subset of the data, where `Gender` is 0, and `CO2\_treatment` is 400.
+
+
+
+
+### Quantile Quest
+
+You have already used quantile-quantile (QQ) plots many times, but in this exercise you will get to the bottom of the idea of comparing quantiles of distributions.
+
+As in the previous exercises, we will use the `pupae` data.
+
+
+1.  From the pupae data, extract `PupalWeight` and store it as a vector called 'pupweight'. Make a histogram of this vector (\@ref(hist)), noticing that the distribution seems perhaps quite like the normal distribution.
+
+
+
+2.  When we say 'quite like the normal distribution', we mean that the overall shape seems similar. Now simulate a histogram like the one above, using `rnorm` with the mean and standard deviation of the pupal weights (i.e. `pupweight`), and the same sample size as well. Plot it repeatedly to get an idea of whether the simulated histogram looks similar often enough.
+
+
+
+3.  Of course a visual comparison like that is not good enough, but it is a useful place to start. We can also compare the quantiles as follows. If we calculate the 25% and 75% quantiles of `pupweight`, we are looking for the values below which 25% or 75% of all observations occur. Clearly if two distributions have the same *shape*, their quantiles should be roughly similar. Calculate the 25, 50 and 75% quantiles for `pupweight`, and also calculate them for the normal distribution using `qnorm`. Are they similar?
+
+
+
+
+4.  Now repeat the above exercise, but calculate many quantiles (e.g. from 2.5% to 97.5% with steps of 2.5% or whatever you choose) for both the measured data, and the standard normal distribution. Compare the two with a simple scatter plot, and add a 1:1 line. If you are able to do this, you just made your own QQ-plot (and if not, I suggest you inspect the solutions to this Exercise). *Hint:* use `seq` to make the vector of quantiles, and use it both in `quantile` and `qnorm`. Save the results of both those as vectors, and plot. As a comparison, use `qqPlot(pupweight, distribution="norm")` (`car` package), make sure to plot the normal quantiles on the X-axis.
+
+
+
+
+
+### One-way ANOVA
+
+
+1.  For the `titanic` data, use a one-way ANOVA to compare the average passenger age by passenger class. (Note: by default, `lm` will delete all observations where `Age` is missing.)
+
+
+
+2.  For the Age and Memory data (Section\@ref(agemem}, p. sec:agemem}), make a subset of the `Older` subjects, and conduct a one-way ANOVA to compare words remembered by memory technique.
+
+
+
+
+### Two-way ANOVA
+
+
+1.  Using the pupae dataset, fit a two-way ANOVA to compare `PupalWeight` to `Gender` and `CO2_treatment`. Which main effects are significant? After reading in the pupae data, make sure to convert `Gender` and `CO2_treatment` to a factor first (see Section\@ref(workingfactors)).
+
+
+
+2.  Is there an interaction between `Gender` and `CO2_treatment`?
+
+
+
+3.  Repeat the above using `T_treatment` instead of `CO2_treatment`.
+
+
+
+
+
+
+
+### Regression: the `pulse` dataset {#multregexerc}
+
+The `pulse` data contains measurements of heart rate ("pulse") for individuals before and after running (and some control individuals) - and the individuals' height, weight and age (and other interesting variables). The `Pulse1` variable is the resting heart rate before any treatment, and `Pulse2` the heart rate after the treatment (half the subjects engaged in running). 
+
+1.   Read the data and fit a multiple linear regression of `Pulse1` against `Age`, `Weight` and `Height` (add the variables to the model in that order). Are any terms significant at the 5\% level? What is the R^2^?
+
+
+
+
+2.  Now also include the factor `Exercise` in the regression model (an indicator of whether the subject exercises frequently or not). You will need to first convert `Exercise` to a factor as it is stored numerically in the data. Does adding `Exercise` improve the model?
+
+
+
+
+3.  Using the same  data, fit a model of `Pulse2` as a function of `Pulse1` and `Ran` as main effects only (Note: convert `Ran` to a factor first). Use the `visreg` package to understand the fit.
+
+
+
+
+
+4.  Now add the interaction between `Pulse1` and `Ran`. Is it significant? Also look at the effects plot, how is it different from the model without an interaction?
+
+
+
+
+
+5. Read Section \@ref(importance) on variable importance. Add a new variable to the `pulse` dataset, as the difference between `Pulse2` and `Pulse1` (the change in heartrate after exercise). Now fit a linear regression model with all of these terms: "Height", "Weight", "Age", "Gender", "Smokes", "Alcohol","Exercise","Ran". As expected `Ran` wil be most important, but how do all the other variables rank in importance?
+
+
+
+
+
+
+
+
+### Logistic regression
+
+
+1.  Using the Pulse data once more, build a model to see if `Pulse2` can predict whether people were in the `Ran` group. Make sure that `Ran` is coded as a factor.
+
+
+
+1.  The `visreg` package is very helpful in visualizing the fitted model. For the logistic regression you just fit , run the following code and make sure you understand the output. (This code assumes you called the object `fit6`, if not change `fit6` to the name you used.)
+\begin{verbatim}
+library(visreg)
+visreg(fit6, scale="response")
+\end{verbatim}
+
+
+
+
+
+<!-- ### Generalized linear model (GLM) -->
+
+
+<!-- \item First run the following code to generate some data, -->
+<!-- \begin{verbatim} -->
+<!-- len <- 21 -->
+<!-- x <- seq(0,1,length=len) -->
+<!-- y <- rpois(len,exp(x-0.5)) -->
+<!-- \end{verbatim} -->
+<!-- ```{r echo=FALSE} -->
+<!-- len <- 21 -->
+<!-- x <- seq(0,1,length=len) -->
+<!-- y <- rpois(len,exp(x-0.5)) -->
+<!-- ``` -->
+
+<!-- 1.  Fit a Poisson GLM to model `y` on `x`. Is `x` significant in the model? -->
+<!-- ```{r } -->
+<!-- fit7 <- glm(y ~ x, family=poisson) -->
+<!-- summary(fit7) -->
+<!-- ``` -->
+
+<!-- 1.  Repeat above with a larger sample size (e.g., `len <- 101`). Compare the results. -->
+<!-- ```{r } -->
+<!-- len <-101 -->
+<!-- x <- seq(0, 1, length=len) -->
+<!-- y <- rpois(len, exp(x-0.5)) -->
+
+<!-- fit <-glm(y ~ x, family=poisson) -->
+<!-- summary(fit) -->
+<!-- ``` -->
+
+<!-- 1.  The `memory` data were analysed assuming a normal error distribution in Section\@ref(twoway} and using a Poisson error distribution in Section\@ref(glm}, and each approach resulted in a different outcome for the significance of the interaction term. The participants in the study were asked to remember up to 27 words, not an unlimited number, and some of the participants were remembering close to this upper limit. Therefore, it may make sense to think of the response as consisting of a number of 'successes' and a number of 'failures', as we do in a logistic regression. Use `glm` to model the response using a binomial error distribution. Refer to Section\@ref(tabuldataglm} (p. sec:tabuldataglm}) for a similar example. -->
+
+<!-- ```{r } -->
+<!-- # read in data -->
+<!-- memory <- read.delim('eysenck.txt') -->
+
+<!-- # Fit glm model, with response represented by two columns:  -->
+<!-- # number of words remembered and not remembered, or -->
+<!-- # 'successes' and 'failures'. -->
+<!-- m1 <- glm(cbind(Words, 27-Words) ~ Age * Process, data=memory, family=binomial) -->
+
+<!-- # estimate significance of the main effects -->
+<!-- Anova(m1) -->
+<!-- ``` -->
+
+
+
+
+
 
 
 

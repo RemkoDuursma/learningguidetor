@@ -4,6 +4,8 @@
 
 
 
+<i class="fa fa-file"></i>
+
 ## Installing R and Rstudio {#installingr}
 
 We assume you have installed R and Rstudio. We occasionally give some tips on how to use Rstudio effectively, but since Rstudio is likely to change more quickly than R - we instead suggest you keep an eye on their documentation (link).
@@ -14,13 +16,11 @@ We assume that you have installed both R, and Rstudio. Please visit both website
 
 We strongly recommend you change the following default settings in Rstudio. The default behaviour is to save all your objects to an 'RData' file when you exit, and loads the same objects when you open RStudio. This is very dangerous behaviour, and you **must** turn it off. For now, make sure you go to <kbd>Tools > Global Options...</kbd> and on the <kbd>General</kbd> tab, make sure the settings are like the figure below.
 
-
-\includegraphics[width=0.4\linewidth]{screenshots/neverloadrdata} 
+<img src="screenshots/neverloadrdata.png" width="40%" />
 
 Another feature you may want to turn off is the automatic code completion, which is now a standard feature in RStudio. This is a matter of taste, but we find it handier to use code completion only when requested. If you change the settings as shown in the screenshot below, you can engage code completion by typing part of a function and then pressing `Tab`.
 
-
-\includegraphics[width=0.4\linewidth]{screenshots/rstudionocodecomplete} 
+<img src="screenshots/rstudionocodecomplete.png" width="40%" />
 
 \BeginKnitrBlock{rmdreading}<div class="rmdreading">This text is not a complete or even comprehensive guide to Rstudio - we focus on R. If you want to know more about all the options in the menu's, keyboard shortcuts, and various add-ons and features, [please visit this link](https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE) to get started.</div>\EndKnitrBlock{rmdreading}
 
@@ -232,50 +232,28 @@ cumsum(nums1)  # cumulative sum
 
 There are many more functions you can use directly on vectors. See the table below for a few useful ones.
 
-\begin{table}[t]
 
-\caption{(\#tab:unnamed-chunk-13)A selection of useful built-in functions in R.}
-\centering
-\begin{tabular}{l|l|l}
-\hline
-Function & What it does & Example\\
-\hline
-`length` & Length of the vector & `length(nums1)`\\
-\hline
-`rev` & Reverses the elements of a vector & `rev(nums1)`\\
-\hline
-`sort` & Sorts the elements of a vector & `sort(nums1, decreasing = TRUE)`\\
-\hline
-`order` & The order of elements in a vector & `order(nums1)`\\
-\hline
-`head` & The first few elements of a vector & `head(nums1, 5)`\\
-\hline
-`max` & The maximum value & `max(nums1)`\\
-\hline
-`min` & The minimum value & `min(nums1)`\\
-\hline
-`which.max` & Which element of the vector is the max? & `which.max(nums1)`\\
-\hline
-`which.min` & Which element of the vector is the min? & `which.min(nums1)`\\
-\hline
-`mean` & Computes the average of the vector & `mean(nums1)`\\
-\hline
-`median` & Computers the median & `median(nums1)`\\
-\hline
-`var` & Variance & `var(nums1)`\\
-\hline
-`sd` & Standard deviation & `sd(nums1)`\\
-\hline
-`cumsum` & Cumulative sum (running total) & `cumsum(nums1)`\\
-\hline
-`diff` & Successive difference of a vector & `diff(nums1)`\\
-\hline
-`unique` & Unique values used in the vector & `unique(nums1)`\\
-\hline
-`round` & Rounds numbers to a specified number of decimal points & `round(nums1, 2)`\\
-\hline
-\end{tabular}
-\end{table}
+Table: (\#tab:unnamed-chunk-13)A selection of useful built-in functions in R.
+
+Function      What it does                                             Example                          
+------------  -------------------------------------------------------  ---------------------------------
+`length`      Length of the vector                                     `length(nums1)`                  
+`rev`         Reverses the elements of a vector                        `rev(nums1)`                     
+`sort`        Sorts the elements of a vector                           `sort(nums1, decreasing = TRUE)` 
+`order`       The order of elements in a vector                        `order(nums1)`                   
+`head`        The first few elements of a vector                       `head(nums1, 5)`                 
+`max`         The maximum value                                        `max(nums1)`                     
+`min`         The minimum value                                        `min(nums1)`                     
+`which.max`   Which element of the vector is the max?                  `which.max(nums1)`               
+`which.min`   Which element of the vector is the min?                  `which.min(nums1)`               
+`mean`        Computes the average of the vector                       `mean(nums1)`                    
+`median`      Computers the median                                     `median(nums1)`                  
+`var`         Variance                                                 `var(nums1)`                     
+`sd`          Standard deviation                                       `sd(nums1)`                      
+`cumsum`      Cumulative sum (running total)                           `cumsum(nums1)`                  
+`diff`        Successive difference of a vector                        `diff(nums1)`                    
+`unique`      Unique values used in the vector                         `unique(nums1)`                  
+`round`       Rounds numbers to a specified number of decimal points   `round(nums1, 2)`                
 
 
 

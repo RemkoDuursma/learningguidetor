@@ -68,7 +68,7 @@ mean(unifvec)
 ```
 
 ```
-## [1] 1.38083
+## [1] 1.540123
 ```
 
 ```r
@@ -77,7 +77,7 @@ SEmean(unifvec)
 ```
 
 ```
-## [1] 0.0767329
+## [1] 0.09165783
 ```
 
 
@@ -141,7 +141,7 @@ seandsd(x)
 
 ```
 ##        SE        SD 
-## 0.3553867 3.5538671
+## 0.4024563 4.0245630
 ```
 
 ### Functions without arguments
@@ -981,19 +981,19 @@ for(i in 1:length(myvec)){
 ```
 
 ```
-## Element 2 of the vector is: 0.1
+## Element 2 of the vector is: 0.3
 ```
 
 ```
-## Element 3 of the vector is: 0.1
+## Element 3 of the vector is: 0.6
 ```
 
 ```
-## Element 4 of the vector is: 0.7
+## Element 4 of the vector is: 0.4
 ```
 
 ```
-## Element 5 of the vector is: 0.2
+## Element 5 of the vector is: 0.4
 ```
 
 Note that this is only a toy example: the same result can be achieved by simply typing `myvec`.
@@ -1035,6 +1035,176 @@ for(lev in levels(dataset$species)){
 }
 dev.off()
 ```
+
+
+## Exercises
+
+
+
+### Writing functions
+
+
+1.  Write a function that adds two numbers, and divides the result by 2.
+
+
+
+2.  You learned in Section \@ref(workingtext) that you can take subset of a string using the `substr` function. First, using that function to extract the first 2 characters of a bit of text. Then, write a function called `firstTwoChars` that extracts the first two characters of any bit of text.
+
+
+
+
+3.  Write a function that checks if there are any missing values in a vector (using `is.na` and `any`). The function should return `TRUE` if there are missing values, and `FALSE` if not.
+
+
+
+
+4.  Improve the function so that it tells you which of the values are missing, if any (*Hint:*use the `which` function). You can use `message` to write messages to the console.
+
+
+5.  The function `readline` can be used to ask for data to be typed in. First, figure out how to use `readline` by reading the corresponding help file. Then, construct a function called `getAge` that asks the user to type his/her age. (*Hint:* check the examples in the `readline` help page).
+
+
+
+6. **Hard**. Look at the calculations for a confidence interval of the mean in the example in Section \@ref(inference). Write a function that returns the confidence interval for a vector. The function should have two inputs: the vector, and the desired 'alpha'.
+
+
+
+
+7. **hard** Recall the functions `head` and `tail`. Write a function called `middle` that shows a few rows around (approx.) the 'middle' of the dataset. *Hint:* use `nrow`, `print`, and possibly `floor`.
+
+
+
+
+
+
+### Working with lists
+
+
+First read the following list:
+
+```
+veclist <- list(x=1:5, y=2:6, z=3:7)
+```
+
+
+
+
+
+1.  Using `sapply`, check that all elements of the list are vectors of the same length. Also calculate the sum of each element. 
+
+
+
+2.  Add an element to the list called 'norms' that is a vector of 10 numbers drawn from the standard normal distribution (recall Section \@ref(distributions)).
+
+
+
+3.  Using the `pupae` data, use a $t$-test to find if PupalWeight varies with temperature treatment, separate for the two CO$_2$ treatments (so, do two $t$-tests). You **must** use `split` and `lapply`.
+
+
+
+4.  For this exercise use the `coweeta` data - a dataset with measurements of tree size. Split the data by `species`, to produce a list called `coweeta_sp`. Keep only those species that have at least 10 observations. (*Hint:* first count the number of observations per species, save that as a vector, find which are at least 10, and use that to subscript the list.) If you don't know how to do this last step, skip it and continue to the next item.
+
+
+
+5.  Using the split Coweeta data, perform a linear regression of `log10(biomass)` on `log10(height)`, separately by species. Use `lapply`.
+
+
+
+
+### Functions for histograms
+
+
+First run this code to produce two vectors.
+
+```
+x <- rnorm(100)
+y <- x + rnorm(100)
+```
+
+
+1. Run a linear regression y = f(x), save the resulting object. Look at the structure of this object, and note the names of the elements. Extract the residuals and make a histogram.
+
+
+
+2. **Hard**. From the previous question, write a function that takes an `lm` object as an argument, and plots a histogram of the residuals.
+
+
+
+
+
+
+### Using functions to make many plots
+
+
+
+1.  Read the cereals data. Create a subset of data where the `Manufacturer` has at least two observations (use `table` to find out which you want to keep first). Don't forget to drop the empty factor level you may have created!
+
+
+
+2.  Make a single PDF with six plots, with a scatter plot between potassium and fiber for each of the six (or seven?) Manufacturers. (*Hint:* ook at the template for producing a PDF with multiple pages at the bottom of Section \@ref(simpleloops).
+
+
+
+
+
+
+
+### Monthly weather plots
+
+
+1.  For the HFE weather dataset (`hfemet2008`) that makes a scatter plot between PAR (a measure of light intensity) and VPD (a measure of the dryness of air).
+
+
+
+1.  Then, split the dataset by month (recall Section \@ref(dfrlists)), and make twelve such scatter plots. Save the result in a single PDF, or on one page with 12 small figures.
+
+
+
+
+
+
+<!-- ### The Central limit theorem -->
+
+<!-- The 'central limit theorem' (CLT) forms the backbone of inferential statistics. This theorem states (informally) that if you draw samples (of *n* units) from a population, the mean of these samples follows a normal distribution. This is true regardless of the underlying distribution you sample from.  -->
+
+<!-- In this exercise, you will apply a simple simulation study to test the CLT, and to make histograms and quantile-quantile plots.  -->
+
+
+
+<!-- 1. Draw 200 samples of size 10 from a uniform distribution. Use the `runif` function to sample from the uniform distribution, and the `replicate` function to repeat this many times. -->
+<!-- ```{r } -->
+<!-- unisamples <- replicate(200, runif(10)) -->
+<!-- ``` -->
+
+<!-- 1.  Compute the sample mean for each of the 200 samples in~\ref{ite:draw200}. Use `apply` or `colMeans` to calculate column-wise means of a matrix (note: `replicate` will return a matrix, if used correctly). -->
+<!-- ```{r } -->
+<!-- colMeans(unisamples) -->
+<!-- ``` -->
+
+<!-- 1.  Draw a histogram of the 200 sample means, using `hist`. Also draw a normal quantile-quantile plot, using `qqnorm`.  -->
+<!-- ```{r } -->
+<!-- hist(colMeans(unisamples)) -->
+<!-- qqnorm(colMeans(unisamples)) -->
+<!-- ``` -->
+
+
+<!-- 1.  On the histogram, add a normal curve using the `dnorm` function. Note: to do this, plot the histogram with the argument `freq=FALSE`, so that the histogram draws the probability density, not the frequency.  -->
+<!-- ```{r } -->
+<!-- X <- colMeans(unisamples) -->
+<!-- hist(X, freq=FALSE) -->
+<!-- curve(dnorm(x, mean=mean(X), sd=sd(X)), add=T) -->
+<!-- ``` -->
+
+<!-- \item \hard Write a function that does all of the above, and call it `PlotCLT`. -->
+<!-- ```{r } -->
+<!-- plotCLT <- function(n1=200, n2=10){ -->
+<!--   unisamples <- replicate(n1, runif(n2)) -->
+<!--   X <- colMeans(unisamples) -->
+<!--   hist(X, freq=FALSE) -->
+<!--   curve(dnorm(x, mean=mean(X), sd=sd(X)), add=T) -->
+<!-- } -->
+<!-- ``` -->
+
 
 
 
