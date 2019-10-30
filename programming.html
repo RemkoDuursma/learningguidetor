@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 7 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 7 Functions, lists and loops | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-19" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="linmodel.html">
-<link rel="next" href="webservices.html">
+<link rel="prev" href="linmodel.html"/>
+<link rel="next" href="webservices.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -138,40 +140,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>2.4</b> Writing code in a script</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
-<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
-<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.6</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.7</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.8</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.9</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.10.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.10.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.10.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.10.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.10.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.10.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.10.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.10.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.10.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.10.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.11</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.12.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.12.2</b> Using R scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
-<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
-<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
-<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
-<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
-<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
-<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
-<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
-<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
-<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.13.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.13.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.13.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.13.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.13.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.13.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.13.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.13.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.13.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.13.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.13.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.13.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.13.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.13.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.13.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.13.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.13.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.13.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.13.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
@@ -259,12 +262,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
-<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#resources"><i class="fa fa-check"></i><b>5.2.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
-<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#preparing-the-data-for-plotting"><i class="fa fa-check"></i><b>5.3.1</b> Preparing the data for plotting</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#scatterplot-example"><i class="fa fa-check"></i><b>5.3.2</b> Scatterplot example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#area-plot-example"><i class="fa fa-check"></i><b>5.3.3</b> Area plot example</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reporting.html"><a href="reporting.html#barplot-example"><i class="fa fa-check"></i><b>5.3.4</b> Barplot example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="reporting.html"><a href="reporting.html#ggplotresources"><i class="fa fa-check"></i><b>5.3.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.4</b> Making reports</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.4.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.4.2</b> Tips</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.4.3</b> Resources</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
@@ -340,6 +350,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>9</b> Version control with git</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>9.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>9.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>9.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>9.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="9.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>9.2.3</b> Using git in Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>9.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>9.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>9.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="9.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-few-hints"><i class="fa fa-check"></i><b>9.3.3</b> A few hints</a></li>
+<li class="chapter" data-level="9.3.4" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>9.3.4</b> Reverting changes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>9.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>9.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="9.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>9.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="9.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>9.4.3</b> A session with a remote repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>9.5</b> Using the command line</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>9.5.1</b> Basic commands</a></li>
+<li class="chapter" data-level="9.5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>9.5.2</b> Useful tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>10</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="10.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>10.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="10.2" data-path="projectman.html"><a href="projectman.html#set-up-a-project-in-rstudio"><i class="fa fa-check"></i><b>10.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="10.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>10.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>10.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>10.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="10.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>10.3.3</b> <code>output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>10.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>10.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="10.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>10.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>10.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="10.4.4" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>10.4.4</b> <code>facesoil_readdata.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>10.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>10.5.1</b> Adding a Date stamp to output files</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -374,34 +425,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <h2><span class="header-section-number">7.2</span> Writing simple functions</h2>
 <p>We have already used many built-in functions throughout this tutorial, but you can become very efficient at complex data tasks when you write your own simple functions. Writing your own functions can help with tasks that are carried out many times, which would otherwise result in a lot of code.</p>
 <p>For example, suppose you frequently convert units from pounds to kilograms. It would be useful to have a function that does this, so you don’t have to type the conversion factor every time. This is also good practice, as it reduces the probability of making typos.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function takes a &#39;weight&#39; argument and multiplies it with some number </span>
-<span class="co"># to return kilograms.</span>
-poundsToKg &lt;-<span class="st"> </span><span class="cf">function</span>(weight){
-  weight <span class="op">*</span><span class="st"> </span><span class="fl">0.453592</span>
-}</code></pre>
+<div class="sourceCode" id="cb688"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb688-1" title="1"><span class="co"># This function takes a &#39;weight&#39; argument and multiplies it with some number </span></a>
+<a class="sourceLine" id="cb688-2" title="2"><span class="co"># to return kilograms.</span></a>
+<a class="sourceLine" id="cb688-3" title="3">poundsToKg &lt;-<span class="st"> </span><span class="cf">function</span>(weight){</a>
+<a class="sourceLine" id="cb688-4" title="4">  weight <span class="op">*</span><span class="st"> </span><span class="fl">0.453592</span></a>
+<a class="sourceLine" id="cb688-5" title="5">}</a></code></pre></div>
 <p>We can use this <code>function</code> just like any other in R, for example, let’s convert ‘weight’ to kilograms in the weightloss data.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
-<span class="kw">library</span>(lgrdata)
-<span class="kw">data</span>(weightloss)
-
-<span class="co"># Convert weight to kg.</span>
-weightloss<span class="op">$</span>Weight &lt;-<span class="st"> </span><span class="kw">poundsToKg</span>(weightloss<span class="op">$</span>Weight)</code></pre>
+<div class="sourceCode" id="cb689"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb689-1" title="1"><span class="co"># Read data</span></a>
+<a class="sourceLine" id="cb689-2" title="2"><span class="kw">library</span>(lgrdata)</a>
+<a class="sourceLine" id="cb689-3" title="3"><span class="kw">data</span>(weightloss)</a>
+<a class="sourceLine" id="cb689-4" title="4"></a>
+<a class="sourceLine" id="cb689-5" title="5"><span class="co"># Convert weight to kg.</span></a>
+<a class="sourceLine" id="cb689-6" title="6">weightloss<span class="op">$</span>Weight &lt;-<span class="st"> </span><span class="kw">poundsToKg</span>(weightloss<span class="op">$</span>Weight)</a></code></pre></div>
 <p>Let’s write a function for the standard error of the mean, a function that is not built-in in R.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Compute the standard error of the mean for a vector</span>
-SEmean &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  se &lt;-<span class="st"> </span><span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))
-  <span class="kw">return</span>(se)
-}</code></pre>
+<div class="sourceCode" id="cb690"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb690-1" title="1"><span class="co"># Compute the standard error of the mean for a vector</span></a>
+<a class="sourceLine" id="cb690-2" title="2">SEmean &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb690-3" title="3">  se &lt;-<span class="st"> </span><span class="kw">sd</span>(x) <span class="op">/</span><span class="st"> </span><span class="kw">sqrt</span>(<span class="kw">length</span>(x))</a>
+<a class="sourceLine" id="cb690-4" title="4">  <span class="kw">return</span>(se)</a>
+<a class="sourceLine" id="cb690-5" title="5">}</a></code></pre></div>
 <p>Here, the <code>function</code> SEmean takes one ‘argument’ called <code>x</code> (i.e., input), which is a numeric vector. The standard error for the mean is calculated in the first line, and stored in an object called <code>se</code>, which is then returned as output. We can now use the function on a numeric vector like this:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A numeric vector</span>
-unifvec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">1</span>,<span class="dv">2</span>)
-
-<span class="co"># The sample mean</span>
-<span class="kw">mean</span>(unifvec)</code></pre>
-<pre><code>## [1] 1.568583</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard error for the mean</span>
-<span class="kw">SEmean</span>(unifvec)</code></pre>
-<pre><code>## [1] 0.06819358</code></pre>
+<div class="sourceCode" id="cb691"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb691-1" title="1"><span class="co"># A numeric vector</span></a>
+<a class="sourceLine" id="cb691-2" title="2">unifvec &lt;-<span class="st"> </span><span class="kw">runif</span>(<span class="dv">10</span>, <span class="dv">1</span>,<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb691-3" title="3"></a>
+<a class="sourceLine" id="cb691-4" title="4"><span class="co"># The sample mean</span></a>
+<a class="sourceLine" id="cb691-5" title="5"><span class="kw">mean</span>(unifvec)</a></code></pre></div>
+<pre><code>## [1] 1.549763</code></pre>
+<div class="sourceCode" id="cb693"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb693-1" title="1"><span class="co"># Standard error for the mean</span></a>
+<a class="sourceLine" id="cb693-2" title="2"><span class="kw">SEmean</span>(unifvec)</a></code></pre></div>
+<pre><code>## [1] 0.09274072</code></pre>
 
 <div class="rmdtry">
 You can use functions that you defined yourself just like any other function, for example in <code>summaryBy</code>. First read in the <code>SEmean</code> function defined in the example above, and then use the cereal data to calculate the mean and SE of <code>rating</code> by <code>Manufacturer</code> (or use data of your choosing).
@@ -410,70 +461,70 @@ You can use functions that you defined yourself just like any other function, fo
 <div id="functions-with-many-arguments" class="section level3">
 <h3><span class="header-section-number">7.2.1</span> Functions with many arguments</h3>
 <p>Functions can also have multiple arguments. The following very simple function takes two numbers, and finds the absolute difference between them, using <code>abs</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Define function</span>
-absDiff &lt;-<span class="st"> </span><span class="cf">function</span>(num1,num2)<span class="kw">abs</span>(num1 <span class="op">-</span><span class="st"> </span>num2)
-
-<span class="co"># Test it with two numbers:</span>
-<span class="kw">absDiff</span>(<span class="dv">5</span>,<span class="dv">1</span>)</code></pre>
+<div class="sourceCode" id="cb695"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb695-1" title="1"><span class="co"># Define function</span></a>
+<a class="sourceLine" id="cb695-2" title="2">absDiff &lt;-<span class="st"> </span><span class="cf">function</span>(num1,num2)<span class="kw">abs</span>(num1 <span class="op">-</span><span class="st"> </span>num2)</a>
+<a class="sourceLine" id="cb695-3" title="3"></a>
+<a class="sourceLine" id="cb695-4" title="4"><span class="co"># Test it with two numbers:</span></a>
+<a class="sourceLine" id="cb695-5" title="5"><span class="kw">absDiff</span>(<span class="dv">5</span>,<span class="dv">1</span>)</a></code></pre></div>
 <pre><code>## [1] 4</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># As in many functions in R, you can also give multiple values</span>
-<span class="co"># as an argument.</span>
-<span class="co"># The following returns the absolute difference between </span>
-<span class="co"># 1 and 3, then 5 and 6, and 9 and 0 (in that order).</span>
-<span class="kw">absDiff</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">0</span>))</code></pre>
+<div class="sourceCode" id="cb697"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb697-1" title="1"><span class="co"># As in many functions in R, you can also give multiple values</span></a>
+<a class="sourceLine" id="cb697-2" title="2"><span class="co"># as an argument.</span></a>
+<a class="sourceLine" id="cb697-3" title="3"><span class="co"># The following returns the absolute difference between </span></a>
+<a class="sourceLine" id="cb697-4" title="4"><span class="co"># 1 and 3, then 5 and 6, and 9 and 0 (in that order).</span></a>
+<a class="sourceLine" id="cb697-5" title="5"><span class="kw">absDiff</span>(<span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">5</span>,<span class="dv">9</span>), <span class="kw">c</span>(<span class="dv">3</span>,<span class="dv">6</span>,<span class="dv">0</span>))</a></code></pre></div>
 <pre><code>## [1] 2 1 9</code></pre>
 </div>
 <div id="functions-can-return-many-results" class="section level3">
 <h3><span class="header-section-number">7.2.2</span> Functions can return many results</h3>
 <p>What if a function should return not just one result, as in the examples above, but many results?</p>
 <p>For example, this function computes the standard deviation and standard error of a vector, and returns both stored in a vector. Note that we also use the <code>SEmean</code> function, which we defined above.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># An function that computes the SE and SD of a vector</span>
-seandsd &lt;-<span class="st"> </span><span class="cf">function</span>(x){
-  
-  seresult &lt;-<span class="st"> </span><span class="kw">SEmean</span>(x)
-  sdresult &lt;-<span class="st"> </span><span class="kw">sd</span>(x)
-
-  <span class="co"># Store results in a vector with names</span>
-  vec &lt;-<span class="st"> </span><span class="kw">c</span>(seresult, sdresult)
-  <span class="kw">names</span>(vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SE&quot;</span>,<span class="st">&quot;SD&quot;</span>)
-
-<span class="kw">return</span>(vec)
-}
-
-<span class="co"># Test it:</span>
-x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)
-<span class="kw">seandsd</span>(x)</code></pre>
+<div class="sourceCode" id="cb699"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb699-1" title="1"><span class="co"># An function that computes the SE and SD of a vector</span></a>
+<a class="sourceLine" id="cb699-2" title="2">seandsd &lt;-<span class="st"> </span><span class="cf">function</span>(x){</a>
+<a class="sourceLine" id="cb699-3" title="3">  </a>
+<a class="sourceLine" id="cb699-4" title="4">  seresult &lt;-<span class="st"> </span><span class="kw">SEmean</span>(x)</a>
+<a class="sourceLine" id="cb699-5" title="5">  sdresult &lt;-<span class="st"> </span><span class="kw">sd</span>(x)</a>
+<a class="sourceLine" id="cb699-6" title="6"></a>
+<a class="sourceLine" id="cb699-7" title="7">  <span class="co"># Store results in a vector with names</span></a>
+<a class="sourceLine" id="cb699-8" title="8">  vec &lt;-<span class="st"> </span><span class="kw">c</span>(seresult, sdresult)</a>
+<a class="sourceLine" id="cb699-9" title="9">  <span class="kw">names</span>(vec) &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;SE&quot;</span>,<span class="st">&quot;SD&quot;</span>)</a>
+<a class="sourceLine" id="cb699-10" title="10"></a>
+<a class="sourceLine" id="cb699-11" title="11"><span class="kw">return</span>(vec)</a>
+<a class="sourceLine" id="cb699-12" title="12">}</a>
+<a class="sourceLine" id="cb699-13" title="13"></a>
+<a class="sourceLine" id="cb699-14" title="14"><span class="co"># Test it:</span></a>
+<a class="sourceLine" id="cb699-15" title="15">x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)</a>
+<a class="sourceLine" id="cb699-16" title="16"><span class="kw">seandsd</span>(x)</a></code></pre></div>
 <pre><code>##        SE        SD 
-## 0.3905827 3.9058267</code></pre>
+## 0.3573251 3.5732505</code></pre>
 </div>
 <div id="functions-without-arguments" class="section level3">
 <h3><span class="header-section-number">7.2.3</span> Functions without arguments</h3>
 <p>Sometimes, a function takes no arguments (input) at all. Consider this very helpful example.</p>
-<pre class="sourceCode r"><code class="sourceCode r">sayhello &lt;-<span class="st"> </span><span class="cf">function</span>()<span class="kw">message</span>(<span class="st">&quot;Hello!&quot;</span>)
-
-<span class="kw">sayhello</span>()</code></pre>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb701-1" title="1">sayhello &lt;-<span class="st"> </span><span class="cf">function</span>()<span class="kw">message</span>(<span class="st">&quot;Hello!&quot;</span>)</a>
+<a class="sourceLine" id="cb701-2" title="2"></a>
+<a class="sourceLine" id="cb701-3" title="3"><span class="kw">sayhello</span>()</a></code></pre></div>
 <pre><code>## Hello!</code></pre>
 <p>We will return to defining our own functions when we look at applying functions many times to sections of a dataframe (Section <a href="programming.html#lapply">7.3.6</a>).</p>
 </div>
 <div id="wrapfunctions" class="section level3">
 <h3><span class="header-section-number">7.2.4</span> Wrapper functions</h3>
 <p>We often need to write simple functions that adjust one or two arguments to other functions. For example, suppose we often make plots with filled circles, with our favorit color (“dimgrey”) :</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)
-<span class="kw">data</span>(howell)
-<span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb703-1" title="1"><span class="kw">library</span>(lgrdata)</a>
+<a class="sourceLine" id="cb703-2" title="2"><span class="kw">data</span>(howell)</a>
+<a class="sourceLine" id="cb703-3" title="3"><span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)</a></code></pre></div>
 <p>We could of course <em>always</em> specify these arguments, or we can write a function that sets those defaults. It would look like the following, except this function is incomplete, since we have <em>hardcoded</em> the other plotting arguments (the dataset, and the x and y variables):</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This function is not how we want it yet!</span>
-plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(){
-  <span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
-}</code></pre>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb704-1" title="1"><span class="co"># This function is not how we want it yet!</span></a>
+<a class="sourceLine" id="cb704-2" title="2">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(){</a>
+<a class="sourceLine" id="cb704-3" title="3">  <span class="kw">plot</span>(age, height, <span class="dt">data=</span>howell, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)</a>
+<a class="sourceLine" id="cb704-4" title="4">}</a></code></pre></div>
 <p>We would like to be able to call the function via <code>plot_filled_grey(age, height, data=howell)</code>, in other words all arguments to our <em>wrapper function</em> should be passed to the underlying function. We have a very handy utility in R to do this, the three dots (<code>...</code>) :</p>
-<pre class="sourceCode r"><code class="sourceCode r">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(...){
-  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)
-}</code></pre>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb705-1" title="1">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(...){</a>
+<a class="sourceLine" id="cb705-2" title="2">  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>)</a>
+<a class="sourceLine" id="cb705-3" title="3">}</a></code></pre></div>
 <p>The function now works as intended. It can be further improved if we realize that the plotting color cannot be changed - it is always “dimgrey”. We want the <em>default</em> value to be “dimgrey”, but with an option to change it. This can be achieved like so,</p>
-<pre class="sourceCode r"><code class="sourceCode r">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>){
-  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span>col)
-}</code></pre>
+<div class="sourceCode" id="cb706"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb706-1" title="1">plot_filled_grey &lt;-<span class="st"> </span><span class="cf">function</span>(..., <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>){</a>
+<a class="sourceLine" id="cb706-2" title="2">  <span class="kw">plot</span>(..., <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span>col)</a>
+<a class="sourceLine" id="cb706-3" title="3">}</a></code></pre></div>
 <p>Here, <code>col=col</code> sets the color in the call to <code>plot</code> with the default value specified in the wrapper function (“dimgrey”), but the user can also change it as usual.</p>
 
 <div class="rmdtry">
@@ -484,43 +535,43 @@ Take the <code>plot_filled_grey</code> function above, test it on some data, and
 <div id="wrapper-functions-to-ggplot2-or-dplyr" class="section level3">
 <h3><span class="header-section-number">7.2.5</span> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></h3>
 <p>In the previous section we saw how to write wrapper functions, functions that change a few arguments to some other function. These sort of functions are very helpful because we can save a lot of space by reusing a certain template. Suppose we want to make a plot with <code>ggplot2</code>, a scatter plot with a loess smoother line. We can achieve this via (result not shown),</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(howell)
-<span class="kw">library</span>(ggplot2)
-
-<span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> height)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">span =</span> <span class="fl">0.7</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb707"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb707-1" title="1"><span class="kw">data</span>(howell)</a>
+<a class="sourceLine" id="cb707-2" title="2"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb707-3" title="3"></a>
+<a class="sourceLine" id="cb707-4" title="4"><span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> weight, <span class="dt">y =</span> height)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb707-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb707-6" title="6"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, <span class="dt">span =</span> <span class="fl">0.7</span>, <span class="dt">col=</span><span class="st">&quot;black&quot;</span>)</a></code></pre></div>
 <p>We already used quite a bit of code for this simple plot, but imagine you have set various other options, formatting changes, axis limits and so on - you end up with a lot of code for one plot. If we want to reuse the code for another plot, for two other variables from the same dataframe, copy-pasting the code and modifying leads to even more code. Writing wrapper functions for <code>ggplot2</code> (or <code>dplyr</code>, see below, or many other cases) is more difficult because the arguments in the <code>ggplot2</code> code we want to change (height and weight) <em>are not quoted</em> - they are variables inside a dataframe (<code>howell</code> in our case). We avoid a more technical explanation of this problem, but simply present a solution with the <code>wrapr</code> package.</p>
 <p>Using <code>let</code> from <code>wrapr</code>, we can turn our unquoted variables into quoted ones, like so:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(wrapr)
-
-<span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> <span class="st">&quot;weight&quot;</span>, <span class="dt">yvar =</span> <span class="st">&quot;height&quot;</span>), {
-  <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
-})</code></pre>
+<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb708-1" title="1"><span class="kw">library</span>(wrapr)</a>
+<a class="sourceLine" id="cb708-2" title="2"></a>
+<a class="sourceLine" id="cb708-3" title="3"><span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> <span class="st">&quot;weight&quot;</span>, <span class="dt">yvar =</span> <span class="st">&quot;height&quot;</span>), {</a>
+<a class="sourceLine" id="cb708-4" title="4">  <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb708-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)</a>
+<a class="sourceLine" id="cb708-6" title="6">})</a></code></pre></div>
 <p>The point of placing our plotting code inside <code>let</code> is that we can now write our simple wrapper function like before:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Make a scatter plot with the howell data.</span>
-plot_scatter_howell &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol){
-  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {
-    <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
-  })
-}
-
-<span class="co"># The function can be used with quoted names:</span>
-<span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb709"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb709-1" title="1"><span class="co"># Make a scatter plot with the howell data.</span></a>
+<a class="sourceLine" id="cb709-2" title="2">plot_scatter_howell &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol){</a>
+<a class="sourceLine" id="cb709-3" title="3">  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {</a>
+<a class="sourceLine" id="cb709-4" title="4">    <span class="kw">ggplot</span>(howell, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb709-5" title="5"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)</a>
+<a class="sourceLine" id="cb709-6" title="6">  })</a>
+<a class="sourceLine" id="cb709-7" title="7">}</a>
+<a class="sourceLine" id="cb709-8" title="8"></a>
+<a class="sourceLine" id="cb709-9" title="9"><span class="co"># The function can be used with quoted names:</span></a>
+<a class="sourceLine" id="cb709-10" title="10"><span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>)</a></code></pre></div>
 <p>It is important to understand that, in this example, <code>let</code> is used <em>only to turn character arguments into unquoted names</em>, in this case “height” turns into <code>height</code> for use in <code>ggplot</code>, and so on. We cannot pass <code>height</code> and <code>weight</code> as unquoted names, because R would look for those objects directly (from the ‘global environment’), rather than as variables in the <code>howell</code> dataset.</p>
 <p>To also pass the dataset as an argument (making the function more general), we do not have to use <code>let</code>, but can immediately set it as an argument (because it is available in the global environment).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Our function now also takes a dataset as an argument</span>
-plot_scatter &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol, dataset){
-  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {
-    <span class="kw">ggplot</span>(dataset, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span>
-<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)
-  })
-}
-
-<span class="co"># We can use it as,</span>
-<span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>, howell)</code></pre>
+<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb710-1" title="1"><span class="co"># Our function now also takes a dataset as an argument</span></a>
+<a class="sourceLine" id="cb710-2" title="2">plot_scatter &lt;-<span class="st"> </span><span class="cf">function</span>(xcol, ycol, dataset){</a>
+<a class="sourceLine" id="cb710-3" title="3">  <span class="kw">let</span>(<span class="kw">c</span>(<span class="dt">xvar =</span> xcol, <span class="dt">yvar =</span> ycol), {</a>
+<a class="sourceLine" id="cb710-4" title="4">    <span class="kw">ggplot</span>(dataset, <span class="kw">aes</span>(<span class="dt">x =</span> xvar, <span class="dt">y =</span> yvar)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb710-5" title="5"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">size =</span> <span class="fl">0.8</span>, <span class="dt">col =</span> <span class="st">&quot;dimgrey&quot;</span>)</a>
+<a class="sourceLine" id="cb710-6" title="6">  })</a>
+<a class="sourceLine" id="cb710-7" title="7">}</a>
+<a class="sourceLine" id="cb710-8" title="8"></a>
+<a class="sourceLine" id="cb710-9" title="9"><span class="co"># We can use it as,</span></a>
+<a class="sourceLine" id="cb710-10" title="10"><span class="kw">plot_scatter</span>(<span class="st">&quot;height&quot;</span>, <span class="st">&quot;weight&quot;</span>, howell)</a></code></pre></div>
 </div>
 </div>
 <div id="workinglists" class="section level2">
@@ -528,36 +579,36 @@ plot_scatter &lt;-<span class="st"> </span><span class="cf">function</span>(xcol
 <p>Sofar, we have worked a lot with vectors, with are basically strings of numbers or bits of text. In a vector, each element has to be of the same data type. Lists are a more general and powerful type of vector, where each element of the <code>list</code> can be anything at all. This way, lists are a very flexible type of object to store a lot of information that may be in different formats.</p>
 <p>Lists can be somewhat daunting for the beginning <code>R</code> user, which is why most introductory texts and tutorials skip them altogether. However, with some practice, lists can be mastered from the start. Mastering a few basic skills with lists can really help increase your efficiency in dealing with more complex data analysis tasks.</p>
 <p>To make a list from scratch, you simply use the <code>list</code> function. Here is a list that contains a numeric vector, a character vector, and a dataframe:</p>
-<pre class="sourceCode r"><code class="sourceCode r">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">txt=</span><span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>), <span class="dt">dfr=</span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)))</code></pre>
+<div class="sourceCode" id="cb711"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb711-1" title="1">mylist &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">10</span>, <span class="dt">txt=</span><span class="kw">c</span>(<span class="st">&quot;hello&quot;</span>,<span class="st">&quot;world&quot;</span>), <span class="dt">dfr=</span><span class="kw">data.frame</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>),<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>)))</a></code></pre></div>
 <div id="indexing-lists" class="section level3">
 <h3><span class="header-section-number">7.3.1</span> Indexing lists</h3>
 <p>To extract an element from this list, you may do this by its name (‘a’,‘txt’ or ‘dfr’ in this case), or by the element number (1,2,3). For lists, we use a double square bracket for indexing. Consider these examples,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the dataframe:</span>
-mylist[[<span class="st">&quot;dfr&quot;</span>]]</code></pre>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb712-1" title="1"><span class="co"># Extract the dataframe:</span></a>
+<a class="sourceLine" id="cb712-2" title="2">mylist[[<span class="st">&quot;dfr&quot;</span>]]</a></code></pre></div>
 <pre><code>##   x y
 ## 1 2 5
 ## 2 3 6
 ## 3 4 7</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Is the same as:</span>
-mylist<span class="op">$</span>dfr</code></pre>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb714-1" title="1"><span class="co"># Is the same as:</span></a>
+<a class="sourceLine" id="cb714-2" title="2">mylist<span class="op">$</span>dfr</a></code></pre></div>
 <pre><code>##   x y
 ## 1 2 5
 ## 2 3 6
 ## 3 4 7</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the first element:</span>
-mylist[[<span class="dv">1</span>]]</code></pre>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb716-1" title="1"><span class="co"># Extract the first element:</span></a>
+<a class="sourceLine" id="cb716-2" title="2">mylist[[<span class="dv">1</span>]]</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 <p>Note that in these examples, the contents of the elements of the list are returned (for ‘dfr’, a dataframe), but the result itself is not a list anymore. If we select multiple elements, the result should still be a list. To do this, use the single square bracket.</p>
 <p>Look at these examples:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the &#39;a&#39; vector, result is a vector:</span>
-mylist[[<span class="st">&#39;a&#39;</span>]]</code></pre>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb718-1" title="1"><span class="co"># Extract the &#39;a&#39; vector, result is a vector:</span></a>
+<a class="sourceLine" id="cb718-2" title="2">mylist[[<span class="st">&#39;a&#39;</span>]]</a></code></pre></div>
 <pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract the &#39;a&#39; vector, result is a list:</span>
-mylist[<span class="st">&#39;a&#39;</span>]</code></pre>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb720-1" title="1"><span class="co"># Extract the &#39;a&#39; vector, result is a list:</span></a>
+<a class="sourceLine" id="cb720-2" title="2">mylist[<span class="st">&#39;a&#39;</span>]</a></code></pre></div>
 <pre><code>## $a
 ##  [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extract multiple elements (result is still a list):</span>
-mylist[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</code></pre>
+<div class="sourceCode" id="cb722"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb722-1" title="1"><span class="co"># Extract multiple elements (result is still a list):</span></a>
+<a class="sourceLine" id="cb722-2" title="2">mylist[<span class="dv">2</span><span class="op">:</span><span class="dv">3</span>]</a></code></pre></div>
 <pre><code>## $txt
 ## [1] &quot;hello&quot; &quot;world&quot;
 ## 
@@ -571,9 +622,9 @@ mylist[<span class="dv">2</span><span class="op">:</span><span class="dv">3</spa
 <h3><span class="header-section-number">7.3.2</span> Converting lists to dataframes or vectors</h3>
 <p>Although lists are the most flexible way to store data and other objects in larger, more complex, analyses, ultimately you would prefer to output as a dataframe or vector.</p>
 <p>Let’s look at some examples using <code>do.call(rbind,...)</code> and <code>unlist</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A list of dataframes:</span>
-dfrlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">data1=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">data2=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,<span class="dt">b=</span><span class="dv">15</span><span class="op">:</span><span class="dv">17</span>))
-dfrlis</code></pre>
+<div class="sourceCode" id="cb724"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb724-1" title="1"><span class="co"># A list of dataframes:</span></a>
+<a class="sourceLine" id="cb724-2" title="2">dfrlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">data1=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>,<span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>), <span class="dt">data2=</span><span class="kw">data.frame</span>(<span class="dt">a=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>,<span class="dt">b=</span><span class="dv">15</span><span class="op">:</span><span class="dv">17</span>))</a>
+<a class="sourceLine" id="cb724-3" title="3">dfrlis</a></code></pre></div>
 <pre><code>## $data1
 ##   a b
 ## 1 1 2
@@ -585,9 +636,9 @@ dfrlis</code></pre>
 ## 1  9 15
 ## 2 10 16
 ## 3 11 17</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Since both dataframes in the list have the same number of columns and names, </span>
-<span class="co"># we can &#39;successively row-bind&#39; the list like this:</span>
-<span class="kw">do.call</span>(rbind, dfrlis)</code></pre>
+<div class="sourceCode" id="cb726"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb726-1" title="1"><span class="co"># Since both dataframes in the list have the same number of columns and names, </span></a>
+<a class="sourceLine" id="cb726-2" title="2"><span class="co"># we can &#39;successively row-bind&#39; the list like this:</span></a>
+<a class="sourceLine" id="cb726-3" title="3"><span class="kw">do.call</span>(rbind, dfrlis)</a></code></pre></div>
 <pre><code>##          a  b
 ## data1.1  1  2
 ## data1.2  2  3
@@ -595,12 +646,12 @@ dfrlis</code></pre>
 ## data2.1  9 15
 ## data2.2 10 16
 ## data2.3 11 17</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A list of vectors:</span>
-veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)
-
-<span class="co"># In this case, we can use the &#39;unlist&#39; function, which will </span>
-<span class="co"># successively combine the three vectors into one:</span>
-<span class="kw">unlist</span>(veclis)</code></pre>
+<div class="sourceCode" id="cb728"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb728-1" title="1"><span class="co"># A list of vectors:</span></a>
+<a class="sourceLine" id="cb728-2" title="2">veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb728-3" title="3"></a>
+<a class="sourceLine" id="cb728-4" title="4"><span class="co"># In this case, we can use the &#39;unlist&#39; function, which will </span></a>
+<a class="sourceLine" id="cb728-5" title="5"><span class="co"># successively combine the three vectors into one:</span></a>
+<a class="sourceLine" id="cb728-6" title="6"><span class="kw">unlist</span>(veclis)</a></code></pre></div>
 <pre><code>## a1 a2 a3 b1 b2 b3 f1 f2 f3 
 ##  1  2  3  2  3  4  9 10 11</code></pre>
 <p>In real-world applications, some trial-and-error will be necessary to convert lists to more pretty formats.</p>
@@ -608,9 +659,9 @@ veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="d
 <div id="combining-lists" class="section level3">
 <h3><span class="header-section-number">7.3.3</span> Combining lists</h3>
 <p>Combining two lists can be achieved using <code>c()</code>, like this:</p>
-<pre class="sourceCode r"><code class="sourceCode r">veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)
-qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">q=</span><span class="dv">17</span><span class="op">:</span><span class="dv">15</span>)
-<span class="kw">c</span>(veclis,qlis)</code></pre>
+<div class="sourceCode" id="cb730"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb730-1" title="1">veclis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">a=</span><span class="dv">1</span><span class="op">:</span><span class="dv">3</span>, <span class="dt">b=</span><span class="dv">2</span><span class="op">:</span><span class="dv">4</span>, <span class="dt">f=</span><span class="dv">9</span><span class="op">:</span><span class="dv">11</span>)</a>
+<a class="sourceLine" id="cb730-2" title="2">qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">q=</span><span class="dv">17</span><span class="op">:</span><span class="dv">15</span>)</a>
+<a class="sourceLine" id="cb730-3" title="3"><span class="kw">c</span>(veclis,qlis)</a></code></pre></div>
 <pre><code>## $a
 ## [1] 1 2 3
 ## 
@@ -622,27 +673,27 @@ qlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt"
 ## 
 ## $q
 ## [1] 17 16 15</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># But be careful when you like to quickly add a vector</span>
-<span class="co"># the &#39;veclis&#39;. You must specify list() like this</span>
-veclis &lt;-<span class="st"> </span><span class="kw">c</span>(veclis, <span class="kw">list</span>(<span class="dt">r=</span><span class="dv">3</span><span class="op">:</span><span class="dv">1</span>))</code></pre>
+<div class="sourceCode" id="cb732"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb732-1" title="1"><span class="co"># But be careful when you like to quickly add a vector</span></a>
+<a class="sourceLine" id="cb732-2" title="2"><span class="co"># the &#39;veclis&#39;. You must specify list() like this</span></a>
+<a class="sourceLine" id="cb732-3" title="3">veclis &lt;-<span class="st"> </span><span class="kw">c</span>(veclis, <span class="kw">list</span>(<span class="dt">r=</span><span class="dv">3</span><span class="op">:</span><span class="dv">1</span>))</a></code></pre></div>
 </div>
 <div id="extracting-output-from-built-in-functions" class="section level3">
 <h3><span class="header-section-number">7.3.4</span> Extracting output from built-in functions</h3>
 <p>One reason to gain a better understanding of lists is that many built-in functions return not just single numbers, but a diverse collection of outputs, organized in lists. Think of the linear model function (<code>lm</code>), it returns a lot of things at the same time (not just the p-value).</p>
 <p>Let’s take a closer look at the <code>lm</code> output to see if we can extract the adjusted R<span class="math inline">\(^2\)</span>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
-<span class="kw">data</span>(allometry)
-
-<span class="co"># Fit a linear model</span>
-lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter, <span class="dt">data=</span>allometry)
-
-<span class="co"># And save the summary statement of the model:</span>
-lmfit_summary &lt;-<span class="st"> </span><span class="kw">summary</span>(lmfit)
-
-<span class="co"># We already know that simply typing &#39;summary(lmfit)&#39; will give </span>
-<span class="co"># lots of text output. How to extract numbers from there?</span>
-<span class="co"># Let&#39;s look at the structure of lmfit:</span>
-<span class="kw">str</span>(lmfit_summary)</code></pre>
+<div class="sourceCode" id="cb733"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb733-1" title="1"><span class="co"># Read data</span></a>
+<a class="sourceLine" id="cb733-2" title="2"><span class="kw">data</span>(allometry)</a>
+<a class="sourceLine" id="cb733-3" title="3"></a>
+<a class="sourceLine" id="cb733-4" title="4"><span class="co"># Fit a linear model</span></a>
+<a class="sourceLine" id="cb733-5" title="5">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter, <span class="dt">data=</span>allometry)</a>
+<a class="sourceLine" id="cb733-6" title="6"></a>
+<a class="sourceLine" id="cb733-7" title="7"><span class="co"># And save the summary statement of the model:</span></a>
+<a class="sourceLine" id="cb733-8" title="8">lmfit_summary &lt;-<span class="st"> </span><span class="kw">summary</span>(lmfit)</a>
+<a class="sourceLine" id="cb733-9" title="9"></a>
+<a class="sourceLine" id="cb733-10" title="10"><span class="co"># We already know that simply typing &#39;summary(lmfit)&#39; will give </span></a>
+<a class="sourceLine" id="cb733-11" title="11"><span class="co"># lots of text output. How to extract numbers from there?</span></a>
+<a class="sourceLine" id="cb733-12" title="12"><span class="co"># Let&#39;s look at the structure of lmfit:</span></a>
+<a class="sourceLine" id="cb733-13" title="13"><span class="kw">str</span>(lmfit_summary)</a></code></pre></div>
 <pre><code>## List of 11
 ##  $ call         : language lm(formula = height ~ diameter, data = allometry)
 ##  $ terms        :Classes &#39;terms&#39;, &#39;formula&#39;  language height ~ diameter
@@ -678,17 +729,17 @@ lmfit_summary &lt;-<span class="st"> </span><span class="kw">summary</span>(lmfi
 ##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
 ##   .. ..$ : chr [1:2] &quot;(Intercept)&quot; &quot;diameter&quot;
 ##  - attr(*, &quot;class&quot;)= chr &quot;summary.lm&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The output of lm is a list, so we can look at the names of # that list as well:</span>
-<span class="kw">names</span>(lmfit_summary)</code></pre>
+<div class="sourceCode" id="cb735"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb735-1" title="1"><span class="co"># The output of lm is a list, so we can look at the names of # that list as well:</span></a>
+<a class="sourceLine" id="cb735-2" title="2"><span class="kw">names</span>(lmfit_summary)</a></code></pre></div>
 <pre><code>##  [1] &quot;call&quot;          &quot;terms&quot;         &quot;residuals&quot;     &quot;coefficients&quot; 
 ##  [5] &quot;aliased&quot;       &quot;sigma&quot;         &quot;df&quot;            &quot;r.squared&quot;    
 ##  [9] &quot;adj.r.squared&quot; &quot;fstatistic&quot;    &quot;cov.unscaled&quot;</code></pre>
 <p>So, now we can extract results from the summary of the fitted regression. Also look at the help file <code>?summary.lm</code>, in the section ‘Values’ for a description of the fields contained here.</p>
 <p>To extract the adjusted R<span class="math inline">\(^2\)</span>, for example:</p>
-<pre class="sourceCode r"><code class="sourceCode r">lmfit_summary[[<span class="st">&quot;adj.r.squared&quot;</span>]]</code></pre>
+<div class="sourceCode" id="cb737"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb737-1" title="1">lmfit_summary[[<span class="st">&quot;adj.r.squared&quot;</span>]]</a></code></pre></div>
 <pre><code>## [1] 0.7639735</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Is the same as:</span>
-lmfit_summary<span class="op">$</span>adj.r.squared</code></pre>
+<div class="sourceCode" id="cb739"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb739-1" title="1"><span class="co"># Is the same as:</span></a>
+<a class="sourceLine" id="cb739-2" title="2">lmfit_summary<span class="op">$</span>adj.r.squared</a></code></pre></div>
 <pre><code>## [1] 0.7639735</code></pre>
 <p>This sort of analysis will be very useful when we do many regressions, and want to summarize the results in a table.</p>
 
@@ -703,21 +754,21 @@ Run the code in the above examples, and practice extracting some other elements 
 <p>Using the <code>allom</code> data for example, we might want to split the dataframe into three dataframes (one for each species), and repeat some analysis for each of the species. One option is to make three subsets (using <code>subset</code>), and repeating the analysis for each of them. But what if we have hundreds of species?</p>
 <p>A more efficient approach is to <code>split</code> the dataframe into a list, so that the first element of the list is the dataframe for species 1, the 2nd element species 2, and so on. In case of the allom dataset, the resulting list will have three components.</p>
 <p>Let’s look at an example on how to construct a list of dataframes from the allom dataset, one per species:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read allom data and make sure &#39;species&#39; is a factor:</span>
-<span class="kw">data</span>(allometry)
-<span class="kw">is.factor</span>(allometry<span class="op">$</span>species)</code></pre>
+<div class="sourceCode" id="cb741"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb741-1" title="1"><span class="co"># Read allom data and make sure &#39;species&#39; is a factor:</span></a>
+<a class="sourceLine" id="cb741-2" title="2"><span class="kw">data</span>(allometry)</a>
+<a class="sourceLine" id="cb741-3" title="3"><span class="kw">is.factor</span>(allometry<span class="op">$</span>species)</a></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># The levels of the factor variable &#39;species&#39;</span>
-<span class="kw">levels</span>(allometry<span class="op">$</span>species)</code></pre>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb743-1" title="1"><span class="co"># The levels of the factor variable &#39;species&#39;</span></a>
+<a class="sourceLine" id="cb743-2" title="2"><span class="kw">levels</span>(allometry<span class="op">$</span>species)</a></code></pre></div>
 <pre><code>## [1] &quot;PIMO&quot; &quot;PIPO&quot; &quot;PSME&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now use &#39;split&#39; to construct a list:</span>
-allomsp &lt;-<span class="st"> </span><span class="kw">split</span>(allometry, allometry<span class="op">$</span>species)
-
-<span class="co"># The length of the list should be 3, with the names equal to the </span>
-<span class="co"># original factor levels:</span>
-<span class="kw">length</span>(allomsp)</code></pre>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb745-1" title="1"><span class="co"># Now use &#39;split&#39; to construct a list:</span></a>
+<a class="sourceLine" id="cb745-2" title="2">allomsp &lt;-<span class="st"> </span><span class="kw">split</span>(allometry, allometry<span class="op">$</span>species)</a>
+<a class="sourceLine" id="cb745-3" title="3"></a>
+<a class="sourceLine" id="cb745-4" title="4"><span class="co"># The length of the list should be 3, with the names equal to the </span></a>
+<a class="sourceLine" id="cb745-5" title="5"><span class="co"># original factor levels:</span></a>
+<a class="sourceLine" id="cb745-6" title="6"><span class="kw">length</span>(allomsp)</a></code></pre></div>
 <pre><code>## [1] 3</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(allomsp)</code></pre>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb747-1" title="1"><span class="kw">names</span>(allomsp)</a></code></pre></div>
 <pre><code>## [1] &quot;PIMO&quot; &quot;PIPO&quot; &quot;PSME&quot;</code></pre>
 
 <div class="rmdtry">
@@ -725,30 +776,30 @@ Run the code in the above example, and confirm that <code>allomsp[[2]]</code> is
 </div>
 
 <p>Let’s look at an example using the <code>hydro</code> data. The data contains water levels of a hydrodam in Tasmania, from 2005 to 2011.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read hydro data, and convert Date to a proper date class.</span>
-<span class="kw">data</span>(hydro)
-
-<span class="kw">library</span>(lubridate)
-<span class="kw">library</span>(dplyr)
-
-hydro &lt;-<span class="st"> </span><span class="kw">mutate</span>(hydro, 
-                <span class="dt">Date =</span> <span class="kw">dmy</span>(Date),
-                <span class="dt">year =</span> <span class="kw">year</span>(Date))
-
-<span class="co"># Look at the Date range:</span>
-<span class="kw">range</span>(hydro<span class="op">$</span>Date)</code></pre>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb749-1" title="1"><span class="co"># Read hydro data, and convert Date to a proper date class.</span></a>
+<a class="sourceLine" id="cb749-2" title="2"><span class="kw">data</span>(hydro)</a>
+<a class="sourceLine" id="cb749-3" title="3"></a>
+<a class="sourceLine" id="cb749-4" title="4"><span class="kw">library</span>(lubridate)</a>
+<a class="sourceLine" id="cb749-5" title="5"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb749-6" title="6"></a>
+<a class="sourceLine" id="cb749-7" title="7">hydro &lt;-<span class="st"> </span><span class="kw">mutate</span>(hydro, </a>
+<a class="sourceLine" id="cb749-8" title="8">                <span class="dt">Date =</span> <span class="kw">dmy</span>(Date),</a>
+<a class="sourceLine" id="cb749-9" title="9">                <span class="dt">year =</span> <span class="kw">year</span>(Date))</a>
+<a class="sourceLine" id="cb749-10" title="10"></a>
+<a class="sourceLine" id="cb749-11" title="11"><span class="co"># Look at the Date range:</span></a>
+<a class="sourceLine" id="cb749-12" title="12"><span class="kw">range</span>(hydro<span class="op">$</span>Date)</a></code></pre></div>
 <pre><code>## [1] &quot;2005-08-08&quot; &quot;2011-08-08&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s get rid of the first and last years (2005 and 2011) since they are incomplete</span>
-hydro &lt;-<span class="st"> </span><span class="kw">filter</span>(hydro, <span class="op">!</span>year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2005</span>,<span class="dv">2011</span>))
-
-<span class="co"># Now split the dataframe by year. This results in a list, where every</span>
-<span class="co"># element contains the data for one year:</span>
-hydrosp &lt;-<span class="st"> </span><span class="kw">split</span>(hydro, hydro<span class="op">$</span>year)
-
-<span class="co"># Properties of this list:</span>
-<span class="kw">length</span>(hydrosp)</code></pre>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb751-1" title="1"><span class="co"># Let&#39;s get rid of the first and last years (2005 and 2011) since they are incomplete</span></a>
+<a class="sourceLine" id="cb751-2" title="2">hydro &lt;-<span class="st"> </span><span class="kw">filter</span>(hydro, <span class="op">!</span>year <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="dv">2005</span>,<span class="dv">2011</span>))</a>
+<a class="sourceLine" id="cb751-3" title="3"></a>
+<a class="sourceLine" id="cb751-4" title="4"><span class="co"># Now split the dataframe by year. This results in a list, where every</span></a>
+<a class="sourceLine" id="cb751-5" title="5"><span class="co"># element contains the data for one year:</span></a>
+<a class="sourceLine" id="cb751-6" title="6">hydrosp &lt;-<span class="st"> </span><span class="kw">split</span>(hydro, hydro<span class="op">$</span>year)</a>
+<a class="sourceLine" id="cb751-7" title="7"></a>
+<a class="sourceLine" id="cb751-8" title="8"><span class="co"># Properties of this list:</span></a>
+<a class="sourceLine" id="cb751-9" title="9"><span class="kw">length</span>(hydrosp)</a></code></pre></div>
 <pre><code>## [1] 5</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">names</span>(hydrosp)</code></pre>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb753-1" title="1"><span class="kw">names</span>(hydrosp)</a></code></pre></div>
 <pre><code>## [1] &quot;2006&quot; &quot;2007&quot; &quot;2008&quot; &quot;2009&quot; &quot;2010&quot;</code></pre>
 <p>To extract one element of the two lists that we created (<code>allomsp</code> and <code>hydrosp</code>), recall the section on indexing lists.</p>
 </div>
@@ -758,42 +809,42 @@ hydrosp &lt;-<span class="st"> </span><span class="kw">split</span>(hydro, hydro
 <div id="using-sapply" class="section level4">
 <h4><span class="header-section-number">7.3.6.1</span> Using <code>sapply</code></h4>
 <p>First let’s look at some simple examples:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s make a simple list with only numeric vectors (of varying length)</span>
-numlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="dv">1000</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="fl">2.1</span>,<span class="fl">0.1</span>,<span class="op">-</span><span class="dv">19</span>), <span class="dt">z=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">100</span>))
-
-<span class="co"># For the numeric list, let&#39;s get the mean for every element, and count </span>
-<span class="co"># the length of the three vectors.</span>
-<span class="co"># Here, sapply takes a list and a function as its two arguments,</span>
-<span class="co"># and applies that function to each element of the list.</span>
-<span class="kw">sapply</span>(numlis, mean)</code></pre>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb755-1" title="1"><span class="co"># Let&#39;s make a simple list with only numeric vectors (of varying length)</span></a>
+<a class="sourceLine" id="cb755-2" title="2">numlis &lt;-<span class="st"> </span><span class="kw">list</span>(<span class="dt">x=</span><span class="dv">1000</span>, <span class="dt">y=</span><span class="kw">c</span>(<span class="fl">2.1</span>,<span class="fl">0.1</span>,<span class="op">-</span><span class="dv">19</span>), <span class="dt">z=</span><span class="kw">c</span>(<span class="dv">100</span>,<span class="dv">200</span>,<span class="dv">100</span>,<span class="dv">100</span>))</a>
+<a class="sourceLine" id="cb755-3" title="3"></a>
+<a class="sourceLine" id="cb755-4" title="4"><span class="co"># For the numeric list, let&#39;s get the mean for every element, and count </span></a>
+<a class="sourceLine" id="cb755-5" title="5"><span class="co"># the length of the three vectors.</span></a>
+<a class="sourceLine" id="cb755-6" title="6"><span class="co"># Here, sapply takes a list and a function as its two arguments,</span></a>
+<a class="sourceLine" id="cb755-7" title="7"><span class="co"># and applies that function to each element of the list.</span></a>
+<a class="sourceLine" id="cb755-8" title="8"><span class="kw">sapply</span>(numlis, mean)</a></code></pre></div>
 <pre><code>##      x      y      z 
 ## 1000.0   -5.6  125.0</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">sapply</span>(numlis, length)</code></pre>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb757-1" title="1"><span class="kw">sapply</span>(numlis, length)</a></code></pre></div>
 <pre><code>## x y z 
 ## 1 3 4</code></pre>
 <p>You can of course also define your own functions, and use them here. Let’s look at another simple example using the <code>numlis</code> object defined above.</p>
 <p>For example,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Let&#39;s find out if any diameters are duplicated in the allom dataset.</span>
-<span class="co"># A function that does this would be the combination of &#39;any&#39; and &#39;duplicated&#39;,</span>
-anydup &lt;-<span class="st"> </span><span class="cf">function</span>(vec)<span class="kw">any</span>(<span class="kw">duplicated</span>(vec))
-<span class="co"># This function returns TRUE or FALSE</span>
-
-<span class="co"># Apply this function to numlis (see above):</span>
-<span class="kw">sapply</span>(numlis, anydup)</code></pre>
+<div class="sourceCode" id="cb759"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb759-1" title="1"><span class="co"># Let&#39;s find out if any diameters are duplicated in the allom dataset.</span></a>
+<a class="sourceLine" id="cb759-2" title="2"><span class="co"># A function that does this would be the combination of &#39;any&#39; and &#39;duplicated&#39;,</span></a>
+<a class="sourceLine" id="cb759-3" title="3">anydup &lt;-<span class="st"> </span><span class="cf">function</span>(vec)<span class="kw">any</span>(<span class="kw">duplicated</span>(vec))</a>
+<a class="sourceLine" id="cb759-4" title="4"><span class="co"># This function returns TRUE or FALSE</span></a>
+<a class="sourceLine" id="cb759-5" title="5"></a>
+<a class="sourceLine" id="cb759-6" title="6"><span class="co"># Apply this function to numlis (see above):</span></a>
+<a class="sourceLine" id="cb759-7" title="7"><span class="kw">sapply</span>(numlis, anydup)</a></code></pre></div>
 <pre><code>##     x     y     z 
 ## FALSE FALSE  TRUE</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># You can also define the function on the fly like this:</span>
-<span class="kw">sapply</span>(numlis, <span class="cf">function</span>(x)<span class="kw">any</span>(<span class="kw">duplicated</span>(x)))</code></pre>
+<div class="sourceCode" id="cb761"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb761-1" title="1"><span class="co"># You can also define the function on the fly like this:</span></a>
+<a class="sourceLine" id="cb761-2" title="2"><span class="kw">sapply</span>(numlis, <span class="cf">function</span>(x)<span class="kw">any</span>(<span class="kw">duplicated</span>(x)))</a></code></pre></div>
 <pre><code>##     x     y     z 
 ## FALSE FALSE  TRUE</code></pre>
 <p>Now, you can use any function in <code>sapply</code> as long as it returns a single number based on the element of the list that you used it on. Consider this example with <code>strsplit</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Recall that the &#39;strsplit&#39; (string split) function usually returns a list of values. </span>
-<span class="co"># Consider the following example, where the data provider has included the units in </span>
-<span class="co"># the measurements of fish lengths. How do we extract the number bits?</span>
-fishlength &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;120 mm&quot;</span>, <span class="st">&quot;240 mm&quot;</span>, <span class="st">&quot;159 mm&quot;</span>, <span class="st">&quot;201 mm&quot;</span>)
-
-<span class="co"># Here is one solution, using strsplit</span>
-<span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)</code></pre>
+<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb763-1" title="1"><span class="co"># Recall that the &#39;strsplit&#39; (string split) function usually returns a list of values. </span></a>
+<a class="sourceLine" id="cb763-2" title="2"><span class="co"># Consider the following example, where the data provider has included the units in </span></a>
+<a class="sourceLine" id="cb763-3" title="3"><span class="co"># the measurements of fish lengths. How do we extract the number bits?</span></a>
+<a class="sourceLine" id="cb763-4" title="4">fishlength &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;120 mm&quot;</span>, <span class="st">&quot;240 mm&quot;</span>, <span class="st">&quot;159 mm&quot;</span>, <span class="st">&quot;201 mm&quot;</span>)</a>
+<a class="sourceLine" id="cb763-5" title="5"></a>
+<a class="sourceLine" id="cb763-6" title="6"><span class="co"># Here is one solution, using strsplit</span></a>
+<a class="sourceLine" id="cb763-7" title="7"><span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)</a></code></pre></div>
 <pre><code>## [[1]]
 ## [1] &quot;120&quot; &quot;mm&quot; 
 ## 
@@ -805,36 +856,36 @@ fishlength &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="
 ## 
 ## [[4]]
 ## [1] &quot;201&quot; &quot;mm&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We see that strsplit returns a list, let&#39;s use sapply to extract only </span>
-<span class="co"># the first element (the number)</span>
-splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)
-<span class="kw">sapply</span>(splitlen, <span class="cf">function</span>(x)x[<span class="dv">1</span>])</code></pre>
+<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb765-1" title="1"><span class="co"># We see that strsplit returns a list, let&#39;s use sapply to extract only </span></a>
+<a class="sourceLine" id="cb765-2" title="2"><span class="co"># the first element (the number)</span></a>
+<a class="sourceLine" id="cb765-3" title="3">splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishlength,<span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb765-4" title="4"><span class="kw">sapply</span>(splitlen, <span class="cf">function</span>(x)x[<span class="dv">1</span>])</a></code></pre></div>
 <pre><code>## [1] &quot;120&quot; &quot;240&quot; &quot;159&quot; &quot;201&quot;</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Now all you need to do is use &#39;as.numeric&#39; to convert these bits of text to numbers.</span></code></pre>
+<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb767-1" title="1"><span class="co"># Now all you need to do is use &#39;as.numeric&#39; to convert these bits of text to numbers.</span></a></code></pre></div>
 <p>The main purpose of splitting dataframes into lists, as we have done above, is so that we can save time with analyses that have to be repeated many times. In the following examples, you must have already produced the objects <code>hydrosp</code> and <code>allomsp</code> (from examples in the previous section).Both those objects are <em>lists of dataframes</em>, that is, each element of the list is a dataframe in itself. Let’s look at a few examples with <code>sapply</code> first.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># How many observations per species in the allom dataset?</span>
-<span class="kw">sapply</span>(allomsp, nrow)</code></pre>
+<div class="sourceCode" id="cb768"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb768-1" title="1"><span class="co"># How many observations per species in the allom dataset?</span></a>
+<a class="sourceLine" id="cb768-2" title="2"><span class="kw">sapply</span>(allomsp, nrow)</a></code></pre></div>
 <pre><code>## PIMO PIPO PSME 
 ##   19   22   22</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Here, we applied the &#39;nrow&#39; function to each separate dataframe.</span>
-<span class="co"># (note that there are easier ways to find the number of observations per species!,</span>
-<span class="co"># this is just illustrating sapply.)</span>
-
-<span class="co"># Things get more interesting when you define your own functions on the fly:</span>
-<span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">range</span>(x<span class="op">$</span>diameter))</code></pre>
+<div class="sourceCode" id="cb770"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb770-1" title="1"><span class="co"># Here, we applied the &#39;nrow&#39; function to each separate dataframe.</span></a>
+<a class="sourceLine" id="cb770-2" title="2"><span class="co"># (note that there are easier ways to find the number of observations per species!,</span></a>
+<a class="sourceLine" id="cb770-3" title="3"><span class="co"># this is just illustrating sapply.)</span></a>
+<a class="sourceLine" id="cb770-4" title="4"></a>
+<a class="sourceLine" id="cb770-5" title="5"><span class="co"># Things get more interesting when you define your own functions on the fly:</span></a>
+<a class="sourceLine" id="cb770-6" title="6"><span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">range</span>(x<span class="op">$</span>diameter))</a></code></pre></div>
 <pre><code>##       PIMO  PIPO  PSME
 ## [1,]  6.48  4.83  5.33
 ## [2,] 73.66 70.61 69.85</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Here, we define a function that takes &#39;x&#39; as an argument:</span>
-<span class="co"># sapply will apply this function to each element of the list,</span>
-<span class="co"># one at a time. In this case, we get a matrix with ranges of the diameter per species.</span>
-
-<span class="co"># How about the correlation of two variables, separate by species:</span>
-<span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">cor</span>(x<span class="op">$</span>diameter, x<span class="op">$</span>height))</code></pre>
+<div class="sourceCode" id="cb772"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb772-1" title="1"><span class="co"># Here, we define a function that takes &#39;x&#39; as an argument:</span></a>
+<a class="sourceLine" id="cb772-2" title="2"><span class="co"># sapply will apply this function to each element of the list,</span></a>
+<a class="sourceLine" id="cb772-3" title="3"><span class="co"># one at a time. In this case, we get a matrix with ranges of the diameter per species.</span></a>
+<a class="sourceLine" id="cb772-4" title="4"></a>
+<a class="sourceLine" id="cb772-5" title="5"><span class="co"># How about the correlation of two variables, separate by species:</span></a>
+<a class="sourceLine" id="cb772-6" title="6"><span class="kw">sapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">cor</span>(x<span class="op">$</span>diameter, x<span class="op">$</span>height))</a></code></pre></div>
 <pre><code>##      PIMO      PIPO      PSME 
 ## 0.9140428 0.8594689 0.8782781</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># For hydro, find the number of days that storage was below 235, for each year.</span>
-<span class="kw">sapply</span>(hydrosp, <span class="cf">function</span>(x)<span class="kw">sum</span>(x<span class="op">$</span>storage <span class="op">&lt;</span><span class="st"> </span><span class="dv">235</span>))</code></pre>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb774-1" title="1"><span class="co"># For hydro, find the number of days that storage was below 235, for each year.</span></a>
+<a class="sourceLine" id="cb774-2" title="2"><span class="kw">sapply</span>(hydrosp, <span class="cf">function</span>(x)<span class="kw">sum</span>(x<span class="op">$</span>storage <span class="op">&lt;</span><span class="st"> </span><span class="dv">235</span>))</a></code></pre></div>
 <pre><code>## 2006 2007 2008 2009 2010 
 ##    0   18    6    0    0</code></pre>
 </div>
@@ -842,8 +893,8 @@ splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishleng
 <h4><span class="header-section-number">7.3.6.2</span> Using <code>lapply</code></h4>
 <p>The <code>lapply</code> function is much like <code>sapply</code>, except it always returns a list.</p>
 <p>For example,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Get a summary of the hydro dataset by year:</span>
-<span class="kw">lapply</span>(hydrosp, summary)</code></pre>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb776-1" title="1"><span class="co"># Get a summary of the hydro dataset by year:</span></a>
+<a class="sourceLine" id="cb776-2" title="2"><span class="kw">lapply</span>(hydrosp, summary)</a></code></pre></div>
 <pre><code>## $`2006`
 ##       Date               storage           year     
 ##  Min.   :2006-01-02   Min.   :411.0   Min.   :2006  
@@ -889,39 +940,39 @@ splitlen &lt;-<span class="st"> </span><span class="kw">strsplit</span>(fishleng
 ##  3rd Qu.:2010-09-28   3rd Qu.:577.5   3rd Qu.:2010  
 ##  Max.   :2010-12-27   Max.   :649.0   Max.   :2010</code></pre>
 <p>Suppose you have multiple similar datasets in your working directory, and you want to read all of these into one list, use <code>lapply</code> like this (run this example yourself and inspect the results).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Names of your datasets:</span>
-filenames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>)
-<span class="co"># (This toy example will read the same file three times).</span>
-
-<span class="co"># Read all files into one list,</span>
-alldata &lt;-<span class="st"> </span><span class="kw">lapply</span>(filenames, read.csv)
-
-<span class="co"># Then, if you are sure the datasets have the same number of columns and names,</span>
-<span class="co"># use do.call to collapse the list:</span>
-dfrall &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, alldata)</code></pre>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb778-1" title="1"><span class="co"># Names of your datasets:</span></a>
+<a class="sourceLine" id="cb778-2" title="2">filenames &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>,<span class="st">&quot;pupae.csv&quot;</span>)</a>
+<a class="sourceLine" id="cb778-3" title="3"><span class="co"># (This toy example will read the same file three times).</span></a>
+<a class="sourceLine" id="cb778-4" title="4"></a>
+<a class="sourceLine" id="cb778-5" title="5"><span class="co"># Read all files into one list,</span></a>
+<a class="sourceLine" id="cb778-6" title="6">alldata &lt;-<span class="st"> </span><span class="kw">lapply</span>(filenames, read.csv)</a>
+<a class="sourceLine" id="cb778-7" title="7"></a>
+<a class="sourceLine" id="cb778-8" title="8"><span class="co"># Then, if you are sure the datasets have the same number of columns and names,</span></a>
+<a class="sourceLine" id="cb778-9" title="9"><span class="co"># use do.call to collapse the list:</span></a>
+<a class="sourceLine" id="cb778-10" title="10">dfrall &lt;-<span class="st"> </span><span class="kw">do.call</span>(rbind, alldata)</a></code></pre></div>
 
 <div class="rmdtry">
-Recall the use of <code>dir</code> to list files, and even to find files that match a specific pattern (see Section <a href="intro.html#fileswd">2.7</a>. Read all CSV files in your working directory (or elsewhere) into a single list, and count the number of rows for each dataframe.
+Recall the use of <code>dir</code> to list files, and even to find files that match a specific pattern (see Section <a href="intro.html#fileswd">2.8</a>. Read all CSV files in your working directory (or elsewhere) into a single list, and count the number of rows for each dataframe.
 </div>
 
 <p>Finally, we can use <code>lapply</code> to do all sorts of complex analyses that return any kind of object. The use of <code>lapply</code> with lists ensures that we can organize even large amounts of data in this way.</p>
 <p>Let’s do a simple linear regression of log(leafarea) on log(diameter) for the Allometry dataset, by species:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Run the linear regression on each element of the list, store in a new object:</span>
-lmresults &lt;-<span class="st"> </span><span class="kw">lapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">lm</span>(<span class="kw">log10</span>(leafarea) <span class="op">~</span><span class="st"> </span><span class="kw">log10</span>(diameter), <span class="dt">data=</span>x))
-
-<span class="co"># Now, lmresults is itself a list (where each element is an object as returned by lm)</span>
-<span class="co"># We can extract the coefficients like this:</span>
-<span class="kw">sapply</span>(lmresults, coef)</code></pre>
+<div class="sourceCode" id="cb779"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb779-1" title="1"><span class="co"># Run the linear regression on each element of the list, store in a new object:</span></a>
+<a class="sourceLine" id="cb779-2" title="2">lmresults &lt;-<span class="st"> </span><span class="kw">lapply</span>(allomsp, <span class="cf">function</span>(x)<span class="kw">lm</span>(<span class="kw">log10</span>(leafarea) <span class="op">~</span><span class="st"> </span><span class="kw">log10</span>(diameter), <span class="dt">data=</span>x))</a>
+<a class="sourceLine" id="cb779-3" title="3"></a>
+<a class="sourceLine" id="cb779-4" title="4"><span class="co"># Now, lmresults is itself a list (where each element is an object as returned by lm)</span></a>
+<a class="sourceLine" id="cb779-5" title="5"><span class="co"># We can extract the coefficients like this:</span></a>
+<a class="sourceLine" id="cb779-6" title="6"><span class="kw">sapply</span>(lmresults, coef)</a></code></pre></div>
 <pre><code>##                       PIMO       PIPO       PSME
 ## (Intercept)     -0.3570268 -0.7368336 -0.3135996
 ## log10(diameter)  1.5408859  1.6427773  1.4841361</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># This shows the intercept and slope by species.</span>
-<span class="co"># Also look at (results not shown):</span>
-<span class="co"># lapply(lmresults, summary) </span>
-
-<span class="co"># Get R2 for each model. First write a function that extracts it.</span>
-getR2 &lt;-<span class="st"> </span><span class="cf">function</span>(x)<span class="kw">summary</span>(x)<span class="op">$</span>adj.r.squared
-<span class="kw">sapply</span>(lmresults, getR2)</code></pre>
+<div class="sourceCode" id="cb781"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb781-1" title="1"><span class="co"># This shows the intercept and slope by species.</span></a>
+<a class="sourceLine" id="cb781-2" title="2"><span class="co"># Also look at (results not shown):</span></a>
+<a class="sourceLine" id="cb781-3" title="3"><span class="co"># lapply(lmresults, summary) </span></a>
+<a class="sourceLine" id="cb781-4" title="4"></a>
+<a class="sourceLine" id="cb781-5" title="5"><span class="co"># Get R2 for each model. First write a function that extracts it.</span></a>
+<a class="sourceLine" id="cb781-6" title="6">getR2 &lt;-<span class="st"> </span><span class="cf">function</span>(x)<span class="kw">summary</span>(x)<span class="op">$</span>adj.r.squared</a>
+<a class="sourceLine" id="cb781-7" title="7"><span class="kw">sapply</span>(lmresults, getR2)</a></code></pre></div>
 <pre><code>##      PIMO      PIPO      PSME 
 ## 0.8738252 0.8441844 0.6983126</code></pre>
 
@@ -935,50 +986,50 @@ Try to fully understand the difference between <code>sapply</code> and <code>lap
 <div id="simpleloops" class="section level2">
 <h2><span class="header-section-number">7.4</span> Loops</h2>
 <p>Loops can be useful when we need to repeat certain analyses many times, and it is difficult to achieve this with <code>lapply</code> or <code>sapply</code>. To understand how a <code>for</code> loop works, look at this example:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){
-  <span class="kw">message</span>(i)
-}</code></pre>
+<div class="sourceCode" id="cb783"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb783-1" title="1"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">5</span>){</a>
+<a class="sourceLine" id="cb783-2" title="2">  <span class="kw">message</span>(i)</a>
+<a class="sourceLine" id="cb783-3" title="3">}</a></code></pre></div>
 <pre><code>## 1</code></pre>
 <pre><code>## 2</code></pre>
 <pre><code>## 3</code></pre>
 <pre><code>## 4</code></pre>
 <pre><code>## 5</code></pre>
 <p>Here, the bit of code between {} is executed five times, and the object <code>i</code> has the values 1,2,3,4 and 5, in that order. Instead of just printing <code>i</code> as we have done above, we can also index a vector with this object:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># make a vector</span>
-myvec &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">5</span>),<span class="dv">1</span>)
-
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myvec)){
-  <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])
-}</code></pre>
-<pre><code>## Element 1 of the vector is: 0.4</code></pre>
-<pre><code>## Element 2 of the vector is: 0.6</code></pre>
-<pre><code>## Element 3 of the vector is: 0</code></pre>
-<pre><code>## Element 4 of the vector is: 0.5</code></pre>
-<pre><code>## Element 5 of the vector is: 0.1</code></pre>
+<div class="sourceCode" id="cb789"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb789-1" title="1"><span class="co"># make a vector</span></a>
+<a class="sourceLine" id="cb789-2" title="2">myvec &lt;-<span class="st"> </span><span class="kw">round</span>(<span class="kw">runif</span>(<span class="dv">5</span>),<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb789-3" title="3"></a>
+<a class="sourceLine" id="cb789-4" title="4"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myvec)){</a>
+<a class="sourceLine" id="cb789-5" title="5">  <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])</a>
+<a class="sourceLine" id="cb789-6" title="6">}</a></code></pre></div>
+<pre><code>## Element 1 of the vector is: 0.5</code></pre>
+<pre><code>## Element 2 of the vector is: 0</code></pre>
+<pre><code>## Element 3 of the vector is: 0.4</code></pre>
+<pre><code>## Element 4 of the vector is: 0.2</code></pre>
+<pre><code>## Element 5 of the vector is: 0.6</code></pre>
 <p>Note that this is only a toy example: the same result can be achieved by simply typing <code>myvec</code>.</p>
 <p>Now let’s look at a useful application of a <code>for</code> loop: producing multiple plots in a <code>pdf</code>, using the <code>allomsp</code> object we created earlier.</p>
 <p>This bit of code produces a <code>pdf</code> in your current working directory. If you can’t find it, recall that you can use <code>getwd</code>() to get the current working directory.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Open a pdf to send the plots to:</span>
-<span class="kw">pdf</span>(<span class="st">&quot;Allom plot by species.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)
-<span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){
-  <span class="kw">with</span>(allomsp[[i]],
-       <span class="kw">plot</span>(diameter, leafarea, <span class="dt">pch=</span><span class="dv">15</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">80</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">450</span>),
-            <span class="dt">main=</span><span class="kw">levels</span>(allom<span class="op">$</span>species)[i]))
-}
-<span class="co"># Close the pdf (important!)</span>
-<span class="kw">dev.off</span>()</code></pre>
+<div class="sourceCode" id="cb795"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb795-1" title="1"><span class="co"># Open a pdf to send the plots to:</span></a>
+<a class="sourceLine" id="cb795-2" title="2"><span class="kw">pdf</span>(<span class="st">&quot;Allom plot by species.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb795-3" title="3"><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="dv">3</span>){</a>
+<a class="sourceLine" id="cb795-4" title="4">  <span class="kw">with</span>(allomsp[[i]],</a>
+<a class="sourceLine" id="cb795-5" title="5">       <span class="kw">plot</span>(diameter, leafarea, <span class="dt">pch=</span><span class="dv">15</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">80</span>), <span class="dt">ylim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">450</span>),</a>
+<a class="sourceLine" id="cb795-6" title="6">            <span class="dt">main=</span><span class="kw">levels</span>(allom<span class="op">$</span>species)[i]))</a>
+<a class="sourceLine" id="cb795-7" title="7">}</a>
+<a class="sourceLine" id="cb795-8" title="8"><span class="co"># Close the pdf (important!)</span></a>
+<a class="sourceLine" id="cb795-9" title="9"><span class="kw">dev.off</span>()</a></code></pre></div>
 <p>Here, we create three plots (<code>i</code> goes from 1 to 3), every time using a different element of the list <code>allomsp</code>. First, <code>i</code> will have the value 1, so that we end up using the dataframe <code>allomsp[[1]]</code>, the first element of the list. And so on. Take a look at the resulting PDF to understand how the code works.</p>
 <p><em>Note:</em> On windows (with Adobe reader) If the pdf (<code>Allom plot by species.pdf</code>) is open, the above will fail. If you try this anyway, close the pdf and try again. You may have to run the command <code>dev.off</code>() another time to make sure the device is ready.</p>
 <p>Another way to achieve the same result is to avoid splitting the dataframe into a list first, and simply take subsets on the fly. Consider this template (make your own working example based on any dataset).</p>
 <p>We assume here you have a dataframe called ‘dataset’ with a factor ‘species’, for which you want to create separate plots of Y vs. X.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pdf</span>(<span class="st">&quot;somefilename.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)
-<span class="cf">for</span>(lev <span class="cf">in</span> <span class="kw">levels</span>(dataset<span class="op">$</span>species)){
-  
-  <span class="kw">with</span>(<span class="kw">subset</span>(dataset, species<span class="op">==</span>lev),
-       <span class="kw">plot</span>(X,Y, 
-            <span class="dt">main=</span><span class="kw">as.character</span>(lev)))
-}
-<span class="kw">dev.off</span>()</code></pre>
+<div class="sourceCode" id="cb796"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb796-1" title="1"><span class="kw">pdf</span>(<span class="st">&quot;somefilename.pdf&quot;</span>, <span class="dt">onefile=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb796-2" title="2"><span class="cf">for</span>(lev <span class="cf">in</span> <span class="kw">levels</span>(dataset<span class="op">$</span>species)){</a>
+<a class="sourceLine" id="cb796-3" title="3">  </a>
+<a class="sourceLine" id="cb796-4" title="4">  <span class="kw">with</span>(<span class="kw">subset</span>(dataset, species<span class="op">==</span>lev),</a>
+<a class="sourceLine" id="cb796-5" title="5">       <span class="kw">plot</span>(X,Y, </a>
+<a class="sourceLine" id="cb796-6" title="6">            <span class="dt">main=</span><span class="kw">as.character</span>(lev)))</a>
+<a class="sourceLine" id="cb796-7" title="7">}</a>
+<a class="sourceLine" id="cb796-8" title="8"><span class="kw">dev.off</span>()</a></code></pre></div>
 </div>
 <div id="exercises-4" class="section level2">
 <h2><span class="header-section-number">7.5</span> Exercises</h2>
@@ -1075,11 +1126,13 @@ y &lt;- x + rnorm(100)</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1125,8 +1178,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 6 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 6 Basic statistics and linear modelling | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-19" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="reporting.html">
-<link rel="next" href="programming.html">
+<link rel="prev" href="reporting.html"/>
+<link rel="next" href="programming.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -138,40 +140,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>2.4</b> Writing code in a script</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
-<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
-<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.6</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.7</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.8</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.9</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.10.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.10.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.10.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.10.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.10.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.10.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.10.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.10.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.10.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.10.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.11</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.12.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.12.2</b> Using R scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
-<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
-<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
-<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
-<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
-<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
-<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
-<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
-<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
-<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.13.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.13.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.13.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.13.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.13.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.13.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.13.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.13.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.13.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.13.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.13.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.13.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.13.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.13.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.13.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.13.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.13.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.13.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.13.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
@@ -259,12 +262,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
-<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#resources"><i class="fa fa-check"></i><b>5.2.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
-<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#preparing-the-data-for-plotting"><i class="fa fa-check"></i><b>5.3.1</b> Preparing the data for plotting</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#scatterplot-example"><i class="fa fa-check"></i><b>5.3.2</b> Scatterplot example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#area-plot-example"><i class="fa fa-check"></i><b>5.3.3</b> Area plot example</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reporting.html"><a href="reporting.html#barplot-example"><i class="fa fa-check"></i><b>5.3.4</b> Barplot example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="reporting.html"><a href="reporting.html#ggplotresources"><i class="fa fa-check"></i><b>5.3.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.4</b> Making reports</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.4.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.4.2</b> Tips</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.4.3</b> Resources</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
@@ -339,6 +349,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>9</b> Version control with git</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>9.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>9.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>9.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>9.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="9.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>9.2.3</b> Using git in Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>9.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>9.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>9.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="9.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-few-hints"><i class="fa fa-check"></i><b>9.3.3</b> A few hints</a></li>
+<li class="chapter" data-level="9.3.4" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>9.3.4</b> Reverting changes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>9.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>9.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="9.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>9.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="9.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>9.4.3</b> A session with a remote repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>9.5</b> Using the command line</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>9.5.1</b> Basic commands</a></li>
+<li class="chapter" data-level="9.5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>9.5.2</b> Useful tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>10</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="10.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>10.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="10.2" data-path="projectman.html"><a href="projectman.html#set-up-a-project-in-rstudio"><i class="fa fa-check"></i><b>10.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="10.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>10.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>10.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>10.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="10.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>10.3.3</b> <code>output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>10.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>10.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="10.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>10.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>10.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="10.4.4" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>10.4.4</b> <code>facesoil_readdata.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>10.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>10.5.1</b> Adding a Date stamp to output files</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -455,36 +506,36 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Using the prefix and the suffix, we can construct each desired function. For example,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the probability of 3 heads out of 10 tosses of a fair coin.</span>
-<span class="co"># This is a (d)ensity of a (binom)ial distribution.</span>
-<span class="kw">dbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</code></pre>
+<div class="sourceCode" id="cb572"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb572-1" title="1"><span class="co"># Calculate the probability of 3 heads out of 10 tosses of a fair coin.</span></a>
+<a class="sourceLine" id="cb572-2" title="2"><span class="co"># This is a (d)ensity of a (binom)ial distribution.</span></a>
+<a class="sourceLine" id="cb572-3" title="3"><span class="kw">dbinom</span>(<span class="dv">3</span>, <span class="dv">10</span>, <span class="fl">0.5</span>)</a></code></pre></div>
 <pre><code>## [1] 0.1171875</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Calculate the probability that a normal random variable (with </span>
-<span class="co"># mean of 3 and standard deviation of 2) is less than or equal to 4.</span>
-<span class="co"># This is a cumulative (p)robability of a (norm)al variable.</span>
-<span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb574"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb574-1" title="1"><span class="co"># Calculate the probability that a normal random variable (with </span></a>
+<a class="sourceLine" id="cb574-2" title="2"><span class="co"># mean of 3 and standard deviation of 2) is less than or equal to 4.</span></a>
+<a class="sourceLine" id="cb574-3" title="3"><span class="co"># This is a cumulative (p)robability of a (norm)al variable.</span></a>
+<a class="sourceLine" id="cb574-4" title="4"><span class="kw">pnorm</span>(<span class="dv">4</span>, <span class="dv">3</span>, <span class="dv">2</span>)</a></code></pre></div>
 <pre><code>## [1] 0.6914625</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the t-value that corresponds to a 2.5% right-hand tail probability</span>
-<span class="co"># with 5 degrees of freedom.</span>
-<span class="co"># This is a (q)uantile of a (t)distribution.</span>
-<span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">5</span>)</code></pre>
+<div class="sourceCode" id="cb576"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb576-1" title="1"><span class="co"># Find the t-value that corresponds to a 2.5% right-hand tail probability</span></a>
+<a class="sourceLine" id="cb576-2" title="2"><span class="co"># with 5 degrees of freedom.</span></a>
+<a class="sourceLine" id="cb576-3" title="3"><span class="co"># This is a (q)uantile of a (t)distribution.</span></a>
+<a class="sourceLine" id="cb576-4" title="4"><span class="kw">qt</span>(<span class="fl">0.975</span>, <span class="dv">5</span>)</a></code></pre></div>
 <pre><code>## [1] 2.570582</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Simulate 5 Poisson random variables with a mean of 3. </span>
-<span class="co"># This is a set of (r)andom numbers from a (pois)son distribution.</span>
-<span class="kw">rpois</span>(<span class="dv">5</span>, <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb578"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb578-1" title="1"><span class="co"># Simulate 5 Poisson random variables with a mean of 3. </span></a>
+<a class="sourceLine" id="cb578-2" title="2"><span class="co"># This is a set of (r)andom numbers from a (pois)son distribution.</span></a>
+<a class="sourceLine" id="cb578-3" title="3"><span class="kw">rpois</span>(<span class="dv">5</span>, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>## [1] 1 3 3 3 5</code></pre>
 <p>See the help page <code>?Distributions</code> for more details.</p>
 <p>To make a quick plot of a distribution, we can use the density function in combination with <code>curve</code>. The following code makes Fig. <a href="linmodel.html#fig:distplot">6.1</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A standard normal distribution</span>
-<span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">from=</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>,
-      <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)
-
-<span class="co"># Add a t-distribution with 3 degrees of freedom.</span>
-<span class="kw">curve</span>(<span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">3</span>), <span class="dt">from =</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)
-
-<span class="co"># Add a legend (with a few options, see ?legend)</span>
-<span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Standard normal&quot;</span>,<span class="st">&quot;t-distribution, df=3&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),
-       <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</code></pre>
+<div class="sourceCode" id="cb580"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb580-1" title="1"><span class="co"># A standard normal distribution</span></a>
+<a class="sourceLine" id="cb580-2" title="2"><span class="kw">curve</span>(<span class="kw">dnorm</span>(x, <span class="dt">sd=</span><span class="dv">1</span>, <span class="dt">mean=</span><span class="dv">0</span>), <span class="dt">from=</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>,</a>
+<a class="sourceLine" id="cb580-3" title="3">      <span class="dt">ylab=</span><span class="st">&quot;Density&quot;</span>, <span class="dt">col=</span><span class="st">&quot;blue&quot;</span>)</a>
+<a class="sourceLine" id="cb580-4" title="4"></a>
+<a class="sourceLine" id="cb580-5" title="5"><span class="co"># Add a t-distribution with 3 degrees of freedom.</span></a>
+<a class="sourceLine" id="cb580-6" title="6"><span class="kw">curve</span>(<span class="kw">dt</span>(x, <span class="dt">df=</span><span class="dv">3</span>), <span class="dt">from =</span><span class="op">-</span><span class="dv">3</span>, <span class="dt">to=</span><span class="dv">3</span>, <span class="dt">add=</span><span class="ot">TRUE</span>, <span class="dt">col=</span><span class="st">&quot;red&quot;</span>)</a>
+<a class="sourceLine" id="cb580-7" title="7"></a>
+<a class="sourceLine" id="cb580-8" title="8"><span class="co"># Add a legend (with a few options, see ?legend)</span></a>
+<a class="sourceLine" id="cb580-9" title="9"><span class="kw">legend</span>(<span class="st">&quot;topleft&quot;</span>, <span class="kw">c</span>(<span class="st">&quot;Standard normal&quot;</span>,<span class="st">&quot;t-distribution, df=3&quot;</span>), <span class="dt">lty=</span><span class="dv">1</span>, <span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;blue&quot;</span>,<span class="st">&quot;red&quot;</span>),</a>
+<a class="sourceLine" id="cb580-10" title="10">       <span class="dt">bty=</span><span class="st">&#39;n&#39;</span>, <span class="dt">cex=</span><span class="fl">0.8</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:distplot"></span>
 <img src="05-linearregression_files/figure-html/distplot-1.svg" alt="Two univariate distributions plotted with curve()" width="672" />
 <p class="caption">
@@ -501,64 +552,64 @@ Make a histogram of a sample of random numbers from a distribution of your choic
 <h2><span class="header-section-number">6.3</span> Descriptive Statistics</h2>
 <p>Descriptive statistics summarise some of the properties of a given data set. Generally, we are interested in measures of location (central tendency, such as mean and median) and scale (variance or standard deviation). Other descriptions can include the sample size, the range, and so on. We already encountered a number of functions that can be used to summarize a vector.</p>
 <p>Let’s look at some examples for the Pupae dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read data</span>
-<span class="kw">data</span>(pupae)
-
-<span class="co"># Extract the weights (for convenience)</span>
-weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight
-
-<span class="co"># Find the number of observations</span>
-<span class="kw">length</span>(weight)</code></pre>
+<div class="sourceCode" id="cb581"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb581-1" title="1"><span class="co"># Read data</span></a>
+<a class="sourceLine" id="cb581-2" title="2"><span class="kw">data</span>(pupae)</a>
+<a class="sourceLine" id="cb581-3" title="3"></a>
+<a class="sourceLine" id="cb581-4" title="4"><span class="co"># Extract the weights (for convenience)</span></a>
+<a class="sourceLine" id="cb581-5" title="5">weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight</a>
+<a class="sourceLine" id="cb581-6" title="6"></a>
+<a class="sourceLine" id="cb581-7" title="7"><span class="co"># Find the number of observations</span></a>
+<a class="sourceLine" id="cb581-8" title="8"><span class="kw">length</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 84</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the average (mean) weight</span>
-<span class="kw">mean</span>(weight)</code></pre>
+<div class="sourceCode" id="cb583"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb583-1" title="1"><span class="co"># Find the average (mean) weight</span></a>
+<a class="sourceLine" id="cb583-2" title="2"><span class="kw">mean</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.3110238</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Find the Variance</span>
-<span class="kw">var</span>(weight)</code></pre>
+<div class="sourceCode" id="cb585"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb585-1" title="1"><span class="co"># Find the Variance</span></a>
+<a class="sourceLine" id="cb585-2" title="2"><span class="kw">var</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.004113951</code></pre>
 <p>Note that R will compute the sample variance (not the population variance). The standard deviation can be calculated as the square root of the variance, or use the <code>sd</code> function directly.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard Deviation</span>
-<span class="kw">sqrt</span>(<span class="kw">var</span>(weight))</code></pre>
+<div class="sourceCode" id="cb587"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb587-1" title="1"><span class="co"># Standard Deviation</span></a>
+<a class="sourceLine" id="cb587-2" title="2"><span class="kw">sqrt</span>(<span class="kw">var</span>(weight))</a></code></pre></div>
 <pre><code>## [1] 0.06414009</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Standard Deviation</span>
-<span class="kw">sd</span>(weight)</code></pre>
+<div class="sourceCode" id="cb589"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb589-1" title="1"><span class="co"># Standard Deviation</span></a>
+<a class="sourceLine" id="cb589-2" title="2"><span class="kw">sd</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.06414009</code></pre>
 <p>Robust measures of the location and scale are the median and inter-quartile range; R has functions for these.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># median and inter-quartile range</span>
-<span class="kw">median</span>(weight)</code></pre>
+<div class="sourceCode" id="cb591"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb591-1" title="1"><span class="co"># median and inter-quartile range</span></a>
+<a class="sourceLine" id="cb591-2" title="2"><span class="kw">median</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.2975</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">IQR</span>(weight)</code></pre>
+<div class="sourceCode" id="cb593"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb593-1" title="1"><span class="kw">IQR</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.09975</code></pre>
 <p>The median is the 50th percentile or the second quartile. The <code>quantile</code> function can compute quartiles as well as arbitrary percentiles/quantiles.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Default: computes quartiles.</span>
-<span class="kw">quantile</span>(weight)</code></pre>
+<div class="sourceCode" id="cb595"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb595-1" title="1"><span class="co"># Default: computes quartiles.</span></a>
+<a class="sourceLine" id="cb595-2" title="2"><span class="kw">quantile</span>(weight)</a></code></pre></div>
 <pre><code>##      0%     25%     50%     75%    100% 
 ## 0.17200 0.25625 0.29750 0.35600 0.47300</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Or set any quantiles</span>
-<span class="kw">quantile</span>(weight, <span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>))</code></pre>
+<div class="sourceCode" id="cb597"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb597-1" title="1"><span class="co"># Or set any quantiles</span></a>
+<a class="sourceLine" id="cb597-2" title="2"><span class="kw">quantile</span>(weight, <span class="dt">probs=</span><span class="kw">seq</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="fl">0.1</span>))</a></code></pre></div>
 <pre><code>##     0%    10%    20%    30%    40%    50%    60%    70%    80%    90% 
 ## 0.1720 0.2398 0.2490 0.2674 0.2892 0.2975 0.3230 0.3493 0.3710 0.3910 
 ##   100% 
 ## 0.4730</code></pre>
 <p><strong>Missing Values</strong>: All of the above functions will return <code>NA</code> if the data contains <em>any</em> missing values. However, they also provide an option to remove missing values (<code>NA</code>s) before their computations (see also Section <a href="dataskills1.html#workingmissing">3.7.3</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass)</code></pre>
+<div class="sourceCode" id="cb599"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb599-1" title="1"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass)</a></code></pre></div>
 <pre><code>## [1] NA</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb601"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb601-1" title="1"><span class="kw">mean</span>(pupae<span class="op">$</span>Frass, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>## [1] 1.846446</code></pre>
 <p>The <code>summary</code> function provides a lot of the above information in a single command:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">summary</span>(weight)</code></pre>
+<div class="sourceCode" id="cb603"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb603-1" title="1"><span class="kw">summary</span>(weight)</a></code></pre></div>
 <pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
 ##  0.1720  0.2562  0.2975  0.3110  0.3560  0.4730</code></pre>
 <p>The <code>moments</code> package provides ‘higher moments’ if required, for example,
 the <code>skewness</code> and <code>kurtosis</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># load the moments package</span>
-<span class="kw">library</span>(moments)
-<span class="kw">skewness</span>(weight)</code></pre>
+<div class="sourceCode" id="cb605"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb605-1" title="1"><span class="co"># load the moments package</span></a>
+<a class="sourceLine" id="cb605-2" title="2"><span class="kw">library</span>(moments)</a>
+<a class="sourceLine" id="cb605-3" title="3"><span class="kw">skewness</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 0.3851656</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">kurtosis</span>(weight)</code></pre>
+<div class="sourceCode" id="cb607"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb607-1" title="1"><span class="kw">kurtosis</span>(weight)</a></code></pre></div>
 <pre><code>## [1] 2.579144</code></pre>
 <p>The <code>pastecs</code> package includes a useful function that calculates many descriptive statistics for numeric vectors, including the standard error for the mean (for which R has no built-in function).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pastecs)</code></pre>
+<div class="sourceCode" id="cb609"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb609-1" title="1"><span class="kw">library</span>(pastecs)</a></code></pre></div>
 <pre><code>## 
 ## Attaching package: &#39;pastecs&#39;</code></pre>
 <pre><code>## The following object is masked from &#39;package:magrittr&#39;:
@@ -567,17 +618,17 @@ the <code>skewness</code> and <code>kurtosis</code>.</p>
 <pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
 ## 
 ##     first, last</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># see ?stat.desc for description of the abbreviations</span>
-<span class="kw">stat.desc</span>(weight)</code></pre>
+<div class="sourceCode" id="cb613"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb613-1" title="1"><span class="co"># see ?stat.desc for description of the abbreviations</span></a>
+<a class="sourceLine" id="cb613-2" title="2"><span class="kw">stat.desc</span>(weight)</a></code></pre></div>
 <pre><code>##      nbr.val     nbr.null       nbr.na          min          max 
 ## 84.000000000  0.000000000  0.000000000  0.172000000  0.473000000 
 ##        range          sum       median         mean      SE.mean 
 ##  0.301000000 26.126000000  0.297500000  0.311023810  0.006998258 
 ## CI.mean.0.95          var      std.dev     coef.var 
 ##  0.013919253  0.004113951  0.064140091  0.206222446</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># conveniently, the output is a character vector which we can index by name,</span>
-<span class="co"># for example extracting the standard error for the mean</span>
-<span class="kw">stat.desc</span>(weight)[<span class="st">&quot;SE.mean&quot;</span>]</code></pre>
+<div class="sourceCode" id="cb615"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb615-1" title="1"><span class="co"># conveniently, the output is a character vector which we can index by name,</span></a>
+<a class="sourceLine" id="cb615-2" title="2"><span class="co"># for example extracting the standard error for the mean</span></a>
+<a class="sourceLine" id="cb615-3" title="3"><span class="kw">stat.desc</span>(weight)[<span class="st">&quot;SE.mean&quot;</span>]</a></code></pre></div>
 <pre><code>##     SE.mean 
 ## 0.006998258</code></pre>
 <p>Sometimes you may wish to calculate descriptive statistics for subgroups in the data. We will come back to this extensively in Section <a href="dataskills2.html#tapplyaggregate">4.1.1</a> and later sections.</p>
@@ -592,19 +643,19 @@ the <code>skewness</code> and <code>kurtosis</code>.</p>
 <p>where <span class="math inline">\(\bar{x}\)</span> is the sample mean, <span class="math inline">\(s\)</span> the sample standard deviation and <span class="math inline">\(n\)</span> is the sample size. <span class="math inline">\(t_{\alpha/2, n-1}\)</span> is the <span class="math inline">\(\alpha/2\)</span> tail point of a <span class="math inline">\(t\)</span>-distribution on <span class="math inline">\(n-1\)</span> degrees of freedom. That is, if <span class="math inline">\(T\)</span> has a <span class="math inline">\(t\)</span>-distribution on <span class="math inline">\(n-1\)</span> degrees of freedom.</p>
 <p><span class="math display">\[P(T \leq t_{\alpha/2, n-1}) = 1-\alpha/2 \]</span></p>
 <p>The R code for this confidence interval can be written as,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Sample data - the pupae data.</span>
-<span class="kw">data</span>(pupae)
-weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight
-
-<span class="co"># 95% confidence interval - set to 0.1 for a 90% interval</span>
-alpha &lt;-<span class="st"> </span><span class="fl">0.05</span> 
-xbar &lt;-<span class="st"> </span><span class="kw">mean</span>(weight)
-s &lt;-<span class="st"> </span><span class="kw">sd</span>(weight)
-n &lt;-<span class="st"> </span><span class="kw">length</span>(weight)
-half.width &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>, n<span class="dv">-1</span>)<span class="op">*</span>s<span class="op">/</span><span class="kw">sqrt</span>(n)
-
-<span class="co"># Confidence Interval </span>
-<span class="kw">c</span>(xbar <span class="op">-</span><span class="st"> </span>half.width, xbar <span class="op">+</span><span class="st"> </span>half.width)</code></pre>
+<div class="sourceCode" id="cb617"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb617-1" title="1"><span class="co"># Sample data - the pupae data.</span></a>
+<a class="sourceLine" id="cb617-2" title="2"><span class="kw">data</span>(pupae)</a>
+<a class="sourceLine" id="cb617-3" title="3">weight &lt;-<span class="st"> </span>pupae<span class="op">$</span>PupalWeight</a>
+<a class="sourceLine" id="cb617-4" title="4"></a>
+<a class="sourceLine" id="cb617-5" title="5"><span class="co"># 95% confidence interval - set to 0.1 for a 90% interval</span></a>
+<a class="sourceLine" id="cb617-6" title="6">alpha &lt;-<span class="st"> </span><span class="fl">0.05</span> </a>
+<a class="sourceLine" id="cb617-7" title="7">xbar &lt;-<span class="st"> </span><span class="kw">mean</span>(weight)</a>
+<a class="sourceLine" id="cb617-8" title="8">s &lt;-<span class="st"> </span><span class="kw">sd</span>(weight)</a>
+<a class="sourceLine" id="cb617-9" title="9">n &lt;-<span class="st"> </span><span class="kw">length</span>(weight)</a>
+<a class="sourceLine" id="cb617-10" title="10">half.width &lt;-<span class="st"> </span><span class="kw">qt</span>(<span class="dv">1</span><span class="op">-</span>alpha<span class="op">/</span><span class="dv">2</span>, n<span class="dv">-1</span>)<span class="op">*</span>s<span class="op">/</span><span class="kw">sqrt</span>(n)</a>
+<a class="sourceLine" id="cb617-11" title="11"></a>
+<a class="sourceLine" id="cb617-12" title="12"><span class="co"># Confidence Interval </span></a>
+<a class="sourceLine" id="cb617-13" title="13"><span class="kw">c</span>(xbar <span class="op">-</span><span class="st"> </span>half.width, xbar <span class="op">+</span><span class="st"> </span>half.width)</a></code></pre></div>
 <pre><code>## [1] 0.2971046 0.3249431</code></pre>
 <p>Here, we assumed a normal distribution for the population. You may have been taught that if <code>n</code> is <em>large</em>, say n&gt;30, then you can use a normal approximation. That is, replace <code>qt(1-alpha/2, n-1)</code> with <code>qnorm(1-alpha/2)</code>, but there is no need, R can use the t-distribution for any <em>n</em> (and the results will be the same, as the t-distribution converges to a normal distribution when the df is large).</p>
 
@@ -616,10 +667,10 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 <div id="inference" class="section level3">
 <h3><span class="header-section-number">6.4.2</span> Hypothesis testing</h3>
 <p>There may be a reason to ask whether a dataset is consistent with a certain mean. For example, are the pupae weights consistent with a population mean of 0.29? For normal populations, we can use Student’s <span class="math inline">\(t\)</span>-test, available in R as the <code>t.test</code> function. In all following results, we use the <code>pander</code> function (from the <code>pander</code>) package to make the output short and readable (and in markdown format). For best results, use it in an rmarkdown document (though it works fine otherwise as well). We assume you have loaded these two packages:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(pander)
-<span class="kw">library</span>(dplyr)</code></pre>
+<div class="sourceCode" id="cb619"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb619-1" title="1"><span class="kw">library</span>(pander)</a>
+<a class="sourceLine" id="cb619-2" title="2"><span class="kw">library</span>(dplyr)</a></code></pre></div>
 <p>Let’s test the null hypothesis that the population mean is 0.29:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb620"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb620-1" title="1"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table>
 <caption>One Sample t-test: <code>weight</code></caption>
 <colgroup>
@@ -650,7 +701,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </table>
 <p>Note that we get the t-statistic, degrees of freedom (n-1) and a P value for the test, with the specified alternative hypothesis (not equal, i.e. two-sided). In addition, <code>t.test</code> gives us the estimated mean of the sample.</p>
 <p>We can use <code>t.test</code> to do one-sided tests,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb621"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb621-1" title="1"><span class="kw">t.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>, <span class="dt">alternative=</span><span class="st">&quot;greater&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table>
 <caption>One Sample t-test: <code>weight</code></caption>
 <colgroup>
@@ -681,7 +732,7 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 </table>
 <p>The <code>t.test</code> is appropriate for data that is approximately normally distributed. You can check this using a histogram or a QQ-plot. If the data is not very close to a normal distribution then the <code>t.test</code> is often still appropriate, as long as the sample is large.</p>
 <p>If the data is not normal and the sample size is small, there are a couple of alternatives: transform the data (often a log transform is enough) or use a <em>nonparametric</em> test, in this case the Wilcoxon signed rank test. We can use the <code>wilcox.test</code> function for the latter, its interface is similar to <code>t.test</code> and it tests the hypothesis that the data is symmetric about the hypothesized population mean. For example,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">wilcox.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb622"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb622-1" title="1"><span class="kw">wilcox.test</span>(weight, <span class="dt">mu=</span><span class="fl">0.29</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table style="width:79%;">
 <caption>Wilcoxon signed rank test with continuity correction: <code>weight</code></caption>
 <colgroup>
@@ -707,8 +758,8 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 <div id="test-for-proportions" class="section level4">
 <h4><span class="header-section-number">6.4.2.1</span> Test for proportions</h4>
 <p>Sometimes you want to test whether observed proportions are consistent with a hypothesized population proportion. For example, consider a coin tossing experiment where you want to test the hypothesis that you have a fair coin (one with an equal probability of landing heads or tails). In your experiment, you get 60 heads out of 100 coin tosses. Do you have a fair coin? We can use the <code>prop.test</code> function:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 60 &#39;successes&#39; out of a 100 trials, the hypothesized probability is 0.5.</span>
-<span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">60</span>, <span class="dt">n=</span><span class="dv">100</span>, <span class="dt">p=</span><span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb623"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb623-1" title="1"><span class="co"># 60 &#39;successes&#39; out of a 100 trials, the hypothesized probability is 0.5.</span></a>
+<a class="sourceLine" id="cb623-2" title="2"><span class="kw">prop.test</span>(<span class="dt">x=</span><span class="dv">60</span>, <span class="dt">n=</span><span class="dv">100</span>, <span class="dt">p=</span><span class="fl">0.5</span>) <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table style="width:88%;">
 <caption>1-sample proportions test with continuity correction: <code>60 out of 100, null probability 0.5</code></caption>
 <colgroup>
@@ -744,23 +795,23 @@ Confirm that the <span class="math inline">\(t\)</span>-distribution converges t
 <h3><span class="header-section-number">6.4.3</span> Inference for two populations</h3>
 <p>Commonly, we wish to compare two (or more) populations. For example, the <code>pupae</code> dataset has pupal weights for female and male pupae. We may wish to compare the weights of males (<code>gender=0</code>) and females (<code>gender=1</code>).</p>
 <p>To compare the pupal weights of males and females, we use the <em>formula</em> interface for <code>t.test</code>. The formula interface is important because we will use it in many other functions, like linear regression and linear modelling.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># (output not shown)</span>
-<span class="co"># We assume equal variance between the groups, giving slightly more power,</span>
-<span class="co"># but see section &#39;unequal variances&#39; further below.</span>
-<span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data=</span>pupae, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb624"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb624-1" title="1"><span class="co"># (output not shown)</span></a>
+<a class="sourceLine" id="cb624-2" title="2"><span class="co"># We assume equal variance between the groups, giving slightly more power,</span></a>
+<a class="sourceLine" id="cb624-3" title="3"><span class="co"># but see section &#39;unequal variances&#39; further below.</span></a>
+<a class="sourceLine" id="cb624-4" title="4"><span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender, <span class="dt">data=</span>pupae, <span class="dt">var.equal=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <div id="paired-data" class="section level4">
 <h4><span class="header-section-number">6.4.3.1</span> Paired data</h4>
 <p>The <code>t.test</code> can also be used when the data are paired, for example, measurements taken before and after some treatment on the same subjects. For this example, we will use the pulse data - data on pulse rates of individuals before and after exercise. We will test the simple idea that pulse rate is different after exercise. To do this, we first extract only those subjects that exercised (<code>Ran=1</code>),</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># (output not shown)</span>
-pulse &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;ms212.txt&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)
-pulse.before &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse1[Ran<span class="op">==</span><span class="dv">1</span>])
-pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse2[Ran<span class="op">==</span><span class="dv">1</span>])
-<span class="kw">t.test</span>(pulse.after, pulse.before, <span class="dt">paired=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb625"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb625-1" title="1"><span class="co"># (output not shown)</span></a>
+<a class="sourceLine" id="cb625-2" title="2">pulse &lt;-<span class="st"> </span><span class="kw">read.table</span>(<span class="st">&quot;ms212.txt&quot;</span>, <span class="dt">header=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb625-3" title="3">pulse.before &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse1[Ran<span class="op">==</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb625-4" title="4">pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pulse2[Ran<span class="op">==</span><span class="dv">1</span>])</a>
+<a class="sourceLine" id="cb625-5" title="5"><span class="kw">t.test</span>(pulse.after, pulse.before, <span class="dt">paired=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 </div>
 <div id="unequal-variances" class="section level4">
 <h4><span class="header-section-number">6.4.3.2</span> Unequal variances</h4>
 <p>The default for the two-sample <code>t.test</code> is actually to <em>not</em> assume equal variances. The theory for this kind of test is quite complex, and the resulting <span class="math inline">\(t\)</span>-test is now only approximate, with an adjustment called the ‘Satterthwaite’ or ‘Welch’ approximation made to the degrees of freedom.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender,  <span class="dt">data=</span>pupae) <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb626"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb626-1" title="1"><span class="kw">t.test</span>(PupalWeight <span class="op">~</span><span class="st"> </span>Gender,  <span class="dt">data=</span>pupae) <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table style="width:94%;">
 <caption>Welch Two Sample t-test: <code>PupalWeight</code> by <code>Gender</code> (continued below)</caption>
 <colgroup>
@@ -812,16 +863,16 @@ pulse.after &lt;-<span class="st"> </span><span class="kw">with</span>(pulse, Pu
 <p>One-way ANOVA (ANalysis Of VAriance) can be used to compare means across two or more populations. We will not go into the theory here, but the foundation of ANOVA is comparing the variation <em>between</em> the group means to the variation <em>within</em> the groups (using an F-statistic).</p>
 <p>We can use either the <code>aov</code> function or <code>lm</code> to perform ANOVAs. We will focus exclusively on the latter as it can be generalized more easily to other models. The use of <code>aov</code> is only appropriate when you have a balanced design (i.e., the same sample sizes in each of your groups).</p>
 <p>To use <code>lm</code> for an ANOVA, we need a dataframe containing a (continuous) response variable and a factor variable that defines the groups. For example, in the Coweeta dataset, the species variable is a factor that defines groups by species. We can compute (for example) the mean height by species. Let’s look at an example using the Coweeta data, but with only four species to simplify the output.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr)
-
-<span class="co"># Take a subset and drop empty levels with droplevels.</span>
-<span class="kw">data</span>(coweeta)
-cowsub &lt;-<span class="st"> </span><span class="kw">filter</span>(coweeta, species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;bele&quot;</span>,<span class="st">&quot;cofl&quot;</span>,<span class="st">&quot;oxar&quot;</span>,<span class="st">&quot;quru&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span>droplevels
-
-<span class="co"># # Quick summary table (uses dplyr)</span>
-<span class="kw">group_by</span>(cowsub, species) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarize</span>(<span class="dt">height =</span> <span class="kw">mean</span>(height))</code></pre>
+<div class="sourceCode" id="cb627"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb627-1" title="1"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb627-2" title="2"></a>
+<a class="sourceLine" id="cb627-3" title="3"><span class="co"># Take a subset and drop empty levels with droplevels.</span></a>
+<a class="sourceLine" id="cb627-4" title="4"><span class="kw">data</span>(coweeta)</a>
+<a class="sourceLine" id="cb627-5" title="5">cowsub &lt;-<span class="st"> </span><span class="kw">filter</span>(coweeta, species <span class="op">%in%</span><span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;bele&quot;</span>,<span class="st">&quot;cofl&quot;</span>,<span class="st">&quot;oxar&quot;</span>,<span class="st">&quot;quru&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb627-6" title="6"><span class="st">  </span>droplevels</a>
+<a class="sourceLine" id="cb627-7" title="7"></a>
+<a class="sourceLine" id="cb627-8" title="8"><span class="co"># # Quick summary table (uses dplyr)</span></a>
+<a class="sourceLine" id="cb627-9" title="9"><span class="kw">group_by</span>(cowsub, species) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb627-10" title="10"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">height =</span> <span class="kw">mean</span>(height))</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 2
 ##   species height
 ##   &lt;fct&gt;    &lt;dbl&gt;
@@ -830,7 +881,7 @@ cowsub &lt;-<span class="st"> </span><span class="kw">filter</span>(coweeta, spe
 ## 3 oxar     16.5 
 ## 4 quru     21.1</code></pre>
 <p>We might want to ask, does the mean height vary by species? Before you do any test for significance, a graphical summary of the data is always useful. For this type of data, box plots are preferred since they visualize not just the means but also the spread of the data (Fig. <a href="linmodel.html#fig:allombox">6.2</a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">boxplot</span>(height<span class="op">~</span>species, <span class="dt">data=</span>cowsub)</code></pre>
+<div class="sourceCode" id="cb629"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb629-1" title="1"><span class="kw">boxplot</span>(height<span class="op">~</span>species, <span class="dt">data=</span>cowsub)</a></code></pre></div>
 <div class="figure"><span id="fig:allombox"></span>
 <img src="05-linearregression_files/figure-html/allombox-1.svg" alt="Simple box plot for the Coweeta data." width="672" />
 <p class="caption">
@@ -838,10 +889,10 @@ Figure 6.2: Simple box plot for the Coweeta data.
 </p>
 </div>
 <p>It seems like some of the species differences are quite large. We can fit a one-way ANOVA with <code>lm</code>, like so:</p>
-<pre class="sourceCode r"><code class="sourceCode r">fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>cowsub)</code></pre>
+<div class="sourceCode" id="cb630"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb630-1" title="1">fit1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>cowsub)</a></code></pre></div>
 <p>The fitted coefficients can be seen in <code>summary(fit1)</code>, or more concisely with <code>coef(fit1)</code>, but we prefer the use of the <code>broom</code> package, especially the functions <code>tidy</code> and <code>glance</code> :</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(broom)
-<span class="kw">tidy</span>(fit1)</code></pre>
+<div class="sourceCode" id="cb631"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb631-1" title="1"><span class="kw">library</span>(broom)</a>
+<a class="sourceLine" id="cb631-2" title="2"><span class="kw">tidy</span>(fit1)</a></code></pre></div>
 <pre><code>## # A tibble: 4 x 5
 ##   term        estimate std.error statistic  p.value
 ##   &lt;chr&gt;          &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -851,7 +902,7 @@ Figure 6.2: Simple box plot for the Coweeta data.
 ## 4 speciesquru   -0.761      2.27    -0.335 7.40e- 1</code></pre>
 <p>Here, <code>tidy</code> gives the table of coefficients. Notice the four estimated <code>Coefficients</code>, these represent the so-called <em>contrasts</em>. In this case, <code>Intercept</code> represents the mean of the <em>first</em> species, <code>bele</code>. The next three coefficients are the differences between each species and the first (e.g., species <code>cofl</code> has a mean that is -15.07 lower than <code>bele</code>). Also shown are the <em>t</em>-statistic (and p-value) for each coefficient, for a test where the value is compared to zero. Not surprisingly the <code>Intercept</code> (i.e., the mean for the first species) is significantly different from zero (as indicated by the very small p-value). Two of the next three coefficients are also significantly different from zero.</p>
 <p>We can get more details of the fit using <code>glance</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">glance</span>(fit1)</code></pre>
+<div class="sourceCode" id="cb633"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb633-1" title="1"><span class="kw">glance</span>(fit1)</a></code></pre></div>
 <pre><code>## # A tibble: 1 x 11
 ##   r.squared adj.r.squared sigma statistic p.value    df logLik   AIC   BIC
 ##       &lt;dbl&gt;         &lt;dbl&gt; &lt;dbl&gt;     &lt;dbl&gt;   &lt;dbl&gt; &lt;int&gt;  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
@@ -868,20 +919,20 @@ Multiple comparisons on linear models where you have more than one factor variab
 </div>
 
 <p>We will use the <code>glht</code> function from the <code>multcomp</code> package (as a side note, base R includes the <code>TukeyHSD</code> function, but that does not work with <code>lm</code>, only with <code>aov</code>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># First fit the linear model again (a one-way ANOVA, </span>
-<span class="co"># because species is a factor)</span>
-lmSpec &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>cowsub)
-
-<span class="co"># Load package</span>
-<span class="kw">library</span>(multcomp)
-
-<span class="co"># Make a &#39;general linear hypothesis&#39; object, Tukey style.</span>
-<span class="co"># (Note many other options in ?glht)</span>
-tukey_Spec &lt;-<span class="st"> </span><span class="kw">glht</span>(lmSpec, <span class="dt">linfct=</span><span class="kw">mcp</span>(<span class="dt">species=</span><span class="st">&quot;Tukey&quot;</span>))
-
-<span class="co"># Print a summary. This shows p-values for the null hypotheses</span>
-<span class="co"># that species A is no different from species B, and so on.</span>
-<span class="kw">summary</span>(tukey_Spec)</code></pre>
+<div class="sourceCode" id="cb635"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb635-1" title="1"><span class="co"># First fit the linear model again (a one-way ANOVA, </span></a>
+<a class="sourceLine" id="cb635-2" title="2"><span class="co"># because species is a factor)</span></a>
+<a class="sourceLine" id="cb635-3" title="3">lmSpec &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species, <span class="dt">data=</span>cowsub)</a>
+<a class="sourceLine" id="cb635-4" title="4"></a>
+<a class="sourceLine" id="cb635-5" title="5"><span class="co"># Load package</span></a>
+<a class="sourceLine" id="cb635-6" title="6"><span class="kw">library</span>(multcomp)</a>
+<a class="sourceLine" id="cb635-7" title="7"></a>
+<a class="sourceLine" id="cb635-8" title="8"><span class="co"># Make a &#39;general linear hypothesis&#39; object, Tukey style.</span></a>
+<a class="sourceLine" id="cb635-9" title="9"><span class="co"># (Note many other options in ?glht)</span></a>
+<a class="sourceLine" id="cb635-10" title="10">tukey_Spec &lt;-<span class="st"> </span><span class="kw">glht</span>(lmSpec, <span class="dt">linfct=</span><span class="kw">mcp</span>(<span class="dt">species=</span><span class="st">&quot;Tukey&quot;</span>))</a>
+<a class="sourceLine" id="cb635-11" title="11"></a>
+<a class="sourceLine" id="cb635-12" title="12"><span class="co"># Print a summary. This shows p-values for the null hypotheses</span></a>
+<a class="sourceLine" id="cb635-13" title="13"><span class="co"># that species A is no different from species B, and so on.</span></a>
+<a class="sourceLine" id="cb635-14" title="14"><span class="kw">summary</span>(tukey_Spec)</a></code></pre></div>
 <pre><code>## 
 ##   Simultaneous Tests for General Linear Hypotheses
 ## 
@@ -901,7 +952,7 @@ tukey_Spec &lt;-<span class="st"> </span><span class="kw">glht</span>(lmSpec, <s
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## (Adjusted p values reported -- single-step method)</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Some of the species are different from each other, but not all.</span></code></pre>
+<div class="sourceCode" id="cb637"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb637-1" title="1"><span class="co"># Some of the species are different from each other, but not all.</span></a></code></pre></div>
 
 <div class="rmdtry">
 In the above summary of the multiple comparison (<code>summary(tukey_Spec)</code>), the p-values are adjusted for multiple comparisons with the so-called ‘single-step method’. To use a different method for the correction (there are many), try the following example: <code>summary(tukey_Spec, test=adjusted("Shaffer"))</code>
@@ -910,8 +961,8 @@ Also look at the other options in the help pages for <code>?adjusted</code> and 
 
 <p>We can also produce a quick plot of the multiple comparison, which shows the pair-wise differences between the species with confidence intervals.</p>
 <p>This code produces Fig. <a href="linmodel.html#fig:tukeyplot">6.3</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A plot of a fitted &#39;glht&#39; object (multiple comparison)</span>
-<span class="kw">plot</span>(tukey_Spec)</code></pre>
+<div class="sourceCode" id="cb638"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb638-1" title="1"><span class="co"># A plot of a fitted &#39;glht&#39; object (multiple comparison)</span></a>
+<a class="sourceLine" id="cb638-2" title="2"><span class="kw">plot</span>(tukey_Spec)</a></code></pre></div>
 <div class="figure"><span id="fig:tukeyplot"></span>
 <img src="05-linearregression_files/figure-html/tukeyplot-1.svg" alt="A standard plot of a multiple comparison." width="672" />
 <p class="caption">
@@ -923,27 +974,27 @@ Figure 6.3: A standard plot of a multiple comparison.
 <h3><span class="header-section-number">6.4.6</span> Comparing many groups by two predictors (two-way ANOVA)</h3>
 <p>Sometimes there are two (or more) <em>treatment</em> factors. The ‘age and memory’ dataset (see <code>?memory</code>) includes the number of words remembered from a list for two age groups and five memory techniques.</p>
 <p>This dataset is balanced, as shown below. in a table of counts for each of the combinations. First we fit a linear model of the <em>main effects</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(memory)
-
-<span class="co"># To make the later results easier to interpret, reorder the Process</span>
-<span class="co"># factor by the average number of words remembered.</span>
-memory &lt;-<span class="st"> </span><span class="kw">mutate</span>(memory, 
-                 <span class="dt">Process =</span> <span class="kw">reorder</span>(Process, Words, mean))
-
-<span class="co"># Count nr of observations</span>
-<span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)</code></pre>
+<div class="sourceCode" id="cb639"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb639-1" title="1"><span class="kw">data</span>(memory)</a>
+<a class="sourceLine" id="cb639-2" title="2"></a>
+<a class="sourceLine" id="cb639-3" title="3"><span class="co"># To make the later results easier to interpret, reorder the Process</span></a>
+<a class="sourceLine" id="cb639-4" title="4"><span class="co"># factor by the average number of words remembered.</span></a>
+<a class="sourceLine" id="cb639-5" title="5">memory &lt;-<span class="st"> </span><span class="kw">mutate</span>(memory, </a>
+<a class="sourceLine" id="cb639-6" title="6">                 <span class="dt">Process =</span> <span class="kw">reorder</span>(Process, Words, mean))</a>
+<a class="sourceLine" id="cb639-7" title="7"></a>
+<a class="sourceLine" id="cb639-8" title="8"><span class="co"># Count nr of observations</span></a>
+<a class="sourceLine" id="cb639-9" title="9"><span class="kw">xtabs</span>( <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)</a></code></pre></div>
 <pre><code>##          Process
 ## Age       Counting Rhyming Adjective Imagery Intentional
 ##   Older         10      10        10      10          10
 ##   Younger       10      10        10      10          10</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit linear model</span>
-fit2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)
-
-<span class="co"># Full output (not shown)</span>
-<span class="co"># summary(fit2)</span>
-
-<span class="co"># Instead, show just coefficient summary table in nice format</span>
-broom<span class="op">::</span><span class="kw">tidy</span>(fit2)</code></pre>
+<div class="sourceCode" id="cb641"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb641-1" title="1"><span class="co"># Fit linear model</span></a>
+<a class="sourceLine" id="cb641-2" title="2">fit2 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)</a>
+<a class="sourceLine" id="cb641-3" title="3"></a>
+<a class="sourceLine" id="cb641-4" title="4"><span class="co"># Full output (not shown)</span></a>
+<a class="sourceLine" id="cb641-5" title="5"><span class="co"># summary(fit2)</span></a>
+<a class="sourceLine" id="cb641-6" title="6"></a>
+<a class="sourceLine" id="cb641-7" title="7"><span class="co"># Instead, show just coefficient summary table in nice format</span></a>
+<a class="sourceLine" id="cb641-8" title="8">broom<span class="op">::</span><span class="kw">tidy</span>(fit2)</a></code></pre></div>
 <pre><code>## # A tibble: 6 x 5
 ##   term               estimate std.error statistic  p.value
 ##   &lt;chr&gt;                 &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;    &lt;dbl&gt;
@@ -955,9 +1006,9 @@ broom<span class="op">::</span><span class="kw">tidy</span>(fit2)</code></pre>
 ## 6 ProcessIntentional     8.90     0.985     9.03  2.10e-14</code></pre>
 <p>The <code>summary</code> of the fitted model displays the individual t-statistics for each estimated coefficient. As with the one-way ANOVA, the significance tests for each coefficient are performed relative to the base level (by default, the first level of the factor). In this case, for the <code>Age</code> factor, the <code>Older</code> is the first level, and for the <code>Process</code> factor, <code>Adjective</code> is the first level. Thus all other coefficients are tested relative to the “Older/Adjective” group. The <span class="math inline">\(F\)</span>-statistic at the end is for the overall model, it tests whether the model is significantly better than a model that includes only a mean count.</p>
 <p>If we want to see whether <code>Age</code> and/or <code>Process</code> have an effect, we need F-statistics for these terms. Throughout this book, to compute p-values for terms in linear models, we use the <code>Anova</code> function from the <code>car</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Perform an ANOVA on a fitted model, giving F-statistics</span>
-<span class="kw">library</span>(car)
-<span class="kw">Anova</span>(fit2)</code></pre>
+<div class="sourceCode" id="cb643"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb643-1" title="1"><span class="co"># Perform an ANOVA on a fitted model, giving F-statistics</span></a>
+<a class="sourceLine" id="cb643-2" title="2"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb643-3" title="3"><span class="kw">Anova</span>(fit2)</a></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: Words
@@ -972,13 +1023,13 @@ broom<span class="op">::</span><span class="kw">tidy</span>(fit2)</code></pre>
 <div id="interactions" class="section level3">
 <h3><span class="header-section-number">6.4.7</span> Interactions</h3>
 <p>An important question when we have more than one factor in an experiment is whether there are any interactions. For example, do <code>Process</code> effects differ for the two <code>Age</code> groups, or are they simply additive? We can add interactions to a model by modifying the formula. An interaction is indicated using a “<code>:</code>”. We can also include all <em>main effects and interactions</em> using the <code>*</code> operator.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Two equivalent ways of specifying a linear model that includes all main effects</span>
-<span class="co"># and interactions:</span>
-fit3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process <span class="op">+</span><span class="st"> </span>Age<span class="op">:</span>Process, <span class="dt">data=</span>memory)
-
-<span class="co"># Is the same as:</span>
-fit3<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)
-<span class="kw">Anova</span>(fit3<span class="fl">.2</span>)</code></pre>
+<div class="sourceCode" id="cb645"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb645-1" title="1"><span class="co"># Two equivalent ways of specifying a linear model that includes all main effects</span></a>
+<a class="sourceLine" id="cb645-2" title="2"><span class="co"># and interactions:</span></a>
+<a class="sourceLine" id="cb645-3" title="3">fit3 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process <span class="op">+</span><span class="st"> </span>Age<span class="op">:</span>Process, <span class="dt">data=</span>memory)</a>
+<a class="sourceLine" id="cb645-4" title="4"></a>
+<a class="sourceLine" id="cb645-5" title="5"><span class="co"># Is the same as:</span></a>
+<a class="sourceLine" id="cb645-6" title="6">fit3<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">*</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)</a>
+<a class="sourceLine" id="cb645-7" title="7"><span class="kw">Anova</span>(fit3<span class="fl">.2</span>)</a></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: Words
@@ -991,9 +1042,9 @@ fit3<span class="fl">.2</span> &lt;-<span class="st"> </span><span class="kw">lm
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>The <code>Anova</code> table shows that the interaction is significant. When an interaction is significant, this tells you nothing about the direction or magnitude of the interaction term. You can inspect the estimated coefficients in the <code>summary</code> output, but we recommend to first visualize the interaction with simple plots, as the coefficients can be easily misinterpreted. One way to visualize the interaction is to use the <code>interaction.plot</code> function, as in the following example.</p>
 <p>This code produces Fig. <a href="linmodel.html#fig:interactionplot">6.4</a>. If there were no interaction between the two factor variables, you would expect to see a series of parallel lines (because the effects of <code>Process</code> and <code>Age</code> would simply be additive).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Plot the number of words rememberd by Age and Process</span>
-<span class="co"># This standard plot can be customized in various ways, see ?interaction.plot</span>
-<span class="kw">with</span>(memory, <span class="kw">interaction.plot</span>(Age, Process, Words))</code></pre>
+<div class="sourceCode" id="cb647"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb647-1" title="1"><span class="co"># Plot the number of words rememberd by Age and Process</span></a>
+<a class="sourceLine" id="cb647-2" title="2"><span class="co"># This standard plot can be customized in various ways, see ?interaction.plot</span></a>
+<a class="sourceLine" id="cb647-3" title="3"><span class="kw">with</span>(memory, <span class="kw">interaction.plot</span>(Age, Process, Words))</a></code></pre></div>
 <div class="figure"><span id="fig:interactionplot"></span>
 <img src="05-linearregression_files/figure-html/interactionplot-1.svg" alt="An interaction plot for the memory data, indicating a strong interaction (because the lines are not parallel)." width="672" />
 <p class="caption">
@@ -1009,11 +1060,11 @@ When there is a signficant interaction term, we might want to know under what le
 <div id="comparing-models" class="section level3">
 <h3><span class="header-section-number">6.4.8</span> Comparing models</h3>
 <p>In the above example, we fitted two models for the Memory dataset: one without, and one with the interaction between <code>Process</code> and <code>Age</code>. We assessed the significance of the interaction by inspecting the p-value for the <code>Age:Process</code> term in the <code>Anova</code> statement. Another possibility is to perform a likelihood ratio test on two ‘nested’ models, the model that includes the term, and a model that excludes it. We can perform a likelihood ratio test with the <code>anova</code> function, not to be confused with <code>Anova</code> from the <code>car</code> package!</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can perform an anova on two models to compare the fit.</span>
-<span class="co"># Note that one model must be a subset of the other model. </span>
-<span class="co"># In this case, the second model has the same predictors as the first plus</span>
-<span class="co"># the interaction, and the likelihood ratio test thus tests the interaction.</span>
-<span class="kw">anova</span>(fit2,fit3)</code></pre>
+<div class="sourceCode" id="cb648"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb648-1" title="1"><span class="co"># We can perform an anova on two models to compare the fit.</span></a>
+<a class="sourceLine" id="cb648-2" title="2"><span class="co"># Note that one model must be a subset of the other model. </span></a>
+<a class="sourceLine" id="cb648-3" title="3"><span class="co"># In this case, the second model has the same predictors as the first plus</span></a>
+<a class="sourceLine" id="cb648-4" title="4"><span class="co"># the interaction, and the likelihood ratio test thus tests the interaction.</span></a>
+<a class="sourceLine" id="cb648-5" title="5"><span class="kw">anova</span>(fit2,fit3)</a></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: Words ~ Age + Process
@@ -1024,7 +1075,7 @@ When there is a signficant interaction term, we might want to know under what le
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>A second common way to compare different models is by the AIC (<em>Akaike’s Information Criterion</em>), which is calculated based on the likelihood (a sort of goodness of fit), and penalized for the number of parameters (i.e. number of predictors in the model). The model with the lowest AIC is the preferred model. Calculating the <code>AIC</code> is simple,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AIC</span>(fit2, fit3)</code></pre>
+<div class="sourceCode" id="cb650"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb650-1" title="1"><span class="kw">AIC</span>(fit2, fit3)</a></code></pre></div>
 <pre><code>##      df      AIC
 ## fit2  7 518.9005
 ## fit3 11 503.5147</code></pre>
@@ -1033,15 +1084,15 @@ When there is a signficant interaction term, we might want to know under what le
 <div id="diagnostics" class="section level3">
 <h3><span class="header-section-number">6.4.9</span> Diagnostics</h3>
 <p>The standard ANOVA assumes normality of the residuals, and we should always check this assumption with some diagnostic plots (Fig. <a href="linmodel.html#fig:anovadiag1">6.5</a>). Although R has built-in diagnostic plots, we prefer the use of <code>qqPlot</code> and <code>residualPlot</code>, both from the <code>car</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-
-<span class="kw">library</span>(car)
-
-<span class="co"># Residuals vs. fitted</span>
-<span class="kw">residualPlot</span>(fit3)
-
-<span class="co"># QQ-plot of the residuals</span>
-<span class="kw">qqPlot</span>(fit3)</code></pre>
+<div class="sourceCode" id="cb652"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb652-1" title="1"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb652-2" title="2"></a>
+<a class="sourceLine" id="cb652-3" title="3"><span class="kw">library</span>(car)</a>
+<a class="sourceLine" id="cb652-4" title="4"></a>
+<a class="sourceLine" id="cb652-5" title="5"><span class="co"># Residuals vs. fitted</span></a>
+<a class="sourceLine" id="cb652-6" title="6"><span class="kw">residualPlot</span>(fit3)</a>
+<a class="sourceLine" id="cb652-7" title="7"></a>
+<a class="sourceLine" id="cb652-8" title="8"><span class="co"># QQ-plot of the residuals</span></a>
+<a class="sourceLine" id="cb652-9" title="9"><span class="kw">qqPlot</span>(fit3)</a></code></pre></div>
 <pre><code>## [1] 26 86</code></pre>
 <div class="figure"><span id="fig:anovadiag1"></span>
 <img src="05-linearregression_files/figure-html/anovadiag1-1.svg" alt="Simple diagnostic plots for the Memory ANOVA." width="672" />
@@ -1081,16 +1132,16 @@ Check whether a log-transformation of <code>Words</code> makes the residuals clo
 <div id="icecream" class="section level3">
 <h3><span class="header-section-number">6.5.1</span> Icecream sales: a motivating example</h3>
 <p>It is well known that ice cream sales are higher during warm weather. As an ice cream salesman, you hardly have to apply regression analysis to know this - it is just obvious. Suppose that one year, you sell icecream at Oosterpark in Amsterdam. Sales are pretty good, the summer is nice and warm. The next year you try your luck at the Dappermarkt, a busy market in the east of Amsterdam. You tally your sales every week, and finally make a plot comparing average weekly sales:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(icecream)
-
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(ggthemes)
-
-<span class="kw">ggplot</span>(icecream, <span class="kw">aes</span>(<span class="dt">x =</span> location, <span class="dt">y =</span> sales, <span class="dt">fill =</span> location)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">2</span>, <span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>))</code></pre>
+<div class="sourceCode" id="cb654"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb654-1" title="1"><span class="kw">data</span>(icecream)</a>
+<a class="sourceLine" id="cb654-2" title="2"></a>
+<a class="sourceLine" id="cb654-3" title="3"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb654-4" title="4"><span class="kw">library</span>(ggthemes)</a>
+<a class="sourceLine" id="cb654-5" title="5"></a>
+<a class="sourceLine" id="cb654-6" title="6"><span class="kw">ggplot</span>(icecream, <span class="kw">aes</span>(<span class="dt">x =</span> location, <span class="dt">y =</span> sales, <span class="dt">fill =</span> location)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb654-7" title="7"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb654-8" title="8"><span class="st">  </span><span class="kw">geom_boxplot</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb654-9" title="9"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">aspect.ratio =</span> <span class="dv">2</span>, <span class="dt">legend.position=</span><span class="st">&quot;none&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb654-10" title="10"><span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>))</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-38"></span>
 <img src="05-linearregression_files/figure-html/unnamed-chunk-38-1.svg" alt="Average weekly ice cream sales at two locations, over two years" width="672" />
 <p class="caption">
@@ -1098,7 +1149,7 @@ Figure 6.6: Average weekly ice cream sales at two locations, over two years
 </p>
 </div>
 <p>Based on this simple boxplot, you would either conclude that there is no difference in sales, or that perhaps sales were slightly better in Oosterpark. We can also perform a <em>t</em>-test for two samples, which tests the hypothesis that the two means are not different (in other words, location has no effect on sales).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">t.test</span>(sales <span class="op">~</span><span class="st"> </span>location, <span class="dt">data=</span>icecream)</code></pre>
+<div class="sourceCode" id="cb655"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb655-1" title="1"><span class="kw">t.test</span>(sales <span class="op">~</span><span class="st"> </span>location, <span class="dt">data=</span>icecream)</a></code></pre></div>
 <pre><code>## 
 ##  Welch Two Sample t-test
 ## 
@@ -1118,11 +1169,11 @@ The example above - as all other examples in this chapter - shows the raw output
 <p>From this test we conclude no difference: the P value is very large (meaning the observed sample difference is not unusual, and could have easily arisen by chance).</p>
 <p>Of course, there is something rather fishy about this experiment. We are testing the difference between two locations - but both locations were ‘tested’ in different years, when other conditions may have been different. In other words, we have not performed a proper experiment at all - changing just one variable at a time - location is <em>confounded</em> by the year.</p>
 <p>We do not need to get into detail here to design a proper scientific ice cream sales experiment, instead we are going to make the point that we can account for some <em>confounding variables</em> via regression analysis. How about temperature? As an astute ice cream salesman, you downloaded weekly average air temperature for Amsterdam, and added these to the data. Now let’s make a plot using <em>air temperature as a covariate</em>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Assuming you have loaded ggplot2 and ggthemes</span>
-<span class="kw">ggplot</span>(icecream, <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> sales, <span class="dt">fill =</span> location)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;dimgrey&quot;</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>), <span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</code></pre>
+<div class="sourceCode" id="cb657"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb657-1" title="1"><span class="co"># Assuming you have loaded ggplot2 and ggthemes</span></a>
+<a class="sourceLine" id="cb657-2" title="2"><span class="kw">ggplot</span>(icecream, <span class="kw">aes</span>(<span class="dt">x =</span> temperature, <span class="dt">y =</span> sales, <span class="dt">fill =</span> location)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb657-3" title="3"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">shape =</span> <span class="dv">21</span>, <span class="dt">size=</span><span class="dv">3</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb657-4" title="4"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;white&quot;</span>,<span class="st">&quot;dimgrey&quot;</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb657-5" title="5"><span class="st">  </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">1200</span>), <span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">35</span>))</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-41"></span>
 <img src="05-linearregression_files/figure-html/unnamed-chunk-41-1.svg" alt="Ice cream sales by location, and varying with temperature." width="672" />
 <p class="caption">
@@ -1142,22 +1193,22 @@ Use a <em>t</em>-test to test that temperature was lower at the Dappermarkt loca
 <p>To fit linear models of varying complexity, we can use the <code>lm</code> function. The simplest model is a straight-line relationship between an <code>x</code> and a <code>y</code> variable. In this situation, the assumption is that the <code>y</code>-variable (the response) is a linear function of the <code>x</code>-variable (the independent variable), plus some random noise or measurement error. For the simplest case, both <code>x</code> and <code>y</code> are assumed to be continuous variables.</p>
 <p>We use this method to study the relationship between two continuous variables: a <em>response</em> (‘y variable’) and a <em>predictor</em> (or independent variable) (‘x variable’). We can use multiple regression to study the relationship between one response and more than one predictor.</p>
 <p>We are going to use the Cereals data to inspect the “health rating” (<code>rating</code>), and two predictors: fibre content (<code>fiber</code>) and sugar content (<code>sugar</code>). To start with, let’s make two scatter plots, side by side.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Read the data, if you haven&#39;t already</span>
-<span class="kw">data</span>(cereals)
-
-<span class="kw">library</span>(scales)
-<span class="kw">library</span>(gridExtra)
-
-<span class="co"># Two simple scatter plots on a log-log scale</span>
-g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cereals, <span class="kw">aes</span>(<span class="dt">y =</span> rating, <span class="dt">x =</span> fiber)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">15</span>) <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)
-
-g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cereals, <span class="kw">aes</span>(<span class="dt">y =</span> rating, <span class="dt">x =</span> sugars)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)
-
-<span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb658"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb658-1" title="1"><span class="co"># Read the data, if you haven&#39;t already</span></a>
+<a class="sourceLine" id="cb658-2" title="2"><span class="kw">data</span>(cereals)</a>
+<a class="sourceLine" id="cb658-3" title="3"></a>
+<a class="sourceLine" id="cb658-4" title="4"><span class="kw">library</span>(scales)</a>
+<a class="sourceLine" id="cb658-5" title="5"><span class="kw">library</span>(gridExtra)</a>
+<a class="sourceLine" id="cb658-6" title="6"></a>
+<a class="sourceLine" id="cb658-7" title="7"><span class="co"># Two simple scatter plots on a log-log scale</span></a>
+<a class="sourceLine" id="cb658-8" title="8">g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cereals, <span class="kw">aes</span>(<span class="dt">y =</span> rating, <span class="dt">x =</span> fiber)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb658-9" title="9"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">15</span>) <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb658-10" title="10"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)</a>
+<a class="sourceLine" id="cb658-11" title="11"></a>
+<a class="sourceLine" id="cb658-12" title="12">g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(cereals, <span class="kw">aes</span>(<span class="dt">y =</span> rating, <span class="dt">x =</span> sugars)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb658-13" title="13"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">col=</span><span class="st">&quot;dimgrey&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb658-14" title="14"><span class="st">  </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&#39;lm&#39;</span>)</a>
+<a class="sourceLine" id="cb658-15" title="15"></a>
+<a class="sourceLine" id="cb658-16" title="16"><span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:allomdiamheight"></span>
 <img src="05-linearregression_files/figure-html/allomdiamheight-1.svg" alt="Leaf area as a function of height and diameter (note the log-log scale)." width="672" />
 <p class="caption">
@@ -1171,14 +1222,14 @@ y = \alpha+\beta_1 x_1 +\beta_2 x_2 +\varepsilon
 \tag{6.1}
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(\alpha\)</span> is the intercept, <span class="math inline">\(x_1\)</span> and <span class="math inline">\(x_2\)</span> are the two predictors (fiber and sugars), and the <em>two</em> slopes are <span class="math inline">\(\beta_1\)</span> and <span class="math inline">\(\beta_2\)</span>. We are particularly interested in testing for significant effect of both predictors, which is akin to saying that we are testing the values of the two slopes against zero.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit a multiple regression without interactions, and inspect the summary</span>
-fit4 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class="op">~</span><span class="st"> </span>sugars <span class="op">+</span><span class="st"> </span>fiber, <span class="dt">data=</span>cereals)
-
-<span class="co"># A detailed summary (not shown for brevity)</span>
-<span class="co"># summary(fit4)</span>
-
-<span class="co"># A clean summary, especially for in an rmarkdown file</span>
-fit4 <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
+<div class="sourceCode" id="cb659"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb659-1" title="1"><span class="co"># Fit a multiple regression without interactions, and inspect the summary</span></a>
+<a class="sourceLine" id="cb659-2" title="2">fit4 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class="op">~</span><span class="st"> </span>sugars <span class="op">+</span><span class="st"> </span>fiber, <span class="dt">data=</span>cereals)</a>
+<a class="sourceLine" id="cb659-3" title="3"></a>
+<a class="sourceLine" id="cb659-4" title="4"><span class="co"># A detailed summary (not shown for brevity)</span></a>
+<a class="sourceLine" id="cb659-5" title="5"><span class="co"># summary(fit4)</span></a>
+<a class="sourceLine" id="cb659-6" title="6"></a>
+<a class="sourceLine" id="cb659-7" title="7"><span class="co"># A clean summary, especially for in an rmarkdown file</span></a>
+<a class="sourceLine" id="cb659-8" title="8">fit4 <span class="op">%&gt;%</span><span class="st"> </span>pander</a></code></pre></div>
 <table style="width:89%;">
 <caption>Fitting linear model: rating ~ sugars + fiber</caption>
 <colgroup>
@@ -1223,10 +1274,10 @@ fit4 <span class="op">%&gt;%</span><span class="st"> </span>pander</code></pre>
 </table>
 <p>As you can see, we again use the <code>pander</code> package to give super clean results, which can be used in an <code>rmarkdown</code> document. We see here that overall we have an R<sup>2</sup> of 81% (not bad), and that both predictors contribute significantly (the P values are very low for both).</p>
 <p>Next, we perform some diagnostic plots (shown in Fig. <a href="linmodel.html#fig:cerealdiag">6.9</a>). The standard errors (and confidence intervals, and hypothesis tests) will be unreliable if the assumptions of normality (right panel) or linearity (left panel) are seriously violated. If you are only interested in the mean response against your predictors, but not so much their uncertainties, you can usually ignore these plots.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Basic diagnostic plots.</span>
-<span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))
-car<span class="op">::</span><span class="kw">residualPlot</span>(fit4)
-car<span class="op">::</span><span class="kw">qqPlot</span>(fit4)</code></pre>
+<div class="sourceCode" id="cb660"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb660-1" title="1"><span class="co"># Basic diagnostic plots.</span></a>
+<a class="sourceLine" id="cb660-2" title="2"><span class="kw">par</span>(<span class="dt">mfrow=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</a>
+<a class="sourceLine" id="cb660-3" title="3">car<span class="op">::</span><span class="kw">residualPlot</span>(fit4)</a>
+<a class="sourceLine" id="cb660-4" title="4">car<span class="op">::</span><span class="kw">qqPlot</span>(fit4)</a></code></pre></div>
 <div class="figure"><span id="fig:cerealdiag"></span>
 <img src="05-linearregression_files/figure-html/cerealdiag-1.svg" alt="Diagnostic plots for linear regression of the Cereals data." width="672" />
 <p class="caption">
@@ -1236,11 +1287,11 @@ Figure 6.9: Diagnostic plots for linear regression of the Cereals data.
 <pre><code>## [1] 27 31</code></pre>
 <p>Now that we have a fitted model, what do its predictions actually look like? What relationship have we learned between health rating, sugars, and fiber content? The <code>visreg</code> package provides a very concise method to visualize (many kinds of) fitted regression models.</p>
 <p>In this case, the command <code>visreg::visreg(fit4)</code> would show two plots very similar to the ones above - which does not really add much information. What if we can show the effects of both predictors, in just one plot? The following code produces Fig. <a href="linmodel.html#fig:visregcereal">6.10</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(visreg)
-
-<span class="kw">visreg</span>(fit4, <span class="st">&quot;sugars&quot;</span>, <span class="dt">by =</span> <span class="st">&quot;fiber&quot;</span>, <span class="dt">overlay =</span> <span class="ot">TRUE</span>, 
-       <span class="dt">gg =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">lims</span>(<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</code></pre>
+<div class="sourceCode" id="cb662"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb662-1" title="1"><span class="kw">library</span>(visreg)</a>
+<a class="sourceLine" id="cb662-2" title="2"></a>
+<a class="sourceLine" id="cb662-3" title="3"><span class="kw">visreg</span>(fit4, <span class="st">&quot;sugars&quot;</span>, <span class="dt">by =</span> <span class="st">&quot;fiber&quot;</span>, <span class="dt">overlay =</span> <span class="ot">TRUE</span>, </a>
+<a class="sourceLine" id="cb662-4" title="4">       <span class="dt">gg =</span> <span class="ot">TRUE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb662-5" title="5"><span class="st">  </span><span class="kw">lims</span>(<span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">100</span>))</a></code></pre></div>
 <div class="figure"><span id="fig:visregcereal"></span>
 <img src="05-linearregression_files/figure-html/visregcereal-1.svg" alt="Visualizing linear regression of the Cereals data with visreg." width="672" />
 <p class="caption">
@@ -1255,9 +1306,9 @@ In the call to <code>visreg</code>, use the argument <code>breaks=c(1,5)</code> 
 
 <p>We can also make 3D plots, though these are not always useful, and I personally prefer a ‘pseudo-3D’ plot as in the example above to visualize the contribution of two variables.</p>
 <p>Of course, we are not restricted to just two predictors, and we can include interactions as well. In the previous model (<code>fit4</code>) the effects of <code>fiber</code> and <code>sugars</code> were <em>additive</em>, in other words the effect of fiber was independent of the amount of sugars. We can test this assumption by adding the interaction to the model.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A multiple regression that includes all main effects as wel as interactions</span>
-fit5 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class="op">~</span><span class="st"> </span>sugars <span class="op">+</span><span class="st"> </span>fiber <span class="op">+</span><span class="st"> </span>fiber<span class="op">:</span>sugars, <span class="dt">data=</span>cereals)
-<span class="kw">summary</span>(fit5) <span class="op">%&gt;%</span><span class="st"> </span>pander<span class="op">::</span><span class="kw">pander</span>(.)</code></pre>
+<div class="sourceCode" id="cb663"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb663-1" title="1"><span class="co"># A multiple regression that includes all main effects as wel as interactions</span></a>
+<a class="sourceLine" id="cb663-2" title="2">fit5 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class="op">~</span><span class="st"> </span>sugars <span class="op">+</span><span class="st"> </span>fiber <span class="op">+</span><span class="st"> </span>fiber<span class="op">:</span>sugars, <span class="dt">data=</span>cereals)</a>
+<a class="sourceLine" id="cb663-3" title="3"><span class="kw">summary</span>(fit5) <span class="op">%&gt;%</span><span class="st"> </span>pander<span class="op">::</span><span class="kw">pander</span>(.)</a></code></pre></div>
 <table style="width:90%;">
 <colgroup>
 <col width="26%" />
@@ -1333,7 +1384,7 @@ fit5 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class
 </table>
 <p>(<em>Note</em>: the formula can also be written as <code>fiber*sugars</code>)</p>
 <p>In this case, the interaction is not significant: note the large P value for the <em>sugars:fiber</em> interaction. We can also inspect the <code>AIC</code>, and notice that the total model AIC has not decreased, which also indicates the model has not improved by adding an interaction term.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">AIC</span>(fit4, fit5)</code></pre>
+<div class="sourceCode" id="cb664"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb664-1" title="1"><span class="kw">AIC</span>(fit4, fit5)</a></code></pre></div>
 <pre><code>##      df      AIC
 ## fit4  4 496.1572
 ## fit5  5 496.7359</code></pre>
@@ -1343,45 +1394,45 @@ fit5 &lt;-<span class="st"> </span><span class="kw">lm</span>(rating <span class
 <h2><span class="header-section-number">6.6</span> Linear models with factors and continuous variables</h2>
 <p>So far we have looked at ANOVA, including two-way ANOVA, where a response variable is modelled as dependent on two treatments or factors, and <em>regression</em> including multiple linear regression where a response variable is modelled as dependent on two continuous variables. These are just special cases of the <em>linear model</em>, and we can extend these simple models by including a mix of factors and continuous predictors. The situation where we have one continuous variable and one factor variable was classically<code>known as ANCOVA (analysis of covariance), but using the</code>lm` function we can specify any model with a combination of predictors.</p>
 <p>In the following example, we inspect the height of trees against the stem diameter (<code>DBH</code>) for the Coweeta example dataset. When plotting all data, we are led to believe that the overall response of height to DBH is highly non-linear (left panel). However, when we fit a simple linear model for each species separately (right panel), the relationship appears to consist of a combination of linear responses.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(coweeta)
-
-g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> DBH, <span class="dt">y =</span> height)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))
-
-g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> DBH, <span class="dt">y=</span>height, <span class="dt">col=</span>species)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))
-
-<span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb666"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb666-1" title="1"><span class="kw">data</span>(coweeta)</a>
+<a class="sourceLine" id="cb666-2" title="2"></a>
+<a class="sourceLine" id="cb666-3" title="3">g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> DBH, <span class="dt">y =</span> height)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb666-4" title="4"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb666-5" title="5"><span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))</a>
+<a class="sourceLine" id="cb666-6" title="6"></a>
+<a class="sourceLine" id="cb666-7" title="7">g2 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> DBH, <span class="dt">y=</span>height, <span class="dt">col=</span>species)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb666-8" title="8"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span><span class="st"> </span><span class="kw">geom_smooth</span>(<span class="dt">method=</span><span class="st">&quot;lm&quot;</span>, <span class="dt">se=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb666-9" title="9"><span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span><span class="st"> </span><span class="kw">lims</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">60</span>), <span class="dt">y=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">30</span>))</a>
+<a class="sourceLine" id="cb666-10" title="10"></a>
+<a class="sourceLine" id="cb666-11" title="11"><span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>, <span class="dt">widths=</span><span class="kw">c</span>(<span class="fl">0.4</span>, <span class="fl">0.6</span>))</a></code></pre></div>
 <p><img src="05-linearregression_files/figure-html/coweeta_twoplots-1.svg" width="672" /></p>
 <p>To fit a model that allows a different response for each species, we use the notation from before:</p>
-<pre class="sourceCode r"><code class="sourceCode r">fit6 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species <span class="op">*</span><span class="st"> </span>DBH, <span class="dt">data=</span>coweeta)</code></pre>
+<div class="sourceCode" id="cb667"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb667-1" title="1">fit6 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>species <span class="op">*</span><span class="st"> </span>DBH, <span class="dt">data=</span>coweeta)</a></code></pre></div>
 <div id="predictedeffects" class="section level3">
 <h3><span class="header-section-number">6.6.1</span> Visualizing fitted regression models</h3>
 <p>The coefficients associated with a factor predictor in a linear model are given as contrasts (i.e. differences between factor levels).</p>
 <p>While this is useful for comparisons of treatments, it is often more instructive to visualize the predictions at various combinations of factor levels.</p>
 <p>A number of options exist to extract and visualize fitted regression models - to make sense of differences between groups, the effects of covariates, and the impact of interactions. We prefer the <code>visreg</code> package, which can be used to make attractive plots of the predictions of a linear model.</p>
 <p>The following example makes Fig. <a href="linmodel.html#fig:visreg1">6.11</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(visreg)
-
-<span class="co"># Load data (lgrdata package needed)</span>
-<span class="kw">data</span>(memory)
-
-<span class="co"># To make the later results easier to interpret, reorder the Process</span>
-<span class="co"># factor by the average number of words rememberer (we did this earlier in </span>
-<span class="co"># the chapter already for this dataset, it is repeated here).</span>
-memory &lt;-<span class="st"> </span><span class="kw">mutate</span>(memory, 
-                 <span class="dt">Process =</span> <span class="kw">reorder</span>(Process, Words, mean))
-
-<span class="co"># Two linear models: one without, and one with an interaction</span>
-fit7 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)
-fit8 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age<span class="op">*</span>Process, <span class="dt">data=</span>memory)
-
-<span class="co"># Here we specify which variable should be on the X axis (Process),</span>
-<span class="co"># and which variable should be added with different colours (Age).</span>
-<span class="kw">visreg</span>(fit7, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)
-<span class="kw">visreg</span>(fit8, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb668"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb668-1" title="1"><span class="kw">library</span>(visreg)</a>
+<a class="sourceLine" id="cb668-2" title="2"></a>
+<a class="sourceLine" id="cb668-3" title="3"><span class="co"># Load data (lgrdata package needed)</span></a>
+<a class="sourceLine" id="cb668-4" title="4"><span class="kw">data</span>(memory)</a>
+<a class="sourceLine" id="cb668-5" title="5"></a>
+<a class="sourceLine" id="cb668-6" title="6"><span class="co"># To make the later results easier to interpret, reorder the Process</span></a>
+<a class="sourceLine" id="cb668-7" title="7"><span class="co"># factor by the average number of words rememberer (we did this earlier in </span></a>
+<a class="sourceLine" id="cb668-8" title="8"><span class="co"># the chapter already for this dataset, it is repeated here).</span></a>
+<a class="sourceLine" id="cb668-9" title="9">memory &lt;-<span class="st"> </span><span class="kw">mutate</span>(memory, </a>
+<a class="sourceLine" id="cb668-10" title="10">                 <span class="dt">Process =</span> <span class="kw">reorder</span>(Process, Words, mean))</a>
+<a class="sourceLine" id="cb668-11" title="11"></a>
+<a class="sourceLine" id="cb668-12" title="12"><span class="co"># Two linear models: one without, and one with an interaction</span></a>
+<a class="sourceLine" id="cb668-13" title="13">fit7 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age <span class="op">+</span><span class="st"> </span>Process, <span class="dt">data=</span>memory)</a>
+<a class="sourceLine" id="cb668-14" title="14">fit8 &lt;-<span class="st"> </span><span class="kw">lm</span>(Words <span class="op">~</span><span class="st"> </span>Age<span class="op">*</span>Process, <span class="dt">data=</span>memory)</a>
+<a class="sourceLine" id="cb668-15" title="15"></a>
+<a class="sourceLine" id="cb668-16" title="16"><span class="co"># Here we specify which variable should be on the X axis (Process),</span></a>
+<a class="sourceLine" id="cb668-17" title="17"><span class="co"># and which variable should be added with different colours (Age).</span></a>
+<a class="sourceLine" id="cb668-18" title="18"><span class="kw">visreg</span>(fit7, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb668-19" title="19"><span class="kw">visreg</span>(fit8, <span class="st">&quot;Process&quot;</span>, <span class="dt">by=</span><span class="st">&quot;Age&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:visreg1"></span>
 <img src="05-linearregression_files/figure-html/visreg1-1.svg" alt="Visualization of two fitted linear model with the visreg package. The model on the right includes an interaction between Process and Age, the model on the left does not." width="672" />
 <p class="caption">
@@ -1396,9 +1447,9 @@ Figure 6.11: Visualization of two fitted linear model with the visreg package. T
 <p>Here, we continue this example as it shows that we need to closely inspect a fitted model before making any conclusions - and that estimated coefficients of a regression model can lead to wrong conclusions, if not carefully examined.</p>
 <p>To continue, first read in the icecream data as shown in Section <a href="linmodel.html#icecream">6.5.1</a>.
 We now fit a linear model with one numeric, and one factor variable. We immediately include all effects, including the interaction.</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm_ice1 &lt;-<span class="st"> </span><span class="kw">lm</span>(sales <span class="op">~</span><span class="st"> </span>location <span class="op">*</span><span class="st"> </span>temperature, <span class="dt">data=</span>icecream)</code></pre>
+<div class="sourceCode" id="cb669"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb669-1" title="1">lm_ice1 &lt;-<span class="st"> </span><span class="kw">lm</span>(sales <span class="op">~</span><span class="st"> </span>location <span class="op">*</span><span class="st"> </span>temperature, <span class="dt">data=</span>icecream)</a></code></pre></div>
 <p>You can inspect all details in the summary of this model yourself (<code>summary(lm_ice1)</code>) - here we just look at the estimated coefficients from the model. Recall that in a linear model, the intercept is assigned to the first level of the factor variable in the model, in this case <code>levels(icecream$location)</code> shows that this is ‘Dappermarkt’.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">pander</span>(lm_ice1)</code></pre>
+<div class="sourceCode" id="cb670"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb670-1" title="1"><span class="kw">pander</span>(lm_ice1)</a></code></pre></div>
 <table>
 <caption>Fitting linear model: sales ~ location * temperature</caption>
 <colgroup>
@@ -1456,24 +1507,24 @@ We now fit a linear model with one numeric, and one factor variable. We immediat
 <li><em>locationOosterpark:temperature</em> : the difference in <em>slope</em> for the Oosterpark, compared to Dappermarkt. This shows the slope is lower for Oosterpark.</li>
 </ul>
 <p>Based on the above, it seems difficult to draw conclusions about the difference between locations. This is because the intercept is not at all informative: it quantifies ice cream sales when temperature equals zero, but we do not even try to sell ice cream when it is cold outside. To visualize what is going on, we modify the standard <code>visreg</code> plot to draw the regression lines all the way to zero. We also show how to adjust the appearance of the plot (see <code>?plot.visreg</code> for details).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">visreg</span>(lm_ice1, <span class="st">&quot;temperature&quot;</span>, <span class="dt">by=</span><span class="st">&quot;location&quot;</span>, 
-       <span class="dt">overlay =</span> <span class="ot">TRUE</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>),
-       <span class="dt">line.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>)),
-       <span class="dt">fill.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;#BEBEBE80&quot;</span>,<span class="st">&quot;#BEBEBE80&quot;</span>)),
-       <span class="dt">points.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>), <span class="dt">cex=</span><span class="fl">1.2</span>))</code></pre>
+<div class="sourceCode" id="cb671"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb671-1" title="1"><span class="kw">visreg</span>(lm_ice1, <span class="st">&quot;temperature&quot;</span>, <span class="dt">by=</span><span class="st">&quot;location&quot;</span>, </a>
+<a class="sourceLine" id="cb671-2" title="2">       <span class="dt">overlay =</span> <span class="ot">TRUE</span>, <span class="dt">xlim=</span><span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>),</a>
+<a class="sourceLine" id="cb671-3" title="3">       <span class="dt">line.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>)),</a>
+<a class="sourceLine" id="cb671-4" title="4">       <span class="dt">fill.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;#BEBEBE80&quot;</span>,<span class="st">&quot;#BEBEBE80&quot;</span>)),</a>
+<a class="sourceLine" id="cb671-5" title="5">       <span class="dt">points.par=</span><span class="kw">list</span>(<span class="dt">col=</span><span class="kw">c</span>(<span class="st">&quot;dimgrey&quot;</span>,<span class="st">&quot;grey&quot;</span>), <span class="dt">cex=</span><span class="fl">1.2</span>))</a></code></pre></div>
 <p><img src="05-linearregression_files/figure-html/unnamed-chunk-49-1.svg" width="672" /></p>
 <p>We now see that the regression lines ‘cross over’ around a temperature of 10, giving a higher intercept for Oosterpark.</p>
 <p>A meaningful test in situations like this is to test for group differences <em>at a given value of our covariate(s)</em>. A number of approaches exist in various add-on packages, but we prefer to first show the basic approach using <code>predict</code> - a function that has methods for practically all models we use. It also offers great flexibility, and we don’t have to wonder what exactly we are testing.</p>
 <p>Somewhat arbitrarily, we want to test for location differences at a temperature of 25 degrees. To do this, I will construct confidence intervals for both locations, as follows. In the call to <code>predict</code>, it is important to list values for all variables in the model. This makes this approach less practical for models with many more regressors (see below for another approach).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Predict from model, at temperature =25.</span>
-pred_ice &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_ice1, 
-                    <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">temperature =</span> <span class="dv">25</span>, 
-                                         <span class="dt">location =</span> <span class="kw">levels</span>(icecream<span class="op">$</span>location)),
-                    <span class="dt">se =</span> <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb672"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb672-1" title="1"><span class="co"># Predict from model, at temperature =25.</span></a>
+<a class="sourceLine" id="cb672-2" title="2">pred_ice &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_ice1, </a>
+<a class="sourceLine" id="cb672-3" title="3">                    <span class="dt">newdata =</span> <span class="kw">data.frame</span>(<span class="dt">temperature =</span> <span class="dv">25</span>, </a>
+<a class="sourceLine" id="cb672-4" title="4">                                         <span class="dt">location =</span> <span class="kw">levels</span>(icecream<span class="op">$</span>location)),</a>
+<a class="sourceLine" id="cb672-5" title="5">                    <span class="dt">se =</span> <span class="ot">TRUE</span>)</a></code></pre></div>
 <p>If you inspect this object, you will find that sales at Dappermarkt are 1015.4 with a standard error of 18.1, and sales at Oosterpark are 835.2 (SE 10.1). The standard errors may be used to construct approximate 95% confidence intervals (by using twice the standard error).</p>
 <p>A more convenient approach is to use the <code>emmeans</code> package to extract <em>marginal effects</em> of our fitted model. The default approach in this package is to test for group differences at the average level of other predictors. This approach is also called ‘least-square means’. However, we can adjust what value we want to use.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(emmeans)
-<span class="kw">emmeans</span>(lm_ice1, <span class="dt">specs =</span> <span class="st">&quot;location&quot;</span>, <span class="dt">at =</span> <span class="kw">list</span>(<span class="dt">temperature =</span> <span class="dv">25</span>))</code></pre>
+<div class="sourceCode" id="cb673"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb673-1" title="1"><span class="kw">library</span>(emmeans)</a>
+<a class="sourceLine" id="cb673-2" title="2"><span class="kw">emmeans</span>(lm_ice1, <span class="dt">specs =</span> <span class="st">&quot;location&quot;</span>, <span class="dt">at =</span> <span class="kw">list</span>(<span class="dt">temperature =</span> <span class="dv">25</span>))</a></code></pre></div>
 <pre><code>## NOTE: Results may be misleading due to involvement in interactions</code></pre>
 <pre><code>##  location    emmean   SE df lower.CL upper.CL
 ##  Dappermarkt   1015 18.1 36      979     1052
@@ -1486,20 +1537,20 @@ pred_ice &lt;-<span class="st"> </span><span class="kw">predict</span>(lm_ice1,
 <h3><span class="header-section-number">6.6.3</span> Logarithmic transformation</h3>
 <p>For data that are very heteroscedasctic, that is, have quickly increasing variance with the value of the predictor, it is usually necessary to use a logarithm transformation of the data. In extreme cases, not applying the log-transform leads to very poor model fits, with very large influence of a few points, and possibly a fit that does not describe the data well at all.</p>
 <p>See Fig. <a href="linmodel.html#fig:cowtransform">6.12</a> for an example where a log-transform is used.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(coweeta)
-<span class="kw">library</span>(scales)
-
-g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> biomass, <span class="dt">y =</span> folmass)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mass of tree (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mass of leaves (kg)&quot;</span>)
-    
-g2 &lt;-<span class="st"> </span>g1 <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">annotation_logticks</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="op">^</span><span class="dv">4</span>), <span class="dt">y=</span><span class="dv">100</span>)
-
-<span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<div class="sourceCode" id="cb676"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb676-1" title="1"><span class="kw">data</span>(coweeta)</a>
+<a class="sourceLine" id="cb676-2" title="2"><span class="kw">library</span>(scales)</a>
+<a class="sourceLine" id="cb676-3" title="3"></a>
+<a class="sourceLine" id="cb676-4" title="4">g1 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(coweeta, <span class="kw">aes</span>(<span class="dt">x =</span> biomass, <span class="dt">y =</span> folmass)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb676-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb676-6" title="6"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Mass of tree (kg)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Mass of leaves (kg)&quot;</span>)</a>
+<a class="sourceLine" id="cb676-7" title="7">    </a>
+<a class="sourceLine" id="cb676-8" title="8">g2 &lt;-<span class="st"> </span>g1 <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb676-9" title="9"><span class="st">  </span><span class="kw">scale_x_log10</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb676-10" title="10"><span class="st">  </span><span class="kw">scale_y_log10</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb676-11" title="11"><span class="st">  </span><span class="kw">annotation_logticks</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb676-12" title="12"><span class="st">  </span><span class="kw">expand_limits</span>(<span class="dt">x=</span><span class="kw">c</span>(<span class="dv">1</span>,<span class="dv">10</span><span class="op">^</span><span class="dv">4</span>), <span class="dt">y=</span><span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb676-13" title="13"></a>
+<a class="sourceLine" id="cb676-14" title="14"><span class="kw">grid.arrange</span>(g1, g2, <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:cowtransform"></span>
 <img src="05-linearregression_files/figure-html/cowtransform-1.svg" alt="An example of a dataset that screams for a logarithmic transformation. Left panel: untransformed data, showing very non-constant variance, indicating larger variation in the response variable for larger individuals. Right panel: both variables have been log-transformed, giving a nice linear relationship with constant variance." width="672" />
 <p class="caption">
@@ -1511,18 +1562,18 @@ Figure 6.12: An example of a dataset that screams for a logarithmic transformati
 Redo the above plot, using <code>origin</code> (i.e. American, Japanese or European) to color the symbols. This is another good example that you should always consider covariates in a linear model.
 </div>
 
-<p>The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used <code>residualPlot</code> from the <code>car</code> package to quickly make plots of residuals versus fitted values, here we implement a simple version using <code>ggplot2</code> (and note that we jump ahead and define our own function, a topic we return to in Chapter @()).</p>
-<pre class="sourceCode r"><code class="sourceCode r">lm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(folmass <span class="op">~</span><span class="st"> </span>biomass, <span class="dt">data =</span> coweeta)
-lm2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log10</span>(folmass) <span class="op">~</span><span class="st"> </span><span class="kw">log10</span>(biomass), <span class="dt">data =</span> coweeta)
-
-residPlot &lt;-<span class="st"> </span><span class="cf">function</span>(model){
-  <span class="kw">ggplot</span>(model, <span class="kw">aes</span>(.fitted, .resid)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span>
-<span class="st">    </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">span=</span><span class="fl">0.8</span>)
-}
-
-<span class="kw">grid.arrange</span>(<span class="kw">residPlot</span>(lm1), <span class="kw">residPlot</span>(lm2), <span class="dt">ncol =</span> <span class="dv">2</span>)</code></pre>
+<p>The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used <code>residualPlot</code> from the <code>car</code> package to quickly make plots of residuals versus fitted values, here we implement a simple version using <code>ggplot2</code> (and note that we jump ahead and define our own function, a topic we return to in Chapter <a href="programming.html#programming">7</a>).</p>
+<div class="sourceCode" id="cb677"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb677-1" title="1">lm1 &lt;-<span class="st"> </span><span class="kw">lm</span>(folmass <span class="op">~</span><span class="st"> </span>biomass, <span class="dt">data =</span> coweeta)</a>
+<a class="sourceLine" id="cb677-2" title="2">lm2 &lt;-<span class="st"> </span><span class="kw">lm</span>(<span class="kw">log10</span>(folmass) <span class="op">~</span><span class="st"> </span><span class="kw">log10</span>(biomass), <span class="dt">data =</span> coweeta)</a>
+<a class="sourceLine" id="cb677-3" title="3"></a>
+<a class="sourceLine" id="cb677-4" title="4">residPlot &lt;-<span class="st"> </span><span class="cf">function</span>(model){</a>
+<a class="sourceLine" id="cb677-5" title="5">  <span class="kw">ggplot</span>(model, <span class="kw">aes</span>(.fitted, .resid)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb677-6" title="6"><span class="st">    </span><span class="kw">geom_hline</span>(<span class="dt">yintercept =</span> <span class="dv">0</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb677-7" title="7"><span class="st">    </span><span class="kw">geom_point</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb677-8" title="8"><span class="st">    </span><span class="kw">stat_smooth</span>(<span class="dt">method=</span><span class="st">&quot;loess&quot;</span>, <span class="dt">span=</span><span class="fl">0.8</span>)</a>
+<a class="sourceLine" id="cb677-9" title="9">}</a>
+<a class="sourceLine" id="cb677-10" title="10"></a>
+<a class="sourceLine" id="cb677-11" title="11"><span class="kw">grid.arrange</span>(<span class="kw">residPlot</span>(lm1), <span class="kw">residPlot</span>(lm2), <span class="dt">ncol =</span> <span class="dv">2</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:cowdiagnostics"></span>
 <img src="05-linearregression_files/figure-html/cowdiagnostics-1.svg" alt="Residuals versus fitted for the Coweeta biomass regression model, either without (left panel) or with (right panel) log-transformation of x and y variables." width="672" />
 <p class="caption">
@@ -1536,22 +1587,22 @@ Figure 6.13: Residuals versus fitted for the Coweeta biomass regression model, e
 <div id="quadlm" class="section level3">
 <h3><span class="header-section-number">6.6.4</span> Adding quadratic and polynomial terms</h3>
 <p>So far we have seen models with just linear terms, but it is straightforward and often necessary to add quadratic (<span class="math inline">\(x^2\)</span>) or higher-order terms (e.g. <span class="math inline">\(x^3\)</span>) when the response variable is far from linear in the predictors. You can add any transformation of the predictors in an <code>lm</code> model by nesting the transformation inside the <code>I()</code> function, like so:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(allometry)
-lmq1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>allometry)</code></pre>
+<div class="sourceCode" id="cb678"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb678-1" title="1"><span class="kw">data</span>(allometry)</a>
+<a class="sourceLine" id="cb678-2" title="2">lmq1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>allometry)</a></code></pre></div>
 <p>This model fits both the linear (<code>diameter</code>) and squared terms (<code>I(diameter\^2)</code>) of the predictor, as well as the usual intercept term. If you want to fit all polynomial terms up to some order, you can use the <code>poly</code> function like so,</p>
-<pre class="sourceCode r"><code class="sourceCode r">lmq1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(diameter, <span class="dv">2</span>), <span class="dt">data=</span>allometry)</code></pre>
+<div class="sourceCode" id="cb679"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb679-1" title="1">lmq1 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(diameter, <span class="dv">2</span>), <span class="dt">data=</span>allometry)</a></code></pre></div>
 <p>This model specification is exactly equivalent to the above, and is more convenient when you have multiple quadratic / polynomial terms and interactions with factor variables.</p>
 <p>The following example quickly tests whether a quadratic term improves the model fit of <code>height</code> vs. <code>diameter</code> for the species <code>PIPO</code> in the allometry dataset.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(allometry)
-pipo &lt;-<span class="st"> </span><span class="kw">subset</span>(allometry, species <span class="op">==</span><span class="st"> &quot;PIPO&quot;</span>)
-
-<span class="co"># Fit model with the quadratic term:</span>
-lmq2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>pipo)
-
-<span class="co"># The very small p-value for the quadratic terms shows that the </span>
-<span class="co"># relationship is clearly not linear, but better described with a </span>
-<span class="co"># quadratic model.</span>
-<span class="kw">Anova</span>(lmq2)</code></pre>
+<div class="sourceCode" id="cb680"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb680-1" title="1"><span class="kw">data</span>(allometry)</a>
+<a class="sourceLine" id="cb680-2" title="2">pipo &lt;-<span class="st"> </span><span class="kw">subset</span>(allometry, species <span class="op">==</span><span class="st"> &quot;PIPO&quot;</span>)</a>
+<a class="sourceLine" id="cb680-3" title="3"></a>
+<a class="sourceLine" id="cb680-4" title="4"><span class="co"># Fit model with the quadratic term:</span></a>
+<a class="sourceLine" id="cb680-5" title="5">lmq2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span>diameter <span class="op">+</span><span class="st"> </span><span class="kw">I</span>(diameter<span class="op">^</span><span class="dv">2</span>), <span class="dt">data=</span>pipo)</a>
+<a class="sourceLine" id="cb680-6" title="6"></a>
+<a class="sourceLine" id="cb680-7" title="7"><span class="co"># The very small p-value for the quadratic terms shows that the </span></a>
+<a class="sourceLine" id="cb680-8" title="8"><span class="co"># relationship is clearly not linear, but better described with a </span></a>
+<a class="sourceLine" id="cb680-9" title="9"><span class="co"># quadratic model.</span></a>
+<a class="sourceLine" id="cb680-10" title="10"><span class="kw">Anova</span>(lmq2)</a></code></pre></div>
 <pre><code>## Anova Table (Type II tests)
 ## 
 ## Response: height
@@ -1562,14 +1613,14 @@ lmq2 &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
 <p>When fitting a quadratic model, it is again very useful to use <code>visreg</code> to inspect the model that is estimated, since it becomes even more difficult to make sense of the various linear, quadratic, and intercept terms, especially when interactions with factor variables are added. Consider this example for the allometry dataset, which makes Fig. <a href="linmodel.html#fig:allomquad">6.14</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Fit a linear model with linear, quadratic terms, and all species interactions.</span>
-allomquadfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(diameter, <span class="dv">2</span>)<span class="op">*</span>species, <span class="dt">data=</span>allometry)
-
-<span class="co"># Inspect summary(allomquadfit) to confirm you cannot possibly make sense of this</span>
-<span class="co"># many coefficients.</span>
-
-<span class="co"># But plotting the predictions is much easier to understand:</span>
-<span class="kw">visreg</span>(allomquadfit, <span class="st">&quot;diameter&quot;</span>, <span class="dt">by=</span><span class="st">&quot;species&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb682"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb682-1" title="1"><span class="co"># Fit a linear model with linear, quadratic terms, and all species interactions.</span></a>
+<a class="sourceLine" id="cb682-2" title="2">allomquadfit &lt;-<span class="st"> </span><span class="kw">lm</span>(height <span class="op">~</span><span class="st"> </span><span class="kw">poly</span>(diameter, <span class="dv">2</span>)<span class="op">*</span>species, <span class="dt">data=</span>allometry)</a>
+<a class="sourceLine" id="cb682-3" title="3"></a>
+<a class="sourceLine" id="cb682-4" title="4"><span class="co"># Inspect summary(allomquadfit) to confirm you cannot possibly make sense of this</span></a>
+<a class="sourceLine" id="cb682-5" title="5"><span class="co"># many coefficients.</span></a>
+<a class="sourceLine" id="cb682-6" title="6"></a>
+<a class="sourceLine" id="cb682-7" title="7"><span class="co"># But plotting the predictions is much easier to understand:</span></a>
+<a class="sourceLine" id="cb682-8" title="8"><span class="kw">visreg</span>(allomquadfit, <span class="st">&quot;diameter&quot;</span>, <span class="dt">by=</span><span class="st">&quot;species&quot;</span>, <span class="dt">overlay=</span><span class="ot">TRUE</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:allomquad"></span>
 <img src="05-linearregression_files/figure-html/allomquad-1.svg" alt="Height modelled as a quadratic function of diameter, by species." width="672" />
 <p class="caption">
@@ -1581,12 +1632,12 @@ Figure 6.14: Height modelled as a quadratic function of diameter, by species.
 <h3><span class="header-section-number">6.6.5</span> Which predictors are more important?</h3>
 <p>Frequently we are interested in knowing which of the predictor variables explain more variation in the response variable, in other words are more strongly correlated with the response.</p>
 <p>One often-seen approach is to compute all correlations between the response and each of the predictors, and conclude that those with higher correlation coefficients will be most important. The flaw in this approach is that predictor variables are very often correlated with each other, making the approach potentially misleading. Cross-correlations between variables can easily hide important predictor variables. Nonetheless it can be a useful start, as we do here with the <code>automobiles</code> data. The following code makes Fig. <a href="linmodel.html#fig:mobilecorplot">6.15</a>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(automobiles)
-
-<span class="co"># A modern implementation of a correlation plot in the corrplot package.</span>
-<span class="kw">library</span>(corrplot)
-auto_cor &lt;-<span class="st"> </span><span class="kw">cor</span>(automobiles[,<span class="dv">4</span><span class="op">:</span><span class="dv">9</span>], <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)
-<span class="kw">corrplot</span>(auto_cor, <span class="dt">method =</span> <span class="st">&quot;ellipse&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb683"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb683-1" title="1"><span class="kw">data</span>(automobiles)</a>
+<a class="sourceLine" id="cb683-2" title="2"></a>
+<a class="sourceLine" id="cb683-3" title="3"><span class="co"># A modern implementation of a correlation plot in the corrplot package.</span></a>
+<a class="sourceLine" id="cb683-4" title="4"><span class="kw">library</span>(corrplot)</a>
+<a class="sourceLine" id="cb683-5" title="5">auto_cor &lt;-<span class="st"> </span><span class="kw">cor</span>(automobiles[,<span class="dv">4</span><span class="op">:</span><span class="dv">9</span>], <span class="dt">use =</span> <span class="st">&quot;complete.obs&quot;</span>)</a>
+<a class="sourceLine" id="cb683-6" title="6"><span class="kw">corrplot</span>(auto_cor, <span class="dt">method =</span> <span class="st">&quot;ellipse&quot;</span>)</a></code></pre></div>
 <div class="figure"><span id="fig:mobilecorplot"></span>
 <img src="05-linearregression_files/figure-html/mobilecorplot-1.svg" alt="Correlation plot for the automobiles data." width="672" />
 <p class="caption">
@@ -1597,21 +1648,21 @@ Figure 6.15: Correlation plot for the automobiles data.
 <p>Sometimes we see the use of the absolute value of the t-statistic to rank variables by ‘importance’ in the regression model. Within a single model, the t-statistic will be exactly related to the p-value (low p-values mean large t-statistic). Both t-statistics and p-values are very poor measures of importance. A large t-statistic may also arise when the sample size is large, the measurements are accurate, or there is low variability overall.</p>
 <p>Instead what we are often interested in is how much variation is explained by each variable in the model. This calculation is complicated by the fact that predictor variables tend to be correlated with each other, so you cannot simply add up the R<sup>2</sup> due to each predictor separately.</p>
 <p>The <code>relaimpo</code> package includes a number of importance measures - the recommended version can be interpreted as the % variation explained by each predictor variable:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A model with five predictors</span>
-fit_fuel1 &lt;-<span class="st"> </span><span class="kw">lm</span>(fuel_efficiency <span class="op">~</span><span class="st"> </span>cylinders <span class="op">+</span><span class="st"> </span>engine_volume <span class="op">+</span>
-<span class="st">                                  </span>horsepower <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>acceleration,
-                <span class="dt">data =</span> automobiles)
-
-<span class="co"># For importance measures</span>
-<span class="kw">library</span>(relaimpo)
-
-<span class="co"># recommended method lmg in relaimpo</span>
-imp_fitfuel &lt;-<span class="st"> </span><span class="kw">calc.relimp</span>(fit_fuel1, <span class="dt">type=</span><span class="st">&quot;lmg&quot;</span>)
-
-<span class="co"># The resulting object is a bit complicated.</span>
-<span class="co"># If you print the object (simply type imp_fitfuel), lots of information is given.</span>
-<span class="co"># Instead we just need this:</span>
-<span class="kw">sort</span>(imp_fitfuel<span class="op">$</span>lmg, <span class="ot">TRUE</span>)</code></pre>
+<div class="sourceCode" id="cb684"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb684-1" title="1"><span class="co"># A model with five predictors</span></a>
+<a class="sourceLine" id="cb684-2" title="2">fit_fuel1 &lt;-<span class="st"> </span><span class="kw">lm</span>(fuel_efficiency <span class="op">~</span><span class="st"> </span>cylinders <span class="op">+</span><span class="st"> </span>engine_volume <span class="op">+</span></a>
+<a class="sourceLine" id="cb684-3" title="3"><span class="st">                                  </span>horsepower <span class="op">+</span><span class="st"> </span>weight <span class="op">+</span><span class="st"> </span>acceleration,</a>
+<a class="sourceLine" id="cb684-4" title="4">                <span class="dt">data =</span> automobiles)</a>
+<a class="sourceLine" id="cb684-5" title="5"></a>
+<a class="sourceLine" id="cb684-6" title="6"><span class="co"># For importance measures</span></a>
+<a class="sourceLine" id="cb684-7" title="7"><span class="kw">library</span>(relaimpo)</a>
+<a class="sourceLine" id="cb684-8" title="8"></a>
+<a class="sourceLine" id="cb684-9" title="9"><span class="co"># recommended method lmg in relaimpo</span></a>
+<a class="sourceLine" id="cb684-10" title="10">imp_fitfuel &lt;-<span class="st"> </span><span class="kw">calc.relimp</span>(fit_fuel1, <span class="dt">type=</span><span class="st">&quot;lmg&quot;</span>)</a>
+<a class="sourceLine" id="cb684-11" title="11"></a>
+<a class="sourceLine" id="cb684-12" title="12"><span class="co"># The resulting object is a bit complicated.</span></a>
+<a class="sourceLine" id="cb684-13" title="13"><span class="co"># If you print the object (simply type imp_fitfuel), lots of information is given.</span></a>
+<a class="sourceLine" id="cb684-14" title="14"><span class="co"># Instead we just need this:</span></a>
+<a class="sourceLine" id="cb684-15" title="15"><span class="kw">sort</span>(imp_fitfuel<span class="op">$</span>lmg, <span class="ot">TRUE</span>)</a></code></pre></div>
 <pre><code>##        weight    horsepower engine_volume     cylinders  acceleration 
 ##    0.21667697    0.19895781    0.18619931    0.17158534    0.04737539</code></pre>
 <p>The values mean that <code>weight</code> explains 21% of the variation, but acceleration only 4%. Note that the sum of these values adds up (nearly precisely) to the R<sup>2</sup> of the model (look at <code>summary(fit_fuel1)</code>).</p>
@@ -1773,11 +1824,13 @@ y &lt;- base + rnorm(20,1,0.5)</code></pre>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -1823,8 +1876,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

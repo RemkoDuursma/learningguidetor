@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-19" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 
-<link rel="next" href="intro.html">
+<link rel="next" href="intro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -138,40 +140,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>2.4</b> Writing code in a script</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
-<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
-<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.6</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.7</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.8</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.9</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.10.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.10.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.10.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.10.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.10.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.10.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.10.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.10.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.10.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.10.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.11</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.12.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.12.2</b> Using R scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
-<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
-<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
-<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
-<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
-<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
-<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
-<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
-<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
-<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.13.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.13.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.13.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.13.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.13.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.13.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.13.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.13.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.13.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.13.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.13.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.13.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.13.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.13.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.13.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.13.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.13.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.13.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.13.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
@@ -259,12 +262,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
-<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#resources"><i class="fa fa-check"></i><b>5.2.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
-<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#preparing-the-data-for-plotting"><i class="fa fa-check"></i><b>5.3.1</b> Preparing the data for plotting</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#scatterplot-example"><i class="fa fa-check"></i><b>5.3.2</b> Scatterplot example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#area-plot-example"><i class="fa fa-check"></i><b>5.3.3</b> Area plot example</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reporting.html"><a href="reporting.html#barplot-example"><i class="fa fa-check"></i><b>5.3.4</b> Barplot example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="reporting.html"><a href="reporting.html#ggplotresources"><i class="fa fa-check"></i><b>5.3.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.4</b> Making reports</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.4.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.4.2</b> Tips</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.4.3</b> Resources</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
@@ -340,6 +350,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>9</b> Version control with git</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>9.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>9.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>9.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>9.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="9.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>9.2.3</b> Using git in Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>9.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>9.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>9.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="9.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-few-hints"><i class="fa fa-check"></i><b>9.3.3</b> A few hints</a></li>
+<li class="chapter" data-level="9.3.4" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>9.3.4</b> Reverting changes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>9.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>9.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="9.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>9.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="9.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>9.4.3</b> A session with a remote repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>9.5</b> Using the command line</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>9.5.1</b> Basic commands</a></li>
+<li class="chapter" data-level="9.5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>9.5.2</b> Useful tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>10</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="10.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>10.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="10.2" data-path="projectman.html"><a href="projectman.html#set-up-a-project-in-rstudio"><i class="fa fa-check"></i><b>10.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="10.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>10.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>10.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>10.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="10.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>10.3.3</b> <code>output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>10.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>10.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="10.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>10.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>10.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="10.4.4" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>10.4.4</b> <code>facesoil_readdata.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>10.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>10.5.1</b> Adding a Date stamp to output files</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -363,7 +414,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">A Learning Guide to R: data, analytical, and programming skills.</h1>
 <p class="author"><em>Remko Duursma</em></p>
-<p class="date"><em>2019-06-19</em></p>
+<p class="date"><em>2019-10-30</em></p>
 </div>
 <div id="preface" class="section level1">
 <h1><span class="header-section-number">Chapter 1</span> Preface</h1>
@@ -393,11 +444,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -443,8 +496,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

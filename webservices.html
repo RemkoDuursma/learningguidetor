@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 8 R on the web | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 8 R on the web | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-19" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="programming.html">
-
+<link rel="prev" href="programming.html"/>
+<link rel="next" href="versioncontrol.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -138,40 +140,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>2.4</b> Writing code in a script</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
-<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
-<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.6</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.7</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.8</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.9</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.10.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.10.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.10.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.10.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.10.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.10.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.10.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.10.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.10.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.10.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.11</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.12.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.12.2</b> Using R scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
-<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
-<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
-<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
-<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
-<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
-<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
-<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
-<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
-<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.13.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.13.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.13.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.13.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.13.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.13.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.13.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.13.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.13.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.13.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.13.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.13.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.13.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.13.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.13.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.13.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.13.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.13.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.13.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
@@ -259,12 +262,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
-<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#resources"><i class="fa fa-check"></i><b>5.2.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
-<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#preparing-the-data-for-plotting"><i class="fa fa-check"></i><b>5.3.1</b> Preparing the data for plotting</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#scatterplot-example"><i class="fa fa-check"></i><b>5.3.2</b> Scatterplot example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#area-plot-example"><i class="fa fa-check"></i><b>5.3.3</b> Area plot example</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reporting.html"><a href="reporting.html#barplot-example"><i class="fa fa-check"></i><b>5.3.4</b> Barplot example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="reporting.html"><a href="reporting.html#ggplotresources"><i class="fa fa-check"></i><b>5.3.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.4</b> Making reports</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.4.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.4.2</b> Tips</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.4.3</b> Resources</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
@@ -340,6 +350,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>9</b> Version control with git</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>9.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>9.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>9.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>9.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="9.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>9.2.3</b> Using git in Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>9.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>9.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>9.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="9.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-few-hints"><i class="fa fa-check"></i><b>9.3.3</b> A few hints</a></li>
+<li class="chapter" data-level="9.3.4" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>9.3.4</b> Reverting changes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>9.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>9.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="9.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>9.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="9.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>9.4.3</b> A session with a remote repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>9.5</b> Using the command line</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>9.5.1</b> Basic commands</a></li>
+<li class="chapter" data-level="9.5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>9.5.2</b> Useful tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>10</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="10.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>10.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="10.2" data-path="projectman.html"><a href="projectman.html#set-up-a-project-in-rstudio"><i class="fa fa-check"></i><b>10.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="10.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>10.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>10.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>10.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="10.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>10.3.3</b> <code>output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>10.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>10.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="10.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>10.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>10.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="10.4.4" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>10.4.4</b> <code>facesoil_readdata.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>10.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>10.5.1</b> Adding a Date stamp to output files</a></li>
+</ul></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -384,19 +435,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <pre><code>&quot;mongodb://username:password@hostingsite.com:portnr/databasename&quot;</code></pre>
 <p>The next example is a working example of a database stored on mlab.com, and grabs data using the <code>mongolite</code> package.</p>
 <p>The database contains data on number of cars parked on 13 car parks in Almere, the Netherlands. The data are updated every 15 minutes.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># A working URL (5/6/2019)</span>
-parkingdata_url &lt;-<span class="st"> &quot;mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking&quot;</span>
-
-<span class="co">#</span>
-<span class="kw">library</span>(mongolite)
-
-<span class="co"># Make a database connection. Here you don&#39;t download data yet, just</span>
-<span class="co"># set up a connection.</span>
-db &lt;-<span class="st"> </span><span class="kw">mongo</span>(<span class="dt">collection =</span> <span class="st">&quot;almereparkingjson&quot;</span>,
-            <span class="dt">url =</span> parkingdata_url)
-
-<span class="co"># We can now download the last 1000 rows of the data.</span>
-parkingdata &lt;-<span class="st"> </span>db<span class="op">$</span><span class="kw">find</span>(<span class="dt">limit =</span> <span class="dv">1000</span>, <span class="dt">sort =</span> <span class="st">&#39;{&quot;updated&quot;: -1}&#39;</span>)</code></pre>
+<div class="sourceCode" id="cb800"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb800-1" title="1"><span class="co"># A working URL (5/6/2019)</span></a>
+<a class="sourceLine" id="cb800-2" title="2">parkingdata_url &lt;-<span class="st"> &quot;mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking&quot;</span></a>
+<a class="sourceLine" id="cb800-3" title="3"></a>
+<a class="sourceLine" id="cb800-4" title="4"><span class="co">#</span></a>
+<a class="sourceLine" id="cb800-5" title="5"><span class="kw">library</span>(mongolite)</a>
+<a class="sourceLine" id="cb800-6" title="6"></a>
+<a class="sourceLine" id="cb800-7" title="7"><span class="co"># Make a database connection. Here you don&#39;t download data yet, just</span></a>
+<a class="sourceLine" id="cb800-8" title="8"><span class="co"># set up a connection.</span></a>
+<a class="sourceLine" id="cb800-9" title="9">db &lt;-<span class="st"> </span><span class="kw">mongo</span>(<span class="dt">collection =</span> <span class="st">&quot;almereparkingjson&quot;</span>,</a>
+<a class="sourceLine" id="cb800-10" title="10">            <span class="dt">url =</span> parkingdata_url)</a>
+<a class="sourceLine" id="cb800-11" title="11"></a>
+<a class="sourceLine" id="cb800-12" title="12"><span class="co"># We can now download the last 1000 rows of the data.</span></a>
+<a class="sourceLine" id="cb800-13" title="13">parkingdata &lt;-<span class="st"> </span>db<span class="op">$</span><span class="kw">find</span>(<span class="dt">limit =</span> <span class="dv">1000</span>, <span class="dt">sort =</span> <span class="st">&#39;{&quot;updated&quot;: -1}&#39;</span>)</a></code></pre></div>
 <p>If you simply want to download all data, just do <code>db$find()</code>, it takes less than a minute.</p>
 
 <div class="rmdreading">
@@ -409,54 +460,54 @@ parkingdata &lt;-<span class="st"> </span>db<span class="op">$</span><span class
 <p>Here, we briefly show how to interact with SQL databases. There are many R packages available, partly because there are many implementations of SQL databases (including postgres, which we show here). A unified interface is provided by the <code>DBI</code> package (<a href="https://db.rstudio.com/dbi/">link to documentation</a>), which allows us to use nearly the same code for very different databases.</p>
 <p>Here, we only show how to read rectangular data with the <code>DBI</code> and <code>dbplyr</code> packages.</p>
 <p>With <code>dbConnect</code>, we setup a connection to the remotely available database (which does not download data yet). Using the connection we can list the tables available, download a table, and many other things.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># General database interface</span>
-<span class="kw">library</span>(DBI)
-
-<span class="co"># Drivers for postgres.</span>
-<span class="kw">library</span>(RPostgreSQL)
-
-<span class="co"># For generating SQL queries.</span>
-<span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(dbplyr)
-
-<span class="co"># Set up connection.</span>
-<span class="co"># !! This is a working connection (6/5/2019)</span>
-con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">PostgreSQL</span>(),
-                 <span class="dt">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,
-                 <span class="dt">password =</span> <span class="st">&quot;RsIxTmV9a95Gbb6Vo7IgG9wZNiv4Hq5L&quot;</span>,
-                 <span class="dt">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,
-                 <span class="dt">port =</span> <span class="dv">5432</span>,
-                 <span class="dt">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)
-
-<span class="co"># List available tables (only one in this case)</span>
-<span class="kw">dbListTables</span>(con)
-
-<span class="co"># Makes a direct connection to the table, but does</span>
-<span class="co"># not download anything yet:</span>
-cars &lt;-<span class="st"> </span><span class="kw">tbl</span>(con, <span class="st">&quot;automobiles&quot;</span>)
-
-<span class="co"># We can download the entire table with collect,</span>
-<span class="co"># but note that in practice we rarely do this as databases may be extremely large.</span>
-cars_data &lt;-<span class="st"> </span><span class="kw">collect</span>(cars)
-  
-<span class="co"># We can now make queries using dplyr syntax, to collect only subsets of data.</span>
-<span class="co"># for example, find all cars with weight over 2000kg.</span>
-heavycars_query &lt;-<span class="st"> </span>cars <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)
-
-<span class="co"># What does the query look like in SQL?</span>
-<span class="kw">show_query</span>(heavycars_query)
-
-<span class="co"># Now send the query to the database, collect the data.</span>
-heavycars &lt;-<span class="st"> </span><span class="kw">collect</span>(heavycars_query)
-
-
-<span class="co"># Many other functions from dplyr or other can be used on databases,</span>
-<span class="co"># but not everything! Some trial and error may be necessary.</span>
-<span class="co"># Find all cars that have &#39;buick&#39; in the name, using grepl:</span>
-buick_query &lt;-<span class="st"> </span><span class="kw">filter</span>(cars,
-                <span class="kw">grepl</span>(<span class="st">&quot;buick&quot;</span>, car_name)
-               )</code></pre>
+<div class="sourceCode" id="cb801"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb801-1" title="1"><span class="co"># General database interface</span></a>
+<a class="sourceLine" id="cb801-2" title="2"><span class="kw">library</span>(DBI)</a>
+<a class="sourceLine" id="cb801-3" title="3"></a>
+<a class="sourceLine" id="cb801-4" title="4"><span class="co"># Drivers for postgres.</span></a>
+<a class="sourceLine" id="cb801-5" title="5"><span class="kw">library</span>(RPostgreSQL)</a>
+<a class="sourceLine" id="cb801-6" title="6"></a>
+<a class="sourceLine" id="cb801-7" title="7"><span class="co"># For generating SQL queries.</span></a>
+<a class="sourceLine" id="cb801-8" title="8"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb801-9" title="9"><span class="kw">library</span>(dbplyr)</a>
+<a class="sourceLine" id="cb801-10" title="10"></a>
+<a class="sourceLine" id="cb801-11" title="11"><span class="co"># Set up connection.</span></a>
+<a class="sourceLine" id="cb801-12" title="12"><span class="co"># !! This is a working connection (6/5/2019)</span></a>
+<a class="sourceLine" id="cb801-13" title="13">con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">PostgreSQL</span>(),</a>
+<a class="sourceLine" id="cb801-14" title="14">                 <span class="dt">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,</a>
+<a class="sourceLine" id="cb801-15" title="15">                 <span class="dt">password =</span> <span class="st">&quot;RsIxTmV9a95Gbb6Vo7IgG9wZNiv4Hq5L&quot;</span>,</a>
+<a class="sourceLine" id="cb801-16" title="16">                 <span class="dt">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,</a>
+<a class="sourceLine" id="cb801-17" title="17">                 <span class="dt">port =</span> <span class="dv">5432</span>,</a>
+<a class="sourceLine" id="cb801-18" title="18">                 <span class="dt">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)</a>
+<a class="sourceLine" id="cb801-19" title="19"></a>
+<a class="sourceLine" id="cb801-20" title="20"><span class="co"># List available tables (only one in this case)</span></a>
+<a class="sourceLine" id="cb801-21" title="21"><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb801-22" title="22"></a>
+<a class="sourceLine" id="cb801-23" title="23"><span class="co"># Makes a direct connection to the table, but does</span></a>
+<a class="sourceLine" id="cb801-24" title="24"><span class="co"># not download anything yet:</span></a>
+<a class="sourceLine" id="cb801-25" title="25">cars &lt;-<span class="st"> </span><span class="kw">tbl</span>(con, <span class="st">&quot;automobiles&quot;</span>)</a>
+<a class="sourceLine" id="cb801-26" title="26"></a>
+<a class="sourceLine" id="cb801-27" title="27"><span class="co"># We can download the entire table with collect,</span></a>
+<a class="sourceLine" id="cb801-28" title="28"><span class="co"># but note that in practice we rarely do this as databases may be extremely large.</span></a>
+<a class="sourceLine" id="cb801-29" title="29">cars_data &lt;-<span class="st"> </span><span class="kw">collect</span>(cars)</a>
+<a class="sourceLine" id="cb801-30" title="30">  </a>
+<a class="sourceLine" id="cb801-31" title="31"><span class="co"># We can now make queries using dplyr syntax, to collect only subsets of data.</span></a>
+<a class="sourceLine" id="cb801-32" title="32"><span class="co"># for example, find all cars with weight over 2000kg.</span></a>
+<a class="sourceLine" id="cb801-33" title="33">heavycars_query &lt;-<span class="st"> </span>cars <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb801-34" title="34"><span class="st">  </span><span class="kw">filter</span>(weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</a>
+<a class="sourceLine" id="cb801-35" title="35"></a>
+<a class="sourceLine" id="cb801-36" title="36"><span class="co"># What does the query look like in SQL?</span></a>
+<a class="sourceLine" id="cb801-37" title="37"><span class="kw">show_query</span>(heavycars_query)</a>
+<a class="sourceLine" id="cb801-38" title="38"></a>
+<a class="sourceLine" id="cb801-39" title="39"><span class="co"># Now send the query to the database, collect the data.</span></a>
+<a class="sourceLine" id="cb801-40" title="40">heavycars &lt;-<span class="st"> </span><span class="kw">collect</span>(heavycars_query)</a>
+<a class="sourceLine" id="cb801-41" title="41"></a>
+<a class="sourceLine" id="cb801-42" title="42"></a>
+<a class="sourceLine" id="cb801-43" title="43"><span class="co"># Many other functions from dplyr or other can be used on databases,</span></a>
+<a class="sourceLine" id="cb801-44" title="44"><span class="co"># but not everything! Some trial and error may be necessary.</span></a>
+<a class="sourceLine" id="cb801-45" title="45"><span class="co"># Find all cars that have &#39;buick&#39; in the name, using grepl:</span></a>
+<a class="sourceLine" id="cb801-46" title="46">buick_query &lt;-<span class="st"> </span><span class="kw">filter</span>(cars,</a>
+<a class="sourceLine" id="cb801-47" title="47">                <span class="kw">grepl</span>(<span class="st">&quot;buick&quot;</span>, car_name)</a>
+<a class="sourceLine" id="cb801-48" title="48">               )</a></code></pre></div>
 
 <div class="rmdtry">
 Run both examples above - getting data from a (continuously updated_ MongoDB database, and a simple static PostreSQL database. Try applying some <code>dplyr</code> filters and summaries on the data.
@@ -469,28 +520,28 @@ Run both examples above - getting data from a (continuously updated_ MongoDB dat
 <p>A REST API is simply presented as a URL, to which a specific service can be accessed, and even parameters passed (when necessary). A URL may simply look like:</p>
 <pre><code>https://someserver.com/getdata</code></pre>
 <p>or may be more complicated, with queries, authentication, and so on. Let’s look a simple example, using the <code>httr</code> package:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(httr)
-
-<span class="co"># The first step is to reach out to the server, and get a response.</span>
-<span class="co"># Here, g is a complicated object that we do not inspect directly.</span>
-g &lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="st">&quot;https://opendata.cbs.nl/ODataApi/OData/37789ksz/TypedDataSet&quot;</span>)
-
-<span class="co"># Important: if the server could be reached, you have permission, </span>
-<span class="co"># and the service is available, you should see 200 as the response.</span>
-<span class="co"># Other HTML codes include 404 (service not found).</span>
-<span class="kw">status_code</span>(g)</code></pre>
+<div class="sourceCode" id="cb803"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb803-1" title="1"><span class="kw">library</span>(httr)</a>
+<a class="sourceLine" id="cb803-2" title="2"></a>
+<a class="sourceLine" id="cb803-3" title="3"><span class="co"># The first step is to reach out to the server, and get a response.</span></a>
+<a class="sourceLine" id="cb803-4" title="4"><span class="co"># Here, g is a complicated object that we do not inspect directly.</span></a>
+<a class="sourceLine" id="cb803-5" title="5">g &lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="st">&quot;https://opendata.cbs.nl/ODataApi/OData/37789ksz/TypedDataSet&quot;</span>)</a>
+<a class="sourceLine" id="cb803-6" title="6"></a>
+<a class="sourceLine" id="cb803-7" title="7"><span class="co"># Important: if the server could be reached, you have permission, </span></a>
+<a class="sourceLine" id="cb803-8" title="8"><span class="co"># and the service is available, you should see 200 as the response.</span></a>
+<a class="sourceLine" id="cb803-9" title="9"><span class="co"># Other HTML codes include 404 (service not found).</span></a>
+<a class="sourceLine" id="cb803-10" title="10"><span class="kw">status_code</span>(g)</a></code></pre></div>
 <pre><code>## [1] 200</code></pre>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># We can read the actual data with the `content` function:</span>
-dat &lt;-<span class="st"> </span><span class="kw">content</span>(g)
-
-<span class="co"># In this case, dat has two components - the interesting one is &#39;value&#39;</span>
-uitkering_data_list &lt;-<span class="st"> </span>dat<span class="op">$</span>value</code></pre>
+<div class="sourceCode" id="cb805"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb805-1" title="1"><span class="co"># We can read the actual data with the `content` function:</span></a>
+<a class="sourceLine" id="cb805-2" title="2">dat &lt;-<span class="st"> </span><span class="kw">content</span>(g)</a>
+<a class="sourceLine" id="cb805-3" title="3"></a>
+<a class="sourceLine" id="cb805-4" title="4"><span class="co"># In this case, dat has two components - the interesting one is &#39;value&#39;</span></a>
+<a class="sourceLine" id="cb805-5" title="5">uitkering_data_list &lt;-<span class="st"> </span>dat<span class="op">$</span>value</a></code></pre></div>
 <p>Unfortunately the result is a nested list, with NULL elements in some. To make this into a dataframe, we want to flatten each list, each of these will become a row in our dataframe, and bind all the rows together. This is such a common problem that I will show a robust solution:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(dplyr) <span class="co"># bind_rows</span>
-<span class="kw">library</span>(purrr) <span class="co"># flatten_dfr</span>
-
-uitkering_data &lt;-<span class="st"> </span><span class="kw">lapply</span>(uitkering_data_list, flatten_dfr) <span class="op">%&gt;%</span>
-<span class="st">  </span>bind_rows</code></pre>
+<div class="sourceCode" id="cb806"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb806-1" title="1"><span class="kw">library</span>(dplyr) <span class="co"># bind_rows</span></a>
+<a class="sourceLine" id="cb806-2" title="2"><span class="kw">library</span>(purrr) <span class="co"># flatten_dfr</span></a>
+<a class="sourceLine" id="cb806-3" title="3"></a>
+<a class="sourceLine" id="cb806-4" title="4">uitkering_data &lt;-<span class="st"> </span><span class="kw">lapply</span>(uitkering_data_list, flatten_dfr) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb806-5" title="5"><span class="st">  </span>bind_rows</a></code></pre></div>
 <p>We now have data from the Dutch government on social benefits, a dataset that gets updated frequently. The use of the API directly rather than downloading the data manually is clearly a much better option.</p>
 <p>As we saw in this example, the challenge is often not so much getting <em>something</em> from the web service, but often we have substantial work to shape it into a useful object in R (usually: a dataframe).</p>
 
@@ -504,39 +555,39 @@ uitkering_data &lt;-<span class="st"> </span><span class="kw">lapply</span>(uitk
 <h2><span class="header-section-number">8.4</span> Deploying an API with <code>plumber</code></h2>
 <p>With <code>plumber</code> we can quickly set up an API, that we can use from within any other programming language, web site, or program. Normally you would deploy the API on a server running R, so that the R service can be used from anywhere. Here, to keep things simple, we deploy the API on your own machine (‘locally’), but it will work similarly to when it runs on a remote server.</p>
 <p>The first step is to create a standalone script (with extension .R) that defines as many <em>functions</em> as you like. Each function can take arguments. Take the following example, paste it in a script, call it <code>plumber.R</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># plumber.R</span>
-
-<span class="co">#* Echo back the input, in uppercase</span>
-<span class="co">#* @param msg The message to echo</span>
-<span class="co">#* @get /echo</span>
-<span class="cf">function</span>(<span class="dt">msg=</span><span class="st">&quot;&quot;</span>){
-  <span class="kw">list</span>(<span class="dt">msg =</span> <span class="kw">paste0</span>(<span class="st">&quot;The message is: &#39;&quot;</span>, <span class="kw">toupper</span>(msg), <span class="st">&quot;&#39;&quot;</span>))
-}
-
-<span class="co">#* Plot a histogram</span>
-<span class="co">#* @png</span>
-<span class="co">#* @get /plot</span>
-<span class="cf">function</span>(){
-  rand &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)
-  <span class="kw">hist</span>(rand)
-}
-
-<span class="co">#* Return the sum of two numbers</span>
-<span class="co">#* @param a The first number to add</span>
-<span class="co">#* @param b The second number to add</span>
-<span class="co">#* @get /sum</span>
-<span class="cf">function</span>(a, b){
-  <span class="kw">as.numeric</span>(a) <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(b)
-}</code></pre>
+<div class="sourceCode" id="cb807"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb807-1" title="1"><span class="co"># plumber.R</span></a>
+<a class="sourceLine" id="cb807-2" title="2"></a>
+<a class="sourceLine" id="cb807-3" title="3"><span class="co">#* Echo back the input, in uppercase</span></a>
+<a class="sourceLine" id="cb807-4" title="4"><span class="co">#* @param msg The message to echo</span></a>
+<a class="sourceLine" id="cb807-5" title="5"><span class="co">#* @get /echo</span></a>
+<a class="sourceLine" id="cb807-6" title="6"><span class="cf">function</span>(<span class="dt">msg=</span><span class="st">&quot;&quot;</span>){</a>
+<a class="sourceLine" id="cb807-7" title="7">  <span class="kw">list</span>(<span class="dt">msg =</span> <span class="kw">paste0</span>(<span class="st">&quot;The message is: &#39;&quot;</span>, <span class="kw">toupper</span>(msg), <span class="st">&quot;&#39;&quot;</span>))</a>
+<a class="sourceLine" id="cb807-8" title="8">}</a>
+<a class="sourceLine" id="cb807-9" title="9"></a>
+<a class="sourceLine" id="cb807-10" title="10"><span class="co">#* Plot a histogram</span></a>
+<a class="sourceLine" id="cb807-11" title="11"><span class="co">#* @png</span></a>
+<a class="sourceLine" id="cb807-12" title="12"><span class="co">#* @get /plot</span></a>
+<a class="sourceLine" id="cb807-13" title="13"><span class="cf">function</span>(){</a>
+<a class="sourceLine" id="cb807-14" title="14">  rand &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</a>
+<a class="sourceLine" id="cb807-15" title="15">  <span class="kw">hist</span>(rand)</a>
+<a class="sourceLine" id="cb807-16" title="16">}</a>
+<a class="sourceLine" id="cb807-17" title="17"></a>
+<a class="sourceLine" id="cb807-18" title="18"><span class="co">#* Return the sum of two numbers</span></a>
+<a class="sourceLine" id="cb807-19" title="19"><span class="co">#* @param a The first number to add</span></a>
+<a class="sourceLine" id="cb807-20" title="20"><span class="co">#* @param b The second number to add</span></a>
+<a class="sourceLine" id="cb807-21" title="21"><span class="co">#* @get /sum</span></a>
+<a class="sourceLine" id="cb807-22" title="22"><span class="cf">function</span>(a, b){</a>
+<a class="sourceLine" id="cb807-23" title="23">  <span class="kw">as.numeric</span>(a) <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(b)</a>
+<a class="sourceLine" id="cb807-24" title="24">}</a></code></pre></div>
 <p>The first function sends back an uppercase version of a message, the second function plots a histogram, and the third function adds two numbers. Obviously, you can write much, much more complicated R functions that can be subsequently called using the API. These functions are chosen because they return different things: text, a plot, and a number. Let’s see how they work in practice.</p>
 <p>With our API ‘endpoints’ (the three functions) defined, we can start the API via:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(plumber)
-
-<span class="co"># There are no other arguments besides a directory to find the file.</span>
-p &lt;-<span class="st"> </span><span class="kw">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)
-
-<span class="co"># Deploy the API.</span>
-p<span class="op">$</span><span class="kw">run</span>(<span class="dt">port=</span><span class="dv">8001</span>)</code></pre>
+<div class="sourceCode" id="cb808"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb808-1" title="1"><span class="kw">library</span>(plumber)</a>
+<a class="sourceLine" id="cb808-2" title="2"></a>
+<a class="sourceLine" id="cb808-3" title="3"><span class="co"># There are no other arguments besides a directory to find the file.</span></a>
+<a class="sourceLine" id="cb808-4" title="4">p &lt;-<span class="st"> </span><span class="kw">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</a>
+<a class="sourceLine" id="cb808-5" title="5"></a>
+<a class="sourceLine" id="cb808-6" title="6"><span class="co"># Deploy the API.</span></a>
+<a class="sourceLine" id="cb808-7" title="7">p<span class="op">$</span><span class="kw">run</span>(<span class="dt">port=</span><span class="dv">8001</span>)</a></code></pre></div>
 <p>Your R process will now be busy (until you close it), with a message like:</p>
 <pre><code>Starting server to listen on port 8001</code></pre>
 <p>This will also open up a <code>swagger</code> window, which is a simple interface to our own Web service. Here you can ‘Try out’ the various end points.</p>
@@ -587,17 +638,19 @@ More complicated examples are available as well.
           </div>
         </div>
       </div>
-<a href="programming.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="versioncontrol.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -643,8 +696,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

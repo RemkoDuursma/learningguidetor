@@ -1,7 +1,7 @@
 --- 
 title: "A Learning Guide to R: data, analytical, and programming skills."
 author: "Remko Duursma"
-date: "2019-06-19"
+date: "2019-10-30"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
@@ -23,6 +23,7 @@ This book is not an introduction to statistical theory, although sometimes we re
 We have learned from experience that data practictioners, that means scientists and everyone else who has an interest in learning from data, do not learn statistical analyses by studying the underlying theory. They learn from doing, and from using examples written by others who have learned by doing. For this reason the book in front of you is largely a compendium of examples. We have chosen the examples and the exercises in the hope that they resemble real-world problems. 
 
 We have placed many *Try it yourself* boxes throughout the text to give you some ideas on what to try, but try to be creative and modify the examples to see what happens.
+
 
 
 

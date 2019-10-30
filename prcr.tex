@@ -124,16 +124,18 @@
   \postauthor{\par}
       \predate{\centering\large\emph}
   \postdate{\par}
-    \date{2019-06-19}
+    \date{2019-10-30}
 
 
 
 \let\oldmaketitle\maketitle
 \AtBeginDocument{\let\maketitle\relax}
 
+%\usepackage{longtable}
 
 \usepackage{booktabs}
 \usepackage{amsthm}
+\usepackage{xcolor}
 
 % Main font
 \usepackage[default,osfigures,scale=0.95]{opensans} 
@@ -593,9 +595,6 @@ We can now do basic arithmetic with this \emph{numeric vector} :
 
 There are many more functions you can use directly on vectors. See the table below for a few useful ones.
 
-\% latex table generated in R 3.6.0 by xtable 1.8-4 package
-\% Wed Jun 19 11:45:05 2019
-
 \begin{table}[ht]
 \centering
 \begin{tabular}{rlll}
@@ -624,10 +623,17 @@ There are many more functions you can use directly on vectors. See the table bel
 \caption{A selection of useful built-in functions in R.} 
 \end{table}
 
+\hypertarget{writing-code-in-a-script}{%
+\section{Writing code in a script}\label{writing-code-in-a-script}}
+
+To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu File/New File/R Script.
+
+You now have an empty R script, where you can write code, and add comments.
+
+A single line can be run by placing the cursor on that line, and clicking `Run' in the menu just to the top-right of the window. Alternatively (and this is \textbf{recommended}), use the keyboard shortcut Ctrl-Enter (or Cmd-Enter on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.
+
 \hypertarget{vectorized}{%
 \section{Vectorized operations}\label{vectorized}}
-
-To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu File/New File/R Script. In the file that opens, try typing the examples below (or copy-pasting for the lazy). A single line can be run by placing the cursor on that line, and clicking `Run' in the menu just to the top-right of the window. Alternatively (and this is \textbf{recommended}), use the keyboard shortcut \texttt{Ctrl-Enter} (or \texttt{Cmd-Enter} on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.
 
 In the above section, we introduced a number of functions that you can use to do calculations on a vector of numbers. In R, a number of operations can be done on two vectors, and the result is a vector itself. Basically, R knows to apply these operations one element at a time. This is best illustrated by some examples:
 
@@ -1345,7 +1351,9 @@ Inspect the table with functions in the Section \ref{vectorintro} (``Working wit
 This exercise will make sure you are able to make a `reproducable script', that is, a script that will allow you to repeat an analysis without having to start over from scratch. First, set up an R script, and save it in your current working directory.
 
 \textbf{1.} Find the \texttt{History} tab in Rstudio. Copy a few lines of history that you would like to keep to the script you just opened, by selecting the line with the mouse and clicking \texttt{To\ Source}.
-\textbf{2.} Tidy up your R script by writing a few comments starting with \texttt{\textbackslash{}\#}.
+
+\textbf{2.} Tidy up your R script by writing a few comments starting with \texttt{\#}.
+
 \textbf{3.} Now make sure your script works completely (that is, it is entirely \emph{reproducible}). First clear the workspace (\texttt{rm(list=ls())} or click \texttt{Clear} from the \texttt{Environment} tab). Then, run the entire script (by clicking \texttt{Source} in the script window, top-right).
 
 \hypertarget{exquote}{%
@@ -1658,8 +1666,8 @@ We can draw random numbers using the \texttt{runif} function. The \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 0.63393686 0.93156405 0.78007321 0.60078594 0.10598999 0.28205300
-##  [7] 0.85210426 0.09826439 0.95927571 0.08672263
+##  [1] 0.2879627 0.7966966 0.9356509 0.4866498 0.6955631 0.6192641 0.7236583
+##  [8] 0.4341522 0.9433122 0.1882243
 \end{verbatim}
 
 \begin{Shaded}
@@ -1670,7 +1678,7 @@ We can draw random numbers using the \texttt{runif} function. The \texttt{runif}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 852.5185 460.3675 813.2157 100.4623 320.1858
+## [1] 375.0443 223.8260 902.0179 687.1368 679.7013
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -1689,7 +1697,7 @@ Next, we will \texttt{sample} numbers from an existing vector.
 \end{Shaded}
 
 \begin{verbatim}
-##  [1]  5  7 15  3  4 12 14  6 13  6 11 11 14  7  9  9 10 11 11 10
+##  [1] 10  1  2  5 10  2  6 13 15  4  4 14 12 11 11  5 11  6  6  2
 \end{verbatim}
 
 This command samples 20 numbers from the \texttt{numbers} vector, with replacement.
@@ -2197,7 +2205,7 @@ We can also select multiple elements, by \emph{indexing} the vector with another
 \end{Shaded}
 
 \begin{verbatim}
-## [1]  2.5  0.9 13.8 21.2  3.3
+## [1]  3.3  8.1 21.2  0.9  9.8
 \end{verbatim}
 
 \begin{Shaded}
@@ -2485,8 +2493,8 @@ We can also use one vector in a dataframe to find subsets of another. For exampl
 \end{Shaded}
 
 \begin{verbatim}
-##  [1] 319.507115  22.365837  20.743280 139.651156   6.551044  33.713580
-##  [7]   7.595163   9.806496  19.844680  45.020041
+##  [1]  33.713580   6.551044  46.326060 122.157864 141.787332 176.029213
+##  [7]  70.602797  22.365837   3.958274  66.633675
 \end{verbatim}
 
 \begin{Shaded}
@@ -2679,24 +2687,27 @@ It is also possible to save all objects that are currently loaded in memory (eve
 
 Now that we know how to read in dataframes, it is time we take a closer look at the types of data that can be contained in a dataframe. For the purpose of this book, a dataframe can contain six types of data. These are summarized in the table below:
 
-\% latex table generated in R 3.6.0 by xtable 1.8-4 package
-\% Wed Jun 19 11:45:16 2019
+\begin{verbatim}
+## Warning in print.xtable(xtab, tabular.environment = "longtable"): Attempt
+## to use "longtable" with floating = TRUE. Changing to FALSE.
+\end{verbatim}
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rllll}
+\% latex table generated in R 3.6.1 by xtable 1.8-4 package
+\% Wed Oct 30 20:47:46 2019
+
+\begin{longtable}{rllll}
   \hline
  & Data type & Description & Example & Section \\ 
   \hline
-1 & *numeric* & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
-  2 & *character* & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$\ref{workingtext} \\ 
-  3 & *factor* & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$\ref{workingfactors} \\ 
-  4 & *logical* & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$\ref{workinglogic} \\ 
-  5 & *Date* & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$\ref{readingdates}  \\ 
-  6 & *POSIXct* & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$\ref{datetime} \\ 
+1 & numeric & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
+  2 & character & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$\ref{workingtext} \\ 
+  3 & factor & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$\ref{workingfactors} \\ 
+  4 & logical & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$\ref{workinglogic} \\ 
+  5 & Date & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$\ref{readingdates}  \\ 
+  6 & POSIXct & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$\ref{datetime} \\ 
    \hline
-\end{tabular}
-\end{table}
+\hline
+\end{longtable}
 
 Also, R has a very useful built-in data type to represent \textbf{missing values}. This is represented by \texttt{NA} (Not Available) (see Section \ref{workingmissing}).
 
@@ -3795,7 +3806,7 @@ Finally, here is a simple way to find the number of days since you were born, us
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2019-06-19"
+## [1] "2019-10-30"
 \end{verbatim}
 
 \begin{Shaded}
@@ -3806,7 +3817,7 @@ Finally, here is a simple way to find the number of days since you were born, us
 \end{Shaded}
 
 \begin{verbatim}
-## Time difference of 15733 days
+## Time difference of 15866 days
 \end{verbatim}
 
 \hypertarget{datesdataframe}{%
@@ -3959,7 +3970,7 @@ As with \texttt{Date} objects, we can calculate timespans using a few handy func
 \end{Shaded}
 
 \begin{verbatim}
-## [1] "2019-06-19 15:00:18 CEST"
+## [1] "2019-10-31 00:02:47 CET"
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -4286,9 +4297,9 @@ We now practice subsetting a vector (see Section \ref{vectorindexing}).
 
 \textbf{1.} Take a subset of the rainfall data where rain is larger than 20.
 
-\textbf{1.} What is the mean rainfall for days where the rainfall was at least 4?
+\textbf{2.} What is the mean rainfall for days where the rainfall was at least 4?
 
-\textbf{1.} Subset the vector where it is either exactly zero, or exactly 0.6.
+\textbf{3.} Subset the vector where it is either exactly zero, or exactly 0.6.
 
 \hypertarget{alphabet-aerobics-2}{%
 \subsection{Alphabet aerobics 2}\label{alphabet-aerobics-2}}
@@ -6243,19 +6254,19 @@ Make the plot above, inspect the data to find out why there are two peaks. Now m
 \EndKnitrBlock{rmdtry}
 
 \hypertarget{resources}{%
-\subsubsection{Resources}\label{resources}}
+\subsection{Resources}\label{resources}}
 
 One standout resource with examples and explanations is here: \url{http://www.sthda.com/english/wiki/r-base-graphs}.
 
 \hypertarget{ggplot2}{%
-\subsection{ggplot2}\label{ggplot2}}
+\section{ggplot2}\label{ggplot2}}
 
 The \texttt{ggplot2} package is an incredibly rich and powerful toolkit to construct plots. It is far beyond the scope of this book to provide a complete overview of the package, but luckily lots of free online resources are available (see Section \ref{ggplotresources}).
 
 We will show the functionality of \texttt{ggplot2} by providing two examples, one scatterplot, and one barplot. Since we use \texttt{ggplot2} throughout this book, you can find many more examples. The following three examples were chosen because they highlight a few key options.
 
 \hypertarget{preparing-the-data-for-plotting}{%
-\subsubsection{Preparing the data for plotting}\label{preparing-the-data-for-plotting}}
+\subsection{Preparing the data for plotting}\label{preparing-the-data-for-plotting}}
 
 To use \texttt{ggplot2}, our data have to always be in \emph{long format}, where each row represents an observation, and each column in the dataframe represents a type of measurement. Most of the datasets included in the \texttt{lgrdata} package are already in long format. One exception is the \texttt{dutchelection} dataset:
 
@@ -6291,7 +6302,7 @@ We cannot really use \texttt{ggplot2} when the data are formatted like this. Ins
 \end{verbatim}
 
 \hypertarget{scatterplot-example}{%
-\subsubsection{Scatterplot example}\label{scatterplot-example}}
+\subsection{Scatterplot example}\label{scatterplot-example}}
 
 Here we show two examples of a scatter plot. In practice you start with the simplest plot you can think of, then gradually add `layers' and other elements. Here, the quickest way to make a scatter plot is like this,
 
@@ -6370,7 +6381,7 @@ Study the example below how each of these was included:
 \includegraphics{03-reporting_files/figure-latex/unnamed-chunk-8-1.pdf}
 
 \hypertarget{area-plot-example}{%
-\subsubsection{Area plot example}\label{area-plot-example}}
+\subsection{Area plot example}\label{area-plot-example}}
 
 A `stacked area chart' can be quickly implemented with the \texttt{geom\_area} function, like the next example. Note how we use another aesthetic, \texttt{fill}, to set the colour of the filled areas by \texttt{country}.
 
@@ -6387,7 +6398,7 @@ A `stacked area chart' can be quickly implemented with the \texttt{geom\_area} f
 \includegraphics{03-reporting_files/figure-latex/unnamed-chunk-9-1.pdf}
 
 \hypertarget{barplot-example}{%
-\subsubsection{Barplot example}\label{barplot-example}}
+\subsection{Barplot example}\label{barplot-example}}
 
 More complex barplots is one area where \texttt{ggplot2} is much, much easier to use than base graphics. If you want to represent count data as bars - a common application of barplots - \texttt{ggplot2} does the counting for you automatically, saving a step where such tables of counts have to be constructed.
 
@@ -6453,7 +6464,7 @@ Same figure but stacked bars, expressed as percent of total (Fig. \ref{fig:titan
 \includegraphics{03-reporting_files/figure-latex/titanicplot2-1.pdf}
 
 \hypertarget{ggplotresources}{%
-\subsubsection{Resources}\label{ggplotresources}}
+\subsection{Resources}\label{ggplotresources}}
 
 The web is bursting with great \texttt{ggplot2} tutorials and collections of examples. If you are stuck on some aspect, simply type your question into Google, and you will usually end up at a useful Stackoverflow post.
 
@@ -6512,14 +6523,18 @@ Try `knitting' the example rmarkdown file (the one you see when you open your fi
 
 When you open a new rmarkdown file (see previous section), the first step is to delete everything in the example document, \emph{except the top section and the first code chunk}. Your rmarkdown document will now look like this:
 
-\begin{verbatim}
----
-title: "Untitled"
-output: html_document
----
-\end{verbatim}
+\begin{Shaded}
+\begin{Highlighting}[]
+\OperatorTok{---}
+\NormalTok{title}\OperatorTok{:}\StringTok{ "Untitled"}
+\NormalTok{output}\OperatorTok{:}\StringTok{ }\NormalTok{html_document}
+\OperatorTok{---}
 
-\texttt{\{r\ setup,\ include=FALSE\}\ knitr::opts\_chunk\$set(echo\ =\ TRUE)}
+\StringTok{```}\DataTypeTok{\{r, include=FALSE\}}
+\DataTypeTok{knitr::opts_chunk$set(echo = TRUE)}
+\StringTok{```}
+\end{Highlighting}
+\end{Shaded}
 
 \hypertarget{modify-the-output-style}{%
 \subsubsection*{Modify the output style}\label{modify-the-output-style}}
@@ -6551,7 +6566,14 @@ As mentioned, the rest of the document contains two types of input: text with ma
 
 The code chunks contain R code, which will be executed, and the results will be visible in the eventual document (in our case, an HTML page). An R code chunk may look like this,
 
-\texttt{\{r\ titanicglm,\ echo\ =\ TRUE,\ eval\ =\ TRUE\}\ fit\ \textless{}-\ glm(Survived\ \textasciitilde{}\ Age,\ data\ =\ titanic)}
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\StringTok{```}\DataTypeTok{\{r titanicglm, echo = TRUE, eval = TRUE\}}
+\DataTypeTok{fit <- glm(Survived ~ Age, data = titanic)}
+\StringTok{```}
+\end{Highlighting}
+\end{Shaded}
 
 Here, \texttt{titanicglm} is a label for the chunk (you don't need to set it), and \texttt{echo\ =\ TRUE} make the code visible in the document, and \texttt{eval=TRUE} actually runs the code in the chunk. Both these options are used a lot. You use \texttt{echo=FALSE} to not show code, for example when there is too much messy code to share for this particular block. You use \texttt{eval\ =\ FALSE} to disable execution of a single code chunk. This is very useful when you have some code that simply does not work yet, but you hate using comments (\texttt{\#}) to disable it, instead you can place the code in its own chunk and set \texttt{echo=FALSE,\ eval=FALSE}.
 
@@ -6561,7 +6583,15 @@ Here, \texttt{titanicglm} is a label for the chunk (you don't need to set it), a
 
 An important step is to control the output of figures. The documentation (see @Section(rmarkdownresources)) is a bit overwhelming, but here is an example with some useful settings:
 
-\texttt{\{r\ titanicplot1,\ fig.cap="Number\ of\ passengers\ by\ Sex\ and\ PClass",\ fig.width=4,\ fig.height=4,\ dev="svg",\ echo\ =\ -1\}\textasciigrave{}r\textquotesingle{}\textquotesingle{}\textasciigrave{}\ par(bg="azure")\ with(titanic,\ spineplot(Sex,\ PClass))}
+\begin{Shaded}
+\begin{Highlighting}[]
+
+\StringTok{```}\DataTypeTok{\{r titanicplot1, fig.cap="Number of passengers by Sex and PClass", fig.width=4, fig.height=4, dev="svg", echo = -1\}}\StringTok{`}\NormalTok{r}\StringTok{''`}
+\DataTypeTok{par(bg="azure")}
+\DataTypeTok{with(titanic, spineplot(Sex, PClass))}
+\StringTok{```}
+\end{Highlighting}
+\end{Shaded}
 
 Here, \texttt{fig.cap} makes a figure caption (but figures will not be automatically numbered, see below for an alternative), \texttt{fig.width} and \texttt{fig.height} set the figure size in inches, \texttt{dev="svg"} sets the graphic device to SVG (an outstanding format for the web) - you need to install \texttt{svglite} for this to work. Finally \texttt{echo=-1} hides the first row of the code in the output (in this case, we don't want the reader to be bothered by graphical settings in \texttt{par()}).
 
@@ -8201,7 +8231,7 @@ In the following example, we inspect the height of trees against the stem diamet
 \StringTok{  }\KeywordTok{geom_point}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{geom_smooth}\NormalTok{(}\DataTypeTok{method=}\StringTok{"lm"}\NormalTok{, }\DataTypeTok{se=}\OtherTok{FALSE}\NormalTok{) }\OperatorTok{+}
 \StringTok{  }\KeywordTok{scale_colour_tableau}\NormalTok{() }\OperatorTok{+}\StringTok{ }\KeywordTok{lims}\NormalTok{(}\DataTypeTok{x=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{60}\NormalTok{), }\DataTypeTok{y=}\KeywordTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{,}\DecValTok{30}\NormalTok{))}
 
-\KeywordTok{grid.arrange}\NormalTok{(g1, g2, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{grid.arrange}\NormalTok{(g1, g2, }\DataTypeTok{ncol =} \DecValTok{2}\NormalTok{, }\DataTypeTok{widths=}\KeywordTok{c}\NormalTok{(}\FloatTok{0.4}\NormalTok{, }\FloatTok{0.6}\NormalTok{))}
 \end{Highlighting}
 \end{Shaded}
 
@@ -8464,7 +8494,7 @@ See Fig. \ref{fig:cowtransform} for an example where a log-transform is used.
 Redo the above plot, using \texttt{origin} (i.e.~American, Japanese or European) to color the symbols. This is another good example that you should always consider covariates in a linear model.
 \EndKnitrBlock{rmdtry}
 
-The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used \texttt{residualPlot} from the \texttt{car} package to quickly make plots of residuals versus fitted values, here we implement a simple version using \texttt{ggplot2} (and note that we jump ahead and define our own function, a topic we return to in Chapter @()).
+The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used \texttt{residualPlot} from the \texttt{car} package to quickly make plots of residuals versus fitted values, here we implement a simple version using \texttt{ggplot2} (and note that we jump ahead and define our own function, a topic we return to in Chapter \ref{programming}).
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -8883,7 +8913,7 @@ Here, the \texttt{function} SEmean takes one `argument' called \texttt{x} (i.e.,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 1.540123
+## [1] 1.410133
 \end{verbatim}
 
 \begin{Shaded}
@@ -8894,7 +8924,7 @@ Here, the \texttt{function} SEmean takes one `argument' called \texttt{x} (i.e.,
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 0.09165783
+## [1] 0.08316347
 \end{verbatim}
 
 \BeginKnitrBlock{rmdtry}
@@ -8964,7 +8994,7 @@ For example, this function computes the standard deviation and standard error of
 
 \begin{verbatim}
 ##        SE        SD 
-## 0.4024563 4.0245630
+## 0.3716274 3.7162738
 \end{verbatim}
 
 \hypertarget{functions-without-arguments}{%
@@ -9879,15 +9909,15 @@ Here, the bit of code between \{\} is executed five times, and the object \textt
 \end{Shaded}
 
 \begin{verbatim}
-## Element 1 of the vector is: 0.3
+## Element 1 of the vector is: 0.8
 \end{verbatim}
 
 \begin{verbatim}
-## Element 2 of the vector is: 0.3
+## Element 2 of the vector is: 0.9
 \end{verbatim}
 
 \begin{verbatim}
-## Element 3 of the vector is: 0.6
+## Element 3 of the vector is: 0.3
 \end{verbatim}
 
 \begin{verbatim}
@@ -9895,7 +9925,7 @@ Here, the bit of code between \{\} is executed five times, and the object \textt
 \end{verbatim}
 
 \begin{verbatim}
-## Element 5 of the vector is: 0.4
+## Element 5 of the vector is: 0.8
 \end{verbatim}
 
 Note that this is only a toy example: the same result can be achieved by simply typing \texttt{myvec}.
@@ -10297,6 +10327,791 @@ The above example comes straight from the \texttt{plumber} documentation, which 
 
 More complicated examples are available as well.
 \EndKnitrBlock{rmdreading}
+
+\hypertarget{versioncontrol}{%
+\chapter{Version control with git}\label{versioncontrol}}
+
+\hypertarget{shouldigit}{%
+\section{Should I learn version control?}\label{shouldigit}}
+
+When you use version control, you can do the following:
+
+\begin{itemize}
+\tightlist
+\item
+  Keep a history of all the changes you have made to your code.
+\item
+  Be able to revert to an old version, or briefly look around in old code, or find any code you have written at some time in the past.
+\item
+  Undo fatal coding mistakes.
+\item
+  Avoid having multiple versions of the same script (\texttt{myscrip\_v1.R}, \texttt{myscript\_v1\_mod2.R} etc.), and commented-out bits of code that you no longer need.
+\item
+  Collaborate with others on the same code, and easily merge the changes you and your collaborators make.
+\item
+  Maintain an online backup of your code base.
+\end{itemize}
+
+These are all basic capabilities of version control, and as you can see an absolute requirement for even the somewhat serious coder. Here we use version control with \emph{git}, the most popular system. In this chapter, I will give an informal introduction to version control, and focus on its use in Rstudio. The command line will also be introduced, particularly for somewhat more advanced options.
+
+\hypertarget{basics-of-git}{%
+\section{Basics of git}\label{basics-of-git}}
+
+\hypertarget{basic-principles}{%
+\subsection{Basic principles}\label{basic-principles}}
+
+With git, every folder that you work in can have its own version control repository. This allows you to keep your projects neatly organized in separate folders, each with its own history and set of files that belong together. Organizing code in smaller projects also makes for a natural connection to \emph{projects} in Rstudio, as we will see shortly.
+
+Not all files in the folder need to be kept track of in the git repository. You can specify yourself which files you want to have under version control. Generally speaking it's up to you which files to track, but a few guidelines are helpful. Mind you that exceptions will arise for each of these ideas; every project is different.
+
+\begin{itemize}
+\tightlist
+\item
+  It is useful to follow the idea that \emph{input files} (code, data) are the most important files in your project, whereas \emph{output files} (figures, processed data, markdown reports, etc.) should be treated as temporary. If you set up your workflow well, you should always be able to generate all outputs from the inputs. As a result, generally speaking **it is a good idea to version control all input files, but none of your output files\}.
+\item
+  Avoid tracking binary files (non-text files). The two reasons are that a) git cannot see incremental changes to these files (only that the entire file has changed), and b) continuously updating larger binary files will increase the size of the git repository (a collection of hidden files storing your history) - eventually to unmanageable bloatedness.
+\item
+  There is no need to track the Rstudio project file (*.Rproj), and probably better if you don't especially when collaborating.
+\item
+  Text-based datasets can be stored very well in git repositories, but that git is not a data management tool per se. It is therefore a bad idea to include \emph{large} datasets, only smallish datasets in the repository.
+\end{itemize}
+
+You can decide manually which files to track, and you can also ``ignore'' files by listing them in a special file, \texttt{.gitignore}, as we will see later.
+
+With git, you can `store' a snapshot of all the tracked files in your repository as often as you like. Normally, this snapshot represents a significant change you made to your code, some new feature added, new figures coded, or whatever. It can be any point during your work where you think it may be useful to return to. With every snapshot, you can decide which changes to the tracked files should be included (`staged'). It is thus \textbf{important to realize that a version control repository acts on multiple files in the folder}, not separately for each file. This way we can also add and delete files, and keep track of their histories as well (e.g.~return to a version of the repository when a particular file was not deleted).
+
+When we store a snapshot of the repository, this is called a \textbf{commit}. When we commit changes to the files in the repository, we do this because we may wish to return to this point, or clearly document the changes we have made. When a commit is made, a message has to be written to document what we have done (as we will see further below). Every time we commit, we can manually select which files should be added to the next snapshot. This process is called \textbf{staging}, and it allows you to decide to keep some changes, and undo all other changes, for example.
+
+\BeginKnitrBlock{rmdreading}
+It needs to be stressed that this chapter is a brief non-technical introduction to the topic. It only covers the basic capabilities of git. A very good collection of tutorials and more advanced books is listed on SixRevisions\footnote{<http://sixrevisions.com/resources/git-tutorials-beginners/}\textgreater{}.
+\EndKnitrBlock{rmdreading}
+
+\hypertarget{local-and-remote-repositories}{%
+\subsubsection{Local and remote repositories}\label{local-and-remote-repositories}}
+
+An important concept when starting with git is that there is a distinction between \textbf{local} and \textbf{remote} repositories. With git, your version control \textbf{is fundamentally done on your computer, that is, it is a local repository}. Optionally, this local repository may be synced with a remote repository (on some online web service). It is thus important to understand that \textbf{a)} you do not need to have a remote repository for git to function (you do not need an internet connection) and \textbf{b)} you must have a local repository even if you also have a remote one.
+
+Finally, do not confuse `github' with `git', the former is a website (github.com) used for hosting remote git repositories, the latter is the actual version control system. There are other websites of that kind (for example bitbucket.org). The inventor of git has nothing to do with these websites.
+
+\hypertarget{installing-git}{%
+\subsection{Installing git}\label{installing-git}}
+
+To get started, first install the actual git program from \url{https://git-scm.com/}. During the installation process, do not change any of the defaults, just press OK when prompted.
+
+The first time you use git on a computer, you have to set your name and email. These will be appended to each time you commit (very useful when collaborating!).
+
+Normally you can open a `git bash shell' (a command line window) from Rstudio, as we show in Section \ref{commandline}. This first time, however, you have to find \texttt{Git\ Bash} in the list of installed programs.
+
+With the shell open, type the following commands, using the name and email address you want appended to each commit. You can change this setting any time, the current setting will be applied to the next commit.
+
+\begin{verbatim}
+git config --global user.name "My Name"
+git config --global user.email "myemail@somewhere.com"
+\end{verbatim}
+
+To check the settings configuration file (which is stored in your home directory), use :
+
+\begin{verbatim}
+git config --list
+\end{verbatim}
+
+You can now close the shell.
+
+\hypertarget{using-git-in-rstudio}{%
+\subsection{Using git in Rstudio}\label{using-git-in-rstudio}}
+
+After installation, Rstudio may have trouble finding the git executable (a reboot may help, but this does not always fix the problem). We can let Rstudio know where git was installed by clicking \texttt{Browse} in the following screenshot (on Windows it will most likely be installed in this exact directory).
+
+\includegraphics[width=0.75\linewidth]{screenshots/gitoptionsrstudio}
+
+\textbf{Click \texttt{Browse} to find the directory where git.exe is installed, on Windows it will be this exact directory. You may not have to do this if you rebooted after installing git.}
+
+\hypertarget{localgit}{%
+\section{Local git repositories}\label{localgit}}
+
+Before we turn to remote repositories, we first need a basic understanding of local repositories. Unlike some version control systems, git can work with only a local repository; this can be very useful when you want to commit changes when you are offline.
+
+The workflow with a local git repository is as follows:
+
+\begin{itemize}
+\tightlist
+\item
+  Make changes to your code
+\item
+  Stage changes, this will mark the changes to the files to be added to the next `commit'.
+\item
+  Commit your changes to the local git repository.
+\item
+  Repeat.
+\end{itemize}
+
+\hypertarget{firstgitsession}{%
+\subsection{A first session with version control in Rstudio}\label{firstgitsession}}
+
+Let's start a new Rstudio project with version control. In this example we will make a simple local project, with no remote repository defined. We do that in Section \ref{remotegit}.
+
+\includegraphics[width=0.75\linewidth]{screenshots/versioncontrolproject}
+
+\textbf{To start a new, local, project with git enabled click `New Directory' (not Version Control!). Alternatively you can use an `Existing Directory' and create a project there.}
+
+On the next tab, select \texttt{Empty\ Project}, and the following window appears. Here, give the project a reasonable name- it will be used to create a new folder if you selected `New Directory' in the above window. Now, also check the box that says `Create git repository'.
+
+\includegraphics[width=0.75\linewidth]{screenshots/gitnewproject}
+
+\textbf{Enter a name for the new project, the directory where the project will be created (as a sub-directory with the project's name). Check `Create a git repository' to enable git.}
+
+Click OK, and if successful, you wil switch to a new instance of Rstudio. The git tab should look like the following figure.
+
+\includegraphics[width=0.75\linewidth]{screenshots/gittabnewproject}
+
+\textbf{What your git tab should look like if you started an empty project in a new directory.}
+
+The two files in the folder show up with two question marks. This means that git is not sure if you want to track these files. By default, it won't track them. The \texttt{.gitignore} file is a special file that lists all the files you always will want to ignore. It is very useful and we will use it later.
+
+Now, let's open two new scripts and write some code. I have called my new scripts \texttt{analysis.R} and \texttt{figures.R}. As you expect, these two files will show up in the git tab with two question marks. Notice the \texttt{Staged} column in the above figure? Let's stage both files by checking them, as in the below figure.
+
+\includegraphics[width=0.75\linewidth]{screenshots/gittabnewproject}
+
+\textbf{Two new files are staged for the next commit. The green `A' means `Add', because these files were not already being tracked by the git repository.}
+
+We will now make our \textbf{first commit}. With the files staged as in the screenshot, click the `Commit' button.
+
+\includegraphics[width=0.75\linewidth]{screenshots/gitfirstcommit}
+
+\textbf{With the two new files staged, you can commit their changes to the local git repository. You must first write a meaningul message in the box on the right.}
+
+The files will now have disappeared from the git tab. That's good - their versions are the same as the last time you committed, that is, they have not changed in content. Now let's modify \texttt{analysis.R}, and delete \texttt{figures.R} (maybe you decided to combine code from these files into a single file), and see what happens.
+
+\includegraphics[width=0.75\linewidth]{screenshots/gitsecondcommit}
+
+\textbf{Here we have modified (M) and deleted (D) files that are being tracked by git.}
+
+Now, stage both files, and press Commit. Write a message that briefly describes your changes and click `Commit' in the next window as well:
+
+\includegraphics[width=0.75\linewidth]{screenshots/secondcommit}
+
+\textbf{With the modified and deleted file selected, write a message and click Commit.}
+
+Let's now look at the history of our first project sofar. Find the `History' button in the git tab. It will look like the following screenshot.
+
+\includegraphics[width=0.75\linewidth]{screenshots/firsthistory}
+
+\textbf{History of the project sofar. The HEAD tag means this is the current location of the working directory. As we will see later, we can check out older versions, in which case HEAD will move to whatever commit we are looking at. Shown are the messages we wrote when committing, the author and date (taken from the git configuration), and the SHA (explained in the next section).}
+
+Finally, the question marks for \texttt{.gitignore} and the \texttt{Rproj} files can be annoying, and in many projects you will have a long list of files that are in the working directory but you don't want to track them.
+
+\hypertarget{deleting-files-and-sensitive-information}{%
+\subsection{Deleting files and sensitive information}\label{deleting-files-and-sensitive-information}}
+
+Some new users are surprised by how git deals with deleting files in your repository. If you delete a file, git will mark the file as deleted (with a red D in the Rstudio interface), and you can stage the change to also remove the file from git (so it won't be tracked anymore). Even though the file is deleted, it is still contained in the \emph{history} of your repository. That means you (or someone else) can return to a state of the repository that included the file, and read its contents.
+
+If you accidentally committed a file with sensitive information, such as passwords, deleting the file does not remove it from the history. There is also a way to completely remove files, even from the history, but this is a bit cumbersome and best avoided. Normally we do not like to change history unless some of the files are very large or contain sensitive information.
+
+\hypertarget{a-few-hints}{%
+\subsection{A few hints}\label{a-few-hints}}
+
+\begin{itemize}
+\tightlist
+\item
+  The `SHA' is the unique code given to each commit. You normally don't have to use it in Rstudio, but it is important in the command line commands given below. We never need all characters from the SHA, only the first few (normally 5 or so). You can find the (abbreviated) SHA in the right-hand column of the history.
+\item
+  Not all local files are tracked
+\item
+  You do not have to commit all changes to the files every time (you can select which ones you want by staging them)
+\item
+  Write useful commit messages that make sense a long time from now (saying `changed file.txt' is useless because it will be clear which files you changed anyway). When you reach a particular milestone, include it in the commit message (``version submitted for publication'').
+\item
+  Commit \textbf{often}. Don't wait days to commit all enormous changes to your code. Commit smaller increments of progress (``updated figure 1'', ``defined new function for barplots'').
+\item
+  \textbf{only commit code that actually works}. There may be exceptions, but you can see this is a good idea. Basically assume that a commit is a point to which you might want to return (for whatever reason).
+\end{itemize}
+
+\hypertarget{reverting-changes}{%
+\subsection{Reverting changes}\label{reverting-changes}}
+
+To undo changes to files in Rstudio, and reset to the last known version of that file (i.e.~the the last commit), select the file and click the `Revert' button (this button is only visible in the Commit window, otherwise it is grouped under the `More' button).
+
+\hypertarget{remotegit}{%
+\section{Remote git repositories}\label{remotegit}}
+
+Version control with git becomes especially useful if you host your code in an online (`remote') repository. It is an essential step for collaboration (even if this is just with yourself, on multiple computers). Popular sites to host git repositories are \textless{}www.github.com\textgreater{} and \textless{}www.bitbucket.org\textgreater{}. I will not provide a guide to using either site, I will leave this to you to figure out. Either way, the first step is to create a user account, and set up the remote to be able to communicate with your computer.
+
+A few tips to get started:
+
+\begin{itemize}
+\tightlist
+\item
+  A remote repository is simply a copy of your local project, think of it as a backup (with some extras).
+\item
+  It is generally a good idea to organize your local repositories in a single directory, a location with a short path is useful since you will be accessing your repositories via the command line.
+\item
+  You can add git version control to an existing project, but the easiest, most fail-safe way is to create a remote repository, then make a new project in Rstudio pulling from that repository, and adding your files into the project. We will follow this approach below.
+\end{itemize}
+
+\hypertarget{https-or-ssh}{%
+\subsubsection{HTTPS or SSH?}\label{https-or-ssh}}
+
+There are two ways to connect to a git repository hosted on a remote (like github). The easiest setup is connecting via HTTPS, but this will require you to enter your password every time you try to update the remote. I recommend HTTPS only when you are using a public computer.
+
+A better approach is to use SSH, since you never have to type your password - a sort of password will be saved on your computer.
+
+\hypertarget{setting-up-ssh}{%
+\subsubsection{Setting up SSH}\label{setting-up-ssh}}
+
+If you are using SSH for authentication, you must first make a sort of password (an `SSH key'), which is stored on your computer as well as on the hosting site. This is a straightforward process thanks to Rstudio.
+
+\begin{itemize}
+\tightlist
+\item
+  Go to \texttt{Tools/Global\ Options...} then click on the \texttt{Git/SVN} button, and note the `SSH/RSA key' field.
+\item
+  This field is probably blank, now click on \texttt{Create\ RSA\ Key}. Leave the passphrase blank (unless you would like an extra layer of security), and click OK.
+\item
+  Next, click `View RSA Key' (a small link), and copy the key (Ctrl-C).
+\end{itemize}
+
+The next step is to paste the SSH key in the remote hosting site, so it knows who you are when you try to use the repository.
+
+On bitbucket, when logged in, click `Manage Account', and find `SSH Keys' on the left. Then click `Add Key', and you now have to paste the key that you copied in the previous step.
+
+On github, go to Settings/SSH and GPG keys and make a ``New SSH key'', and paste it in as above.
+
+You can now paste it into the field. Also add a nice label for the key (identifying the computer you are working on).
+
+\hypertarget{makeremotegit}{%
+\subsection{Making a remote repository}\label{makeremotegit}}
+
+Now, let's create a remote repository. On bitbucket (when you are logged in), click the ``+'' in the left-hand side menu, on github click the plus (`+') button in the top right and \texttt{Create\ repository}. Decide for yourself on the settings for the repository, such as Private/Public etc.
+
+The key thing for us is to find the address of the repository, we need this to use the remote in Rstudio. When using SSH, it will look like (on bitbucket):
+
+\begin{verbatim}
+git@bitbucket.org:remkoduursma/tutorialgit.git
+\end{verbatim}
+
+When using HTTPS, it will look like this:
+
+\begin{verbatim}
+https://remkoduursma@bitbucket.org/remkoduursma/tutorialgit.git
+\end{verbatim}
+
+\hypertarget{cloning-make-a-local-copy-of-a-remote-repository}{%
+\subsubsection{Cloning : make a local copy of a remote repository}\label{cloning-make-a-local-copy-of-a-remote-repository}}
+
+The easiest approach is to start with an empty remote repository and use it as the basis for a new project in Rstudio. Then, you can add your files to this repository and start tracking (a selection of) them.
+
+First, make a remote repository, find the address (SSH or HTTPS, see previous section), and copy it. In Rstudio, go \texttt{File/New\ Project.../Version\ Control/Git} and paste the address in the URL box (HTTPS or SSH, it will be recognized). Rstudio is going to create a (nearly empty) folder with a git repository. It will create this as a subfolder of the directory in the window you see (the third field). I recommend you keep your git repositories in a local folder in the root, \textbf{that contains no spaces in the name}. For example, \texttt{c:/repos/}.
+
+\includegraphics[width=0.75\linewidth]{screenshots/clonegitrepos}
+
+\textbf{Paste the remote address of the repository in the first field, the second field will automatically get the name of the remote repository, and for the third field select a directory yourself (but see text).}
+
+When you click OK, Rstudio should open up with the new project.
+
+\hypertarget{gitremoteworkflow}{%
+\subsection{Workflow}\label{gitremoteworkflow}}
+
+Whether or not you have a remote repository enabled, you will still work in a local repository as explained in Section \ref{localgit}, and occassionally synchronize the two. In other words, \textbf{committing changes is always local}. When you want to sync with a remote, you either do a \textbf{push} (send your commits to the remote repository), or a \textbf{pull} (get the latest commits from the remote that you don't have).
+
+It is important to note that \textbf{you can only push if the local up to date with remote}. We will see in the working example how to deal with the situation where we are `behind' the remote (that is, have not included some commits stored in the remote repository).
+
+The standard workflow for code stored in a remote repository is:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Pull - this makes sure you start with the version contained in the remote repository.
+\item
+  Write code, commit changes.
+\item
+  Repeat step 2. until you are finished with this session.
+\item
+  Push - this sends all the commits you made to the remote repository.
+\end{enumerate}
+
+It is thus important to understand that \textbf{you don't have to push every time you commit changes}. In fact it is better if you don't, because it is easier to fix problems in the local repository, than when the commits have been pushed to the remote.
+
+\hypertarget{a-session-with-a-remote-repository}{%
+\subsection{A session with a remote repository}\label{a-session-with-a-remote-repository}}
+
+In this section, I will show a typical workflow with a remote repository. In this example I assume you have made a remote repository, and we will clone the empty repository into a new Rstudio project (see `Cloning' in Section \ref{makeremotegit}.
+
+If these first two steps - explained in the previous section - were successful, you now have a new, empty project open in Rstudio. I have copied two scripts that I wrote previously into the folder. In the git tab in Rstudio, you have to `stage' the added files by clicking the check box. The two new files now show up with a green `A' :
+
+\includegraphics[width=0.75\linewidth]{screenshots/session2stage1}
+
+\textbf{Adding two files to be included in the next commit. Note that `Push' and `Pull' are greyed out, this is normal because we have no commits in the repository.}
+
+Next, click commit (opens up a new window), write a reasonable message in the text box on the right, and click `Commit'. You now have a single commit in the \textbf{local} repository. Again, it is crucial you understand that this commit is not yet on the remote.
+
+Let's \textbf{push} this first commit to the remote repository. Just click `Push' on the git tab, and a new window opens up in Rstudio with the response from the remote. It will say something like,
+
+\includegraphics[width=0.75\linewidth]{screenshots/session2firstpush}
+
+\textbf{Response of the remote after the first push (opens in Rstudio when you click `push'). Note that a new branch is created because this is the very first commit on the remote repository. All commits will always go to the `master' branch (in this tutorial, at least).}
+
+Now go to the online version (on github.com or bitbucket.org), and check that your code is really there. Also look for the `commits' (a list of all your commits) and the source code (you can, quite conveniently, browse the code online).
+
+Next, suppose you start a new session with this project. As described in Section \ref{gitremoteworkflow}, you should always start with a \textbf{pull}, except when you are really 100\% sure that your local is already up to date with the remote. If you are already up to date, the output will be:
+
+\includegraphics[width=0.75\linewidth]{screenshots/session2pullalreadyuptodate}
+
+\textbf{Output from a `pull' when the local repository is already synced with the remote.}
+
+In the next example, I added the file \texttt{README.md} to the repository on another computer. This time, the output from `pull' looks like:
+
+\includegraphics[width=0.75\linewidth]{screenshots/session2pull}
+
+\textbf{Output from a `pull' when the local repository is behind the remote. This is a successful message. It says that the two repositories have been successfully merged.}
+
+Finally, a common situation arises where you have not pulled from the remote, have done work locally and committed the changes. It is possible that the remote includes changes that you don't have, for example commits created by a collaborator and pushed to the same remote repository, or work done by you on another computer. If the remote is ahead of you, and you are trying to push local commits that the remote does not yet have, you will see the output as in the following screenshot.
+
+\includegraphics[width=0.75\linewidth]{screenshots/session2pushbehind}
+
+\textbf{Output when attempting to push to a remote when the remote is ahead of the local repository.}
+
+The solution to this problem is to first do a pull, and then try to push again. The amazing thing about git is that even if your local commits and the commits on the remote that you don't yet have include changes on the same files, they will be automatically merged in the new commit.
+
+There are cases, however, where \textbf{conflicts} arise - if the local and remote changes are on the same line of text. In that case, you will have to fix the conflicts manually. It is however much better to avoid these conflicts by always \textbf{beginning your session with a pull, and ending with a push}. That way you minimize the risk of changing the same line of code twice.
+
+\hypertarget{commandline}{%
+\section{Using the command line}\label{commandline}}
+
+Rstudio is very convenient for day-to-day version control, but for more advanced options, you must know how to use the command line. You may also find that when you gain more \emph{git skills}, that using the command line is just as convenient while providing more control.
+
+First, we show you how to open the `shell', a command window where the full capabilities of git can be used.
+
+\includegraphics[width=0.75\linewidth]{screenshots/openshell}
+
+\textbf{From the `Git' tab in Rstudio (same pane as Environment and History), open the Shell like this.}
+
+The shell is different from the Windows command line! It comes installed with git, and recognizes most unix commands.
+
+Note that **if the output is longer than the screen, output will end with a `:'. In that case, press \texttt{q} to return to the command prompt\}.
+
+\hypertarget{basic-commands}{%
+\subsection{Basic commands}\label{basic-commands}}
+
+I will not cover git via the command line in detail here, there are many excellent resources available. Needless to say, everything you can do in Rstudio with a click of a button can be achieved in the command line, and much, much more. Quite useful is a sort of `history',
+
+\begin{verbatim}
+git log
+\end{verbatim}
+
+which lists each commit (and its SHA and commit message). If you only want to see the last, say 2 commits, do,
+
+\begin{verbatim}
+git log -2
+\end{verbatim}
+
+and remember to press \texttt{q} when the output is longer than the window to return to the prompt.
+
+\hypertarget{useful-tasks}{%
+\subsection{Useful tasks}\label{useful-tasks}}
+
+This section lists a number of useful things you can do with git from the command line. It is by no means exhaustive.
+
+\hypertarget{adding-a-remote-to-a-local-repository}{%
+\subsubsection{Adding a remote to a local repository}\label{adding-a-remote-to-a-local-repository}}
+
+Suppose you have a local project as the example workflow in Section \ref{firstgitsession}, and you want to start a remote repository. You now simply have to let git know that you have a remote as well. To do this, you have to open a Console (see Section \ref{commandline}) and use this command:
+
+\begin{verbatim}
+git remote add origin git@bitbucket.org:remkoduursma/tutorialgit.git
+\end{verbatim}
+
+where the right-hand side is the address of your remote (found in the last section).
+
+Then, make your changes as usual, and use this special \texttt{push} command the first time you push to the remote (after that, you can do the usual simple `git push').
+
+\begin{verbatim}
+git push -u origin master
+\end{verbatim}
+
+\hypertarget{list-all-tracked-files}{%
+\subsubsection{List all tracked files}\label{list-all-tracked-files}}
+
+If you are unsure which files are being tracked, you could browse the remote repository (if you have one), or use this command:
+
+\begin{verbatim}
+git ls-files
+\end{verbatim}
+
+\hypertarget{looking-around-in-an-old-version}{%
+\subsubsection{Looking around in an old version}\label{looking-around-in-an-old-version}}
+
+Perhaps you don't actually want to undo changes, but instead inspect some older code, from which you can copy-paste bits you accidentally deleted. We can use the \texttt{checkout} command for this, which let's you temporarily look at an old commit.
+
+First we find the SHA of the commit, either in the history (in Rstudio), or via \texttt{git\ log} as shown above.
+
+\begin{verbatim}
+git log -2
+\end{verbatim}
+
+Now suppose we want to `check out' (look around and browse) the commit with SHA \texttt{fbd966} (recall, you only ever need the first 5 or 6 characters of the commit).
+
+\begin{verbatim}
+git checkout fbd966
+\end{verbatim}
+
+It is crucial you understand that you can now only look around, but you have not reverted to this old version! This is very useful to take a look at old code, maybe copy some bits and pieces to a new file, and then return to the current version. To make sure you know this, git tells you as much:
+
+\includegraphics[width=0.75\linewidth]{screenshots/gitcheckoutoutput}
+
+\textbf{Output of the command line after doing a checkout. Basically git is trying to tell you your visit to this old version of the code is for looking around only.}
+
+To return back to the current, last version, do:
+
+\begin{verbatim}
+git checkout master
+\end{verbatim}
+
+\hypertarget{undoing-uncommited-changes}{%
+\subsubsection{Undoing uncommited changes}\label{undoing-uncommited-changes}}
+
+Suppose you have committed your work, then made a bunch more changes that you are very unhappy with. But, luckily, you haven't committed them yet. You can use the `Revert' button in Rstudio (as mentioned previously), but this really removes any chance that you \emph{maybe} want to use the new edits.
+
+Using the command line, you can use the \texttt{git\ stash} command as follows:
+
+\begin{verbatim}
+git stash
+\end{verbatim}
+
+The files will not automatically appear as they were in the last commit. The advantage of using \texttt{stash} here - instead of the Revert button in Rstudio - is that if you change your mind you can do \texttt{git\ stash\ apply}. Basically your uncommitted changes are kept in a `stash', not deleted.
+
+\hypertarget{deleting-the-last-commit}{%
+\subsubsection{Deleting the last commit}\label{deleting-the-last-commit}}
+
+Suppose you have made changes, committed them, and then found out these are terrible and you want to get rid of them. We can use the \texttt{reset} command. \textbf{Use this at your own risk, it cannot be undone!}.
+
+First let's look at the last two commits,
+
+\begin{verbatim}
+git log -2
+\end{verbatim}
+
+So we want to get rid of commit \texttt{f76gb}, and revert back to \texttt{hu88e}.
+
+\begin{verbatim}
+git reset --hard hu88e
+\end{verbatim}
+
+Instead of \texttt{-\/-hard}, you can use the \texttt{-\/-soft} option to revert back to the old commit, but keep the changes since then as unstaged changes to the files. This is useful if you want to keep some of the changes, but manually remove or fix some other changes.
+
+\hypertarget{deleting-files}{%
+\subsubsection{Deleting files}\label{deleting-files}}
+
+We already saw that when you delete a tracked file from a git repository, you have to stage the change just like you stage a modification to a file. Here are a couple of useful commands related to deleting files locally.
+
+Remove from local repository (i.e.~stop tracking) all locally deleted files:
+
+\begin{verbatim}
+git rm $(git ls-files --deleted)
+\end{verbatim}
+
+The next command is handy to clean your working directory. Use this at your own risk though!
+
+Delete all untracked files:
+
+\begin{verbatim}
+git clean -f
+\end{verbatim}
+
+To do the same, but include subdirectories (use this at even more own risk!):
+
+\begin{verbatim}
+git clean -f -d
+\end{verbatim}
+
+\hypertarget{searching-the-history}{%
+\subsubsection{Searching the history}\label{searching-the-history}}
+
+There are a few ways to search the history - all of them require the command line. It may be useful to find code you deleted (on purpose), or to find all the occassions where some word occurs in changed lines of code, or list all the commits that acted on a particular file.
+
+Find all commits with `someword' in the commit message.
+
+\begin{verbatim}
+git log --grep=someword
+\end{verbatim}
+
+Find all commits where `someword' occurs in changed lines of code
+
+\begin{verbatim}
+git log -G someword
+\end{verbatim}
+
+List all commits that include changes on `somefile.R'. This even works when the file was deleted at some point.
+
+\begin{verbatim}
+git log -- somefile.R
+\end{verbatim}
+
+\hypertarget{accessing-git-help-files}{%
+\subsubsection{Accessing git help files}\label{accessing-git-help-files}}
+
+You can learn more about the many options of git via the help files, each of these can be accessed like this.
+
+Show help file for `log'.
+
+\begin{verbatim}
+git log --help
+\end{verbatim}
+
+Perhaps more usefully, if you don't know how to do something in git, simply type your question in Google (``git how to delete untracked files'').
+
+\hypertarget{projectman}{%
+\chapter{Project management and workflow}\label{projectman}}
+
+\hypertarget{tips-on-organizing-your-code}{%
+\section{Tips on organizing your code}\label{tips-on-organizing-your-code}}
+
+In this chapter, we present a few tips on how to improve your workflow and organization of scripts, functions, raw data, and outputs (figures, processed data, etc.). The structure that we present below is just an example, and will depend on the particular project, and your personal taste. We encourage you to experiment with different workflows and organization of your script(s) and outputs, to declutter your working directory and to be able to keep track of what you have accomplished in your analysis sofar.
+
+Although much of this is subject to personal preference, we believe that if you follow these rules, management of your code will be much easier and more transparent:
+
+\begin{itemize}
+\tightlist
+\item
+  Use `projects' in Rstudio to manage your files and workspace
+\item
+  Keep raw (original) data in a separate folder, and \emph{never modify raw data}
+\item
+  Outputs (figures, processed datasets) are disposable, your scripts can always re-produce the output
+\item
+  Keep functions separate from other code
+\item
+  Write functions as much as possible
+\end{itemize}
+
+If you follow (something like) the structure we show here, you have the added benefit that your directory is fully portable. That is, you can zip it, email it to someone, they can unzip it and run the entire analysis.
+
+The most important tip is to \emph{use projects in Rstudio}. Projects are an efficient method to keep your files organized, and to keep all your different projects separated. There is a natural tendency for analyses to grow over time, to the point where they become too large to manage properly. The way we usually deal with this is to try to split projects into smaller ones, even if there is some overlap between them.
+
+\hypertarget{set-up-a-project-in-rstudio}{%
+\section{Set up a project in Rstudio}\label{set-up-a-project-in-rstudio}}
+
+In Rstudio, click on the menu item \texttt{File/New\ Project...}. If you already have a folder for the project, take the 2nd option (\texttt{Existing\ directory}), otherwise create a folder as well by choosing the 1st option (\texttt{New\ project}). We will discuss ``version control'' in the next chapter.
+
+Browse for the directory you want to create a project in, and click \texttt{Choose}. This creates a file with extension \texttt{.Rproj}. Whenever you open this project, Rstudio will set the working directory to the location of the project file. If you use projects, you no longer need to set the working directory manually as we showed in Section \ref{fileswd}.
+
+Rstudio has now switched to your new project. Notice in the top-right corner there is a button that shows the current project. For the example project `facesoil', it looks like this:
+
+\includegraphics[width=0.3\linewidth]{screenshots/projectbutton}
+
+\textbf{Folder structure; just an example}
+
+By clicking on that button you can easily switch over to other projects. The working directory is automatically set to the right place, and all files you had open last time are remembered as well. As an additional bonus, the workspace is also cleared. This ensures that if you switch projects, you do not inadvertently load objects from another project.
+
+\hypertarget{directory-structure}{%
+\section{Directory structure}\label{directory-structure}}
+
+For the `facesoil' project, we came up with the following directory structure. Each item is described further below.
+
+\includegraphics[width=0.7\linewidth]{screenshots/folderstructure}
+
+\textbf{Folder structure; just an example}
+
+\hypertarget{rawdata}{%
+\subsection{\texorpdfstring{\texttt{rawdata}}{rawdata}}\label{rawdata}}
+
+Most importantly, \emph{keep your raw data separate from everything else}. Here we have placed our raw CSV files in the \texttt{rawdata} directory.
+
+In some projects it makes sense to further keep raw data files separate from each other, for example you might have subfolders in the rawdata folder that contain different types of datasets (e.g.~`rawdata/leafdata', `rawdata/isotopes'). Again, the actual solution will depend on your situation, but it is at least very good practice to store your raw data files in a separate folder.
+
+\hypertarget{rfunctions}{%
+\subsection{\texorpdfstring{\texttt{Rfunctions}}{Rfunctions}}\label{rfunctions}}
+
+If you do not frequently write functions already, you should force yourself to do so. Particularly for tasks that you do more than once, functions can greatly improve the clarity of your scripts, helps you avoid mistakes, and makes it easier to reuse code in another project.
+
+It is good practice to keep functions in a separate folder, for example \texttt{Rfunctions}, with each function in a separate file (with the extension \texttt{.R}). It may look like this,
+
+\includegraphics[width=0.7\linewidth]{screenshots/rfunctions}
+
+\textbf{Contents of Rfunctions folder, example.}
+
+We will use \texttt{source()} to load these functions, see further below.
+
+\hypertarget{output}{%
+\subsection{\texorpdfstring{\texttt{output}}{output}}\label{output}}
+
+It is a good idea to send all output from your R scripts to a separate folder. This way, it is very clear what the \emph{outputs} of the analysis are. It may also be useful to have subfolders specifying what type of output it is. Here we decided to split it into figures, processeddata, and text :
+
+\includegraphics[width=0.7\linewidth]{screenshots/output}
+
+\textbf{Contents of Rfunctions folder, example.}
+
+\hypertarget{the-r-scripts}{%
+\section{The R scripts}\label{the-r-scripts}}
+
+A few example scripts are described in the following sections. Note that these are just examples, the actual setup will depend on your situation, and your personal preferences. The main point to make here is that it is tremendously useful to separate your code into a number of separate scripts. This makes it easier to maintain your code, and for an outsider to follow the logic of your workflow.
+
+\hypertarget{facesoil_analysis.r}{%
+\subsection{\texorpdfstring{\texttt{facesoil\_analysis.R}}{facesoil\_analysis.R}}\label{facesoil_analysis.r}}
+
+This is our `master' script of the project. It calls (i.e., executes) a couple of scripts using \texttt{source}. First, it `sources' the \texttt{facesoil\textbackslash{}\_load.R} script, which loads packages and functions, and reads raw data. Next, we do some analyses (here is a simple example where we calculate daily averages), and call a script that makes the figures (\texttt{facesoil\_figures.R}).
+
+Note how we direct all output to the \texttt{output} folder, by specifying the \emph{relative path}, that is, the path relative to the current working directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Calls the load script.}
+\KeywordTok{source}\NormalTok{(}\StringTok{"facesoil_load.R"}\NormalTok{)}
+
+\CommentTok{# Export processed data}
+\KeywordTok{write.csv}\NormalTok{(allTheta, }\StringTok{"output/processeddata/facesoil_allTheta.csv"}\NormalTok{,}
+          \DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{## Aggregate by day}
+
+\CommentTok{# Make daily data}
+\NormalTok{allTheta}\OperatorTok{$}\NormalTok{Date <-}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(allTheta}\OperatorTok{$}\NormalTok{DateTime)}
+\NormalTok{allTheta_agg <-}\StringTok{ }\KeywordTok{summaryBy}\NormalTok{(. }\OperatorTok{~}\StringTok{ }\NormalTok{Date }\OperatorTok{+}\StringTok{ }\NormalTok{Ringnr, }\DataTypeTok{data=}\NormalTok{allTheta,}
+                          \DataTypeTok{FUN=}\NormalTok{mean, }\DataTypeTok{keep.names=}\OtherTok{TRUE}\NormalTok{)}
+
+\CommentTok{# Export daily data}
+\KeywordTok{write.csv}\NormalTok{(allTheta_agg, }\StringTok{"output/processeddata/facesoil_alltheta_daily.csv"}\NormalTok{,}
+          \DataTypeTok{row.names=}\OtherTok{FALSE}\NormalTok{)}
+
+\CommentTok{## make figures}
+\KeywordTok{source}\NormalTok{(}\StringTok{"figures.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{facesoil_figures.r}{%
+\subsection{\texorpdfstring{\texttt{facesoil\_figures.R}}{facesoil\_figures.R}}\label{facesoil_figures.r}}
+
+In this example we make the figures in a separate script. If your project is quite small, perhaps this makes little sense. When projects grow in size, though, I have found that collecting the code that makes the figures in a separate script really helps to avoid clutter.
+
+Also, you could have a number of different `figure' scripts, one for each `sub-analysis' of your project. These can then be sourced in the master script (here \texttt{facesoil\textbackslash{}\_analysis.R}), for example, to maintain a transparent workflow.
+
+Here is an example script that makes figures only. Note the use of \texttt{dev.copy2pdf}, which will produce a PDF and place it in the \texttt{output/figures} directory.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Make a plot of soil water content over time}
+\KeywordTok{windows}\NormalTok{()}
+\KeywordTok{with}\NormalTok{(allTheta, }\KeywordTok{plot}\NormalTok{(DateTime, R30.mean, }\DataTypeTok{pch=}\DecValTok{19}\NormalTok{, }\DataTypeTok{cex=}\FloatTok{0.2}\NormalTok{,}
+                    \DataTypeTok{col=}\NormalTok{Ringnr))}
+\KeywordTok{dev.copy2pdf}\NormalTok{(}\DataTypeTok{file=}\StringTok{"./output/figures/facesoil_overtime.pdf"}\NormalTok{)}
+
+\CommentTok{# More figures go here!}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{facesoil_load}{%
+\subsection{\texorpdfstring{\texttt{facesoil\_load}}{facesoil\_load}}\label{facesoil_load}}
+
+This script contains all the bits of code that are
+
+\begin{itemize}
+\tightlist
+\item
+  Cleaning the workspace
+\item
+  Loading packages
+\item
+  Loading homemade functions
+\item
+  Reading and pre-processing the raw data
+\end{itemize}
+
+Remember that it is important to start with a clean workspace (see Section \ref{cleanmemory}), as it guarantees that all your work is reproducible (and not dependent on objects that you created ages ago).
+
+It is useful to load all packages in one location in your, which makes it easy to fix problems should they arise (i.e., some packages are not installed, or not available).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Clean workspace}
+\KeywordTok{rm}\NormalTok{(}\DataTypeTok{list=}\KeywordTok{ls}\NormalTok{())}
+
+\CommentTok{# Load packages}
+\KeywordTok{library}\NormalTok{(doBy)}
+\KeywordTok{library}\NormalTok{(lubridate)}
+
+\CommentTok{# Source functions (this loads functions but does no actual work)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"Rfunctions/rmDup.R"}\NormalTok{)}
+
+\CommentTok{# Make the processed data (this runs a script)}
+\KeywordTok{source}\NormalTok{(}\StringTok{"facesoil_readdata.R"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{facesoil_readdata.r}{%
+\subsection{\texorpdfstring{\texttt{facesoil\_readdata.R}}{facesoil\_readdata.R}}\label{facesoil_readdata.r}}
+
+This script produces a dataframe based on the raw CSV files in the \texttt{rawdata} folder. The example below just reads a dataset and changes the DateTime variable to a POSIXct class. In this script, I normally also do all the tedious things like deleting missing data, converting dates and times, merging, adding new variables, and so on. The advantage of placing all of this in a separate script is that you keep the boring bits separate from the code that generates results, such as figures, tables, and analyses.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Read raw data from 'rawdata' subfolder}
+\NormalTok{allTheta <-}\StringTok{ }\KeywordTok{read.csv}\NormalTok{(}\StringTok{"rawdata/FACE_SOIL_theta_2013.csv"}\NormalTok{)}
+
+\CommentTok{# Convert DateTime}
+\NormalTok{allTheta}\OperatorTok{$}\NormalTok{DateTime <-}\StringTok{ }\KeywordTok{ymd_hms}\NormalTok{(}\KeywordTok{as.character}\NormalTok{(allTheta}\OperatorTok{$}\NormalTok{DateTime))}
+
+\CommentTok{# Add Date}
+\NormalTok{allTheta}\OperatorTok{$}\NormalTok{Date <-}\StringTok{ }\KeywordTok{as.Date}\NormalTok{(allTheta}\OperatorTok{$}\NormalTok{DateTime)}
+
+\CommentTok{# Etc.}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{archiving-the-output}{%
+\section{Archiving the output}\label{archiving-the-output}}
+
+In the example workflow we have set up in the previous sections, all items in the output folder will be automatically overwritten every time we run the master script \texttt{facesoil\_analysis.R}. One simple way to back up your previous results is to create a zipfile of the entire output directory, place it in the \texttt{archive} folder, and rename it so it has the date as part of the filename.
+
+After a while, that directory may look like this:
+
+\includegraphics[width=0.7\linewidth]{screenshots/archive}
+
+\textbf{Contents of Rfunctions folder, example.}
+
+If your \texttt{processData} folder is very large, this may not be the optimal solution. Perhaps the \texttt{processedData} can be in a separate output folder, for example.
+
+\hypertarget{adding-a-date-stamp-to-output-files}{%
+\subsection{Adding a Date stamp to output files}\label{adding-a-date-stamp-to-output-files}}
+
+Another option is to use a slightly different output filename every time, most usefully with the current Date as part of the filename. The following example shows how you can achieve this with the \texttt{today} from the \texttt{lubridate} package, and \texttt{paste0} (which is the same as \texttt{paste}, with the argument \texttt{sep=""}).
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# For the following to work, load lubridate}
+\CommentTok{# Recall that in your workflow, it is best to load all packages in one place.}
+\KeywordTok{library}\NormalTok{(lubridate)}
+
+\CommentTok{# Make a filename with the current Date:}
+\NormalTok{fn <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"output/figures/FACE_soilfigure1_"}\NormalTok{,}\KeywordTok{today}\NormalTok{(),}\StringTok{".pdf"}\NormalTok{)}
+\NormalTok{fn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "output/figures/FACE_soilfigure1_2019-10-30.pdf"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# Also add the current time, make sure to reformat as ':' is not allowed!}
+\NormalTok{fn <-}\StringTok{ }\KeywordTok{paste0}\NormalTok{(}\StringTok{"output/figures/FACE_soilfigure1_"}\NormalTok{,}\KeywordTok{format}\NormalTok{(}\KeywordTok{now}\NormalTok{(),}\StringTok{"%Y-%m-%d_%H-%M"}\NormalTok{),}\StringTok{".pdf"}\NormalTok{)}
+\NormalTok{fn}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "output/figures/FACE_soilfigure1_2019-10-30_20-49.pdf"
+\end{verbatim}
+
+With the above filename, we can now make a PDF, like so:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{windows}\NormalTok{(}\DecValTok{7}\NormalTok{,}\DecValTok{7}\NormalTok{)}
+\CommentTok{# .... make plot here ....}
+\KeywordTok{dev.copy2pdf}\NormalTok{(}\DataTypeTok{file=}\NormalTok{fn)}
+\end{Highlighting}
+\end{Shaded}
 
 \bibliography{book.bib}
 

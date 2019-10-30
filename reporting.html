@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 Visualizing data and making reports | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 Visualizing data and making reports | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,15 +24,15 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2019-06-19" />
+<meta name="date" content="2019-10-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="dataskills2.html">
-<link rel="next" href="linmodel.html">
+<link rel="prev" href="dataskills2.html"/>
+<link rel="next" href="linmodel.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -40,6 +40,9 @@
 <link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
 
 
 
@@ -55,7 +58,6 @@ a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
 a.sourceLine:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
@@ -138,40 +140,41 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>2.2</b> Basic operations</a></li>
 <li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>2.3</b> Working with vectors</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.4</b> Vectorized operations</a><ul>
-<li class="chapter" data-level="2.4.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.4.1</b> Applying multiple functions at once</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>2.4</b> Writing code in a script</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>2.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>2.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.5</b> Working with matrices</a></li>
-<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.6</b> Objects in the workspace</a></li>
-<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.7</b> Files in the working directory</a></li>
-<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.8</b> Rstudio projects</a></li>
-<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.9</b> Packages</a><ul>
-<li class="chapter" data-level="2.9.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.9.1</b> Install packages from CRAN</a></li>
-<li class="chapter" data-level="2.9.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.9.2</b> Loading packages</a></li>
-<li class="chapter" data-level="2.9.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.9.3</b> Setting the CRAN mirror</a></li>
-<li class="chapter" data-level="2.9.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.9.4</b> Install from git hosting sites</a></li>
-<li class="chapter" data-level="2.9.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.9.5</b> Updating R and package locations</a></li>
-<li class="chapter" data-level="2.9.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.9.6</b> Updating packages</a></li>
-<li class="chapter" data-level="2.9.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.9.7</b> Install missing packages</a></li>
-<li class="chapter" data-level="2.9.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.9.8</b> Conflicts</a></li>
-<li class="chapter" data-level="2.9.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.9.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="2.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>2.6</b> Working with matrices</a></li>
+<li class="chapter" data-level="2.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>2.7</b> Objects in the workspace</a></li>
+<li class="chapter" data-level="2.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>2.8</b> Files in the working directory</a></li>
+<li class="chapter" data-level="2.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>2.9</b> Rstudio projects</a></li>
+<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>2.10</b> Packages</a><ul>
+<li class="chapter" data-level="2.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>2.10.1</b> Install packages from CRAN</a></li>
+<li class="chapter" data-level="2.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>2.10.2</b> Loading packages</a></li>
+<li class="chapter" data-level="2.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>2.10.3</b> Setting the CRAN mirror</a></li>
+<li class="chapter" data-level="2.10.4" data-path="intro.html"><a href="intro.html#install-from-git-hosting-sites"><i class="fa fa-check"></i><b>2.10.4</b> Install from git hosting sites</a></li>
+<li class="chapter" data-level="2.10.5" data-path="intro.html"><a href="intro.html#updating-r-and-package-locations"><i class="fa fa-check"></i><b>2.10.5</b> Updating R and package locations</a></li>
+<li class="chapter" data-level="2.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>2.10.6</b> Updating packages</a></li>
+<li class="chapter" data-level="2.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>2.10.7</b> Install missing packages</a></li>
+<li class="chapter" data-level="2.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>2.10.8</b> Conflicts</a></li>
+<li class="chapter" data-level="2.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>2.10.9</b> Loading many packages</a></li>
 </ul></li>
-<li class="chapter" data-level="2.10" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.10</b> Accessing the help files</a></li>
-<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.11</b> Writing lots of code: rmarkdown or scripts?</a><ul>
-<li class="chapter" data-level="2.11.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.11.1</b> Reproducible documents with rmarkdown</a></li>
-<li class="chapter" data-level="2.11.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.11.2</b> Using R scripts</a></li>
+<li class="chapter" data-level="2.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>2.11</b> Accessing the help files</a></li>
+<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>2.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>2.12.1</b> Reproducible documents with rmarkdown</a></li>
+<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>2.12.2</b> Using R scripts</a></li>
 </ul></li>
-<li class="chapter" data-level="2.12" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.12</b> Exercises</a><ul>
-<li class="chapter" data-level="2.12.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.12.1</b> Calculating</a></li>
-<li class="chapter" data-level="2.12.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.12.2</b> Simple objects</a></li>
-<li class="chapter" data-level="2.12.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.12.3</b> Working with a single vector</a></li>
-<li class="chapter" data-level="2.12.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.12.4</b> Scripts</a></li>
-<li class="chapter" data-level="2.12.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.12.5</b> To quote or not to quote</a></li>
-<li class="chapter" data-level="2.12.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.12.6</b> Working with two vectors</a></li>
-<li class="chapter" data-level="2.12.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.12.7</b> Alphabet aerobics 1</a></li>
-<li class="chapter" data-level="2.12.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.12.8</b> Comparing and combining vectors</a></li>
-<li class="chapter" data-level="2.12.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.12.9</b> Into the matrix</a></li>
-<li class="chapter" data-level="2.12.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.12.10</b> Packages</a></li>
+<li class="chapter" data-level="2.13" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>2.13</b> Exercises</a><ul>
+<li class="chapter" data-level="2.13.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>2.13.1</b> Calculating</a></li>
+<li class="chapter" data-level="2.13.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>2.13.2</b> Simple objects</a></li>
+<li class="chapter" data-level="2.13.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>2.13.3</b> Working with a single vector</a></li>
+<li class="chapter" data-level="2.13.4" data-path="intro.html"><a href="intro.html#scriptexercise"><i class="fa fa-check"></i><b>2.13.4</b> Scripts</a></li>
+<li class="chapter" data-level="2.13.5" data-path="intro.html"><a href="intro.html#exquote"><i class="fa fa-check"></i><b>2.13.5</b> To quote or not to quote</a></li>
+<li class="chapter" data-level="2.13.6" data-path="intro.html"><a href="intro.html#working-with-two-vectors"><i class="fa fa-check"></i><b>2.13.6</b> Working with two vectors</a></li>
+<li class="chapter" data-level="2.13.7" data-path="intro.html"><a href="intro.html#alphabet-aerobics-1"><i class="fa fa-check"></i><b>2.13.7</b> Alphabet aerobics 1</a></li>
+<li class="chapter" data-level="2.13.8" data-path="intro.html"><a href="intro.html#comparing-and-combining-vectors"><i class="fa fa-check"></i><b>2.13.8</b> Comparing and combining vectors</a></li>
+<li class="chapter" data-level="2.13.9" data-path="intro.html"><a href="intro.html#into-the-matrix"><i class="fa fa-check"></i><b>2.13.9</b> Into the matrix</a></li>
+<li class="chapter" data-level="2.13.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>2.13.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 1</a><ul>
@@ -259,12 +262,19 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5.2.1" data-path="reporting.html"><a href="reporting.html#base-graphics-or-ggplot2"><i class="fa fa-check"></i><b>5.2.1</b> Base graphics or <code>ggplot2</code>?</a></li>
 <li class="chapter" data-level="5.2.2" data-path="reporting.html"><a href="reporting.html#base-graphics"><i class="fa fa-check"></i><b>5.2.2</b> Base graphics</a></li>
 <li class="chapter" data-level="5.2.3" data-path="reporting.html"><a href="reporting.html#hist"><i class="fa fa-check"></i><b>5.2.3</b> Histograms</a></li>
-<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.2.4</b> ggplot2</a></li>
+<li class="chapter" data-level="5.2.4" data-path="reporting.html"><a href="reporting.html#resources"><i class="fa fa-check"></i><b>5.2.4</b> Resources</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.3</b> Making reports</a><ul>
-<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.3.1</b> Getting started</a></li>
-<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.3.2</b> Tips</a></li>
-<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.3.3</b> Resources</a></li>
+<li class="chapter" data-level="5.3" data-path="reporting.html"><a href="reporting.html#ggplot2"><i class="fa fa-check"></i><b>5.3</b> ggplot2</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="reporting.html"><a href="reporting.html#preparing-the-data-for-plotting"><i class="fa fa-check"></i><b>5.3.1</b> Preparing the data for plotting</a></li>
+<li class="chapter" data-level="5.3.2" data-path="reporting.html"><a href="reporting.html#scatterplot-example"><i class="fa fa-check"></i><b>5.3.2</b> Scatterplot example</a></li>
+<li class="chapter" data-level="5.3.3" data-path="reporting.html"><a href="reporting.html#area-plot-example"><i class="fa fa-check"></i><b>5.3.3</b> Area plot example</a></li>
+<li class="chapter" data-level="5.3.4" data-path="reporting.html"><a href="reporting.html#barplot-example"><i class="fa fa-check"></i><b>5.3.4</b> Barplot example</a></li>
+<li class="chapter" data-level="5.3.5" data-path="reporting.html"><a href="reporting.html#ggplotresources"><i class="fa fa-check"></i><b>5.3.5</b> Resources</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="reporting.html"><a href="reporting.html#rmarkdown"><i class="fa fa-check"></i><b>5.4</b> Making reports</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="reporting.html"><a href="reporting.html#getting-started"><i class="fa fa-check"></i><b>5.4.1</b> Getting started</a></li>
+<li class="chapter" data-level="5.4.2" data-path="reporting.html"><a href="reporting.html#tips"><i class="fa fa-check"></i><b>5.4.2</b> Tips</a></li>
+<li class="chapter" data-level="5.4.3" data-path="reporting.html"><a href="reporting.html#rmarkdownresources"><i class="fa fa-check"></i><b>5.4.3</b> Resources</a></li>
 </ul></li>
 </ul></li>
 <li class="chapter" data-level="6" data-path="linmodel.html"><a href="linmodel.html"><i class="fa fa-check"></i><b>6</b> Basic statistics and linear modelling</a><ul>
@@ -339,6 +349,47 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>8.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="8.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>8.4</b> Deploying an API with <code>plumber</code></a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>9</b> Version control with git</a><ul>
+<li class="chapter" data-level="9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>9.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>9.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>9.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="9.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>9.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="9.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>9.2.3</b> Using git in Rstudio</a></li>
+</ul></li>
+<li class="chapter" data-level="9.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>9.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="9.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>9.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="9.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>9.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="9.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-few-hints"><i class="fa fa-check"></i><b>9.3.3</b> A few hints</a></li>
+<li class="chapter" data-level="9.3.4" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>9.3.4</b> Reverting changes</a></li>
+</ul></li>
+<li class="chapter" data-level="9.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>9.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>9.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="9.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>9.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="9.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>9.4.3</b> A session with a remote repository</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>9.5</b> Using the command line</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>9.5.1</b> Basic commands</a></li>
+<li class="chapter" data-level="9.5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>9.5.2</b> Useful tasks</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>10</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="10.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>10.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="10.2" data-path="projectman.html"><a href="projectman.html#set-up-a-project-in-rstudio"><i class="fa fa-check"></i><b>10.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="10.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>10.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="10.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>10.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="10.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>10.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="10.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>10.3.3</b> <code>output</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>10.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="10.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>10.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="10.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>10.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="10.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>10.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="10.4.4" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>10.4.4</b> <code>facesoil_readdata.R</code></a></li>
+</ul></li>
+<li class="chapter" data-level="10.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>10.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="10.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>10.5.1</b> Adding a Date stamp to output files</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -433,7 +484,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </tbody>
 </table>
 <p>Here it is useful to know that <code>plot</code> is a so-called <em>generic function</em>, which has <em>methods</em> for many special objects in R. For example, if we fit a linear regression:</p>
-<pre class="sourceCode r"><code class="sourceCode r">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(disp <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)</code></pre>
+<div class="sourceCode" id="cb551"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb551-1" title="1">lmfit &lt;-<span class="st"> </span><span class="kw">lm</span>(disp <span class="op">~</span><span class="st"> </span>hp, <span class="dt">data =</span> mtcars)</a></code></pre></div>
 <p>We can use the very brief command <code>plot(lmfit)</code> to produce four diagnostic plots. This works because a function called <code>plot.lm</code> is actually used when you send an <code>lm</code> object to the <code>plot</code> function (thus we can look at useful options in this case in the help page <code>?plot.lm</code>).</p>
 <p>Similarly, <code>plot</code> will make different plots based on what type of data you use. In Fig. <a href="reporting.html#fig:plotdefault">5.1</a> four examples are shown; each of these is the result from a call to <code>plot()</code>, but with different data types.</p>
 <div class="figure"><span id="fig:plotdefault"></span>
@@ -447,15 +498,15 @@ Figure 5.1: Four possible outcomes of a basic call to plot(), depending on wheth
 <div id="hist" class="section level3">
 <h3><span class="header-section-number">5.2.3</span> Histograms</h3>
 <p>One reason I still use base graphics is the quickest way to draw a histogram (frequency or density diagram). We often use these during analyses, to get an idea of the kind data contained in a vector.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(vessel)
-
-<span class="co"># Some formatting first. par() is a powerful yet difficult to learn function.</span>
-<span class="co"># If you leave out &#39;breaks&#39;, the breaks are automatically calculated. </span>
-<span class="co"># A setting worth experimenting with though!!</span>
-<span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">cex.lab=</span><span class="fl">1.1</span>)
-<span class="kw">hist</span>(vessel<span class="op">$</span>vesseldiam, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">breaks=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&quot;darkgoldenrod3&quot;</span>,
-     <span class="dt">xlab=</span><span class="st">&quot;Tree vessel diameter (micrometer)&quot;</span>)
-<span class="kw">box</span>()</code></pre>
+<div class="sourceCode" id="cb552"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb552-1" title="1"><span class="kw">data</span>(vessel)</a>
+<a class="sourceLine" id="cb552-2" title="2"></a>
+<a class="sourceLine" id="cb552-3" title="3"><span class="co"># Some formatting first. par() is a powerful yet difficult to learn function.</span></a>
+<a class="sourceLine" id="cb552-4" title="4"><span class="co"># If you leave out &#39;breaks&#39;, the breaks are automatically calculated. </span></a>
+<a class="sourceLine" id="cb552-5" title="5"><span class="co"># A setting worth experimenting with though!!</span></a>
+<a class="sourceLine" id="cb552-6" title="6"><span class="kw">par</span>(<span class="dt">mar=</span><span class="kw">c</span>(<span class="dv">5</span>,<span class="dv">5</span>,<span class="dv">2</span>,<span class="dv">2</span>), <span class="dt">cex.lab=</span><span class="fl">1.1</span>)</a>
+<a class="sourceLine" id="cb552-7" title="7"><span class="kw">hist</span>(vessel<span class="op">$</span>vesseldiam, <span class="dt">main =</span> <span class="st">&quot;&quot;</span>, <span class="dt">breaks=</span><span class="dv">50</span>, <span class="dt">col=</span><span class="st">&quot;darkgoldenrod3&quot;</span>,</a>
+<a class="sourceLine" id="cb552-8" title="8">     <span class="dt">xlab=</span><span class="st">&quot;Tree vessel diameter (micrometer)&quot;</span>)</a>
+<a class="sourceLine" id="cb552-9" title="9"><span class="kw">box</span>()</a></code></pre></div>
 <div class="figure"><span id="fig:unnamed-chunk-3"></span>
 <img src="03-reporting_files/figure-html/unnamed-chunk-3-1.svg" alt="A simple histogram of the vessel dataset." width="672" />
 <p class="caption">
@@ -467,41 +518,42 @@ Figure 5.2: A simple histogram of the vessel dataset.
 Make the plot above, inspect the data to find out why there are two peaks. Now make two histograms, each with one peak, based on subsets of the data.
 </div>
 
-<div id="resources" class="section level4">
-<h4><span class="header-section-number">5.2.3.1</span> Resources</h4>
+</div>
+<div id="resources" class="section level3">
+<h3><span class="header-section-number">5.2.4</span> Resources</h3>
 <p>One standout resource with examples and explanations is here: <a href="http://www.sthda.com/english/wiki/r-base-graphs" class="uri">http://www.sthda.com/english/wiki/r-base-graphs</a>.</p>
 </div>
 </div>
-<div id="ggplot2" class="section level3">
-<h3><span class="header-section-number">5.2.4</span> ggplot2</h3>
-<p>The <code>ggplot2</code> package is an incredibly rich and powerful toolkit to construct plots. It is far beyond the scope of this book to provide a complete overview of the package, but luckily lots of free online resources are available (see Section <a href="reporting.html#ggplotresources">5.2.4.5</a>).</p>
+<div id="ggplot2" class="section level2">
+<h2><span class="header-section-number">5.3</span> ggplot2</h2>
+<p>The <code>ggplot2</code> package is an incredibly rich and powerful toolkit to construct plots. It is far beyond the scope of this book to provide a complete overview of the package, but luckily lots of free online resources are available (see Section <a href="reporting.html#ggplotresources">5.3.5</a>).</p>
 <p>We will show the functionality of <code>ggplot2</code> by providing two examples, one scatterplot, and one barplot. Since we use <code>ggplot2</code> throughout this book, you can find many more examples. The following three examples were chosen because they highlight a few key options.</p>
-<div id="preparing-the-data-for-plotting" class="section level4">
-<h4><span class="header-section-number">5.2.4.1</span> Preparing the data for plotting</h4>
+<div id="preparing-the-data-for-plotting" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> Preparing the data for plotting</h3>
 <p>To use <code>ggplot2</code>, our data have to always be in <em>long format</em>, where each row represents an observation, and each column in the dataframe represents a type of measurement. Most of the datasets included in the <code>lgrdata</code> package are already in long format. One exception is the <code>dutchelection</code> dataset:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(dutchelection)
-<span class="kw">head</span>(dutchelection, <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb553"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb553-1" title="1"><span class="kw">data</span>(dutchelection)</a>
+<a class="sourceLine" id="cb553-2" title="2"><span class="kw">head</span>(dutchelection, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##         Date  VVD PvdA  PVV CDA   SP D66  GL  CU SGP PvdD FiftyPlus
 ## 1 2012-03-22 22.1 16.8 13.9 9.4 16.8 7.7 4.5 3.3 1.5  2.4       1.1
 ## 2 2012-04-05 23.6 17.1 13.3 8.8 16.3 8.7 4.1 3.2 1.4  2.0       0.8
 ## 3 2012-04-19 24.0 17.3 12.0 8.2 17.0 8.8 3.5 3.3 1.6  3.1       0.8</code></pre>
 <p>We cannot really use <code>ggplot2</code> when the data are formatted like this. Instead we want to have a dataframe with columns ‘Date’, ‘party’, and ‘vote_percent’, so that we can label the graph by political party. As we saw in Section <a href="dataskills2.html#reshaping">4.3</a>, quite magically we can use <code>melt</code> from <code>reshape2</code> :</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(reshape2)
-dutchlong &lt;-<span class="st"> </span><span class="kw">melt</span>(dutchelection, <span class="dt">variable.name =</span> <span class="st">&quot;party&quot;</span>, <span class="dt">value.name=</span><span class="st">&quot;vote_percent&quot;</span>)
-<span class="kw">head</span>(dutchlong, <span class="dv">3</span>)</code></pre>
+<div class="sourceCode" id="cb555"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb555-1" title="1"><span class="kw">library</span>(reshape2)</a>
+<a class="sourceLine" id="cb555-2" title="2">dutchlong &lt;-<span class="st"> </span><span class="kw">melt</span>(dutchelection, <span class="dt">variable.name =</span> <span class="st">&quot;party&quot;</span>, <span class="dt">value.name=</span><span class="st">&quot;vote_percent&quot;</span>)</a>
+<a class="sourceLine" id="cb555-3" title="3"><span class="kw">head</span>(dutchlong, <span class="dv">3</span>)</a></code></pre></div>
 <pre><code>##         Date party vote_percent
 ## 1 2012-03-22   VVD         22.1
 ## 2 2012-04-05   VVD         23.6
 ## 3 2012-04-19   VVD         24.0</code></pre>
 </div>
-<div id="scatterplot-example" class="section level4">
-<h4><span class="header-section-number">5.2.4.2</span> Scatterplot example</h4>
+<div id="scatterplot-example" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> Scatterplot example</h3>
 <p>Here we show two examples of a scatter plot. In practice you start with the simplest plot you can think of, then gradually add ‘layers’ and other elements. Here, the quickest way to make a scatter plot is like this,</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Minimal</span>
-<span class="kw">data</span>(automobiles)
-
-<span class="kw">ggplot</span>(automobiles, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>()</code></pre>
+<div class="sourceCode" id="cb557"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb557-1" title="1"><span class="co"># Minimal</span></a>
+<a class="sourceLine" id="cb557-2" title="2"><span class="kw">data</span>(automobiles)</a>
+<a class="sourceLine" id="cb557-3" title="3"></a>
+<a class="sourceLine" id="cb557-4" title="4"><span class="kw">ggplot</span>(automobiles, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb557-5" title="5"><span class="st">  </span><span class="kw">geom_point</span>()</a></code></pre></div>
 <pre><code>## Warning: Removed 6 rows containing missing values (geom_point).</code></pre>
 <p><img src="03-reporting_files/figure-html/unnamed-chunk-7-1.svg" width="672" /></p>
 <p>Explanation:</p>
@@ -519,79 +571,79 @@ dutchlong &lt;-<span class="st"> </span><span class="kw">melt</span>(dutchelecti
 <li>Better axis labels.</li>
 </ul>
 <p>Study the example below how each of these was included:</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Extended</span>
-<span class="kw">data</span>(automobiles)
-
-<span class="kw">library</span>(ggrepel)
-<span class="kw">library</span>(dplyr)
-<span class="kw">library</span>(ggthemes)
-
-automobiles2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(automobiles, 
-       <span class="dt">resid =</span> <span class="kw">residuals</span>(<span class="kw">lm</span>(fuel_efficiency <span class="op">~</span><span class="st"> </span>horsepower, 
-                            <span class="dt">na.action=</span>na.exclude)))
-
-<span class="kw">ggplot</span>(automobiles2, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency,
-                        <span class="dt">col =</span> origin, 
-                        <span class="dt">label =</span> car_name)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch =</span> <span class="kw">ifelse</span>(<span class="kw">abs</span>(automobiles2<span class="op">$</span>resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>, <span class="dv">19</span>, <span class="dv">1</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> <span class="kw">subset</span>(automobiles2, <span class="kw">abs</span>(resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>),
-                  <span class="dt">show.legend=</span><span class="ot">FALSE</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">lims</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Horse power (hp)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fuel use (liters / 100km)&quot;</span>)</code></pre>
+<div class="sourceCode" id="cb559"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb559-1" title="1"><span class="co"># Extended</span></a>
+<a class="sourceLine" id="cb559-2" title="2"><span class="kw">data</span>(automobiles)</a>
+<a class="sourceLine" id="cb559-3" title="3"></a>
+<a class="sourceLine" id="cb559-4" title="4"><span class="kw">library</span>(ggrepel)</a>
+<a class="sourceLine" id="cb559-5" title="5"><span class="kw">library</span>(dplyr)</a>
+<a class="sourceLine" id="cb559-6" title="6"><span class="kw">library</span>(ggthemes)</a>
+<a class="sourceLine" id="cb559-7" title="7"></a>
+<a class="sourceLine" id="cb559-8" title="8">automobiles2 &lt;-<span class="st"> </span><span class="kw">mutate</span>(automobiles, </a>
+<a class="sourceLine" id="cb559-9" title="9">       <span class="dt">resid =</span> <span class="kw">residuals</span>(<span class="kw">lm</span>(fuel_efficiency <span class="op">~</span><span class="st"> </span>horsepower, </a>
+<a class="sourceLine" id="cb559-10" title="10">                            <span class="dt">na.action=</span>na.exclude)))</a>
+<a class="sourceLine" id="cb559-11" title="11"></a>
+<a class="sourceLine" id="cb559-12" title="12"><span class="kw">ggplot</span>(automobiles2, <span class="kw">aes</span>(<span class="dt">x =</span> horsepower, <span class="dt">y =</span> fuel_efficiency,</a>
+<a class="sourceLine" id="cb559-13" title="13">                        <span class="dt">col =</span> origin, </a>
+<a class="sourceLine" id="cb559-14" title="14">                        <span class="dt">label =</span> car_name)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-15" title="15"><span class="st">  </span><span class="kw">geom_point</span>(<span class="dt">pch =</span> <span class="kw">ifelse</span>(<span class="kw">abs</span>(automobiles2<span class="op">$</span>resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>, <span class="dv">19</span>, <span class="dv">1</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-16" title="16"><span class="st">  </span><span class="kw">geom_text_repel</span>(<span class="dt">data =</span> <span class="kw">subset</span>(automobiles2, <span class="kw">abs</span>(resid) <span class="op">&gt;</span><span class="st"> </span><span class="dv">6</span>),</a>
+<a class="sourceLine" id="cb559-17" title="17">                  <span class="dt">show.legend=</span><span class="ot">FALSE</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-18" title="18"><span class="st">  </span><span class="kw">lims</span>(<span class="dt">x =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">300</span>), <span class="dt">y =</span> <span class="kw">c</span>(<span class="dv">0</span>,<span class="dv">40</span>)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-19" title="19"><span class="st">  </span><span class="kw">stat_smooth</span>(<span class="dt">method =</span> <span class="st">&quot;lm&quot;</span>, <span class="dt">se =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb559-20" title="20"><span class="st">  </span><span class="kw">scale_colour_tableau</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb559-21" title="21"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;Horse power (hp)&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Fuel use (liters / 100km)&quot;</span>)</a></code></pre></div>
 <p><img src="03-reporting_files/figure-html/unnamed-chunk-8-1.svg" width="672" /></p>
 </div>
-<div id="area-plot-example" class="section level4">
-<h4><span class="header-section-number">5.2.4.3</span> Area plot example</h4>
+<div id="area-plot-example" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> Area plot example</h3>
 <p>A ‘stacked area chart’ can be quickly implemented with the <code>geom_area</code> function, like the next example. Note how we use another aesthetic, <code>fill</code>, to set the colour of the filled areas by <code>country</code>.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">data</span>(oil)
-<span class="kw">ggplot</span>(oil, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>production<span class="op">/</span><span class="dv">1000</span>, <span class="dt">fill=</span>country)) <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Crude Oil Production (MOE)&quot;</span>) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_economist</span>()</code></pre>
+<div class="sourceCode" id="cb560"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb560-1" title="1"><span class="kw">data</span>(oil)</a>
+<a class="sourceLine" id="cb560-2" title="2"><span class="kw">ggplot</span>(oil, <span class="kw">aes</span>(<span class="dt">x=</span>year, <span class="dt">y=</span>production<span class="op">/</span><span class="dv">1000</span>, <span class="dt">fill=</span>country)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb560-3" title="3"><span class="st">  </span><span class="kw">geom_area</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb560-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="st">&quot;Crude Oil Production (MOE)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb560-5" title="5"><span class="st">  </span><span class="kw">scale_fill_economist</span>()</a></code></pre></div>
 <p><img src="03-reporting_files/figure-html/unnamed-chunk-9-1.svg" width="672" /></p>
 </div>
-<div id="barplot-example" class="section level4">
-<h4><span class="header-section-number">5.2.4.4</span> Barplot example</h4>
+<div id="barplot-example" class="section level3">
+<h3><span class="header-section-number">5.3.4</span> Barplot example</h3>
 <p>More complex barplots is one area where <code>ggplot2</code> is much, much easier to use than base graphics. If you want to represent count data as bars - a common application of barplots - <code>ggplot2</code> does the counting for you automatically, saving a step where such tables of counts have to be constructed.</p>
 <p>If instead you want to make a barplot of data <em>as they are</em> (that is, don’t make tables first), use the setting <code>geom_bar(stat = "identity")</code>, instead of <code>stat = "count"</code>, as in the example below.</p>
 <p>In the following example we use the <code>titanic</code> data, available in the <code>lgrdata</code> package.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(lgrdata)
-<span class="kw">data</span>(titanic)
-
-<span class="co"># Important to convert factor variables to factors!</span>
-<span class="co"># &#39;Survived&#39; is coded as 0,1 - but this is really a factor.</span>
-titanic<span class="op">$</span>Survived &lt;-<span class="st"> </span><span class="kw">as.factor</span>(titanic<span class="op">$</span>Survived)
-
-<span class="kw">library</span>(ggplot2)
-<span class="kw">library</span>(ggthemes)</code></pre>
+<div class="sourceCode" id="cb561"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb561-1" title="1"><span class="kw">library</span>(lgrdata)</a>
+<a class="sourceLine" id="cb561-2" title="2"><span class="kw">data</span>(titanic)</a>
+<a class="sourceLine" id="cb561-3" title="3"></a>
+<a class="sourceLine" id="cb561-4" title="4"><span class="co"># Important to convert factor variables to factors!</span></a>
+<a class="sourceLine" id="cb561-5" title="5"><span class="co"># &#39;Survived&#39; is coded as 0,1 - but this is really a factor.</span></a>
+<a class="sourceLine" id="cb561-6" title="6">titanic<span class="op">$</span>Survived &lt;-<span class="st"> </span><span class="kw">as.factor</span>(titanic<span class="op">$</span>Survived)</a>
+<a class="sourceLine" id="cb561-7" title="7"></a>
+<a class="sourceLine" id="cb561-8" title="8"><span class="kw">library</span>(ggplot2)</a>
+<a class="sourceLine" id="cb561-9" title="9"><span class="kw">library</span>(ggthemes)</a></code></pre></div>
 <p>The following code is the minimal code needed to make a barplot with two panels (one for female passengers, one for male), counting passengers that have survived or died, for each of the three passenger classes.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Result not shown - see next example</span>
-<span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex)</code></pre>
+<div class="sourceCode" id="cb562"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb562-1" title="1"><span class="co"># Result not shown - see next example</span></a>
+<a class="sourceLine" id="cb562-2" title="2"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span></a>
+<a class="sourceLine" id="cb562-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span></a>
+<a class="sourceLine" id="cb562-4" title="4"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex)</a></code></pre></div>
 <p>You can run the code above yourself to see what is produced. It does not look great, so instead we re-format the legend, the colors, etc., and end up with Fig. <a href="#fig:titanicplot1"><strong>??</strong></a>. For both of these figures, <em>make sure that <code>Survived</code> is a factor variable</em>, otherwise the plot won’t look right.</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span><span class="st">        </span><span class="co"># bars by passenger class,</span>
-<span class="st">                                                       </span><span class="co"># split by &#39;Survived&#39;  </span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span>
-                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span><span class="st">  </span><span class="co"># count data, bars side by side</span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># panels by Sex</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></code></pre>
+<div class="sourceCode" id="cb563"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb563-1" title="1"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span>Survived)) <span class="op">+</span><span class="st">        </span><span class="co"># bars by passenger class,</span></a>
+<a class="sourceLine" id="cb563-2" title="2"><span class="st">                                                       </span><span class="co"># split by &#39;Survived&#39;  </span></a>
+<a class="sourceLine" id="cb563-3" title="3"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span></a>
+<a class="sourceLine" id="cb563-4" title="4">                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span></a>
+<a class="sourceLine" id="cb563-5" title="5"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_dodge</span>()) <span class="op">+</span><span class="st">  </span><span class="co"># count data, bars side by side</span></a>
+<a class="sourceLine" id="cb563-6" title="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># panels by Sex</span></a>
+<a class="sourceLine" id="cb563-7" title="7"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></a></code></pre></div>
 <p><img src="03-reporting_files/figure-html/titanicplot1-1.svg" width="672" /></p>
 <p>Same figure but stacked bars, expressed as percent of total (Fig. <a href="#fig:titanicplot2"><strong>??</strong></a>).</p>
-<pre class="sourceCode r"><code class="sourceCode r"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span><span class="kw">as.factor</span>(Survived))) <span class="op">+</span>
-<span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span>
-                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span>
-<span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_fill</span>()) <span class="op">+</span><span class="st">   </span><span class="co"># count the data, stack the bars</span>
-<span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span><span class="st">         </span><span class="co"># express y-axis as % </span>
-<span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># two panels for each sex</span>
-<span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></code></pre>
+<div class="sourceCode" id="cb564"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb564-1" title="1"><span class="kw">ggplot</span>(titanic, <span class="kw">aes</span>(<span class="dt">x=</span>PClass, <span class="dt">fill=</span><span class="kw">as.factor</span>(Survived))) <span class="op">+</span></a>
+<a class="sourceLine" id="cb564-2" title="2"><span class="st">  </span><span class="kw">scale_fill_manual</span>(<span class="dt">labels=</span><span class="kw">c</span>(<span class="st">&quot;Died&quot;</span>, <span class="st">&quot;Survived&quot;</span>),      <span class="co"># labels for legend</span></a>
+<a class="sourceLine" id="cb564-3" title="3">                    <span class="dt">values=</span><span class="kw">c</span>(<span class="st">&quot;red2&quot;</span>,<span class="st">&quot;grey&quot;</span>)) <span class="op">+</span><span class="st">         </span><span class="co"># colors for bars (and legend)</span></a>
+<a class="sourceLine" id="cb564-4" title="4"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">stat=</span><span class="st">&quot;count&quot;</span>, <span class="dt">position=</span><span class="kw">position_fill</span>()) <span class="op">+</span><span class="st">   </span><span class="co"># count the data, stack the bars</span></a>
+<a class="sourceLine" id="cb564-5" title="5"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels=</span>scales<span class="op">::</span>percent) <span class="op">+</span><span class="st">         </span><span class="co"># express y-axis as % </span></a>
+<a class="sourceLine" id="cb564-6" title="6"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="op">~</span>Sex) <span class="op">+</span><span class="st">                                   </span><span class="co"># two panels for each sex</span></a>
+<a class="sourceLine" id="cb564-7" title="7"><span class="st">  </span><span class="kw">theme</span>(<span class="dt">legend.title=</span><span class="kw">element_blank</span>())                  <span class="co"># no legend title</span></a></code></pre></div>
 <p><img src="03-reporting_files/figure-html/titanicplot2-1.svg" width="672" /></p>
 </div>
-<div id="ggplotresources" class="section level4">
-<h4><span class="header-section-number">5.2.4.5</span> Resources</h4>
+<div id="ggplotresources" class="section level3">
+<h3><span class="header-section-number">5.3.5</span> Resources</h3>
 <p>The web is bursting with great <code>ggplot2</code> tutorials and collections of examples. If you are stuck on some aspect, simply type your question into Google, and you will usually end up at a useful Stackoverflow post.</p>
 <p>A selection of useful resources is:</p>
 <ul>
@@ -609,14 +661,13 @@ titanic<span class="op">$</span>Survived &lt;-<span class="st"> </span><span cla
 </ul>
 </div>
 </div>
-</div>
 <div id="rmarkdown" class="section level2">
-<h2><span class="header-section-number">5.3</span> Making reports</h2>
-<p>Script files are good for simple analyses, and they are great for storing small amounts of code that you would like to use in lots of different projects. They are also the right solution if you want to produce R scripts that are executed as part of a larger project, for example from the command line, or executed on a schedule (e.g. daily data quality checking). In Section <a href="intro.html#scripts">2.11.2</a> we give a few more tips.</p>
+<h2><span class="header-section-number">5.4</span> Making reports</h2>
+<p>Script files are good for simple analyses, and they are great for storing small amounts of code that you would like to use in lots of different projects. They are also the right solution if you want to produce R scripts that are executed as part of a larger project, for example from the command line, or executed on a schedule (e.g. daily data quality checking). In Section <a href="intro.html#scripts">2.12.2</a> we give a few more tips.</p>
 <p>But, scripts are not the best way to share your results with others. Instead, we strongly suggest you use R markdown - a document format that includes both text with markup, and <em>code chunks</em>, bits of R code that is executed, and the results placed in the document.</p>
 <p>Markdown is a simple set of rules for formatting text files so that they are both human-readable and processable by software, and is used not just by <code>rmarkdown</code> but in many applications (like Github and Stackoverflow). R Markdown simply adds R, by allowing code chunks with various options.</p>
 <div id="getting-started" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> Getting started</h3>
+<h3><span class="header-section-number">5.4.1</span> Getting started</h3>
 <p>RStudio offers a handy editor for markdown files, and starts with an example file that shows many of the features. Start a new markdown file by choosing <kbd>File &gt; New File &gt; R Markdown…</kbd>. For now, leave the default settings. The new R markdown document (which is just a text file with the extension <code>.Rmd</code>) already contains some example code. Run this example by clicking the button just above the markdown document (Knit HTML). The example code will generate a new document (an HTML page), which opens in your browser You can see that the output contains text, R code, and even a plot.</p>
 
 <div class="rmdtry">
@@ -625,16 +676,18 @@ Try ‘knitting’ the example rmarkdown file (the one you see when you open you
 
 </div>
 <div id="tips" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> Tips</h3>
+<h3><span class="header-section-number">5.4.2</span> Tips</h3>
 <div id="start-with-an-example-document" class="section level4 unnumbered">
 <h4>Start with an example document</h4>
 <p>When you open a new rmarkdown file (see previous section), the first step is to delete everything in the example document, <em>except the top section and the first code chunk</em>. Your rmarkdown document will now look like this:</p>
-<pre><code>---
-title: &quot;Untitled&quot;
-output: html_document
----
-</code></pre>
-<p><code>{r setup, include=FALSE} knitr::opts_chunk$set(echo = TRUE)</code></p>
+<div class="sourceCode" id="cb565"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb565-1" title="1"><span class="op">---</span></a>
+<a class="sourceLine" id="cb565-2" title="2">title<span class="op">:</span><span class="st"> &quot;Untitled&quot;</span></a>
+<a class="sourceLine" id="cb565-3" title="3">output<span class="op">:</span><span class="st"> </span>html_document</a>
+<a class="sourceLine" id="cb565-4" title="4"><span class="op">---</span></a>
+<a class="sourceLine" id="cb565-5" title="5"></a>
+<a class="sourceLine" id="cb565-6" title="6"><span class="st">```</span><span class="dt">{r, include=FALSE}</span></a>
+<a class="sourceLine" id="cb565-7" title="7"><span class="dt">knitr::opts_chunk$set(echo = TRUE)</span></a>
+<a class="sourceLine" id="cb565-8" title="8"><span class="st">```</span></a></code></pre></div>
 </div>
 <div id="modify-the-output-style" class="section level4 unnumbered">
 <h4>Modify the output style</h4>
@@ -653,13 +706,20 @@ output: html_document
 <div id="set-options-for-individual-code-chunks" class="section level4 unnumbered">
 <h4>Set options for individual code chunks</h4>
 <p>The code chunks contain R code, which will be executed, and the results will be visible in the eventual document (in our case, an HTML page). An R code chunk may look like this,</p>
-<p><code>{r titanicglm, echo = TRUE, eval = TRUE} fit &lt;- glm(Survived ~ Age, data = titanic)</code></p>
+<div class="sourceCode" id="cb566"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb566-1" title="1"></a>
+<a class="sourceLine" id="cb566-2" title="2"><span class="st">```</span><span class="dt">{r titanicglm, echo = TRUE, eval = TRUE}</span></a>
+<a class="sourceLine" id="cb566-3" title="3"><span class="dt">fit &lt;- glm(Survived ~ Age, data = titanic)</span></a>
+<a class="sourceLine" id="cb566-4" title="4"><span class="st">```</span></a></code></pre></div>
 <p>Here, <code>titanicglm</code> is a label for the chunk (you don’t need to set it), and <code>echo = TRUE</code> make the code visible in the document, and <code>eval=TRUE</code> actually runs the code in the chunk. Both these options are used a lot. You use <code>echo=FALSE</code> to not show code, for example when there is too much messy code to share for this particular block. You use <code>eval = FALSE</code> to disable execution of a single code chunk. This is very useful when you have some code that simply does not work yet, but you hate using comments (<code>#</code>) to disable it, instead you can place the code in its own chunk and set <code>echo=FALSE, eval=FALSE</code>.</p>
 </div>
 <div id="set-options-for-figure-output" class="section level4 unnumbered">
 <h4>Set options for figure output</h4>
 <p>An important step is to control the output of figures. The documentation (see @Section(rmarkdownresources)) is a bit overwhelming, but here is an example with some useful settings:</p>
-<p><code>{r titanicplot1, fig.cap="Number of passengers by Sex and PClass", fig.width=4, fig.height=4, dev="svg", echo = -1}`r''` par(bg="azure") with(titanic, spineplot(Sex, PClass))</code></p>
+<div class="sourceCode" id="cb567"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb567-1" title="1"></a>
+<a class="sourceLine" id="cb567-2" title="2"><span class="st">```</span><span class="dt">{r titanicplot1, fig.cap=&quot;Number of passengers by Sex and PClass&quot;, fig.width=4, fig.height=4, dev=&quot;svg&quot;, echo = -1}</span><span class="st">`</span>r<span class="st">&#39;&#39;`</span></a>
+<a class="sourceLine" id="cb567-3" title="3"><span class="dt">par(bg=&quot;azure&quot;)</span></a>
+<a class="sourceLine" id="cb567-4" title="4"><span class="dt">with(titanic, spineplot(Sex, PClass))</span></a>
+<a class="sourceLine" id="cb567-5" title="5"><span class="st">```</span></a></code></pre></div>
 <p>Here, <code>fig.cap</code> makes a figure caption (but figures will not be automatically numbered, see below for an alternative), <code>fig.width</code> and <code>fig.height</code> set the figure size in inches, <code>dev="svg"</code> sets the graphic device to SVG (an outstanding format for the web) - you need to install <code>svglite</code> for this to work. Finally <code>echo=-1</code> hides the first row of the code in the output (in this case, we don’t want the reader to be bothered by graphical settings in <code>par()</code>).</p>
 </div>
 <div id="set-options-for-all-code-chunks" class="section level4 unnumbered">
@@ -695,7 +755,7 @@ pander(test_output)</code></pre>
 </div>
 </div>
 <div id="rmarkdownresources" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> Resources</h3>
+<h3><span class="header-section-number">5.4.3</span> Resources</h3>
 <p>The documentation for <code>rmarkdown</code> based documents is a little scattered across various sources. The reason for this is that multiple packages are involved in making an HTML page from an <code>.Rmd</code> file.</p>
 <ul>
 <li>The <code>knitr</code> package handles the <em>execution</em> of the R code in the document, and the <em>integration</em> of the R output into the document. It provides all options that are set at the top of each code chunk, for example to show or hide the code, to control figure size and resolution, captions for tables. All chunk options are <a href="https://yihui.name/knitr/options/">listed on the <code>knitr</code> website</a>.</li>
@@ -722,11 +782,13 @@ A comprehensive list of useful and more advanced features in rmarkdown can be re
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
 <script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
 <script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
 <script>
 gitbook.require(["gitbook"], function(gitbook) {
 gitbook.start({
@@ -772,8 +834,9 @@ gitbook.start({
     script.type = "text/javascript";
     var src = "true";
     if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:" && /^https?:/.test(src))
-      src = src.replace(/^https?:/, '');
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
     script.src = src;
     document.getElementsByTagName("head")[0].appendChild(script);
   })();

@@ -1176,7 +1176,7 @@ g2 <- ggplot(coweeta, aes(x = DBH, y=height, col=species)) +
   geom_point() + geom_smooth(method="lm", se=FALSE) +
   scale_colour_tableau() + lims(x=c(0,60), y=c(0,30))
 
-grid.arrange(g1, g2, ncol = 2)
+grid.arrange(g1, g2, ncol = 2, widths=c(0.4, 0.6))
 ```
 
 ![](05-linearregression_files/figure-latex/coweeta_twoplots-1.pdf)<!-- --> 
@@ -1355,7 +1355,7 @@ grid.arrange(g1, g2, ncol = 2)
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">Redo the above plot, using `origin` (i.e. American, Japanese or European) to color the symbols. This is another good example that you should always consider covariates in a linear model.</div>\EndKnitrBlock{rmdtry}
 
-The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used `residualPlot` from the `car` package to quickly make plots of residuals versus fitted values, here we implement a simple version using `ggplot2` (and note that we jump ahead and define our own function, a topic we return to in Chapter \@()).
+The following code fits two linear models to the data above, one to the raw, untransformed data, and one after log10-transforming both the predictor and the response variable. In previous examples we used `residualPlot` from the `car` package to quickly make plots of residuals versus fitted values, here we implement a simple version using `ggplot2` (and note that we jump ahead and define our own function, a topic we return to in Chapter \@ref(programming)).
 
 
 ```r

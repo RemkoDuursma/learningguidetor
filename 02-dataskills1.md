@@ -144,8 +144,8 @@ runif(10)
 ```
 
 ```
-##  [1] 0.63393686 0.93156405 0.78007321 0.60078594 0.10598999 0.28205300
-##  [7] 0.85210426 0.09826439 0.95927571 0.08672263
+##  [1] 0.2879627 0.7966966 0.9356509 0.4866498 0.6955631 0.6192641 0.7236583
+##  [8] 0.4341522 0.9433122 0.1882243
 ```
 
 ```r
@@ -154,7 +154,7 @@ runif(5, 100, 1000)
 ```
 
 ```
-## [1] 852.5185 460.3675 813.2157 100.4623 320.1858
+## [1] 375.0443 223.8260 902.0179 687.1368 679.7013
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The `runif` function is part of a much larger class of functions, each of which returns
@@ -171,7 +171,7 @@ sample(numbers, size=20, replace=TRUE)
 ```
 
 ```
-##  [1]  5  7 15  3  4 12 14  6 13  6 11 11 14  7  9  9 10 11 11 10
+##  [1] 10  1  2  5 10  2  6 13 15  4  4 14 12 11 11  5 11  6  6  2
 ```
 
 This command samples 20 numbers from the `numbers` vector, with replacement.
@@ -643,7 +643,7 @@ nums2[ranels]
 ```
 
 ```
-## [1]  2.5  0.9 13.8 21.2  3.3
+## [1]  3.3  8.1 21.2  0.9  9.8
 ```
 
 ```r
@@ -890,8 +890,8 @@ allometry[sample(1:nrow(allometry),10),"leafarea"]
 ```
 
 ```
-##  [1] 319.507115  22.365837  20.743280 139.651156   6.551044  33.713580
-##  [7]   7.595163   9.806496  19.844680  45.020041
+##  [1]  33.713580   6.551044  46.326060 122.157864 141.787332 176.029213
+##  [7]  70.602797  22.365837   3.958274  66.633675
 ```
 
 ```r
@@ -1072,23 +1072,27 @@ It is also possible to save all objects that are currently loaded in memory (eve
 Now that we know how to read in dataframes, it is time we take a closer look at the types of data that can be contained in a dataframe. For the purpose of this book, a dataframe can contain six types of data. These are summarized in the table below:
 
 
-% latex table generated in R 3.6.0 by xtable 1.8-4 package
-% Wed Jun 19 11:45:16 2019
-\begin{table}[ht]
-\centering
-\begin{tabular}{rllll}
+
+```
+## Warning in print.xtable(xtab, tabular.environment = "longtable"): Attempt
+## to use "longtable" with floating = TRUE. Changing to FALSE.
+```
+
+% latex table generated in R 3.6.1 by xtable 1.8-4 package
+% Wed Oct 30 20:47:46 2019
+\begin{longtable}{rllll}
   \hline
  & Data type & Description & Example & Section \\ 
   \hline
-1 & *numeric* & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
-  2 & *character* & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$@ref(workingtext) \\ 
-  3 & *factor* & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$@ref(workingfactors) \\ 
-  4 & *logical* & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$@ref(workinglogic) \\ 
-  5 & *Date* & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$@ref(readingdates)  \\ 
-  6 & *POSIXct* & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$@ref(datetime) \\ 
+1 & numeric & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
+  2 & character & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$@ref(workingtext) \\ 
+  3 & factor & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$@ref(workingfactors) \\ 
+  4 & logical & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$@ref(workinglogic) \\ 
+  5 & Date & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$@ref(readingdates)  \\ 
+  6 & POSIXct & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$@ref(datetime) \\ 
    \hline
-\end{tabular}
-\end{table}
+\hline
+\end{longtable}
 
 
 Also, R has a very useful built-in data type to represent **missing values**. This is represented by `NA` (Not Available) (see Section \@ref(workingmissing)).
@@ -2092,7 +2096,7 @@ today()
 ```
 
 ```
-## [1] "2019-06-19"
+## [1] "2019-10-30"
 ```
 
 ```r
@@ -2101,7 +2105,7 @@ today() - as.Date("1976-5-22")
 ```
 
 ```
-## Time difference of 15733 days
+## Time difference of 15866 days
 ```
 
 
@@ -2233,7 +2237,7 @@ now() + hours(3) + minutes(15)
 ```
 
 ```
-## [1] "2019-06-19 15:00:18 CEST"
+## [1] "2019-10-31 00:02:47 CET"
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The 2012 Sydney marathon started at 7:20AM on September 16th. The winner completed the race in 2 hours, 11 minutes and 50 seconds. What was the time when the racer crossed the finish line? Using the `weekdays` function, which day was the race held? </div>\EndKnitrBlock{rmdtry}
@@ -2523,10 +2527,10 @@ We now practice subsetting a vector (see Section \@ref(vectorindexing)).
 **1.** Take a subset of the rainfall data where rain is larger than 20.
 
 
- **1.** What is the mean rainfall for days where the rainfall was at least 4?
+ **2.** What is the mean rainfall for days where the rainfall was at least 4?
 
 
- **1.** Subset the vector where it is either exactly zero, or exactly 0.6. 
+ **3.** Subset the vector where it is either exactly zero, or exactly 0.6. 
 
 
 
@@ -2536,11 +2540,11 @@ We now practice subsetting a vector (see Section \@ref(vectorindexing)).
 The 26 letters of the Roman alphabet are conveniently accessible in R via `letters` and `LETTERS`. These are not functions, but vectors that are always loaded.
 
 
- **1.** What is the 18th letter of the alphabet?
+**1.** What is the 18th letter of the alphabet?
 
 
 
- **2.** What is the last letter of the alphabet (pretend you don't know the alphabet has 26 letters)?
+**2.** What is the last letter of the alphabet (pretend you don't know the alphabet has 26 letters)?
 
 
 
@@ -2582,6 +2586,8 @@ AND have more than 20 units of vitamins.
 
 
 **7.** Take a subset of the dataframe containing cereals that contain at least 1 unit of sugar, and keep only the variables 'Cereal.name', 'calories' and 'vitamins'. Then inspect the first few rows of the dataframe with `head`.
+
+
 
 
 

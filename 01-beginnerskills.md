@@ -236,8 +236,6 @@ cumsum(nums1)  # cumulative sum
 
 There are many more functions you can use directly on vectors. See the table below for a few useful ones.
 
-% latex table generated in R 3.6.0 by xtable 1.8-4 package
-% Wed Jun 19 11:45:05 2019
 \begin{table}[ht]
 \centering
 \begin{tabular}{rlll}
@@ -267,11 +265,17 @@ There are many more functions you can use directly on vectors. See the table bel
 \end{table}
 
 
+## Writing code in a script
+
+To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu <kbd>File/New File/R Script</kbd>. 
+
+You now have an empty R script, where you can write code, and add comments.
+
+A single line can be run by placing the cursor on that line, and clicking 'Run' in the menu just to the top-right of the window. Alternatively (and this is **recommended**), use the keyboard shortcut <kbd>Ctrl-Enter</kbd> (or <kbd>Cmd-Enter</kbd> on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.
+
 
 
 ## Vectorized operations {#vectorized}
-
-To continue, we are first going to open a script - simply a text file where you can type your code, and execute it immediately. To do so, click on the menu <kbd>File/New File/R Script</kbd>. In the file that opens, try typing the examples below (or copy-pasting for the lazy). A single line can be run by placing the cursor on that line, and clicking 'Run' in the menu just to the top-right of the window. Alternatively (and this is **recommended**), use the keyboard shortcut `Ctrl-Enter` (or `Cmd-Enter` on Mac) to run that line. If you make a text selection with the mouse, this selection can be executed with the same keyboard shortcut.
 
 In the above section, we introduced a number of functions that you can use to do calculations on a vector of numbers. In R, a number of operations can be done on two vectors, and the result is a vector itself. Basically, R knows to apply these operations one element at a time. This is best illustrated by some examples:
 
@@ -954,7 +958,9 @@ Inspect the table with functions in the Section \@ref(vectorintro) ("Working wit
 This exercise will make sure you are able to make a 'reproducable script', that is, a script that will allow you to repeat an analysis without having to start over from scratch. First, set up an R script, and save it in your current working directory.
 
 **1.** Find the `History` tab in Rstudio. Copy a few lines of history that you would like to keep to the script you just opened, by selecting the line with the mouse and clicking `To Source`.
-**2.** Tidy up your R script by writing a few comments starting with `\#`.
+
+**2.** Tidy up your R script by writing a few comments starting with `#`.
+
 **3.** Now make sure your script works completely (that is, it is entirely *reproducible*). First clear the workspace (`rm(list=ls())` or click `Clear` from the `Environment` tab). Then, run the entire script (by clicking `Source` in the script window, top-right).
 
 
