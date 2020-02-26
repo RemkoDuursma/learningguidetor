@@ -69,7 +69,10 @@ We can use the very brief command `plot(lmfit)` to produce four diagnostic plots
 
 Similarly, `plot` will make different plots based on what type of data you use. In Fig. \@ref(fig:plotdefault) four examples are shown; each of these is the result from a call to `plot()`, but with different data types.
 
-![(\#fig:plotdefault)Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric.](03-reporting_files/figure-latex/plotdefault-1.pdf) ![(\#fig:plotdefault)Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric.](03-reporting_files/figure-latex/plotdefault-2.pdf) ![(\#fig:plotdefault)Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric.](03-reporting_files/figure-latex/plotdefault-3.pdf) ![(\#fig:plotdefault)Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric.](03-reporting_files/figure-latex/plotdefault-4.pdf) 
+<div class="figure">
+<img src="03-reporting_files/figure-html/plotdefault-1.svg" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-2.svg" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-3.svg" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" /><img src="03-reporting_files/figure-html/plotdefault-4.svg" alt="Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric." width="336" />
+<p class="caption">(\#fig:plotdefault)Four possible outcomes of a basic call to plot(), depending on whether the Y and X variables are numeric or factor variables. The term 'numeric dataframe' means a dataframe where all columns are numeric.</p>
+</div>
 
 The way that `plot` gives different results depending on data types is both a good thing (for basic plots, you need very little code), and a bad thing because reading the code often does not tell you what sort of plot will be produced, and where to read the documentation (`?plot`, `?plot.default`, `?plot.factor`?). 
 
@@ -93,7 +96,10 @@ hist(vessel$vesseldiam, main = "", breaks=50, col="darkgoldenrod3",
 box()
 ```
 
-![(\#fig:unnamed-chunk-3)A simple histogram of the vessel dataset.](03-reporting_files/figure-latex/unnamed-chunk-3-1.pdf) 
+<div class="figure">
+<img src="03-reporting_files/figure-html/unnamed-chunk-3-1.svg" alt="A simple histogram of the vessel dataset." width="672" />
+<p class="caption">(\#fig:unnamed-chunk-3)A simple histogram of the vessel dataset.</p>
+</div>
 
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">Make the plot above, inspect the data to find out why there are two peaks. Now make two histograms, each with one peak, based on subsets of the data.</div>\EndKnitrBlock{rmdtry}
@@ -169,7 +175,7 @@ ggplot(automobiles, aes(x = horsepower, y = fuel_efficiency)) +
 ## Warning: Removed 6 rows containing missing values (geom_point).
 ```
 
-![](03-reporting_files/figure-latex/unnamed-chunk-7-1.pdf)<!-- --> 
+<img src="03-reporting_files/figure-html/unnamed-chunk-7-1.svg" width="672" />
 
 Explanation:
 
@@ -214,7 +220,7 @@ ggplot(automobiles2, aes(x = horsepower, y = fuel_efficiency,
   labs(x = "Horse power (hp)", y = "Fuel use (liters / 100km)")
 ```
 
-![](03-reporting_files/figure-latex/unnamed-chunk-8-1.pdf)<!-- --> 
+<img src="03-reporting_files/figure-html/unnamed-chunk-8-1.svg" width="672" />
 
 
 
@@ -233,7 +239,7 @@ ggplot(oil, aes(x=year, y=production/1000, fill=country)) +
   scale_fill_economist()
 ```
 
-![](03-reporting_files/figure-latex/unnamed-chunk-9-1.pdf)<!-- --> 
+<img src="03-reporting_files/figure-html/unnamed-chunk-9-1.svg" width="672" />
 
 
 
@@ -281,7 +287,7 @@ ggplot(titanic, aes(x=PClass, fill=Survived)) +        # bars by passenger class
   theme(legend.title=element_blank())                  # no legend title
 ```
 
-![](03-reporting_files/figure-latex/titanicplot1-1.pdf)<!-- --> 
+<img src="03-reporting_files/figure-html/titanicplot1-1.svg" width="672" />
 
 
 Same figure but stacked bars, expressed as percent of total (Fig. \@ref(fig:titanicplot2)).
@@ -298,7 +304,7 @@ ggplot(titanic, aes(x=PClass, fill=as.factor(Survived))) +
   theme(legend.title=element_blank())                  # no legend title
 ```
 
-![](03-reporting_files/figure-latex/titanicplot2-1.pdf)<!-- --> 
+<img src="03-reporting_files/figure-html/titanicplot2-1.svg" width="672" />
 
 
 

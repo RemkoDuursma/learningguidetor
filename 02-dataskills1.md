@@ -144,8 +144,8 @@ runif(10)
 ```
 
 ```
-##  [1] 0.2879627 0.7966966 0.9356509 0.4866498 0.6955631 0.6192641 0.7236583
-##  [8] 0.4341522 0.9433122 0.1882243
+##  [1] 0.7960153 0.3163583 0.4198990 0.9100759 0.9610226 0.6807909 0.8221610
+##  [8] 0.3570417 0.5383176 0.3023576
 ```
 
 ```r
@@ -154,7 +154,7 @@ runif(5, 100, 1000)
 ```
 
 ```
-## [1] 375.0443 223.8260 902.0179 687.1368 679.7013
+## [1] 531.3748 341.6384 859.1985 609.1682 856.0635
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The `runif` function is part of a much larger class of functions, each of which returns
@@ -171,7 +171,7 @@ sample(numbers, size=20, replace=TRUE)
 ```
 
 ```
-##  [1] 10  1  2  5 10  2  6 13 15  4  4 14 12 11 11  5 11  6  6  2
+##  [1]  1  3 13 15  8  5 15  2  2 13  6 13  9 12 11 10  2  6 12  1
 ```
 
 This command samples 20 numbers from the `numbers` vector, with replacement.
@@ -303,7 +303,7 @@ Hmisc::contents(comment_data)
 
 ```
 ## 
-## Data frame:comment_data	500 observations and 5 variables    Maximum # NAs:0
+## Data frame:comment_data	5 observations and 5 variables    Maximum # NAs:0
 ## 
 ## 
 ##          Storage
@@ -643,7 +643,7 @@ nums2[ranels]
 ```
 
 ```
-## [1]  3.3  8.1 21.2  0.9  9.8
+## [1] 21.2  0.9  9.8  2.5  3.3
 ```
 
 ```r
@@ -890,8 +890,8 @@ allometry[sample(1:nrow(allometry),10),"leafarea"]
 ```
 
 ```
-##  [1]  33.713580   6.551044  46.326060 122.157864 141.787332 176.029213
-##  [7]  70.602797  22.365837   3.958274  66.633675
+##  [1] 154.078625  11.502851  54.267994  15.476022   7.650902  31.780702
+##  [7]   7.595163  68.150309  34.464685 160.839174
 ```
 
 ```r
@@ -1073,26 +1073,14 @@ Now that we know how to read in dataframes, it is time we take a closer look at 
 
 
 
-```
-## Warning in print.xtable(xtab, tabular.environment = "longtable"): Attempt
-## to use "longtable" with floating = TRUE. Changing to FALSE.
-```
-
-% latex table generated in R 3.6.1 by xtable 1.8-4 package
-% Wed Oct 30 20:47:46 2019
-\begin{longtable}{rllll}
-  \hline
- & Data type & Description & Example & Section \\ 
-  \hline
-1 & numeric & Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values. & $\backslash$texttt\{c(1, 12.3491, 10/2, 10\verb|^|6, pi)\} &  \\ 
-  2 & character & Strings of text & $\backslash$texttt\{c('apple', 'pear', letters[1:3])\} & $\backslash$@ref(workingtext) \\ 
-  3 & factor & Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. & $\backslash$texttt\{factor(c('Control','Fertilized','Irrigated'))\} & $\backslash$@ref(workingfactors) \\ 
-  4 & logical & Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE). & $\backslash$texttt\{10 == 100/10\} & $\backslash$@ref(workinglogic) \\ 
-  5 & Date & Special Date class. Internally stored as number of days since 1970-1-1. & $\backslash$texttt\{as.Date(Sys.time())\} & $\backslash$@ref(readingdates)  \\ 
-  6 & POSIXct & Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes. & $\backslash$texttt\{lubridate::ymd\_hms('1883-08-26 14:00')\} & $\backslash$@ref(datetime) \\ 
-   \hline
-\hline
-\end{longtable}
+Data type     Description                                                                                                                                                                                                                         Example                                           Section               
+------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  ------------------------------------------------  ----------------------
+*numeric*     Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values.                                                        `c(1, 12.3491, 10/2, 10^6, pi)`                                         
+*character*   Strings of text                                                                                                                                                                                                                     `c('apple', 'pear', letters[1:3])`                \@ref(workingtext)    
+*factor*      Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable.   `factor(c('Control','Fertilized','Irrigated'))`   \@ref(workingfactors) 
+*logical*     Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE).                                                                                                                                                                   `10 == 100/10`                                    \@ref(workinglogic)   
+*Date*        Special Date class. Internally stored as number of days since 1970-1-1.                                                                                                                                                             `as.Date(Sys.time())`                             \@ref(readingdates)   
+*POSIXct*     Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes.                                                                                                                   `lubridate::ymd_hms('1883-08-26 14:00')`          \@ref(datetime)       
 
 
 Also, R has a very useful built-in data type to represent **missing values**. This is represented by `NA` (Not Available) (see Section \@ref(workingmissing)).
@@ -2096,7 +2084,7 @@ today()
 ```
 
 ```
-## [1] "2019-10-30"
+## [1] "2020-02-26"
 ```
 
 ```r
@@ -2105,7 +2093,7 @@ today() - as.Date("1976-5-22")
 ```
 
 ```
-## Time difference of 15866 days
+## Time difference of 15985 days
 ```
 
 
@@ -2171,7 +2159,10 @@ ggplot(hydro, aes(x = Date, y = storage)) +
   geom_line()
 ```
 
-![(\#fig:hydroplot)A simple plot of the hydro data.](02-dataskills1_files/figure-latex/hydroplot-1.pdf) 
+<div class="figure">
+<img src="02-dataskills1_files/figure-html/hydroplot-1.svg" alt="A simple plot of the hydro data." width="672" />
+<p class="caption">(\#fig:hydroplot)A simple plot of the hydro data.</p>
+</div>
 
 
 #### Date-Time combinations {#datetime}
@@ -2237,7 +2228,7 @@ now() + hours(3) + minutes(15)
 ```
 
 ```
-## [1] "2019-10-31 00:02:47 CET"
+## [1] "2020-02-27 01:50:40 CET"
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The 2012 Sydney marathon started at 7:20AM on September 16th. The winner completed the race in 2 hours, 11 minutes and 50 seconds. What was the time when the racer crossed the finish line? Using the `weekdays` function, which day was the race held? </div>\EndKnitrBlock{rmdtry}
@@ -2281,7 +2272,10 @@ filter(hfemet, month ==  6) %>%
   geom_line()
 ```
 
-![(\#fig:hfemetdate)Air temperature for June at the HFE](02-dataskills1_files/figure-latex/hfemetdate-1.pdf) 
+<div class="figure">
+<img src="02-dataskills1_files/figure-html/hfemetdate-1.svg" alt="Air temperature for June at the HFE" width="672" />
+<p class="caption">(\#fig:hfemetdate)Air temperature for June at the HFE</p>
+</div>
 
 ```r
 # We can also take a subset of just one day, using the Date variable we added:

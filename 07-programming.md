@@ -1,6 +1,8 @@
 # Functions, lists and loops {#programming}
 
 
+
+
 ## Introduction
 
 This chapter demonstrates some building blocks of programming with R. The main purpose here is to allow batch analyses - repeating similar tasks for many subsets of data. To do this, we first have to know how to write our own functions, so that we can apply the custom function to any new subset of data. This approach results in far less, and much more readable code than copy-pasting similar code for different datasets.
@@ -19,7 +21,7 @@ Finally we take a brief look at 'for loops', a basic programming utility that we
 We use no new packages in this chapter except the `wrapr` package. All other functionality is included in base R, or commonly used packages `dplyr`, `ggplot2`, `lubridate`, and `lgrdata` for the example data.
 
 
-## Writing simple functions {#writefunctions}
+## Writing functions {#writefunctions}
 
 We have already used many built-in functions throughout this tutorial, but you can become very efficient at complex data tasks when you write your own simple functions. Writing your own functions can help with tasks that are carried out many times, which would otherwise result in a lot of code.
 
@@ -35,6 +37,7 @@ poundsToKg <- function(weight){
 ```
 
 We can use this `function` just like any other in R, for example, let's convert 'weight' to kilograms in the weightloss data.
+
 
 ```r
 # Read data
@@ -68,7 +71,7 @@ mean(unifvec)
 ```
 
 ```
-## [1] 1.410133
+## [1] 1.46766
 ```
 
 ```r
@@ -77,43 +80,16 @@ SEmean(unifvec)
 ```
 
 ```
-## [1] 0.08316347
+## [1] 0.07221053
 ```
 
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">You can use functions that you defined yourself just like any other function, for example in `summaryBy`. First read in the `SEmean` function defined in the example above, and then use the cereal data to calculate the mean and SE of `rating` by `Manufacturer` (or use data of your choosing).</div>\EndKnitrBlock{rmdtry}
 
 
-### Functions with many arguments
-
-Functions can also have multiple arguments. The following very simple function takes two numbers, and finds the absolute difference between them, using `abs`.
-
-```r
-# Define function
-absDiff <- function(num1,num2)abs(num1 - num2)
-
-# Test it with two numbers:
-absDiff(5,1)
-```
-
-```
-## [1] 4
-```
-
-```r
-# As in many functions in R, you can also give multiple values
-# as an argument.
-# The following returns the absolute difference between 
-# 1 and 3, then 5 and 6, and 9 and 0 (in that order).
-absDiff(c(1,5,9), c(3,6,0))
-```
-
-```
-## [1] 2 1 9
-```
 
 
-### Functions can return many results
+### Returning results
 
 What if a function should return not just one result, as in the examples above, but many results? 
 
@@ -128,8 +104,7 @@ seandsd <- function(x){
   sdresult <- sd(x)
 
   # Store results in a vector with names
-  vec <- c(seresult, sdresult)
-  names(vec) <- c("SE","SD")
+  vec <- c(SE = seresult, SD = sdresult)
 
 return(vec)
 }
@@ -141,12 +116,12 @@ seandsd(x)
 
 ```
 ##        SE        SD 
-## 0.3716274 3.7162738
+## 0.3697534 3.6975338
 ```
 
 ### Functions without arguments
 
-Sometimes, a function takes no arguments (input) at all. Consider this very helpful example. 
+Sometimes, a function takes no arguments (input) at all.
 
 
 ```r
@@ -159,118 +134,10 @@ sayhello()
 ## Hello!
 ```
 
-We will return to defining our own functions when we look at applying functions many times to sections of a dataframe (Section \@ref(lapply)).
 
+We now know enough about writing functions to start using them in many real-world applications, but return to writing more advanced functions in Section \@ref(functionsadvanced).
 
-### Wrapper functions {#wrapfunctions}
-
-We often need to write simple functions that adjust one or two arguments to other functions. For example, suppose we often make plots with filled circles, with our favorit color ("dimgrey") :
-
-
-```r
-library(lgrdata)
-data(howell)
-plot(age, height, data=howell, pch=19, col="dimgrey")
-```
-
-We could of course *always* specify these arguments, or we can write a function that sets those defaults. It would look like the following, except this function is incomplete, since we have *hardcoded* the other plotting arguments (the dataset, and the x and y variables):
-
-
-```r
-# This function is not how we want it yet!
-plot_filled_grey <- function(){
-  plot(age, height, data=howell, pch=19, col="dimgrey")
-}
-```
-
-We would like to be able to call the function via `plot_filled_grey(age, height, data=howell)`, in other words all arguments to our *wrapper function* should be passed to the underlying function. We have a very handy utility in R to do this, the three dots (`...`) :
-
-
-```r
-plot_filled_grey <- function(...){
-  plot(..., pch=19, col="dimgrey")
-}
-```
-
-The function now works as intended. It can be further improved if we realize that the plotting color cannot be changed - it is always "dimgrey". We want the *default* value to be "dimgrey", but with an option to change it. This can be achieved like so,
-
-
-```r
-plot_filled_grey <- function(..., col="dimgrey"){
-  plot(..., pch=19, col=col)
-}
-```
-
-Here, `col=col` sets the color in the call to `plot` with the default value specified in the wrapper function ("dimgrey"), but the user can also change it as usual.
-
-\BeginKnitrBlock{rmdtry}<div class="rmdtry">Take the `plot_filled_grey` function above, test it on some data, and modify it so that the plotting symbol can also be changed, but has a default value of 19.</div>\EndKnitrBlock{rmdtry}
-
-
-
-### Wrapper functions to `ggplot2` or `dplyr`
-
-In the previous section we saw how to write wrapper functions, functions that change a few arguments to some other function. These sort of functions are very helpful because we can save a lot of space by reusing a certain template. Suppose we want to make a plot with `ggplot2`, a scatter plot with a loess smoother line. We can achieve this via (result not shown),
-
-
-```r
-data(howell)
-library(ggplot2)
-
-ggplot(howell, aes(x = weight, y = height)) +
-  geom_point(size = 0.8, col = "dimgrey") +
-  stat_smooth(method = "loess", span = 0.7, col="black")
-```
-
-We already used quite a bit of code for this simple plot, but imagine you have set various other options, formatting changes, axis limits and so on - you end up with a lot of code for one plot. If we want to reuse the code for another plot, for two other variables from the same dataframe, copy-pasting the code and modifying leads to even more code. Writing wrapper functions for `ggplot2` (or `dplyr`, see below, or many other cases) is more difficult because the arguments in the `ggplot2` code we want to change (height and weight) *are not quoted* - they are variables inside a dataframe (`howell` in our case). We avoid a more technical explanation of this problem, but simply present a solution with the `wrapr` package.
-
-Using `let` from `wrapr`, we can turn our unquoted variables into quoted ones, like so:
-
-
-```r
-library(wrapr)
-
-let(c(xvar = "weight", yvar = "height"), {
-  ggplot(howell, aes(x = xvar, y = yvar)) +
-  geom_point(size = 0.8, col = "dimgrey")
-})
-```
-
-The point of placing our plotting code inside `let` is that we can now write our simple wrapper function like before:
-
-
-```r
-# Make a scatter plot with the howell data.
-plot_scatter_howell <- function(xcol, ycol){
-  let(c(xvar = xcol, yvar = ycol), {
-    ggplot(howell, aes(x = xvar, y = yvar)) +
-    geom_point(size = 0.8, col = "dimgrey")
-  })
-}
-
-# The function can be used with quoted names:
-plot_scatter("height", "weight")
-```
-
-It is important to understand that, in this example, `let` is used *only to turn character arguments into unquoted names*, in this case "height" turns into `height` for use in `ggplot`, and so on. We cannot pass `height` and `weight` as unquoted names, because R would look for those objects directly (from the 'global environment'), rather than as variables in the `howell` dataset.
-
-To also pass the dataset as an argument (making the function more general), we do not have to use `let`, but can immediately set it as an argument (because it is available in the global environment).
-
-
-```r
-# Our function now also takes a dataset as an argument
-plot_scatter <- function(xcol, ycol, dataset){
-  let(c(xvar = xcol, yvar = ycol), {
-    ggplot(dataset, aes(x = xvar, y = yvar)) +
-    geom_point(size = 0.8, col = "dimgrey")
-  })
-}
-
-# We can use it as,
-plot_scatter("height", "weight", howell)
-```
-
-
-
+First, we take a close look at the most versatile data structure in R : the list.
 
 
 ## Working with lists {#workinglists}
@@ -977,52 +844,31 @@ for(i in 1:length(myvec)){
 ```
 
 ```
-## Element 1 of the vector is: 0.8
+## Element 1 of the vector is: 0.4
 ```
 
 ```
-## Element 2 of the vector is: 0.9
+## Element 2 of the vector is: 0.5
 ```
 
 ```
-## Element 3 of the vector is: 0.3
+## Element 3 of the vector is: 0.6
 ```
 
 ```
-## Element 4 of the vector is: 0.4
+## Element 4 of the vector is: 0.7
 ```
 
 ```
-## Element 5 of the vector is: 0.8
+## Element 5 of the vector is: 0
 ```
 
 Note that this is only a toy example: the same result can be achieved by simply typing `myvec`.
 
-Now let's look at a useful application of a `for` loop: producing multiple plots in a `pdf`, using the `allomsp` object we created earlier.
+One common application of `for` loops in R arises when producing multiple plots in a `pdf`.
+Consider this template (make your own working example based on any dataset).
 
-This bit of code produces a `pdf` in your current working directory. If you can't find it, recall that you can use `getwd`() to get the current working directory.
-
-
-```r
-# Open a pdf to send the plots to:
-pdf("Allom plot by species.pdf", onefile=TRUE)
-for(i in 1:3){
-  with(allomsp[[i]],
-       plot(diameter, leafarea, pch=15, xlim=c(0,80), ylim=c(0,450),
-            main=levels(allom$species)[i]))
-}
-# Close the pdf (important!)
-dev.off()
-```
-
-Here, we create three plots (`i` goes from 1 to 3), every time using a different element of the list `allomsp`. First, `i` will have the value 1, so that we end up using the dataframe `allomsp[[1]]`, the first element of the list. And so on. Take a look at the resulting PDF to understand how the code works.
-
-*Note:* On windows (with Adobe reader) If the pdf (`Allom plot by species.pdf`) is open, the above will fail. If you try this anyway, close the pdf and try again. You may have to run the command `dev.off`() another time to make sure the device is ready.
-
-
-Another way to achieve the same result is to avoid splitting the dataframe into a list first, and simply take subsets on the fly. Consider this template (make your own working example based on any dataset).
-
-We assume here you have a dataframe called 'dataset' with a factor 'species', for which you want to create separate plots of Y vs. X.
+We assume here you have a dataframe called 'dataset' with a *factor* 'species', for which you want to create separate plots of Y vs. X.
 
 
 ```r
@@ -1035,6 +881,655 @@ for(lev in levels(dataset$species)){
 }
 dev.off()
 ```
+
+Here, we have to call `dev.off()` to close the pdf.
+
+
+
+### Better indexing
+
+In the first example with `for` loops, we used `1:length(myvec)` to make *indices* for the for loop. This is fine when you know for sure `myvec` exists and isn't `NULL` or `NA` (in which case the indices will not be what you expect - try it out!).
+
+A safer alternative in `for` loops is to use `seq_along` like in the following example. Here we substitute different parts of a string using a `for` loop.
+
+
+```r
+mystring <- "A fish called Wanda"
+
+replacements <- c("fish","called","Wanda")
+
+for(i in seq_along(replacements)){
+  print(gsub(replacements[i], "dog", mystring))
+}
+```
+
+```
+## [1] "A dog called Wanda"
+## [1] "A fish dog Wanda"
+## [1] "A fish called dog"
+```
+
+Now, when you place code similar to the above in a more generic function, you don't have to worry when `replacements` is empty for some reason, the `for` loop will simply be skipped.
+
+
+
+## Advanced concepts {#functionsadvanced}
+
+### Wrapper functions {#wrapfunctions}
+
+We often need to write simple functions that adjust one or two arguments to other functions. For example, suppose we often make plots with filled circles, with our favorite color ("dimgrey") :
+
+
+```r
+library(lgrdata)
+data(howell)
+plot(age, height, data=howell, pch=19, col="dimgrey")
+```
+
+We could of course *always* specify these arguments, or we can write a function that sets those defaults. It would look like the following, except this function is incomplete, since we have *hardcoded* the other plotting arguments (the dataset, and the x and y variables):
+
+
+```r
+# This function is not how we want it yet!
+plot_filled_grey <- function(){
+  plot(age, height, data=howell, pch=19, col="dimgrey")
+}
+```
+
+We would like to be able to call the function via `plot_filled_grey(age, height, data=howell)`, in other words all arguments to our *wrapper function* should be passed to the underlying function. We have a very handy utility in R to do this, the three dots (`...`) :
+
+
+```r
+plot_filled_grey <- function(...){
+  plot(..., pch=19, col="dimgrey")
+}
+```
+
+The function now works as intended. It can be further improved if we realize that the plotting color cannot be changed - it is always "dimgrey". We want the *default* value to be "dimgrey", but with an option to change it. This can be achieved like so,
+
+
+```r
+plot_filled_grey <- function(..., col="dimgrey"){
+  plot(..., pch=19, col=col)
+}
+```
+
+Here, `col=col` sets the color in the call to `plot` with the default value specified in the wrapper function ("dimgrey"), but the user can also change it as usual.
+
+\BeginKnitrBlock{rmdtry}<div class="rmdtry">Take the `plot_filled_grey` function above, test it on some data, and modify it so that the plotting symbol can also be changed, but has a default value of 19.</div>\EndKnitrBlock{rmdtry}
+
+
+### Wrapper functions to `ggplot2` or `dplyr`
+
+In the previous section we saw how to write wrapper functions, functions that change a few arguments to some other function. These sort of functions are very helpful because we can save a lot of space by reusing a certain template. Suppose we want to make a plot with `ggplot2`, a simple scatter plot. We can achieve this via (result not shown),
+
+
+```r
+data(howell)
+library(ggplot2)
+
+ggplot(howell, aes(x = weight, y = height)) +
+  geom_point(size = 0.8, col = "dimgrey") +
+  stat_smooth(method = "loess", span = 0.7, col="black")
+```
+
+We already used quite a bit of code for this simple plot, but imagine you have set various other options, formatting changes, axis limits and so on - you end up with a lot of code for one plot. If we want to reuse the code for another plot, for two other variables from the same dataframe, copy-pasting the code and modifying leads to even more code. 
+
+Writing wrapper functions for `ggplot2` (or `dplyr`, see below, or many other cases) is more difficult because the arguments in the `ggplot2` code we want to change (height and weight) *are not quoted* - they are variables inside a dataframe (`howell` in our case). 
+
+Suppose we have defined somewhere (perhaps as arguments in a function) that the following two variables should be used for the plot:
+
+
+```r
+xvar <- "weight"
+yvar <- "height"
+```
+
+If we use the same code as in the previous example, it does not work because the variable names need to be *not quoted*. The following (rather obscure) syntax converts the quoted variable name, to a variable to be found within the provided data.
+
+
+```r
+library(lgrdata)
+data(howell)
+
+ggplot(howell, aes(x = !!sym(xvar), y = !!sym(yvar))) +
+geom_point(size = 0.8, col = "dimgrey")
+```
+
+<img src="07-programming_files/figure-html/unnamed-chunk-36-1.svg" width="672" />
+
+
+We can now write a wrapper function for a `ggplot2` plot. The same approach works for many other similar wrapper functions, for example around `dplyr` operations.
+
+
+```r
+# Make a scatter plot with the howell data.
+plot_scatter_howell <- function(xcol, ycol){
+    ggplot(howell, aes(x = !!sym(xcol), y = !!sym(ycol))) +
+    geom_point(size = 0.8, col = "dimgrey")
+}
+
+# The function can be used with quoted names:
+plot_scatter_howell("height", "weight")
+```
+
+
+To also pass the dataset as an argument (making the function more general), we do not have to use any special syntax, but can immediately set it as an argument. The special syntax only applies when we are looking for variables in a dataframe.
+
+
+```r
+# Our function now also takes a dataset as an argument
+plot_scatter_howell2 <- function(xcol, ycol, dataset){
+  
+  ggplot(dataset, aes(x = !!sym(xvar), y = !!sym(yvar))) +
+  geom_point(size = 0.8, col = "dimgrey")
+  
+}
+
+# We can use it as,
+plot_scatter_howell2("height", "weight", dataset = howell)
+```
+
+
+
+
+
+### Functions that take vectors as input
+
+Many functions in R are *vectorized*, which means you can send a *vector* as an argument and the function will be automatically evaluated for each element of the vector. For example:
+
+
+```r
+# Count nr of characters in one string:
+nchar("A sentence")
+```
+
+```
+## [1] 10
+```
+
+```r
+# the first argument to nchar() is vectorized:
+nchar(c("A sentence", "is", "useful"))
+```
+
+```
+## [1] 10  2  6
+```
+
+Not all functions are vectorized, and when you write your own more complex functions you will often run into situations where you would like an argument to be vectorized but run into difficulty.
+
+Take the following example:
+
+
+```r
+# A complex calculation. 
+# If x is less than "change_val" (default 5), 
+# return the product, otherwise the sum.
+multiplex <- function(x, change_val = 5){
+  
+  if(x < change_val){
+    prod(1:x)
+  } else {
+    sum(1:x)
+  }
+  
+}
+
+# This should give 4*3*2*1
+multiplex(4)
+```
+
+```
+## [1] 24
+```
+
+A function like this is really only useful if it is vectorized over `x`, but it does not work as intended:
+
+
+```r
+# The function is not vectorized over x:
+multiplex(x = c(4,8))
+```
+
+```
+## Warning in if (x < change_val) {: the condition has length > 1 and only the
+## first element will be used
+```
+
+```
+## Warning in 1:x: numerical expression has 2 elements: only the first used
+```
+
+```
+## [1] 24
+```
+
+```r
+# ... or change_val
+multiplex(x = 5, change_val = c(4,6))
+```
+
+```
+## Warning in if (x < change_val) {: the condition has length > 1 and only the
+## first element will be used
+```
+
+```
+## [1] 15
+```
+
+You have at least 3 ways to vectorize any function. If you are only interested in vectorizing one argument at a time, you can use `sapply` as we have seen before:
+
+
+```r
+sapply(c(4,8), multiplex)
+```
+
+```
+## [1] 24 36
+```
+
+
+For more than one argument at a time you can use the flexible `mapply`, which allows us to specify the arguments to the function as vectors or lists:
+
+
+```r
+# First call multiplex(x=4, change_val = 3), then 
+# multiplex(x=8, change_val = 7)
+mapply(multiplex, x = c(4,8), change_val = c(3,7))
+```
+
+```
+## [1] 10 36
+```
+
+Using `mapply` you can write your own wrapper functions (\@ref(wrapfunctions)) quite easily. If this is too much work for you, consider using the rather magical `Vectorize` (which really is itself a wrapper around `mapply`):
+
+
+```r
+multiplex2 <- Vectorize(multiplex)
+multiplex2(c(4,8))
+```
+
+```
+## [1] 24 36
+```
+
+Inspect `?Vectorize` to find that you can specify which arguments will be vecrorized, and whether to *simplify* the result (which works akin to `sapply`, making a vector or a matrix of a result where possible).
+
+
+A final option is to write a *recursive* function that wraps around itself, executing the function once when the argument is not vectorized, and otherwise using `sapply` or `mapply` to return a vector of results:
+
+
+
+```r
+multiplex3 <- function(x){
+  
+  # Make the calculation when a single argument given:
+  if(length(x) == 1){
+    if(x < 5){
+      prod(1:x)
+    } else {
+      sum(1:x)
+    }  
+  } else {
+    
+    # Otherwise use sapply, each time calling *this function*,
+    # recursively.
+    sapply(x, multiplex3)
+  }
+  
+}
+
+multiplex3(c(4,8))
+```
+
+```
+## [1] 24 36
+```
+
+This final solution can be found in many base R functions, and is a flexible interface to allow vectorized arguments.
+
+
+
+
+
+
+### If, then, else ... switch
+
+We have already seen the basic `if` statement in many examples, which can be extended with multiple `else if` statements:
+
+
+```r
+# NOT an elegant use of multiple if statements.
+animal_weight <- function(animal){
+  
+  if(animal == "cat"){
+    weight <- 10
+  } else if(animal == "cow"){
+    weight <- 1000
+  } else if(animal == "mouse"){
+    weight <- 1
+  } else if(animal == "dog"){
+    weight <- 20
+  }
+  
+return(weight)
+}
+
+
+animal_weight("dog")
+```
+
+```
+## [1] 20
+```
+
+The use of many `if` statements like this cause a lot of repetitive code. Usually if you have many `if then else` statements, you can either think of a simpler design for your function, or you can use `switch` where appropriate:
+
+
+```r
+animal_weight <- function(animal){
+  
+  
+  weight <- switch(animal, 
+                   mouse = 1,
+                   cat = 10,
+                   dog = 20,
+                   cow = 1000,
+                   NA)  # Return NA if the animal is not one of those above
+                   
+return(weight)
+}
+```
+
+Here `switch` improves the readability of the code a lot. If you want to *switch* a numeric input, `switch` is perhaps not the best solution, unless it makes sense to evaluate the number as a character:
+
+
+```r
+num <- 3
+
+switch(as.character(num),
+       "1" = "Door number one.",
+       "2" = "Door number two.",
+       "3" = "Door number three."
+       )
+```
+
+```
+## [1] "Door number three."
+```
+
+
+
+
+
+## Robust functions: defensive programming
+
+
+Once you write more functions that perhaps become more generic and widely applicable within your projects, you want these functions to be more robust, that is, to fail less often and more elegantly. Functions fail if the wrong inputs were provided to them (by a careless programmer or data faults), or if some (rare) exception is reached. In this section we will look at a few tools to help you write more robust functions.
+
+
+### Argument matching
+
+Returning to our `animal_weight` function from the previous section, 
+
+
+```r
+# A slightly shorter version of animal_weight().
+animal_weight <- function(animal){
+  switch(animal, 
+             mouse = 1,
+             cat = 10,
+             dog = 20,
+             cow = 1000,
+             NA)
+              
+}
+```
+
+Here the last argument to `switch` indicates the value to return if the animal does not match any of the above. What if instead we want the function to stop and return a message if the value of the argument is not supported by the function? We can use `match.arg`, as follows:
+
+
+```r
+# Define animal_weight2 as a function which only allows 4 types of animal:
+animal_weight2 <- function(animal = c("mouse","cat","dog","cow")){
+  
+  animal <- match.arg(animal)
+  
+  switch(animal, 
+             mouse = 1,
+             cat = 10,
+             dog = 20,
+             cow = 1000)
+              
+}
+
+# Now see what happens when we give a wrong animal:
+animal_weight2("giraffe")
+```
+
+The output of the above will be:
+
+```
+Error in match.arg(animal) : 
+  'arg' should be one of "mouse", "cat", "dog", "cow"
+```
+
+Using `match.arg` resulted in a *very clear error message*. This sort of message makes it easy to find the source of the error. 
+
+A side-effect of using `match.arg` is that it performs *partial matching*, meaning you can also call the function with only part of the argument value, for example try `animal_weight("mo")`. Personally I dislike partial matching as it rarely benefits us, but can cause problems that are hard to find. Probably best to not rely on it in any real code, though it can help save a few key strokes.
+ 
+
+### Argument checking
+
+Many functions expect a certain argument type, and make no sense or will fail when other argument types are provided. The function below make a sentence into sentence case, with the first letter of each word capitalized. 
+
+
+```r
+sentence_case <- function(x){
+  
+  stopifnot(is.character(x))
+  
+  w <- sapply(strsplit(x, " "), function(ch){
+    substr(ch,1,1) <- toupper(substr(ch,1,1))  
+    return(ch)
+  })
+  
+  paste(w, collapse = " ")
+  
+}
+```
+
+
+Now this function call works fine,
+
+
+```r
+sentence_case("breaking news: man arrested for everything")
+```
+
+```
+## [1] "Breaking News: Man Arrested For Everything"
+```
+
+
+```r
+sentence_case(100)
+```
+
+But this one does not (try it out yourself!).
+
+
+### Sending warnings, errors, messages
+
+In more complex projects, it can be difficult to find which part of your code caused an error or unexpected result. Leaving useful messages, warnings, or exiting when you know things will go wrong can be very useful in developing more debuggable code.
+
+
+```r
+example_function_warnings <- function(data){
+  
+  stopifnot(is.vector(data))
+  
+  if(length(data) > 1000){
+    warning("This might take a while!")
+  }
+  
+  if(length(data) == 0){
+    stop("Data is empty")
+  }
+  
+  if(all(is.na(data))){
+    message("Only missing data sent to example_function_warnings()")
+  }
+  
+  # actually do something
+  # ...
+}
+```
+
+
+The use of `message` is nice to provide some indication to you where code was executed. Scattering a messages around your code (with an indication where we are in the code) can be invaluable during development of more complex projects, with lots of functions.
+
+
+### Executing code when the function ends (or fails)
+
+A useful tool to make functions more robust (less likely to fail) is to safely run some code when the function exits unexpectedly. One example arises with sending figures to an open PDF document: after we are done, the PDF needs to be closed with `dev.off()` (see Example in Section \@ref(simpleloops)).
+
+In this example, we have written a function that makes a simple plot in a pdf:
+
+
+```r
+# Plot first 2 columns of a dataset against each other, make a PDF.
+plot_first_2_columns <- function(data, output = "plot.pdf"){
+  
+  pdf(output)
+  plot(data[[1]], data[[2]])
+  dev.off()
+  
+}
+```
+
+This is OK, but what if we send a dataset with just one column, or some other corrupted data or wrong argument? The pdf will be opened but not closed, because `plot(data...)` will cause an error, causing the function to exit (and not run the rest of the code).
+
+A better implementation uses `on.exit`, like so:
+
+
+```r
+# Plot first 2 columns of a dataset against each other, make a PDF.
+plot_first_2_columns <- function(data, output = "plot.pdf"){
+  
+  pdf(output)
+  on.exit(dev.off())
+  
+  plot(data[[1]], data[[2]])
+  
+}
+```
+
+
+### Catch errors with `try`
+
+The ultimate tool to make functions more robust is `try`, a mechanism to catch errors and avoid termination of your code.
+
+Although you can use `tryCatch` as an interface, I personally prefer the flexible use of `try`, like so:
+
+
+
+```r
+# A wrapper around log(), avoiding an error when the input is bad,
+# and instead returning a missing value.
+safe_logarithm <- function(x){
+  
+  out <- try(log(x))
+  
+  # If log(x) caused an error, out will be a special 
+  # object with class 'try-error'
+  if(inherits(out, "try-error")){
+    
+    return(NA)
+    
+  }
+  
+out
+}
+```
+
+Now `safe_logarithm("a")` returns `NA`, but you do see the error message printed (unless you look around `?try` for a way to suppress the error message).
+
+
+
+
+
+
+### Writing database wrapper functions
+
+This example combines various concepts from this section, and is a useful set of functions when you commonly work with databases. First review 'working with databases' if you need to (Section XXX). The functions below will be developed step-by-step. Please carefully review this section if you want to adapt this code to your situation.
+
+After we are done reading and writing to a (usually remote) database, the connection to it should be *closed* with `dbDisconnect` (in the DBI package). Sometimes we forget, or code fails, or whatever - leaving extra connections open that can cause various problems (especially in production-ready code).
+
+The following example can be modified to suite your needs (see Section \@ref(???)) :
+
+
+```r
+# A function to make a connection to your database
+# Now, instead of copying this bit of code to all your scripts, you
+# define the function once and run con <- db_connection()
+db_connection <- function(){
+  DBI::dbConnect(drv = PostgreSQL(),
+                 user = "mjvgsdzg",
+                 password = "my_password",
+                 host = "balarama.db.elephantsql.com",
+                 port = 5432,
+                 dbname = "mjvgsdzg")
+}
+
+
+# A function to open a database connection, read and return data:
+read_my_data <- function(tablename, ...){
+  
+  con <- db_connection()
+  on.exit(dbDisconnect(con))
+  
+  data <- dbReadTable(con, tablename, ...)
+  
+}
+```
+
+With the above `read_my_data` you can read your favorite table from a database, simply with `mydata <- read_my_data("cooldatatable")`. However, this is a poor function if you are planning to read many tables from this database in a short time, then it makes sense to keep the connection open the entire time (especially for remote databases, as is common).
+
+The following improvement allows passing a connection object, or creating it if it was not passed as an argument:
+
+
+```r
+read_my_data2 <- function(tablename, con = NULL, ...){
+  
+  if(missing(con)){
+    con <- db_connection()
+    on.exit(dbDisconnect(con))
+  }
+  
+  data <- dbReadTable(con, tablename, ...)
+  
+}
+```
+
+Now we can do,
+
+
+```r
+my_con <- db_connection()
+
+flowers <- read_my_data2("flower", con = my_con)
+eggs <- read_my_data2("eggs", con = my_con)
+butter <- read_my_data2("butter", con = my_con)
+milk <- read_my_data2("milk", con = my_con)
+
+dbDisconnect(my_con)
+```
+
+If we leave out the `con` argument, the connection will be opened and closed for you.
 
 
 ## Exercises
@@ -1065,10 +1560,6 @@ dev.off()
 
 
 
-6. **Hard**. Look at the calculations for a confidence interval of the mean in the example in Section \@ref(inference). Write a function that returns the confidence interval for a vector. The function should have two inputs: the vector, and the desired 'alpha'.
-
-
-
 
 7. **hard** Recall the functions `head` and `tail`. Write a function called `middle` that shows a few rows around (approx.) the 'middle' of the dataset. *Hint:* use `nrow`, `print`, and possibly `floor`.
 
@@ -1094,7 +1585,7 @@ veclist <- list(x=1:5, y=2:6, z=3:7)
 
 
 
-2.  Add an element to the list called 'norms' that is a vector of 10 numbers drawn from the standard normal distribution (recall Section \@ref(distributions)).
+2.  Add an element to the list called 'norms' that is a vector of 10 numbers drawn from the standard normal distribution.
 
 
 

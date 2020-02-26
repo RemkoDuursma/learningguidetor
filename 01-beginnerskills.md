@@ -16,13 +16,11 @@ We assume that you have installed both R, and Rstudio. Please visit both website
 
 We strongly recommend you change the following default settings in Rstudio. The default behaviour is to save all your objects to an 'RData' file when you exit, and loads the same objects when you open RStudio. This is very dangerous behaviour, and you **must** turn it off. For now, make sure you go to <kbd>Tools > Global Options...</kbd> and on the <kbd>General</kbd> tab, make sure the settings are like the figure below.
 
-
-\includegraphics[width=0.4\linewidth]{screenshots/neverloadrdata} 
+<img src="screenshots/neverloadrdata.png" width="40%" />
 
 Another feature you may want to turn off is the automatic code completion, which is now a standard feature in RStudio. This is a matter of taste, but we find it handier to use code completion only when requested. If you change the settings as shown in the screenshot below, you can engage code completion by typing part of a function and then pressing `Tab`.
 
-
-\includegraphics[width=0.4\linewidth]{screenshots/rstudionocodecomplete} 
+<img src="screenshots/rstudionocodecomplete.png" width="40%" />
 
 \BeginKnitrBlock{rmdreading}<div class="rmdreading">This text is not a complete or even comprehensive guide to Rstudio - we focus on R. If you want to know more about all the options in the menu's, keyboard shortcuts, and various add-ons and features, [please visit this link](https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE) to get started.</div>\EndKnitrBlock{rmdreading}
 
@@ -236,33 +234,28 @@ cumsum(nums1)  # cumulative sum
 
 There are many more functions you can use directly on vectors. See the table below for a few useful ones.
 
-\begin{table}[ht]
-\centering
-\begin{tabular}{rlll}
-  \hline
- & Function & What it does & Example \\ 
-  \hline
-1 & \texttt{length} & Length of the vector & \texttt{length(nums1)} \\ 
-  2 & \texttt{rev} & Reverses the elements of a vector & \texttt{rev(nums1)} \\ 
-  3 & \texttt{sort} & Sorts the elements of a vector & \texttt{sort(nums1, decreasing = TRUE)} \\ 
-  4 & \texttt{order} & The order of elements in a vector & \texttt{order(nums1)} \\ 
-  5 & \texttt{head} & The first few elements of a vector & \texttt{head(nums1, 5)} \\ 
-  6 & \texttt{max} & The maximum value & \texttt{max(nums1)} \\ 
-  7 & \texttt{min} & The minimum value & \texttt{min(nums1)} \\ 
-  8 & \texttt{which.max} & Which element of the vector is the max? & \texttt{which.max(nums1)} \\ 
-  9 & \texttt{which.min} & Which element of the vector is the min? & \texttt{which.min(nums1)} \\ 
-  10 & \texttt{mean} & The average value & \texttt{mean(nums1)} \\ 
-  11 & \texttt{median} & The median & \texttt{median(nums1)} \\ 
-  12 & \texttt{var} & Variance & \texttt{var(nums1)} \\ 
-  13 & \texttt{sd} & Standard deviation & \texttt{sd(nums1)} \\ 
-  14 & \texttt{cumsum} & Cumulative sum (running total) & \texttt{cumsum(nums1)} \\ 
-  15 & \texttt{diff} & Successive difference of a vector & \texttt{diff(nums1)} \\ 
-  16 & \texttt{unique} & Unique values used in the vector & \texttt{unique(nums1)} \\ 
-  17 & \texttt{round} & Rounds numbers to a specified number of decimal points & \texttt{round(nums1, 2)} \\ 
-   \hline
-\end{tabular}
-\caption{A selection of useful built-in functions in R.} 
-\end{table}
+
+Table: (\#tab:unnamed-chunk-13)A selection of useful built-in functions in R.
+
+Function      What it does                                             Example                          
+------------  -------------------------------------------------------  ---------------------------------
+`length`      Length of the vector                                     `length(nums1)`                  
+`rev`         Reverses the elements of a vector                        `rev(nums1)`                     
+`sort`        Sorts the elements of a vector                           `sort(nums1, decreasing = TRUE)` 
+`order`       The order of elements in a vector                        `order(nums1)`                   
+`head`        The first few elements of a vector                       `head(nums1, 5)`                 
+`max`         The maximum value                                        `max(nums1)`                     
+`min`         The minimum value                                        `min(nums1)`                     
+`which.max`   Which element of the vector is the max?                  `which.max(nums1)`               
+`which.min`   Which element of the vector is the min?                  `which.min(nums1)`               
+`mean`        The average value                                        `mean(nums1)`                    
+`median`      The median                                               `median(nums1)`                  
+`var`         Variance                                                 `var(nums1)`                     
+`sd`          Standard deviation                                       `sd(nums1)`                      
+`cumsum`      Cumulative sum (running total)                           `cumsum(nums1)`                  
+`diff`        Successive difference of a vector                        `diff(nums1)`                    
+`unique`      Unique values used in the vector                         `unique(nums1)`                  
+`round`       Rounds numbers to a specified number of decimal points   `round(nums1, 2)`                
 
 
 ## Writing code in a script
@@ -782,7 +775,7 @@ expression for a search. My attempts failed."
 
 Sometimes it is useful to search all help files (including all *installed* packages, loaded or not) for a keyword, for example `??ANOVA` will find everything that mentions ANOVAs.
 
-The best advice, though, is simply to **just use Google**. As a search, simply type the question like you would ask someone else, for example "How to place legend outside plot with ggplot2?", "(Is there an) R package for 3D plots?".
+The best advice, though, is simply to **just use Google**. As a search, simply type the question like you would ask someone else, for example "How to place legend outside plot with ggplot2?", "(Is there an) R package for 3D plots?". You usually end up on *Stackoverflow* for the best and most up-to-date answers (but be careful when reading very old posts!).
 
 
 

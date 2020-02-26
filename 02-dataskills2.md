@@ -56,8 +56,7 @@ Here, `storage` refers to the internal storage type of the variable: note that t
 
 If we have the following dataset called `plantdat`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/exampledata} 
+<img src="screenshots/exampledata.png" width="33%" />
 
 and execute the command
 
@@ -68,16 +67,14 @@ with(plantdat, tapply(Plantbiomass, Treatment, mean))
 
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/tapplyresult} 
+<img src="screenshots/tapplyresult.png" width="33%" />
 
 Note that the result is a `vector` (elements of a vector can have names, like columns of a dataframe).
 
 
 If we have the following dataset called `plantdat2`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/exampledatalarger} 
+<img src="screenshots/exampledatalarger.png" width="33%" />
 
 and execute the command
 
@@ -88,8 +85,7 @@ with(plantdat2, tapply(Plantbiomass, list(Species, Treatment), mean))
 
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/tapplyresultlarger} 
+<img src="screenshots/tapplyresultlarger.png" width="33%" />
 
 Note that the result here is a `matrix`, where `A` and `B`, the species codes, are the rownames of this matrix.
 
@@ -162,7 +158,10 @@ barplot(pupm, beside=TRUE, legend.text=TRUE, xlim=c(0,8),
         xlab="Gender", ylab="Pupal weight")
 ```
 
-![(\#fig:pupgroupedbar)A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply.](02-dataskills2_files/figure-latex/pupgroupedbar-1.pdf) 
+<div class="figure">
+<img src="02-dataskills2_files/figure-html/pupgroupedbar-1.svg" alt="A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply." width="672" />
+<p class="caption">(\#fig:pupgroupedbar)A grouped barplot of average pupal weight by CO2 and Gender for the pupae dataset. This is easily achieved via the use of tapply.</p>
+</div>
   
 
 #### Quick summary tables with `summaryBy` {#summaryby}
@@ -170,8 +169,7 @@ barplot(pupm, beside=TRUE, legend.text=TRUE, xlim=c(0,8),
 
 If we have the following dataset called `plantdat`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/exampledata} 
+<img src="screenshots/exampledata.png" width="33%" />
 
 and execute the command
 
@@ -183,16 +181,14 @@ summaryBy(Plantbiomass ~ treatment, FUN=mean, data=plantdat)
   
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/summarybyresult} 
+<img src="screenshots/summarybyresult.png" width="33%" />
 
 Note that the result here is a `dataframe`.
 
 
 If we have the following dataset called `plantdat2`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/exampledatalarger} 
+<img src="screenshots/exampledatalarger.png" width="33%" />
 
 and execute the command
 
@@ -203,8 +199,7 @@ summaryBy(Plantbiomass ~ Species + Treatment, FUN=mean, data=dfr)
 
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/summarybyresultlarger} 
+<img src="screenshots/summarybyresultlarger.png" width="33%" />
 
 Note that the result here is a `dataframe`.
 
@@ -391,7 +386,10 @@ ggplot(hfemet_agg, aes(x = Date, y = Rain)) +
   geom_bar(stat="identity")
 ```
 
-![(\#fig:hfemetaggregate)Daily rainfall at the HFE in 2008](02-dataskills2_files/figure-latex/hfemetaggregate-1.pdf) 
+<div class="figure">
+<img src="02-dataskills2_files/figure-html/hfemetaggregate-1.svg" alt="Daily rainfall at the HFE in 2008" width="672" />
+<p class="caption">(\#fig:hfemetaggregate)Daily rainfall at the HFE in 2008</p>
+</div>
 
 
 #### Using `padr` to aggregate timeseries data
@@ -614,7 +612,10 @@ ggplot(coweeta_table, aes(x = species, y = height_mean)) +
   labs(y = "Height (m)", x = "Species")
 ```
 
-![(\#fig:coweetabar)An ordered barplot for the coweeta tree data (error bars are 1 SD).](02-dataskills2_files/figure-latex/coweetabar-1.pdf) 
+<div class="figure">
+<img src="02-dataskills2_files/figure-html/coweetabar-1.svg" alt="An ordered barplot for the coweeta tree data (error bars are 1 SD)." width="672" />
+<p class="caption">(\#fig:coweetabar)An ordered barplot for the coweeta tree data (error bars are 1 SD).</p>
+</div>
 
 The above example uses the more modern approach with `ggplot2`  and `dplyr`, but we can get practically the same result with `doBy` and `gplots` - below is the code for comparison (output not shown).
 
@@ -652,13 +653,11 @@ Here we used `rev` to reverse the levels.</div>\EndKnitrBlock{rmdtry}
 
 If we have the following dataset called `plantdat`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/exampledata} 
+<img src="screenshots/exampledata.png" width="33%" />
 
 and we have another dataset, that includes the same `PlantID` variable (but is not necessarily ordered, nor does it have to include values for every plant):
   
-
-\includegraphics[width=0.33\linewidth]{screenshots/leafnitrogendata} 
+<img src="screenshots/leafnitrogendata.png" width="33%" />
 
 and execute the command
 
@@ -669,8 +668,7 @@ merge(plantdat, leafnitrogendata, by="PlantID")
 
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/mergeresult} 
+<img src="screenshots/mergeresult.png" width="33%" />
 
 Note the missing value (`NA`) for the plant for which no leaf nitrogen data was available.
 
@@ -918,14 +916,12 @@ cereal_combined
 
 If we have the following dataset called `plantdat`,
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/rbindinput} 
+<img src="screenshots/rbindinput.png" width="33%" />
 
 and we have another dataset (`plantdatmore`), *with exactly the same columns* (including the names and order of the columns),
 
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/moredataforrbind} 
+<img src="screenshots/moredataforrbind.png" width="33%" />
 
 and execute the command
 
@@ -936,8 +932,7 @@ rbind(plantdat, plantdatmore)
 
 we get the result
 
-
-\includegraphics[width=0.33\linewidth]{screenshots/rbindresult} 
+<img src="screenshots/rbindresult.png" width="33%" />
 
 
 Using `merge`, we were able to glue dataframes together side-by-side based on one or more 'index' variables. Sometimes you have multiple datasets that can be glued together top-to-bottom, for example when you have multiple very similar dataframes. We can use the `rbind` function, like so:
@@ -1330,7 +1325,10 @@ ggplot(hfeif_meanh, aes(x = Date, y = height, col = treatment)) +
   ylim(c(0,20))
 ```
 
-![(\#fig:hfeifmeanplot)Average tree height by treatment over time, for the hfeifbytree data](02-dataskills2_files/figure-latex/hfeifmeanplot-1.pdf) 
+<div class="figure">
+<img src="02-dataskills2_files/figure-html/hfeifmeanplot-1.svg" alt="Average tree height by treatment over time, for the hfeifbytree data" width="672" />
+<p class="caption">(\#fig:hfeifmeanplot)Average tree height by treatment over time, for the hfeifbytree data</p>
+</div>
 
 
 ### Crude oil production: find top exporters
@@ -1422,7 +1420,10 @@ ggplot(weightloss2, aes(x = Date, y = Weight)) +
   geom_point(colour = ifelse(weightloss2$measured, "darkgrey", "red2"))
 ```
 
-![(\#fig:weightlossinterp)The weightloss data, with linearly interpolated missing values (red).](02-dataskills2_files/figure-latex/weightlossinterp-1.pdf) 
+<div class="figure">
+<img src="02-dataskills2_files/figure-html/weightlossinterp-1.svg" alt="The weightloss data, with linearly interpolated missing values (red)." width="672" />
+<p class="caption">(\#fig:weightlossinterp)The weightloss data, with linearly interpolated missing values (red).</p>
+</div>
 
 
 ## Exercises
