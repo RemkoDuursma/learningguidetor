@@ -5,12 +5,15 @@
 
 ## Introduction
 
-This chapter demonstrates some building blocks of programming with R. The main purpose here is to allow batch analyses - repeating similar tasks for many subsets of data. To do this, we first have to know how to write our own functions, so that we can apply the custom function to any new subset of data. This approach results in far less, and much more readable code than copy-pasting similar code for different datasets.
+This chapter demonstrates some building blocks of programming with R. The objective is to learn skills that help you with batch analyses - repeating similar tasks for many subsets of data, and to write functions to help you organize your code. 
 
-We also delve into "lists" in R, a versatile data object that you have worked with already - even if you didn't know it. Understanding lists well in R is the key to more complex analyses, and more readable workflows.
+For batch analyses, we first have to know how to write our own functions (Section \@ref(writefunctions)), so that we can apply the custom function to any new subset of data. This approach results in far less, and much more readable code than copy-pasting similar code for different datasets.
 
-Finally we take a brief look at 'for loops', a basic programming utility that we rarely need in R, since almost all functions are vectorized. Sometimes it is however more convenient to use loops, or makes the code just a little more easy to work with.
+We also delve into "lists" in R (Section \@ref(workinglists)), a versatile data object that you have worked with already - even if you didn't know it. Understanding lists well in R is the key to more complex analyses, and more readable workflows.
 
+We also take a brief look at 'for loops' (Section \@ref(simpleloops)), a basic programming utility that we rarely need in R, since almost all functions are vectorized. Sometimes it is however more convenient to use loops, or makes the code just a little more easy to work with.
+
+Finally we introduce many more advanced concepts for writing functions (Section \@ref(functionsadvanced) and \@ref(defensive)), often to make functions more versatile and  less error-prone. 
 
 
 
@@ -71,7 +74,7 @@ mean(unifvec)
 ```
 
 ```
-## [1] 1.46766
+## [1] 1.541051
 ```
 
 ```r
@@ -80,11 +83,11 @@ SEmean(unifvec)
 ```
 
 ```
-## [1] 0.07221053
+## [1] 0.0996315
 ```
 
 
-\BeginKnitrBlock{rmdtry}<div class="rmdtry">You can use functions that you defined yourself just like any other function, for example in `summaryBy`. First read in the `SEmean` function defined in the example above, and then use the cereal data to calculate the mean and SE of `rating` by `Manufacturer` (or use data of your choosing).</div>\EndKnitrBlock{rmdtry}
+\BeginKnitrBlock{rmdinfo}<div class="rmdinfo">In general, avoid using names for your functions that are already in use by base R, or commonly used add-on packages. If two or more functions with the same name have been defined, R will first use the one defined by the user (and available in the 'global environmment'), see Section \@ref(searchpath). </div>\EndKnitrBlock{rmdinfo}
 
 
 
@@ -115,8 +118,8 @@ seandsd(x)
 ```
 
 ```
-##        SE        SD 
-## 0.3697534 3.6975338
+##       SE       SD 
+## 0.412936 4.129360
 ```
 
 ### Functions without arguments
@@ -844,23 +847,23 @@ for(i in 1:length(myvec)){
 ```
 
 ```
-## Element 1 of the vector is: 0.4
+## Element 1 of the vector is: 0.3
 ```
 
 ```
-## Element 2 of the vector is: 0.5
+## Element 2 of the vector is: 0.6
 ```
 
 ```
-## Element 3 of the vector is: 0.6
+## Element 3 of the vector is: 1
 ```
 
 ```
-## Element 4 of the vector is: 0.7
+## Element 4 of the vector is: 0.1
 ```
 
 ```
-## Element 5 of the vector is: 0
+## Element 5 of the vector is: 0.1
 ```
 
 Note that this is only a toy example: the same result can be achieved by simply typing `myvec`.
@@ -913,7 +916,24 @@ Now, when you place code similar to the above in a more generic function, you do
 
 
 
-## Advanced concepts {#functionsadvanced}
+## Functions : advanced concepts {#functionsadvanced}
+
+
+### Why should I write more functions?
+
+
+Organizing your complex work flow into many custom functions, instead of long scripts with just the raw code, has some key advantanges:
+
+- Using functions makes it clear what the **inputs** are, and what are the **outputs**. For example, if you run `result <- myfunction(mydata)`, you know that `mydata` was used to create `result`. Instead, if you place all your code *plain* in a script and use `source("myscript.R")`, what objects are created? Are there any output? If so, where? Using functions this way allows a logical flow of your scripts.
+
+- Using functions is much **safer** because objects created in the body of the function when it is executed only *live* for as long as the function is running. Once the function *returns* a result, all objects inside the function cease to exist. This means the objects do not use memory, and cannot cause conflicts with other objects in the session.
+
+- Using functions allows you to **avoid any duplicated code**. Duplicated code is terrible because when you want to modify your code, you have to repeat the modification (and remember where!). As a rule of thumb, if you do something 3 times, you should write a function. This function can also take some arguments, allowing it to do slightly different operations from different calls.
+
+- For different projects, you often find yourself using the same bits of code, for example to read certain data, format a certain table, or make some plot. It quickly makes sense to collect this sort of code into a collection of your own functions. When these functions become **generic** enough (applicable in many projects), you should consider bundling them in an R package.
+
+
+
 
 ### Wrapper functions {#wrapfunctions}
 
@@ -996,7 +1016,7 @@ ggplot(howell, aes(x = !!sym(xvar), y = !!sym(yvar))) +
 geom_point(size = 0.8, col = "dimgrey")
 ```
 
-<img src="07-programming_files/figure-html/unnamed-chunk-36-1.svg" width="672" />
+![](07-programming_files/figure-latex/unnamed-chunk-36-1.pdf)<!-- --> 
 
 
 We can now write a wrapper function for a `ggplot2` plot. The same approach works for many other similar wrapper functions, for example around `dplyr` operations.
@@ -1156,7 +1176,7 @@ multiplex2(c(4,8))
 ## [1] 24 36
 ```
 
-Inspect `?Vectorize` to find that you can specify which arguments will be vecrorized, and whether to *simplify* the result (which works akin to `sapply`, making a vector or a matrix of a result where possible).
+Inspect `?Vectorize` to find that you can specify which arguments will be vectorized, and whether to *simplify* the result (which works akin to `sapply`, making a vector or a matrix of a result where possible).
 
 
 A final option is to write a *recursive* function that wraps around itself, executing the function once when the argument is not vectorized, and otherwise using `sapply` or `mapply` to return a vector of results:
@@ -1164,20 +1184,22 @@ A final option is to write a *recursive* function that wraps around itself, exec
 
 
 ```r
-multiplex3 <- function(x){
+multiplex3 <- function(x, change_val = 5){
   
   # Make the calculation when a single argument given:
   if(length(x) == 1){
-    if(x < 5){
+    
+    if(x < change_val){
       prod(1:x)
     } else {
       sum(1:x)
     }  
+    
   } else {
     
-    # Otherwise use sapply, each time calling *this function*,
+    # Otherwise use mapply, each time calling *this function*,
     # recursively.
-    sapply(x, multiplex3)
+    mapply(multiplex3, x = x, change_val = change_val)
   }
   
 }
@@ -1244,12 +1266,16 @@ return(weight)
 }
 ```
 
-Here `switch` improves the readability of the code a lot. If you want to *switch* a numeric input, `switch` is perhaps not the best solution, unless it makes sense to evaluate the number as a character:
+Here `switch` improves the readability of the code a lot. If you want to *switch* a numeric input, `switch` is perhaps not the best solution.
+
+If you find yourself writing code like this:
 
 
 ```r
+# An input value
 num <- 3
 
+# DO NOT do this.
 switch(as.character(num),
        "1" = "Door number one.",
        "2" = "Door number two.",
@@ -1262,10 +1288,29 @@ switch(as.character(num),
 ```
 
 
+Then you are overthinking this! The above can be accomplished with basic indexing:
+
+
+```r
+num <- 3
+
+door_options <- paste0("Door number ", c("one","two","three"), ".")
+
+door_options[num]
+```
+
+```
+## [1] "Door number three."
+```
+
+
+\BeginKnitrBlock{rmdtry}<div class="rmdtry">Write the previous example as a custom R function that takes `num` as an argument, and the noun (here, "Door") as an optional second argument with a default value.</div>\EndKnitrBlock{rmdtry}
 
 
 
-## Robust functions: defensive programming
+
+
+## Robust functions: defensive programming {#defensive}
 
 
 Once you write more functions that perhaps become more generic and widely applicable within your projects, you want these functions to be more robust, that is, to fail less often and more elegantly. Functions fail if the wrong inputs were provided to them (by a careless programmer or data faults), or if some (rare) exception is reached. In this section we will look at a few tools to help you write more robust functions.
@@ -1364,7 +1409,7 @@ But this one does not (try it out yourself!).
 
 ### Sending warnings, errors, messages
 
-In more complex projects, it can be difficult to find which part of your code caused an error or unexpected result. Leaving useful messages, warnings, or exiting when you know things will go wrong can be very useful in developing more debuggable code.
+In more complex projects, it can be difficult to find which part of your code caused an error or unexpected result. Leaving useful messages, warnings, or exiting when you know things will go wrong later can be very useful in developing more debuggable code.
 
 
 ```r
@@ -1392,8 +1437,33 @@ example_function_warnings <- function(data){
 
 The use of `message` is nice to provide some indication to you where code was executed. Scattering a messages around your code (with an indication where we are in the code) can be invaluable during development of more complex projects, with lots of functions.
 
+Sometimes you want *fewer* warnings or messages, for example arising from code that works fine but always produces an annoying warning. You can switch them off with these two functions:
 
-### Executing code when the function ends (or fails)
+
+```r
+suppressMessages({
+  # code here that produces messages
+})
+```
+
+```
+## NULL
+```
+
+```r
+suppressWarnings({
+  # Code here with warnings you want to suppress.
+  # Don't use this unless you know what you are doing!
+})
+```
+
+```
+## NULL
+```
+
+
+
+### Executing code when the function ends (or fails) {#onexit}
 
 A useful tool to make functions more robust (less likely to fail) is to safely run some code when the function exits unexpectedly. One example arises with sending figures to an open PDF document: after we are done, the PDF needs to be closed with `dev.off()` (see Example in Section \@ref(simpleloops)).
 

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>A Learning Guide to R: data, analytical, and programming skills.</title>
+  <title>Chapter 7 Project management and workflow | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:title" content="Chapter 7 Project management and workflow | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="A Learning Guide to R: data, analytical, and programming skills." />
+  <meta name="twitter:title" content="Chapter 7 Project management and workflow | A Learning Guide to R: data, analytical, and programming skills." />
   
   <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-<link rel="next" href="intro.html"/>
+<link rel="prev" href="versioncontrol.html"/>
+<link rel="next" href="masteringpackages.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -382,23 +382,294 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="header">
-<h1 class="title">A Learning Guide to R: data, analytical, and programming skills.</h1>
-<p class="author"><em>Remko Duursma</em></p>
-<p class="date"><em>2020-03-03</em></p>
-</div>
-<div id="header1" class="section level1 unnumbered">
-<h1>Preface</h1>
-<div id="aboutauthor" class="section level2 unnumbered">
-<h2>About the author</h2>
-<p>Remko Duursma is a Data Scientist and R Trainer at <a href="http://www.shintolabs.nl">Shinto Labs</a>. Previously, he was a scientist in the field of forestry and plant ecology, and studied the effects of climate change with the use of data and models. He has published nearly 70 articles in the scientific literature, and more than ten R packages.</p>
-<p>You can contact Remko here:</p>
+<div id="projectman" class="section level1">
+<h1><span class="header-section-number">Chapter 7</span> Project management and workflow</h1>
+<div id="tips-on-organizing-your-code" class="section level2">
+<h2><span class="header-section-number">7.1</span> Tips on organizing your code</h2>
+<p>In this chapter, we present a few tips on how to improve your workflow and organization of scripts, functions, raw data, and outputs (figures, processed data, etc.). The structure that we present below is just an example, and will depend on the particular project, your requirements, how much time you have, and personal preference.</p>
+<p>The main <strong>challenge</strong> in developing more complex workflows, where you have multiple data sources, scripts for various analyses, and outputs of various kinds (figures, markdown documents, prepared data etc.) is to keep things organized, avoid <em>clutter</em>, and make sure you know how the outputs were produced.</p>
+<p>All projects are different, and we encourage you to experiment with different workflows and organization of your script(s) and outputs.</p>
+<p>The following is a <strong>rule of thumb</strong> list for R project management:</p>
 <ul>
-<li>Email: <a href="mailto:remkoduursma@gmail.com" class="email">remkoduursma@gmail.com</a></li>
-<li>LinkedIn: <a href="https://www.linkedin.com/in/remkoduursma/" class="uri">https://www.linkedin.com/in/remkoduursma/</a></li>
-<li>www.remkoduursma.com</li>
+<li>Use ‘projects’ in Rstudio to manage your files and workspace.</li>
+<li>Use <em>git</em> version control (see Chapter <a href="versioncontrol.html#versioncontrol">6</a>).</li>
+<li>Use a logical folder structure inside your projects, keeping similar files together (data, scripts, output, etc.).</li>
+<li>Avoid writing long scripts, instead break them into a logical collection of shorter scripts.</li>
+<li>Load all required packages in a separate script.</li>
+<li>Outputs (figures, processed datasets) are <em>disposable</em>, your scripts can always re-produce the output.</li>
+<li>Keep function declarations separate from other code.</li>
+<li>Write functions as much as possible.</li>
+<li>Add a ‘README.md’ file to your project, markdown-formatted file explaining what the project does, a list of any dependencies, how to run the code, where to find the output, etc.</li>
 </ul>
+<p>In this chapter we show an example project structure, which uses most of the above rules to come up with a transparent project workflow. If you follow (something like) the structure we show here, you have the added benefit that your directory is fully portable. That is, you can zip it, email it to someone, they can unzip it and run the entire analysis.</p>
+<p>For effective project management we find using custom functions to organize our work most useful. See Chapter <a href="programming.html#programming">4</a> for general introduction to functions, and Section <a href="projectman.html#scriptstructure">7.6</a> on how to organize your code with functions.</p>
+</div>
+<div id="rstudioprojects" class="section level2">
+<h2><span class="header-section-number">7.2</span> Set up a project in Rstudio</h2>
+<p>The most important tip is to <em>use projects in Rstudio</em>. Projects are an efficient method to keep your files organized, and to keep all your different projects separated. There is a natural tendency for analyses to grow over time, to the point where they become too large to manage properly. The way we usually deal with this is to try to split projects into smaller ones, even if there is some overlap between them.</p>
 
+<div class="rmdcaution">
+<p>Stop using <code>setwd()</code> in any of your scripts. This is never a good idea, for various reasons. Instead use Rstudio projects as a way to set the working directory automatically (and cleanly).</p>
+You can also stop using <code>rm(list=ls())</code> in any of your scripts. The problem with this command is that it does not clean <em>everything</em> : all packages are still loaded, and hidden objects also remain (ones starting with <code>.</code>), and certain <code>options</code> may have been set. Instead, test reproducing your project by selecting <code>Session/Restart R</code> and running the project.
+</div>
+
+<p>In Rstudio, click on the menu item <code>File/New Project...</code>. If you already have a folder for the project, take the 2nd option (<code>Existing directory</code>), otherwise create a folder as well by choosing the 1st option (<code>New project</code>). We will discuss “version control” in the next chapter.</p>
+<p>Browse for the directory you want to create a project in, and click <code>Choose</code>. This creates a file with extension <code>.Rproj</code>. Whenever you open this project, Rstudio will set the working directory to the location of the project file. If you use projects, you no longer need to set the working directory manually as we showed in Section <a href="intro.html#fileswd">1.8</a>.</p>
+<p>Rstudio has now switched to your new project. Notice in the top-right corner there is a button that shows the current project. For the example project ‘facesoil’, it looks like this:</p>
+<p><img src="screenshots/projectbutton.png" width="30%" /></p>
+<p><strong>The Project button in Rstudio</strong></p>
+<p>By clicking on that button you can easily switch over to other projects. The working directory is automatically set to the right place, and all files you had open last time are remembered as well. As an additional bonus, the workspace is also cleared. This ensures that if you switch projects, you do not inadvertently load objects from another project.</p>
+</div>
+<div id="directory-structure" class="section level2">
+<h2><span class="header-section-number">7.3</span> Directory structure</h2>
+<p>For the ‘facesoil’ project, we came up with the following directory structure. Each item is described further below.</p>
+<p><img src="screenshots/folderstructure.png" width="70%" /></p>
+<p><strong>Folder structure; just an example</strong></p>
+<div id="rawdata" class="section level3">
+<h3><span class="header-section-number">7.3.1</span> <code>rawdata</code></h3>
+<p>If your project contains any raw data files (within ) <em>keep your raw data separate from everything else</em>. Here we have placed our raw CSV files in the <code>rawdata</code> directory.</p>
+<p>In some projects it makes sense to further keep raw data files separate from each other, for example you might have subfolders in the rawdata folder that contain different types of datasets (e.g. ‘rawdata/leafdata’, ‘rawdata/isotopes’). Again, the actual solution will depend on your situation, but it is at least very good practice to store your raw data files in a separate folder.</p>
+</div>
+<div id="rfunctions" class="section level3">
+<h3><span class="header-section-number">7.3.2</span> <code>Rfunctions</code></h3>
+<p>If you do not frequently write functions already, you should force yourself to do so. Particularly for tasks that you do more than once, functions can greatly improve the clarity of your scripts, helps you avoid mistakes, and makes it easier to reuse code in another project.</p>
+<p>It is good practice to keep functions in a separate folder, for example <code>Rfunctions</code>, with each function in a separate file (with the extension <code>.R</code>). It may look like this,</p>
+<p><img src="screenshots/rfunctions.png" width="70%" /></p>
+<p><strong>Contents of Rfunctions folder, example.</strong></p>
+<p>We will use <code>source()</code> to load these functions, see further below.</p>
+</div>
+<div id="output" class="section level3">
+<h3><span class="header-section-number">7.3.3</span> <code>output</code></h3>
+<p>It is a good idea to send all output from your R scripts to a separate folder. This way, it is very clear what the <em>outputs</em> of the analysis are. It may also be useful to have subfolders specifying what type of output it is. Here we decided to split it into figures, processeddata, and text :</p>
+<p><img src="screenshots/output.png" width="70%" /></p>
+<p><strong>Contents of Rfunctions folder, example.</strong></p>
+</div>
+</div>
+<div id="the-r-scripts" class="section level2">
+<h2><span class="header-section-number">7.4</span> The R scripts</h2>
+<p>A few example scripts are described in the following sections. Note that these are just examples, the actual setup will depend on your situation, and your personal preferences. The main point to make here is that it is tremendously useful to separate your code into a number of separate scripts. This makes it easier to maintain your code, and for an outsider to follow the logic of your workflow.</p>
+<div id="facesoil_analysis.r" class="section level3">
+<h3><span class="header-section-number">7.4.1</span> <code>facesoil_analysis.R</code></h3>
+<p>This is our ‘master’ script of the project. It calls (i.e., executes) a couple of scripts using <code>source</code>. First, it ‘sources’ the <code>facesoil\_load.R</code> script, which loads packages and functions, and reads raw data. Next, we do some analyses (here is a simple example where we calculate daily averages), and call a script that makes the figures (<code>facesoil_figures.R</code>).</p>
+<p>Note how we direct all output to the <code>output</code> folder, by specifying the <em>relative path</em>, that is, the path relative to the current working directory.</p>
+<div class="sourceCode" id="cb742"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb742-1"><a href="projectman.html#cb742-1"></a><span class="co"># Calls the load script.</span></span>
+<span id="cb742-2"><a href="projectman.html#cb742-2"></a><span class="kw">source</span>(<span class="st">&quot;facesoil_load.R&quot;</span>)</span>
+<span id="cb742-3"><a href="projectman.html#cb742-3"></a></span>
+<span id="cb742-4"><a href="projectman.html#cb742-4"></a><span class="co"># Export processed data</span></span>
+<span id="cb742-5"><a href="projectman.html#cb742-5"></a><span class="kw">write.csv</span>(allTheta, <span class="st">&quot;output/processeddata/facesoil_allTheta.csv&quot;</span>,</span>
+<span id="cb742-6"><a href="projectman.html#cb742-6"></a>          <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span>
+<span id="cb742-7"><a href="projectman.html#cb742-7"></a></span>
+<span id="cb742-8"><a href="projectman.html#cb742-8"></a><span class="co">## Aggregate by day</span></span>
+<span id="cb742-9"><a href="projectman.html#cb742-9"></a></span>
+<span id="cb742-10"><a href="projectman.html#cb742-10"></a><span class="co"># Make daily data</span></span>
+<span id="cb742-11"><a href="projectman.html#cb742-11"></a>allTheta<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(allTheta<span class="op">$</span>DateTime)</span>
+<span id="cb742-12"><a href="projectman.html#cb742-12"></a>allTheta_agg &lt;-<span class="st"> </span><span class="kw">summaryBy</span>(. <span class="op">~</span><span class="st"> </span>Date <span class="op">+</span><span class="st"> </span>Ringnr, <span class="dt">data=</span>allTheta,</span>
+<span id="cb742-13"><a href="projectman.html#cb742-13"></a>                          <span class="dt">FUN=</span>mean, <span class="dt">keep.names=</span><span class="ot">TRUE</span>)</span>
+<span id="cb742-14"><a href="projectman.html#cb742-14"></a></span>
+<span id="cb742-15"><a href="projectman.html#cb742-15"></a><span class="co"># Export daily data</span></span>
+<span id="cb742-16"><a href="projectman.html#cb742-16"></a><span class="kw">write.csv</span>(allTheta_agg, <span class="st">&quot;output/processeddata/facesoil_alltheta_daily.csv&quot;</span>,</span>
+<span id="cb742-17"><a href="projectman.html#cb742-17"></a>          <span class="dt">row.names=</span><span class="ot">FALSE</span>)</span>
+<span id="cb742-18"><a href="projectman.html#cb742-18"></a></span>
+<span id="cb742-19"><a href="projectman.html#cb742-19"></a><span class="co">## make figures</span></span>
+<span id="cb742-20"><a href="projectman.html#cb742-20"></a><span class="kw">source</span>(<span class="st">&quot;figures.R&quot;</span>)</span></code></pre></div>
+</div>
+<div id="facesoil_figures.r" class="section level3">
+<h3><span class="header-section-number">7.4.2</span> <code>facesoil_figures.R</code></h3>
+<p>In this example we make the figures in a separate script. If your project is quite small, perhaps this makes little sense. When projects grow in size, though, I have found that collecting the code that makes the figures in a separate script really helps to avoid clutter.</p>
+<p>Also, you could have a number of different ‘figure’ scripts, one for each ‘sub-analysis’ of your project. These can then be sourced in the master script (here <code>facesoil\_analysis.R</code>), for example, to maintain a transparent workflow.</p>
+<p>Here is an example script that makes figures only. Note the use of <code>dev.copy2pdf</code>, which will produce a PDF and place it in the <code>output/figures</code> directory.</p>
+<div class="sourceCode" id="cb743"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb743-1"><a href="projectman.html#cb743-1"></a><span class="co"># Make a plot of soil water content over time</span></span>
+<span id="cb743-2"><a href="projectman.html#cb743-2"></a><span class="kw">pdf</span>(<span class="st">&quot;./output/figures/facesoil_overtime.pdf&quot;</span>)</span>
+<span id="cb743-3"><a href="projectman.html#cb743-3"></a><span class="kw">with</span>(allTheta, <span class="kw">plot</span>(DateTime, R30.mean, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.2</span>,</span>
+<span id="cb743-4"><a href="projectman.html#cb743-4"></a>                    <span class="dt">col=</span>Ringnr))</span>
+<span id="cb743-5"><a href="projectman.html#cb743-5"></a><span class="kw">dev.off</span>()</span>
+<span id="cb743-6"><a href="projectman.html#cb743-6"></a></span>
+<span id="cb743-7"><a href="projectman.html#cb743-7"></a><span class="co"># More figures go here!</span></span></code></pre></div>
+<p>The above is OK, but we can do better by writing it into a function, and then calling it to make the PDF. Even better, the PDF making can be done Here we also use <code>on.exit</code> to safely close the PDF, see Section @ref(onexit.</p>
+<p>Like so,</p>
+<div class="sourceCode" id="cb744"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb744-1"><a href="projectman.html#cb744-1"></a><span class="co"># A function that defines our plot</span></span>
+<span id="cb744-2"><a href="projectman.html#cb744-2"></a><span class="co"># Write functions like these, and collect them in a separate script,</span></span>
+<span id="cb744-3"><a href="projectman.html#cb744-3"></a><span class="co"># for example &quot;figure_definitions.R&quot;.</span></span>
+<span id="cb744-4"><a href="projectman.html#cb744-4"></a>soilplot_<span class="dv">1</span> &lt;-<span class="st"> </span><span class="cf">function</span>(data){</span>
+<span id="cb744-5"><a href="projectman.html#cb744-5"></a>  <span class="kw">with</span>(data, <span class="kw">plot</span>(DateTime, R30.mean, <span class="dt">pch=</span><span class="dv">19</span>, <span class="dt">cex=</span><span class="fl">0.2</span>,</span>
+<span id="cb744-6"><a href="projectman.html#cb744-6"></a>                    <span class="dt">col=</span>Ringnr))  </span>
+<span id="cb744-7"><a href="projectman.html#cb744-7"></a>}</span>
+<span id="cb744-8"><a href="projectman.html#cb744-8"></a></span>
+<span id="cb744-9"><a href="projectman.html#cb744-9"></a><span class="co"># A generic function that makes a PDF of a provided function call</span></span>
+<span id="cb744-10"><a href="projectman.html#cb744-10"></a><span class="co"># Place this function in a script with a collection of functions.</span></span>
+<span id="cb744-11"><a href="projectman.html#cb744-11"></a>to.pdf &lt;-<span class="st"> </span><span class="cf">function</span>(expr, filename, ...) {</span>
+<span id="cb744-12"><a href="projectman.html#cb744-12"></a>  </span>
+<span id="cb744-13"><a href="projectman.html#cb744-13"></a>  <span class="kw">pdf</span>(filename, ...)</span>
+<span id="cb744-14"><a href="projectman.html#cb744-14"></a>  <span class="kw">on.exit</span>(<span class="kw">dev.off</span>())</span>
+<span id="cb744-15"><a href="projectman.html#cb744-15"></a>  </span>
+<span id="cb744-16"><a href="projectman.html#cb744-16"></a>  <span class="co"># A trick to run the provided function call in the global environment</span></span>
+<span id="cb744-17"><a href="projectman.html#cb744-17"></a>  <span class="kw">eval.parent</span>(<span class="kw">substitute</span>(expr))</span>
+<span id="cb744-18"><a href="projectman.html#cb744-18"></a>}</span>
+<span id="cb744-19"><a href="projectman.html#cb744-19"></a></span>
+<span id="cb744-20"><a href="projectman.html#cb744-20"></a></span>
+<span id="cb744-21"><a href="projectman.html#cb744-21"></a><span class="co"># Finally, after having sourced both our function definition, </span></span>
+<span id="cb744-22"><a href="projectman.html#cb744-22"></a><span class="co"># and the generic function to.pdf, we can make the PDFs.</span></span>
+<span id="cb744-23"><a href="projectman.html#cb744-23"></a><span class="kw">to.pdf</span>(</span>
+<span id="cb744-24"><a href="projectman.html#cb744-24"></a>  <span class="kw">soilplot_1</span>(allTheta), </span>
+<span id="cb744-25"><a href="projectman.html#cb744-25"></a>  <span class="dt">filename =</span> <span class="st">&quot;output/figures/figure1.pdf&quot;</span>)</span>
+<span id="cb744-26"><a href="projectman.html#cb744-26"></a><span class="er">)</span></span></code></pre></div>
+</div>
+<div id="facesoil_load" class="section level3">
+<h3><span class="header-section-number">7.4.3</span> <code>facesoil_load</code></h3>
+<p>This script contains all the bits of code that are</p>
+<ul>
+<li>Cleaning the workspace</li>
+<li>Loading homemade functions</li>
+<li>Reading and pre-processing the raw data</li>
+</ul>
+<p>It is useful to load all packages in one location in your, which makes it easy to fix problems should they arise (i.e., some packages are not installed, or not available).</p>
+<div class="sourceCode" id="cb745"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb745-1"><a href="projectman.html#cb745-1"></a><span class="co"># Load packages</span></span>
+<span id="cb745-2"><a href="projectman.html#cb745-2"></a><span class="kw">source</span>(<span class="st">&quot;load_packages.R&quot;</span>)</span>
+<span id="cb745-3"><a href="projectman.html#cb745-3"></a></span>
+<span id="cb745-4"><a href="projectman.html#cb745-4"></a><span class="co"># Source functions (this loads functions but does no actual work)</span></span>
+<span id="cb745-5"><a href="projectman.html#cb745-5"></a><span class="kw">source</span>(<span class="st">&quot;Rfunctions/rmDup.R&quot;</span>)</span>
+<span id="cb745-6"><a href="projectman.html#cb745-6"></a></span>
+<span id="cb745-7"><a href="projectman.html#cb745-7"></a><span class="co"># Make the processed data (this runs a script)</span></span>
+<span id="cb745-8"><a href="projectman.html#cb745-8"></a><span class="kw">source</span>(<span class="st">&quot;facesoil_readdata.R&quot;</span>)</span></code></pre></div>
+</div>
+<div id="load_packages.r" class="section level3">
+<h3><span class="header-section-number">7.4.4</span> <code>load_packages.R</code></h3>
+<p>We find it very convenient to collect all <code>library</code> calls throughout your project in a single script. The advantage is that at the top of one of the main analysis scripts, we can simply call <code>source("load_packages.R")</code>. If any packages are missing, or something else failed, we know before try to we execute any other code.</p>
+<p>It may also be convenient to suppress all messages we see when loading packages. An example script may look like:</p>
+<div class="sourceCode" id="cb746"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb746-1"><a href="projectman.html#cb746-1"></a><span class="kw">suppressPackageStartupMessages</span>({</span>
+<span id="cb746-2"><a href="projectman.html#cb746-2"></a>  <span class="kw">library</span>(dplyr)</span>
+<span id="cb746-3"><a href="projectman.html#cb746-3"></a>  <span class="kw">library</span>(lubridate)</span>
+<span id="cb746-4"><a href="projectman.html#cb746-4"></a>  <span class="kw">library</span>(glue)</span>
+<span id="cb746-5"><a href="projectman.html#cb746-5"></a>})</span></code></pre></div>
+<p>The <em>disadvantage</em> of a loading script like this is that we assume that the user has installed all of the required packages. In Rstudio, however, if you open this script - a small message will appear at the top of the script, “Would you like to install missing packages?”. If you click OK all packages mentioned in the script that you have not installed will be installed for you.</p>
+<p>Another approach uses the <code>pacman</code> package, which automatically installs missing packages (see also Section <a href="#pacman"><strong>??</strong></a>):</p>
+<div class="sourceCode" id="cb747"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb747-1"><a href="projectman.html#cb747-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(pacman))<span class="kw">install.packages</span>(<span class="st">&quot;pacman&quot;</span>)</span></code></pre></div>
+<pre><code>## Loading required package: pacman</code></pre>
+<div class="sourceCode" id="cb749"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb749-1"><a href="projectman.html#cb749-1"></a>pacman<span class="op">::</span><span class="kw">p_load</span>(gplots, geometry, rgl, remotes, svglite)</span></code></pre></div>
+
+<div class="rmdreading">
+To learn more about advanced management of R package dependencies, read Section <a href="masteringpackages.html#masteringpackages">8</a>
+</div>
+
+
+<div class="rmdcaution">
+Never include <code>install.packages</code> in any of your <em>scripts</em> in your project. You do not want to call it more than once, otherwise the execution of the project will be much slower (and require an internet connection).
+</div>
+
+</div>
+<div id="facesoil_readdata.r" class="section level3">
+<h3><span class="header-section-number">7.4.5</span> <code>facesoil_readdata.R</code></h3>
+<p>This script produces a dataframe based on the raw CSV files in the <code>rawdata</code> folder. The example below just reads a dataset and changes the DateTime variable to a POSIXct class. In this script, I normally also do all the tedious things like deleting missing data, converting dates and times, merging, adding new variables, and so on. The advantage of placing all of this in a separate script is that you keep the boring bits separate from the code that generates results, such as figures, tables, and analyses.</p>
+<div class="sourceCode" id="cb750"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb750-1"><a href="projectman.html#cb750-1"></a><span class="co"># Read raw data from &#39;rawdata&#39; subfolder</span></span>
+<span id="cb750-2"><a href="projectman.html#cb750-2"></a>allTheta &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;rawdata/FACE_SOIL_theta_2013.csv&quot;</span>)</span>
+<span id="cb750-3"><a href="projectman.html#cb750-3"></a></span>
+<span id="cb750-4"><a href="projectman.html#cb750-4"></a><span class="co"># Convert DateTime</span></span>
+<span id="cb750-5"><a href="projectman.html#cb750-5"></a>allTheta<span class="op">$</span>DateTime &lt;-<span class="st"> </span><span class="kw">ymd_hms</span>(<span class="kw">as.character</span>(allTheta<span class="op">$</span>DateTime))</span>
+<span id="cb750-6"><a href="projectman.html#cb750-6"></a></span>
+<span id="cb750-7"><a href="projectman.html#cb750-7"></a><span class="co"># Add Date</span></span>
+<span id="cb750-8"><a href="projectman.html#cb750-8"></a>allTheta<span class="op">$</span>Date &lt;-<span class="st"> </span><span class="kw">as.Date</span>(allTheta<span class="op">$</span>DateTime)</span>
+<span id="cb750-9"><a href="projectman.html#cb750-9"></a></span>
+<span id="cb750-10"><a href="projectman.html#cb750-10"></a><span class="co"># Etc.</span></span></code></pre></div>
+</div>
+</div>
+<div id="archiving-the-output" class="section level2">
+<h2><span class="header-section-number">7.5</span> Archiving the output</h2>
+<p>In the example workflow we have set up in the previous sections, all items in the output folder will be automatically overwritten every time we run the master script <code>facesoil_analysis.R</code>. One simple way to back up your previous results is to create a zipfile of the entire output directory, place it in the <code>archive</code> folder, and rename it so it has the date as part of the filename.</p>
+<p>After a while, that directory may look like this:</p>
+<p><img src="screenshots/archive.png" width="70%" /></p>
+<p><strong>Contents of Rfunctions folder, example.</strong></p>
+<p>If your <code>processData</code> folder is very large, this may not be the optimal solution. Perhaps the <code>processedData</code> can be in a separate output folder, for example.</p>
+<div id="adding-a-date-stamp-to-output-files" class="section level3">
+<h3><span class="header-section-number">7.5.1</span> Adding a Date stamp to output files</h3>
+<p>Another option is to use a slightly different output filename every time, most usefully with the current Date as part of the filename. The following example shows how you can achieve this with the <code>today</code> from the <code>lubridate</code> package, and the <code>glue</code> package:</p>
+<div class="sourceCode" id="cb751"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb751-1"><a href="projectman.html#cb751-1"></a><span class="co"># For the following to work, load lubridate</span></span>
+<span id="cb751-2"><a href="projectman.html#cb751-2"></a><span class="co"># Recall that in your workflow, it is best to load all packages in one place.</span></span>
+<span id="cb751-3"><a href="projectman.html#cb751-3"></a><span class="kw">library</span>(lubridate)</span>
+<span id="cb751-4"><a href="projectman.html#cb751-4"></a><span class="kw">library</span>(glue)</span>
+<span id="cb751-5"><a href="projectman.html#cb751-5"></a></span>
+<span id="cb751-6"><a href="projectman.html#cb751-6"></a><span class="co"># Make a filename with the current Date:</span></span>
+<span id="cb751-7"><a href="projectman.html#cb751-7"></a>fn &lt;-<span class="st"> </span><span class="kw">glue</span>(<span class="st">&quot;output/figures/FACE_soilfigure1_{today()}.pdf&quot;</span>)</span>
+<span id="cb751-8"><a href="projectman.html#cb751-8"></a>fn</span></code></pre></div>
+<pre><code>## output/figures/FACE_soilfigure1_2020-03-03.pdf</code></pre>
+<div class="sourceCode" id="cb753"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb753-1"><a href="projectman.html#cb753-1"></a><span class="co"># Also add the current time, make sure to reformat as &#39;:&#39; is not allowed!</span></span>
+<span id="cb753-2"><a href="projectman.html#cb753-2"></a>fn &lt;-<span class="st"> </span><span class="kw">glue</span>(<span class="st">&quot;output/figures/FACE_soilfigure1_{format(now(),&#39;%Y-%m-%d_%H-%M&#39;)}.pdf&quot;</span>)</span>
+<span id="cb753-3"><a href="projectman.html#cb753-3"></a>fn</span></code></pre></div>
+<pre><code>## output/figures/FACE_soilfigure1_2020-03-03_22-20.pdf</code></pre>
+</div>
+</div>
+<div id="scriptstructure" class="section level2">
+<h2><span class="header-section-number">7.6</span> A logical structure for your scripts</h2>
+<div id="write-functions-not-long-scripts" class="section level3">
+<h3><span class="header-section-number">7.6.1</span> Write functions, not long scripts</h3>
+<p>If a script becomes too long, write more functions. Writing your own functions is the most important advise if you want to write and maintain robust, complex projects.</p>
+<p>As pointed out in the Chapter on Project management (<a href="projectman.html#projectman">7</a>), save these functions separately, for example “R/functions.R”, and <code>source</code> them with:</p>
+<div class="sourceCode" id="cb755"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb755-1"><a href="projectman.html#cb755-1"></a><span class="kw">source</span>(<span class="st">&quot;R/functions.R&quot;</span>)</span></code></pre></div>
+<p>Unfortunately <code>source</code> is not vectorized, so to read all R scripts from a subdirectory you can simply do,</p>
+<div class="sourceCode" id="cb756"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb756-1"><a href="projectman.html#cb756-1"></a><span class="cf">for</span>(fn <span class="cf">in</span> <span class="kw">dir</span>(<span class="st">&quot;R&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;[.]R$&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)){</span>
+<span id="cb756-2"><a href="projectman.html#cb756-2"></a>  <span class="kw">source</span>(fn)</span>
+<span id="cb756-3"><a href="projectman.html#cb756-3"></a>}</span></code></pre></div>
+
+<div class="rmdtry">
+Write the above snippet into a function, which takes the directory to search as an argument.
+</div>
+
+</div>
+<div id="divide-your-script-into-functional-blocks" class="section level3">
+<h3><span class="header-section-number">7.6.2</span> Divide your script into functional blocks</h3>
+<p>Dividing your scripts into a few functional blocks can help readability and reliability.
+With special formatting, you can even improve the <em>table of contents</em> (TOC) menu in Rstudio for a script. Run the example below, and then find the TOC button in Rstudio:</p>
+<p><img src="screenshots/tablecontents_button.png" width="30%" /></p>
+<p><strong>Access the (nearly) automatic TOC in Rstudio</strong></p>
+<p>In the following example script, note that we load all packages at the beginning of the script, so that when something goes wrong at that stage, we know before executing any of the ‘real’ code.</p>
+<p>Also note the use of <code>#-----</code>, this helps to make the TOC as mentioned above.</p>
+<div class="sourceCode" id="cb757"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb757-1"><a href="projectman.html#cb757-1"></a><span class="co"># An example script</span></span>
+<span id="cb757-2"><a href="projectman.html#cb757-2"></a><span class="co"># 2020, Author</span></span>
+<span id="cb757-3"><a href="projectman.html#cb757-3"></a></span>
+<span id="cb757-4"><a href="projectman.html#cb757-4"></a></span>
+<span id="cb757-5"><a href="projectman.html#cb757-5"></a><span class="co">#----- Load packages -----</span></span>
+<span id="cb757-6"><a href="projectman.html#cb757-6"></a><span class="kw">library</span>(dplyr)</span>
+<span id="cb757-7"><a href="projectman.html#cb757-7"></a><span class="kw">library</span>(rvest)</span>
+<span id="cb757-8"><a href="projectman.html#cb757-8"></a><span class="kw">library</span>(stringr)</span>
+<span id="cb757-9"><a href="projectman.html#cb757-9"></a><span class="kw">library</span>(glue)</span>
+<span id="cb757-10"><a href="projectman.html#cb757-10"></a></span>
+<span id="cb757-11"><a href="projectman.html#cb757-11"></a><span class="co">#----- Custom functions -----</span></span>
+<span id="cb757-12"><a href="projectman.html#cb757-12"></a><span class="kw">source</span>(<span class="st">&quot;R/functions.R&quot;</span>)</span>
+<span id="cb757-13"><a href="projectman.html#cb757-13"></a><span class="kw">source</span>(<span class="st">&quot;R/database_functions.R&quot;</span>)</span>
+<span id="cb757-14"><a href="projectman.html#cb757-14"></a></span>
+<span id="cb757-15"><a href="projectman.html#cb757-15"></a><span class="co">#----- Configuration -----</span></span>
+<span id="cb757-16"><a href="projectman.html#cb757-16"></a></span>
+<span id="cb757-17"><a href="projectman.html#cb757-17"></a><span class="co"># Load configuration (passwords etc., see next Section!)</span></span>
+<span id="cb757-18"><a href="projectman.html#cb757-18"></a>.conf &lt;-<span class="st"> </span>yaml<span class="op">::</span><span class="kw">read_yaml</span>(<span class="dt">file =</span> <span class="st">&quot;config.yml&quot;</span>)</span>
+<span id="cb757-19"><a href="projectman.html#cb757-19"></a></span>
+<span id="cb757-20"><a href="projectman.html#cb757-20"></a><span class="co">#----- Database -----</span></span>
+<span id="cb757-21"><a href="projectman.html#cb757-21"></a></span>
+<span id="cb757-22"><a href="projectman.html#cb757-22"></a><span class="co"># Make database connection</span></span>
+<span id="cb757-23"><a href="projectman.html#cb757-23"></a>db_con &lt;-<span class="st"> </span><span class="kw">make_database_connection_knmi</span>(.conf)</span>
+<span id="cb757-24"><a href="projectman.html#cb757-24"></a></span>
+<span id="cb757-25"><a href="projectman.html#cb757-25"></a><span class="co"># Download data</span></span>
+<span id="cb757-26"><a href="projectman.html#cb757-26"></a>cloud_data &lt;-<span class="st"> </span><span class="kw">download_cloud_data</span>(<span class="dt">con =</span> db_con)</span>
+<span id="cb757-27"><a href="projectman.html#cb757-27"></a></span>
+<span id="cb757-28"><a href="projectman.html#cb757-28"></a><span class="co"># Archive the data</span></span>
+<span id="cb757-29"><a href="projectman.html#cb757-29"></a>fn &lt;-<span class="st"> </span><span class="kw">glue</span>(<span class="st">&quot;archive/out_{Sys.Date()}.rds&quot;</span>)</span>
+<span id="cb757-30"><a href="projectman.html#cb757-30"></a><span class="kw">try</span>(<span class="kw">saveRDS</span>(cloud_data, fn), <span class="dt">silent =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb757-31"><a href="projectman.html#cb757-31"></a></span>
+<span id="cb757-32"><a href="projectman.html#cb757-32"></a><span class="co">#----- Visualization -----</span></span>
+<span id="cb757-33"><a href="projectman.html#cb757-33"></a></span>
+<span id="cb757-34"><a href="projectman.html#cb757-34"></a><span class="co"># Make visuals</span></span>
+<span id="cb757-35"><a href="projectman.html#cb757-35"></a><span class="kw">make_cloud_maps</span>(<span class="dt">data =</span> cloud_data)</span>
+<span id="cb757-36"><a href="projectman.html#cb757-36"></a></span>
+<span id="cb757-37"><a href="projectman.html#cb757-37"></a><span class="co">#----- Model -----</span></span>
+<span id="cb757-38"><a href="projectman.html#cb757-38"></a></span>
+<span id="cb757-39"><a href="projectman.html#cb757-39"></a><span class="co"># Do some advanced modelling</span></span>
+<span id="cb757-40"><a href="projectman.html#cb757-40"></a>model_run &lt;-<span class="st"> </span><span class="kw">run_cloudy_model</span>(<span class="dt">data =</span> cloud_data)</span>
+<span id="cb757-41"><a href="projectman.html#cb757-41"></a></span>
+<span id="cb757-42"><a href="projectman.html#cb757-42"></a><span class="co"># Upload the model results to a remote database</span></span>
+<span id="cb757-43"><a href="projectman.html#cb757-43"></a><span class="kw">upload_model_db16</span>(model_run, <span class="dt">config =</span> .conf)</span></code></pre></div>
+<p>The <em>fictional</em> script above is just an example how you can divide a <em>master script</em> into logical statements, using functions that perform all the underlying tasks.</p>
+<p>One major advantage of the above approach is because functions execute their “inner workings” in a <strong>separate environment</strong>, which means that objects inside a function are not visible either outside the function (like the main script) or in any other script.</p>
+<p>That way, executing the script above does not produce any objects in the environment (the memory) other than the ones <em>returned</em> by the functions. All the intermediate objects that were executed inside each function have disappeared, freeing memory and avoiding conflicts.</p>
+
+</div>
 </div>
 </div>
             </section>
@@ -406,8 +677,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-
-<a href="intro.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="versioncontrol.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="masteringpackages.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
