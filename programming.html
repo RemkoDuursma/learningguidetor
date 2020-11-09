@@ -424,10 +424,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb554-3"><a href="programming.html#cb554-3"></a></span>
 <span id="cb554-4"><a href="programming.html#cb554-4"></a><span class="co"># The sample mean</span></span>
 <span id="cb554-5"><a href="programming.html#cb554-5"></a><span class="kw">mean</span>(unifvec)</span></code></pre></div>
-<pre><code>## [1] 1.475235</code></pre>
+<pre><code>## [1] 1.508192</code></pre>
 <div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="programming.html#cb556-1"></a><span class="co"># Standard error for the mean</span></span>
 <span id="cb556-2"><a href="programming.html#cb556-2"></a><span class="kw">SEmean</span>(unifvec)</span></code></pre></div>
-<pre><code>## [1] 0.08798668</code></pre>
+<pre><code>## [1] 0.09248033</code></pre>
 
 <div class="rmdinfo">
 In general, avoid using names for your functions that are already in use by base R, or commonly used add-on packages. If two or more functions with the same name have been defined, R will first use the one defined by the user (and available in the ‘global environmment’), see Section <a href="masteringpackages.html#searchpath">8.4</a>.
@@ -452,8 +452,8 @@ In general, avoid using names for your functions that are already in use by base
 <span id="cb558-13"><a href="programming.html#cb558-13"></a><span class="co"># Test it:</span></span>
 <span id="cb558-14"><a href="programming.html#cb558-14"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)</span>
 <span id="cb558-15"><a href="programming.html#cb558-15"></a><span class="kw">seandsd</span>(x)</span></code></pre></div>
-<pre><code>##       SE       SD 
-## 0.408037 4.080370</code></pre>
+<pre><code>##        SE        SD 
+## 0.3585383 3.5853833</code></pre>
 </div>
 <div id="functions-without-arguments" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Functions without arguments</h3>
@@ -893,10 +893,10 @@ Try to fully understand the difference between <code>sapply</code> and <code>lap
 <span id="cb640-4"><a href="programming.html#cb640-4"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="op">:</span><span class="kw">length</span>(myvec)){</span>
 <span id="cb640-5"><a href="programming.html#cb640-5"></a>  <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])</span>
 <span id="cb640-6"><a href="programming.html#cb640-6"></a>}</span></code></pre></div>
-<pre><code>## Element 1 of the vector is: 0</code></pre>
-<pre><code>## Element 2 of the vector is: 0.8</code></pre>
+<pre><code>## Element 1 of the vector is: 0.2</code></pre>
+<pre><code>## Element 2 of the vector is: 0.4</code></pre>
 <pre><code>## Element 3 of the vector is: 1</code></pre>
-<pre><code>## Element 4 of the vector is: 0.8</code></pre>
+<pre><code>## Element 4 of the vector is: 0.4</code></pre>
 <pre><code>## Element 5 of the vector is: 0.1</code></pre>
 <p>Note that this is only a toy example: the same result can be achieved by simply typing <code>myvec</code>.</p>
 <p>One common application of <code>for</code> loops in R arises when producing multiple plots in a <code>pdf</code>.

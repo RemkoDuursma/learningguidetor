@@ -636,9 +636,9 @@ To make a new branch, I prefer the use of a small button in Rstudio :
 When you click the button, a menu opens up:
 
 
-<img src="screenshots/gitnewbranch.png" width="75%" />
+<img src="screenshots/gitnewbranch.png" width="30%" />
 
-Keep the checkbox checked if you want the branch to also push to the remote (this is usually what you want, though it can be useful to keep a very experimental branch on your computer only).
+Enter a name for the new branch, and keep the checkbox checked if you want the branch to also push to the remote (this is usually what you want, though it can be useful to keep a very experimental branch on your computer only).
 
 Ater you click OK, a new branch will be created locally and on the remote :
 
@@ -648,9 +648,6 @@ This indicates a successful new branch.
 
 You can now work on the new branch as you would on the master branch. Note the label in the topright of the git pane in Rstudio to see which branch you are currently working on.
 
-Git hosting sites like github support multiple branches in a single repository as well, for example here is a repository with two branches:
-
-<img src="screenshots/githubbranches.png" width="75%" />
 
 Branches are best for working on experimental new changes for which you intend to include them in the master branch, at some point, or otherwise abandon the experiment and delete the branch. When you want to update the master branch to include changes from the new branch, you must use the command line and first "checkout" the master branch (this can also be done in the Rstudio git pane),
 
