@@ -144,8 +144,8 @@ runif(10)
 ```
 
 ```
-##  [1] 0.58484225 0.01038019 0.88177149 0.09422433 0.05057379 0.90761088
-##  [7] 0.85798470 0.86472151 0.02793756 0.42851732
+##  [1] 0.01833127 0.45702330 0.70086471 0.04677370 0.81439957 0.58017987
+##  [7] 0.22935298 0.62929913 0.79565727 0.25205424
 ```
 
 ```r
@@ -154,7 +154,7 @@ runif(5, 100, 1000)
 ```
 
 ```
-## [1] 613.4955 319.0756 116.8487 682.2147 710.0594
+## [1] 234.4104 684.8875 738.9926 557.6634 321.1397
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The `runif` function is part of a much larger class of functions, each of which returns
@@ -171,7 +171,7 @@ sample(numbers, size=20, replace=TRUE)
 ```
 
 ```
-##  [1]  6  9  6 11  7  3  7  6 14 10  5  5  1 12  3  9  6 14  1 12
+##  [1]  7 14  1  1  2  4  5  6 11  5 10  4 11 12 14 13 15 12  1  6
 ```
 
 This command samples 20 numbers from the `numbers` vector, with replacement.
@@ -643,7 +643,7 @@ nums2[ranels]
 ```
 
 ```
-## [1] 3.3 9.8 8.1 2.5 0.9
+## [1]  3.3 13.8 21.2  2.5  8.1
 ```
 
 ```r
@@ -890,8 +890,8 @@ allometry[sample(1:nrow(allometry),10),"leafarea"]
 ```
 
 ```
-##  [1]  68.150309   7.650902  21.649603  86.350653  66.633675 139.651156
-##  [7] 411.160376 147.270523  82.093031 253.308265
+##  [1] 131.727303  21.649603   3.958274  18.855867 131.856837 122.157864
+##  [7]   6.551044  61.372765  44.934469   2.636336
 ```
 
 ```r
@@ -2228,7 +2228,7 @@ now() + hours(3) + minutes(15)
 ```
 
 ```
-## [1] "2020-11-10 00:53:06 CET"
+## [1] "2020-11-10 00:58:59 CET"
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The 2012 Sydney marathon started at 7:20AM on September 16th. The winner completed the race in 2 hours, 11 minutes and 50 seconds. What was the time when the racer crossed the finish line? Using the `weekdays` function, which day was the race held? </div>\EndKnitrBlock{rmdtry}
