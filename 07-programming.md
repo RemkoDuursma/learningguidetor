@@ -74,7 +74,7 @@ mean(unifvec)
 ```
 
 ```
-## [1] 1.509744
+## [1] 1.47523
 ```
 
 ```r
@@ -83,7 +83,7 @@ SEmean(unifvec)
 ```
 
 ```
-## [1] 0.07426643
+## [1] 0.1017556
 ```
 
 
@@ -119,7 +119,7 @@ seandsd(x)
 
 ```
 ##        SE        SD 
-## 0.3625314 3.6253137
+## 0.4188749 4.1887492
 ```
 
 ### Functions without arguments
@@ -847,19 +847,19 @@ for(i in 1:length(myvec)){
 ```
 
 ```
-## Element 1 of the vector is: 0.9
+## Element 1 of the vector is: 0.1
 ```
 
 ```
-## Element 2 of the vector is: 0.2
+## Element 2 of the vector is: 0.8
 ```
 
 ```
-## Element 3 of the vector is: 0.2
+## Element 3 of the vector is: 0
 ```
 
 ```
-## Element 4 of the vector is: 0.9
+## Element 4 of the vector is: 0.4
 ```
 
 ```
