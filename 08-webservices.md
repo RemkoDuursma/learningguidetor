@@ -21,47 +21,8 @@ We start with downloading data from, and querying remotely stored databases, and
 
 ## Reading data from remote databases
 
-### NoSQL
 
-In this example we show how to read data from MongoDB - a popular NoSQL database. With the `mongolite` package it is very straightforward to read data that can be transformed to a dataframe. Here, every item in the database is a piece of JSON, but of equal length and with the same names, so that each item can become a row in a dataframe.
-
-For a remotely stored MongoDB database, you first have to construct the URL, which includes a username and password. The URL looks like,
-
-```
-"mongodb://username:password@hostingsite.com:portnr/databasename"
-```
-
-The next example is a working example of a database stored on mlab.com, and grabs data using the `mongolite` package.
-
-The database contains data on number of cars parked on 13 car parks in Almere, the Netherlands. The data are updated every 15 minutes.
-
-
-```r
-# A working URL (5/6/2019)
-parkingdata_url <- "mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking"
-
-#
-library(mongolite)
-
-# Make a database connection. Here you don't download data yet, just
-# set up a connection.
-db <- mongo(collection = "almereparkingjson",
-            url = parkingdata_url)
-
-# We can now download the last 1000 rows of the data.
-parkingdata <- db$find(limit = 1000, sort = '{"updated": -1}')
-```
-
-If you simply want to download all data, just do `db$find()`, it takes less than a minute.
-
-\BeginKnitrBlock{rmdreading}<div class="rmdreading">
-The above example shows how to make a query with the `mongolite` package, you can read [more options in the documentation](https://jeroen.github.io/mongolite/query-data.html).
-</div>\EndKnitrBlock{rmdreading}
-
-
-
-
-### SQL
+### Accessing databases with the DBI package {#dbi}
 
 Here, we briefly show how to interact with SQL databases. There are many R packages available, partly because there are many implementations of SQL databases (including postgres, which we show here). A unified interface is provided by the `DBI` package ([link to documentation](https://db.rstudio.com/dbi/)), which allows us to use nearly the same code for very different databases.
 
@@ -125,6 +86,45 @@ buick_query <- filter(cars,
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">Run both examples above - getting data from a (continuously updated_ MongoDB database, and a simple static PostreSQL database. Try applying some `dplyr` filters and summaries on the data.</div>\EndKnitrBlock{rmdtry}
 
+
+
+
+### NoSQL
+
+In this example we show how to read data from MongoDB - a popular NoSQL database. With the `mongolite` package it is very straightforward to read data that can be transformed to a dataframe. Here, every item in the database is a piece of JSON, but of equal length and with the same names, so that each item can become a row in a dataframe.
+
+For a remotely stored MongoDB database, you first have to construct the URL, which includes a username and password. The URL looks like,
+
+```
+"mongodb://username:password@hostingsite.com:portnr/databasename"
+```
+
+The next example is a working example of a database stored on mlab.com, and grabs data using the `mongolite` package.
+
+The database contains data on number of cars parked on 13 car parks in Almere, the Netherlands. The data are updated every 15 minutes.
+
+
+```r
+# A working URL (5/6/2019)
+parkingdata_url <- "mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking"
+
+#
+library(mongolite)
+
+# Make a database connection. Here you don't download data yet, just
+# set up a connection.
+db <- mongo(collection = "almereparkingjson",
+            url = parkingdata_url)
+
+# We can now download the last 1000 rows of the data.
+parkingdata <- db$find(limit = 1000, sort = '{"updated": -1}')
+```
+
+If you simply want to download all data, just do `db$find()`, it takes less than a minute.
+
+\BeginKnitrBlock{rmdreading}<div class="rmdreading">
+The above example shows how to make a query with the `mongolite` package, you can read [more options in the documentation](https://jeroen.github.io/mongolite/query-data.html).
+</div>\EndKnitrBlock{rmdreading}
 
 
 

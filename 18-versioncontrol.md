@@ -13,7 +13,7 @@ When you use version control, you can do the following:
 - Maintain an online backup of your code base.
 
 
-These are all basic capabilities of version control, and as you can see an absolute requirement for even the somewhat serious coder. Here we use version control with *git*, the most popular system. In this chapter, I will give an informal introduction to version control, and focus on its use in Rstudio. The command line will also be introduced, particularly for somewhat more advanced options.
+These are all basic capabilities of version control, and as you can see an absolute requirement for even the somewhat serious coder. Here we use version control with *git*, the most popular system. In this chapter, I will give an informal introduction to version control, and focus on its use in Rstudio. The command line will also be introduced, particularly for somewhat more advanced options. The built-in menus in Rstudio are fine for most basic uses, although the use of the command line is recommended when you are committing many files at once (when Rstudio can be very slow and unresponsive).
 
 
 ## Basics of git
@@ -83,8 +83,7 @@ You can now close the shell. We return to the shell in a later section. The buil
 
 After installation, Rstudio may have trouble finding the git executable (a reboot may help, but this does not always fix the problem). We can let Rstudio know where git was installed by clicking `Browse` in the following screenshot (on Windows it will most likely be installed in this exact directory).
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gitoptionsrstudio} 
+<img src="screenshots/gitoptionsrstudio.png" width="75%" />
 
 **Click `Browse` to find the directory where git.exe is installed, on Windows it will be this exact directory. You may not have to do this if you rebooted after installing git.**
 
@@ -105,22 +104,19 @@ The workflow with a local git repository is as follows:
 
 Let's start a new Rstudio project with version control. In this example we will make a simple local project, with no remote repository defined. We do that in Section \@ref(remotegit).
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/versioncontrolproject} 
+<img src="screenshots/versioncontrolproject.png" width="75%" />
 
 **To start a new, local, project with git enabled click 'New Directory' (not Version Control!). Alternatively you can use an 'Existing Directory' and create a project there.**
 
 On the next tab, select `Empty Project`, and the following window appears. Here, give the project a reasonable name- it will be used to create a new folder if you selected 'New Directory' in the above window. Now, also check the box that says 'Create git repository'. 
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gitnewproject} 
+<img src="screenshots/gitnewproject.png" width="75%" />
 
 **Enter a name for the new project, the directory where the project will be created (as a sub-directory with the project's name). Check 'Create a git repository' to enable git.**
 
 Click OK, and if successful, you wil switch to a new instance of Rstudio. The git tab should look like the following figure.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gittabnewproject} 
+<img src="screenshots/gittabnewproject.png" width="75%" />
 
 **What your git tab should look like if you started an empty project in a new directory.**
 
@@ -128,36 +124,31 @@ The two files in the folder show up with two question marks. This means that git
 
 Now, let's open two new scripts and write some code. I have called my new scripts `analysis.R` and `figures.R`. As you expect, these two files will show up in the git tab with two question marks. Notice the `Staged` column in the above figure? Let's stage both files by checking them, as in the below figure.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gittabnewproject} 
+<img src="screenshots/gittabnewproject.png" width="75%" />
 
 **Two new files are staged for the next commit. The green 'A' means 'Add', because these files were not already being tracked by the git repository.**
 
 We will now make our **first commit**. With the files staged as in the screenshot, click the 'Commit' button. 
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gitfirstcommit} 
+<img src="screenshots/gitfirstcommit.png" width="75%" />
 
 **With the two new files staged, you can commit their changes to the local git repository. You must first write a meaningul message in the box on the right.**
 
 The files will now have disappeared from the git tab. That's good - their versions are the same as the last time you committed, that is, they have not changed in content. Now let's modify `analysis.R`, and delete `figures.R` (maybe you decided to combine code from these files into a single file), and see what happens.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gitsecondcommit} 
+<img src="screenshots/gitsecondcommit.png" width="75%" />
 
 **Here we have modified (M) and deleted (D) files that are being tracked by git.**
 
 Now, stage both files, and press Commit. Write a message that briefly describes your changes and click 'Commit' in the next window as well:
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/secondcommit} 
+<img src="screenshots/secondcommit.png" width="75%" />
 
 **With the modified and deleted file selected, write a message and click Commit.**
 
 Let's now look at the history of our first project sofar. Find the 'History' button in the git tab. It will look like the following screenshot.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/firsthistory} 
+<img src="screenshots/firsthistory.png" width="75%" />
 
 **History of the project sofar. The HEAD tag means this is the current location of the working directory. As we will see later, we can check out older versions, in which case HEAD will move to whatever commit we are looking at. Shown are the messages we wrote when committing, the author and date (taken from the git configuration), and the SHA.**
 
@@ -178,6 +169,9 @@ If you accidentally committed a file with sensitive information, such as passwor
 
 To undo changes to files in Rstudio, and reset to the last known version of that file (i.e. the the last commit), select the file and click the 'Revert' button (this button is only visible in the Commit window, otherwise it is grouped under the 'More' button).
 Sometimes this menu in Rstudio is a little *buggy*, reverting only one file at a time.
+
+If you are **100% sure you have made commits you want to delete forever**, see Section \@ref(commandline) for the use of `git reset --hard`.
+
 
 
 ## Remote git repositories {#remotegit}
@@ -251,8 +245,7 @@ The easiest approach is to start with an empty remote repository and use it as t
 
 First, make a remote repository, find the address (SSH or HTTPS, see previous section), and copy it. In Rstudio, go `File/New Project.../Version Control/Git` and paste the address in the URL box (HTTPS or SSH, it will be recognized). Rstudio is going to create a (nearly empty) folder with a git repository. It will create this as a subfolder of the directory in the window you see (the third field). I recommend you keep your git repositories in a local folder in the root, **that contains no spaces in the name**. For example, `c:/repos/`. 
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/clonegitrepos} 
+<img src="screenshots/clonegitrepos.png" width="75%" />
 
 **Paste the remote address of the repository in the first field, the second field will automatically get the name of the remote repository, and for the third field select a directory yourself (but see text).**
 
@@ -281,8 +274,7 @@ In this section, I will show a typical workflow with a remote repository. In thi
 
 If these first two steps - explained in the previous section - were successful, you now have a new, empty project open in Rstudio. I have copied two scripts that I wrote previously into the folder. In the git tab in Rstudio, you have to 'stage' the added files by clicking the check box. The two new files now show up with a green 'A' : 
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/session2stage1} 
+<img src="screenshots/session2stage1.png" width="75%" />
 
 **Adding two files to be included in the next commit. Note that 'Push' and 'Pull' are greyed out, this is normal because we have no commits in the repository.**
 
@@ -290,8 +282,7 @@ Next, click commit (opens up a new window), write a reasonable message in the te
 
 Let's **push** this first commit to the remote repository. Just click 'Push' on the git tab, and a new window opens up in Rstudio with the response from the remote. It will say something like,
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/session2firstpush} 
+<img src="screenshots/session2firstpush.png" width="75%" />
 
 **Response of the remote after the first push (opens in Rstudio when you click 'push'). Note that a new branch is created because this is the very first commit on the remote repository. All commits will always go to the 'master' branch (in this tutorial, at least).**
 
@@ -299,28 +290,45 @@ Now go to the online version (on github.com or bitbucket.org), and check that yo
 
 Next, suppose you start a new session with this project. As described in Section \@ref(gitremoteworkflow), you should always start with a **pull**, except when you are really 100% sure that your local is already up to date with the remote. If you are already up to date, the output will be:
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/session2pullalreadyuptodate} 
+<img src="screenshots/session2pullalreadyuptodate.png" width="75%" />
 
 **Output from a 'pull' when the local repository is already synced with the remote.**
 
 In the next example, I added the file `README.md` to the repository on another computer. This time, the output from 'pull' looks like:
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/session2pull} 
+<img src="screenshots/session2pull.png" width="75%" />
 
 **Output from a 'pull' when the local repository is behind the remote. This is a successful message. It says that the two repositories have been successfully merged.**
 
 Finally, a common situation arises where you have not pulled from the remote, have done work locally and committed the changes. It is possible that the remote includes changes that you don't have, for example commits created by a collaborator and pushed to the same remote repository, or work done by you on another computer. If the remote is ahead of you, and you are trying to push local commits that the remote does not yet have, you will see the output as in the following screenshot.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/session2pushbehind} 
+<img src="screenshots/session2pushbehind.png" width="75%" />
 
 **Output when attempting to push to a remote when the remote is ahead of the local repository.**
 
 The solution to this problem is to first do a pull, and then try to push again. The amazing thing about git is that even if your local commits and the commits on the remote that you don't yet have include changes on the same files, they will be automatically merged in the new commit. 
 
-There are cases, however, where **conflicts** arise - if the local and remote changes are on the same line of text. In that case, you will have to fix the conflicts manually. It is however much better to avoid these conflicts by always  **beginning your session with a pull, and ending with a push**. That way you minimize the risk of changing the same line of code twice.  
+
+### Conflicts when collaborating
+
+Version control is especially powerful when collaborating on the same code. When you work on separate files, or even different sections of the same file, git knows how to combine commits from one user with commits from another user. You can even see who changed which line of code with the `git blame` command.
+
+There are cases, however, where **conflicts** arise when two users have changed the same line of code. Suppose User 1 makes changes, commits, and pushes to the remote. Then, you make changes to some of the same lines, commit and push, you receive the following error:
+
+<img src="screenshots/gitpullconflict.png" width="75%" />
+
+**When pushing your changes to the remote - but the remote has already incorporated commits on the same lines of code - you have created conflicts**
+
+You now have to fix the conflicts in the code - hoping there are only a few. Look in the Git pane in Rstudio to see which files have conflicts (they will be marked with an orange U), and then look for sections of code that look like this:
+
+
+<img src="screenshots/gitconflictfixing.png" width="75%" />
+
+**Code conflicts are automatically marked by git. Notice how there are two versions of the same line of code, above and below line 21**
+
+Now, simply fix the code by keeping the version you want - make sure to delete all extra code that git has added, commit the file, and push.
+
+It is however much better to avoid these conflicts by always  **beginning your session with a pull, and ending with a push**. That way you minimize the risk of changing the same line of code twice.  
 
 
 ## Ignoring files {#gitignore}
@@ -358,17 +366,13 @@ It is also always a good idea to inspect the remote repository to see if anythin
 
 
 
-
-
-
 ## Using the command line {#commandline}
 
 Rstudio is very convenient for day-to-day version control, but for more advanced options, you must know how to use the command line. You may also find that when you gain more *git skills*, that using the command line is just as convenient while providing more control.
 
 First, we show you how to open the 'shell', a command window where the full capabilities of git can be used.
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/openshell} 
+<img src="screenshots/openshell.png" width="75%" />
 
 **From the 'Git' tab in Rstudio (same pane as Environment and History), open the Shell like this.**
 
@@ -378,7 +382,76 @@ Note that **if the output is longer than the screen, output will end  with a ':'
 
 ### Basic commands
 
-I will not cover git via the command line in detail here, there are many excellent resources available. Needless to say, everything you can do in Rstudio with a click of a button can be achieved in the command line, and much, much more. Quite useful is a sort of 'history', 
+When using the command line, you will often repeat this command:
+
+```
+git status
+```
+
+The output is basically what you see in the Git pane in Rstudio, but in text instead of colored icons (sometimes it is easier to understand what is happening!):
+
+
+<img src="screenshots/gitstatus.png" width="75%" />
+
+In this example, we have two commits locally that we have not pushed yet, and one previously commited file that has been modified. 
+
+If you want to commit from the command line, the first step is to **stage** the files for the next commit. This is equivalent to using the check boxes in the Git pane in Rstudio. To stage all files that have previously been commited (that is, the files that are being tracked by git in this repository):
+
+```
+git add -u
+```
+
+This command is equivalent to checking all check boxes in Rstudio, *except* the ones with a question mark (untracked files). This is the preferred command, because you will never commit files you do not want to commit (remember to keep a close eye on the `.gitignore` file!). If you are sure you want to stage all files that git "sees" (i.e. not in `.gitignore`), use the command:
+
+```
+git add .
+```
+
+This command is equivalent to checking *all* check boxes (including the question marks) in Rstudio.
+
+With files staged (remember to first look at `git status`, repeat that after every step!), you can commit with:
+
+```
+git commit -m "improved config files"
+```
+
+Writing a commit message is mandatory.
+
+To see if you have a remote repository configured (and where), use the command:
+
+```
+git remote -v
+```
+
+<img src="screenshots/gitremotev.png" width="75%" />
+
+You can now push to the remote with,
+
+```
+git push
+```
+
+If there are no conflicts, you are done. See advanced examples below for pushing to a remote when you want to overwrite what is on the remote with local changes.
+
+To pull changes from the remote, obviously:
+
+```
+git pull
+```
+
+
+
+
+
+
+### Useful tasks
+
+This section lists a number of useful things you can do with git from the command line. It is by no means exhaustive.
+
+
+#### History
+
+Look at the history of the repository with,
 
 ```
 git log
@@ -391,11 +464,6 @@ git log -2
 ```
 
 and remember to press `q` when the output is longer than the window to return to the prompt.
-
-
-### Useful tasks
-
-This section lists a number of useful things you can do with git from the command line. It is by no means exhaustive.
 
 
 #### Adding a remote to a local repository
@@ -441,8 +509,7 @@ git checkout fbd966
 
 It is crucial you understand that you can now only look around, but you have not reverted to this old version! This is very useful to take a look at old code, maybe copy some bits and pieces to a new file, and then return to the current version. To make sure you know this, git tells you as much:
 
-
-\includegraphics[width=0.75\linewidth]{screenshots/gitcheckoutoutput} 
+<img src="screenshots/gitcheckoutoutput.png" width="75%" />
 
 **Output of the command line after doing a checkout. Basically git is trying to tell you your visit to this old version of the code is for looking around only.**
 
@@ -451,6 +518,7 @@ To return back to the current, last version, do:
 ```
 git checkout master
 ```
+
 
 
 #### Undoing uncommited changes
@@ -483,6 +551,18 @@ git reset --hard hu88e
 ```
 
 Instead of `--hard`, you can use the `--soft` option to revert back to the old commit, but keep the changes since then as unstaged changes to the files. This is useful if you want to keep some of the changes, but manually remove or fix some other changes. 
+
+
+#### Force-updating the remote
+
+Sometimes your local version of the code is the only correct version, and you want to completely overwrite the remote repository. This arises when you did a "hard reset" to an old commit as in the previous section. If you are sure you want to overwrite the remote, do:
+
+```
+git push --force
+```
+
+Be careful, there is no "undo" option.
+
 
 
 #### Deleting files
@@ -539,6 +619,53 @@ git log --help
 ```
 
 Perhaps more usefully, if you don't know how to do something in git, simply type your question in Google ("git how to delete untracked files").
+
+
+
+## Branches
+
+
+A powerful feature of git is the ability to maintain parallel versions of code, with the use of branches. A branch (not to be confused with a fork!) keeps its own history of commits, separate from the main branch (usually called the **master** branch). At the point when you make the new branch, the master and the new branch are identical - but when you are working on the new branch, changes files and commit - the two will have different histories.
+
+Branches are very useful for working on alternative versions of your working code base on the master branch. For example, when other users depend on your master branch working (and not being polluted with experimental code), but your new changes will take a long time - and multiple commits - to complete.
+
+To make a new branch, I prefer the use of a small button in Rstudio : 
+
+<img src="screenshots/gitbranchbutton.png" width="75%" />
+
+When you click the button, a menu opens up:
+
+
+<img src="screenshots/gitnewbranch.png" width="75%" />
+
+Keep the checkbox checked if you want the branch to also push to the remote (this is usually what you want, though it can be useful to keep a very experimental branch on your computer only).
+
+Ater you click OK, a new branch will be created locally and on the remote :
+
+<img src="screenshots/gitnewbranchsuccess.png" width="75%" />
+
+This indicates a successful new branch.
+
+You can now work on the new branch as you would on the master branch. Note the label in the topright of the git pane in Rstudio to see which branch you are currently working on.
+
+Git hosting sites like github support multiple branches in a single repository as well, for example here is a repository with two branches:
+
+<img src="screenshots/githubbranches.png" width="75%" />
+
+Branches are best for working on experimental new changes for which you intend to include them in the master branch, at some point, or otherwise abandon the experiment and delete the branch. When you want to update the master branch to include changes from the new branch, you must use the command line and first "checkout" the master branch (this can also be done in the Rstudio git pane),
+
+```
+git checkout master
+```
+
+then, merge the new branch:
+
+```
+git merge newbranch
+``
+
+Just like working with remotes, it is possible you have produced conflicts that may need to be fixed.
+
 
 
 

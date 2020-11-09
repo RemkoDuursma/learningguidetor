@@ -24,7 +24,7 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2020-03-03" />
+<meta name="date" content="2020-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>1.10.6</b> Updating packages</a></li>
 <li class="chapter" data-level="1.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>1.10.7</b> Install missing packages</a></li>
 <li class="chapter" data-level="1.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>1.10.8</b> Conflicts</a></li>
-<li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#pacman"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>1.11</b> Accessing the help files</a></li>
 <li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
@@ -288,8 +288,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.2" data-path="programming.html"><a href="programming.html#argument-checking"><i class="fa fa-check"></i><b>4.6.2</b> Argument checking</a></li>
 <li class="chapter" data-level="4.6.3" data-path="programming.html"><a href="programming.html#sending-warnings-errors-messages"><i class="fa fa-check"></i><b>4.6.3</b> Sending warnings, errors, messages</a></li>
 <li class="chapter" data-level="4.6.4" data-path="programming.html"><a href="programming.html#onexit"><i class="fa fa-check"></i><b>4.6.4</b> Executing code when the function ends (or fails)</a></li>
-<li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#catch-errors-with-try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
-<li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#writing-database-wrapper-functions"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
+<li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
+<li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#dbiwrappers"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
 <li class="chapter" data-level="4.7.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>4.7.1</b> Writing functions</a></li>
@@ -302,8 +302,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>5</b> R on the web</a><ul>
 <li class="chapter" data-level="5.1" data-path="webservices.html"><a href="webservices.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
 <li class="chapter" data-level="5.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>5.2</b> Reading data from remote databases</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.1</b> NoSQL</a></li>
-<li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>5.2.2</b> SQL</a></li>
+<li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#dbi"><i class="fa fa-check"></i><b>5.2.1</b> Accessing databases with the DBI package</a></li>
+<li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.2</b> NoSQL</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>5.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="5.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>5.4</b> Deploying an API with <code>plumber</code></a></li>
@@ -324,43 +324,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>6.4.1</b> Making a remote repository</a></li>
 <li class="chapter" data-level="6.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>6.4.2</b> Workflow</a></li>
 <li class="chapter" data-level="6.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>6.4.3</b> A session with a remote repository</a></li>
+<li class="chapter" data-level="6.4.4" data-path="versioncontrol.html"><a href="versioncontrol.html#conflicts-when-collaborating"><i class="fa fa-check"></i><b>6.4.4</b> Conflicts when collaborating</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="versioncontrol.html"><a href="versioncontrol.html#gitignore"><i class="fa fa-check"></i><b>6.5</b> Ignoring files</a></li>
 <li class="chapter" data-level="6.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>6.6</b> Using the command line</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>6.6.1</b> Basic commands</a></li>
 <li class="chapter" data-level="6.6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>6.6.2</b> Useful tasks</a></li>
 </ul></li>
+<li class="chapter" data-level="6.7" data-path="versioncontrol.html"><a href="versioncontrol.html#branches"><i class="fa fa-check"></i><b>6.7</b> Branches</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_figures.r"><i class="fa fa-check"></i><b>6.7.1</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="6.7.2" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_load"><i class="fa fa-check"></i><b>6.7.2</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="6.7.3" data-path="versioncontrol.html"><a href="versioncontrol.html#load_packages.r"><i class="fa fa-check"></i><b>6.7.3</b> <code>load_packages.R</code></a></li>
+<li class="chapter" data-level="6.7.4" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>6.7.4</b> <code>facesoil_readdata.R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>7</b> Project management and workflow</a><ul>
-<li class="chapter" data-level="7.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>7.1</b> Tips on organizing your code</a></li>
-<li class="chapter" data-level="7.2" data-path="projectman.html"><a href="projectman.html#rstudioprojects"><i class="fa fa-check"></i><b>7.2</b> Set up a project in Rstudio</a></li>
-<li class="chapter" data-level="7.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>7.3</b> Directory structure</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>7.3.1</b> <code>rawdata</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>7.3.2</b> <code>Rfunctions</code></a></li>
-<li class="chapter" data-level="7.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>7.3.3</b> <code>output</code></a></li>
+<li class="chapter" data-level="6.8" data-path="versioncontrol.html"><a href="versioncontrol.html#archiving-the-output"><i class="fa fa-check"></i><b>6.8</b> Archiving the output</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="versioncontrol.html"><a href="versioncontrol.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>6.8.1</b> Adding a Date stamp to output files</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>7.4</b> The R scripts</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>7.4.1</b> <code>facesoil_analysis.R</code></a></li>
-<li class="chapter" data-level="7.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>7.4.2</b> <code>facesoil_figures.R</code></a></li>
-<li class="chapter" data-level="7.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>7.4.3</b> <code>facesoil_load</code></a></li>
-<li class="chapter" data-level="7.4.4" data-path="projectman.html"><a href="projectman.html#load_packages.r"><i class="fa fa-check"></i><b>7.4.4</b> <code>load_packages.R</code></a></li>
-<li class="chapter" data-level="7.4.5" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>7.4.5</b> <code>facesoil_readdata.R</code></a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>7.5</b> Archiving the output</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>7.5.1</b> Adding a Date stamp to output files</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>7.6</b> A logical structure for your scripts</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="projectman.html"><a href="projectman.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>7.6.1</b> Write functions, not long scripts</a></li>
-<li class="chapter" data-level="7.6.2" data-path="projectman.html"><a href="projectman.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>7.6.2</b> Divide your script into functional blocks</a></li>
+<li class="chapter" data-level="6.9" data-path="versioncontrol.html"><a href="versioncontrol.html#scriptstructure"><i class="fa fa-check"></i><b>6.9</b> A logical structure for your scripts</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>6.9.1</b> Write functions, not long scripts</a></li>
+<li class="chapter" data-level="6.9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>6.9.2</b> Divide your script into functional blocks</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>8</b> Mastering package dependencies</a><ul>
-<li class="chapter" data-level="8.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>8.1</b> What version?</a></li>
-<li class="chapter" data-level="8.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>8.2</b> All packages: loaded or installed</a></li>
-<li class="chapter" data-level="8.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>8.3</b> Avoiding conflicts</a></li>
-<li class="chapter" data-level="8.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>8.4</b> The search path and conflicts</a></li>
-<li class="chapter" data-level="8.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>8.5</b> Bundling package dependencies with <code>renv</code></a></li>
-<li class="chapter" data-level="8.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>8.6</b> Minimizing package dependencies</a></li>
+<li class="chapter" data-level="7" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>7</b> Mastering package dependencies</a><ul>
+<li class="chapter" data-level="7.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>7.1</b> What version?</a></li>
+<li class="chapter" data-level="7.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>7.2</b> All packages: loaded or installed</a></li>
+<li class="chapter" data-level="7.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>7.3</b> Avoiding conflicts</a></li>
+<li class="chapter" data-level="7.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>7.4</b> The search path and conflicts</a></li>
+<li class="chapter" data-level="7.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>7.5</b> Bundling package dependencies with <code>renv</code></a></li>
+<li class="chapter" data-level="7.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>7.6</b> Minimizing package dependencies</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -422,13 +413,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb554-3"><a href="programming.html#cb554-3"></a></span>
 <span id="cb554-4"><a href="programming.html#cb554-4"></a><span class="co"># The sample mean</span></span>
 <span id="cb554-5"><a href="programming.html#cb554-5"></a><span class="kw">mean</span>(unifvec)</span></code></pre></div>
-<pre><code>## [1] 1.356461</code></pre>
+<pre><code>## [1] 1.509744</code></pre>
 <div class="sourceCode" id="cb556"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb556-1"><a href="programming.html#cb556-1"></a><span class="co"># Standard error for the mean</span></span>
 <span id="cb556-2"><a href="programming.html#cb556-2"></a><span class="kw">SEmean</span>(unifvec)</span></code></pre></div>
-<pre><code>## [1] 0.04921287</code></pre>
+<pre><code>## [1] 0.07426643</code></pre>
 
 <div class="rmdinfo">
-In general, avoid using names for your functions that are already in use by base R, or commonly used add-on packages. If two or more functions with the same name have been defined, R will first use the one defined by the user (and available in the ‘global environmment’), see Section <a href="masteringpackages.html#searchpath">8.4</a>.
+In general, avoid using names for your functions that are already in use by base R, or commonly used add-on packages. If two or more functions with the same name have been defined, R will first use the one defined by the user (and available in the ‘global environmment’), see Section <a href="masteringpackages.html#searchpath">7.4</a>.
 </div>
 
 <div id="returning-results" class="section level3">
@@ -451,7 +442,7 @@ In general, avoid using names for your functions that are already in use by base
 <span id="cb558-14"><a href="programming.html#cb558-14"></a>x &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>, <span class="dt">mean=</span><span class="dv">20</span>, <span class="dt">sd=</span><span class="dv">4</span>)</span>
 <span id="cb558-15"><a href="programming.html#cb558-15"></a><span class="kw">seandsd</span>(x)</span></code></pre></div>
 <pre><code>##        SE        SD 
-## 0.4099191 4.0991907</code></pre>
+## 0.3625314 3.6253137</code></pre>
 </div>
 <div id="functions-without-arguments" class="section level3">
 <h3><span class="header-section-number">4.2.2</span> Functions without arguments</h3>
@@ -892,10 +883,10 @@ Try to fully understand the difference between <code>sapply</code> and <code>lap
 <span id="cb640-5"><a href="programming.html#cb640-5"></a>  <span class="kw">message</span>(<span class="st">&quot;Element &quot;</span>, i, <span class="st">&quot; of the vector is: &quot;</span>, myvec[i])</span>
 <span id="cb640-6"><a href="programming.html#cb640-6"></a>}</span></code></pre></div>
 <pre><code>## Element 1 of the vector is: 0.9</code></pre>
-<pre><code>## Element 2 of the vector is: 0.1</code></pre>
-<pre><code>## Element 3 of the vector is: 0.3</code></pre>
-<pre><code>## Element 4 of the vector is: 0.2</code></pre>
-<pre><code>## Element 5 of the vector is: 0.3</code></pre>
+<pre><code>## Element 2 of the vector is: 0.2</code></pre>
+<pre><code>## Element 3 of the vector is: 0.2</code></pre>
+<pre><code>## Element 4 of the vector is: 0.9</code></pre>
+<pre><code>## Element 5 of the vector is: 0.6</code></pre>
 <p>Note that this is only a toy example: the same result can be achieved by simply typing <code>myvec</code>.</p>
 <p>One common application of <code>for</code> loops in R arises when producing multiple plots in a <code>pdf</code>.
 Consider this template (make your own working example based on any dataset).</p>
@@ -908,7 +899,7 @@ Consider this template (make your own working example based on any dataset).</p>
 <span id="cb646-6"><a href="programming.html#cb646-6"></a>            <span class="dt">main=</span><span class="kw">as.character</span>(lev)))</span>
 <span id="cb646-7"><a href="programming.html#cb646-7"></a>}</span>
 <span id="cb646-8"><a href="programming.html#cb646-8"></a><span class="kw">dev.off</span>()</span></code></pre></div>
-<p>Here, we have to call <code>dev.off()</code> to close the pdf.</p>
+<p>Here, we have to call <code>dev.off()</code> to close the pdf. This sort of use of <code>dev.off()</code> after a block of code is dangerous, instead use the approach outlined in Section <a href="programming.html#onexit">4.6.4</a> and place the code inside a function.</p>
 <div id="better-indexing" class="section level3">
 <h3><span class="header-section-number">4.4.1</span> Better indexing</h3>
 <p>In the first example with <code>for</code> loops, we used <code>1:length(myvec)</code> to make <em>indices</em> for the for loop. This is fine when you know for sure <code>myvec</code> exists and isn’t <code>NULL</code> or <code>NA</code> (in which case the indices will not be what you expect - try it out!).</p>
@@ -933,7 +924,7 @@ Consider this template (make your own working example based on any dataset).</p>
 <p>Organizing your complex work flow into many custom functions, instead of long scripts with just the raw code, has some key advantanges:</p>
 <ul>
 <li><p>Using functions makes it clear what the <strong>inputs</strong> are, and what are the <strong>outputs</strong>. For example, if you run <code>result &lt;- myfunction(mydata)</code>, you know that <code>mydata</code> was used to create <code>result</code>. Instead, if you place all your code <em>plain</em> in a script and use <code>source("myscript.R")</code>, what objects are created? Are there any output? If so, where? Using functions this way allows a logical flow of your scripts.</p></li>
-<li><p>Using functions is much <strong>safer</strong> because objects created in the body of the function when it is executed only <em>live</em> for as long as the function is running. Once the function <em>returns</em> a result, all objects inside the function cease to exist. This means the objects do not use memory, and cannot cause conflicts with other objects in the session.</p></li>
+<li><p>Using functions is much <strong>safer</strong> because objects created in the body of the function when it is executed only <em>live</em> for as long as the function is running (in the <strong>function scope</strong>). Once the function <em>returns</em> a result, all objects inside the function become cease to exist (see <a href="http://adv-r.had.co.nz/memory.html">Memory (Advanced R) by Hadley Wickham</a>). This means the objects do not use memory, and cannot cause conflicts with other objects in the session.</p></li>
 <li><p>Using functions allows you to <strong>avoid any duplicated code</strong>. Duplicated code is terrible because when you want to modify your code, you have to repeat the modification (and remember where!). As a rule of thumb, if you do something 3 times, you should write a function. This function can also take some arguments, allowing it to do slightly different operations from different calls.</p></li>
 <li><p>For different projects, you often find yourself using the same bits of code, for example to read certain data, format a certain table, or make some plot. It quickly makes sense to collect this sort of code into a collection of your own functions. When these functions become <strong>generic</strong> enough (applicable in many projects), you should consider bundling them in an R package.</p></li>
 </ul>
@@ -1081,7 +1072,7 @@ Take the <code>plot_filled_grey</code> function above, test it on some data, and
 <span id="cb677-20"><a href="programming.html#cb677-20"></a></span>
 <span id="cb677-21"><a href="programming.html#cb677-21"></a><span class="kw">multiplex3</span>(<span class="kw">c</span>(<span class="dv">4</span>,<span class="dv">8</span>))</span></code></pre></div>
 <pre><code>## [1] 24 36</code></pre>
-<p>This final solution can be found in many base R functions, and is a flexible interface to allow vectorized arguments.</p>
+<p>This final solution can be found in many base R functions, and is a flexible - but more advanced - interface to allow vectorized arguments.</p>
 </div>
 <div id="if-then-else-switch" class="section level3">
 <h3><span class="header-section-number">4.5.5</span> If, then, else … switch</h3>
@@ -1261,10 +1252,10 @@ Write the previous example as a custom R function that takes <code>num</code> as
 <span id="cb699-8"><a href="programming.html#cb699-8"></a>  </span>
 <span id="cb699-9"><a href="programming.html#cb699-9"></a>}</span></code></pre></div>
 </div>
-<div id="catch-errors-with-try" class="section level3">
+<div id="try" class="section level3">
 <h3><span class="header-section-number">4.6.5</span> Catch errors with <code>try</code></h3>
 <p>The ultimate tool to make functions more robust is <code>try</code>, a mechanism to catch errors and avoid termination of your code.</p>
-<p>Although you can use <code>tryCatch</code> as an interface, I personally prefer the flexible use of <code>try</code>, like so:</p>
+<p>First we show the use of <code>try</code>, a flexible interface, like so:</p>
 <div class="sourceCode" id="cb700"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb700-1"><a href="programming.html#cb700-1"></a><span class="co"># A wrapper around log(), avoiding an error when the input is bad,</span></span>
 <span id="cb700-2"><a href="programming.html#cb700-2"></a><span class="co"># and instead returning a missing value.</span></span>
 <span id="cb700-3"><a href="programming.html#cb700-3"></a>safe_logarithm &lt;-<span class="st"> </span><span class="cf">function</span>(x){</span>
@@ -1282,56 +1273,61 @@ Write the previous example as a custom R function that takes <code>num</code> as
 <span id="cb700-15"><a href="programming.html#cb700-15"></a>out</span>
 <span id="cb700-16"><a href="programming.html#cb700-16"></a>}</span></code></pre></div>
 <p>Now <code>safe_logarithm("a")</code> returns <code>NA</code>, but you do see the error message printed (unless you look around <code>?try</code> for a way to suppress the error message).</p>
+<p>The same thing can be achieved with <code>tryCatch</code> :</p>
+<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="programming.html#cb701-1"></a>x &lt;-<span class="st"> &quot;a&quot;</span></span>
+<span id="cb701-2"><a href="programming.html#cb701-2"></a><span class="kw">tryCatch</span>(<span class="kw">log</span>(x), <span class="dt">error =</span> <span class="cf">function</span>(e)<span class="ot">NA</span>)</span></code></pre></div>
+<pre><code>## [1] NA</code></pre>
+<p>Here, we have to define a function (with argument <code>e</code>, which contains the error message) for the error. Similarly, functions can be defined that will be called when warnings arise in the code (<code>warning = function(w)w</code>), or neither (<code>finally</code>).</p>
 </div>
-<div id="writing-database-wrapper-functions" class="section level3">
+<div id="dbiwrappers" class="section level3">
 <h3><span class="header-section-number">4.6.6</span> Writing database wrapper functions</h3>
-<p>This example combines various concepts from this section, and is a useful set of functions when you commonly work with databases. First review ‘working with databases’ if you need to (Section XXX). The functions below will be developed step-by-step. Please carefully review this section if you want to adapt this code to your situation.</p>
+<p>This example combines various concepts from this section, and is a useful set of functions when you commonly work with databases. First review Section about the <code>DBI</code>package to access data from databases. The functions below will be developed step-by-step. Please carefully review this section if you want to adapt this code to your situation.</p>
 <p>After we are done reading and writing to a (usually remote) database, the connection to it should be <em>closed</em> with <code>dbDisconnect</code> (in the DBI package). Sometimes we forget, or code fails, or whatever - leaving extra connections open that can cause various problems (especially in production-ready code).</p>
-<p>The following example can be modified to suite your needs (see Section @ref(???)) :</p>
-<div class="sourceCode" id="cb701"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb701-1"><a href="programming.html#cb701-1"></a><span class="co"># A function to make a connection to your database</span></span>
-<span id="cb701-2"><a href="programming.html#cb701-2"></a><span class="co"># Now, instead of copying this bit of code to all your scripts, you</span></span>
-<span id="cb701-3"><a href="programming.html#cb701-3"></a><span class="co"># define the function once and run con &lt;- db_connection()</span></span>
-<span id="cb701-4"><a href="programming.html#cb701-4"></a>db_connection &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
-<span id="cb701-5"><a href="programming.html#cb701-5"></a>  DBI<span class="op">::</span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">PostgreSQL</span>(),</span>
-<span id="cb701-6"><a href="programming.html#cb701-6"></a>                 <span class="dt">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,</span>
-<span id="cb701-7"><a href="programming.html#cb701-7"></a>                 <span class="dt">password =</span> <span class="st">&quot;my_password&quot;</span>,</span>
-<span id="cb701-8"><a href="programming.html#cb701-8"></a>                 <span class="dt">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,</span>
-<span id="cb701-9"><a href="programming.html#cb701-9"></a>                 <span class="dt">port =</span> <span class="dv">5432</span>,</span>
-<span id="cb701-10"><a href="programming.html#cb701-10"></a>                 <span class="dt">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)</span>
-<span id="cb701-11"><a href="programming.html#cb701-11"></a>}</span>
-<span id="cb701-12"><a href="programming.html#cb701-12"></a></span>
-<span id="cb701-13"><a href="programming.html#cb701-13"></a></span>
-<span id="cb701-14"><a href="programming.html#cb701-14"></a><span class="co"># A function to open a database connection, read and return data:</span></span>
-<span id="cb701-15"><a href="programming.html#cb701-15"></a>read_my_data &lt;-<span class="st"> </span><span class="cf">function</span>(tablename, ...){</span>
-<span id="cb701-16"><a href="programming.html#cb701-16"></a>  </span>
-<span id="cb701-17"><a href="programming.html#cb701-17"></a>  con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
-<span id="cb701-18"><a href="programming.html#cb701-18"></a>  <span class="kw">on.exit</span>(<span class="kw">dbDisconnect</span>(con))</span>
-<span id="cb701-19"><a href="programming.html#cb701-19"></a>  </span>
-<span id="cb701-20"><a href="programming.html#cb701-20"></a>  data &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, tablename, ...)</span>
-<span id="cb701-21"><a href="programming.html#cb701-21"></a>  </span>
-<span id="cb701-22"><a href="programming.html#cb701-22"></a>}</span></code></pre></div>
+<p>The following example can be modified to suite your needs :</p>
+<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="programming.html#cb703-1"></a><span class="co"># A function to make a connection to your database</span></span>
+<span id="cb703-2"><a href="programming.html#cb703-2"></a><span class="co"># Now, instead of copying this bit of code to all your scripts, you</span></span>
+<span id="cb703-3"><a href="programming.html#cb703-3"></a><span class="co"># define the function once and run con &lt;- db_connection()</span></span>
+<span id="cb703-4"><a href="programming.html#cb703-4"></a>db_connection &lt;-<span class="st"> </span><span class="cf">function</span>(){</span>
+<span id="cb703-5"><a href="programming.html#cb703-5"></a>  DBI<span class="op">::</span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">PostgreSQL</span>(),</span>
+<span id="cb703-6"><a href="programming.html#cb703-6"></a>                 <span class="dt">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,</span>
+<span id="cb703-7"><a href="programming.html#cb703-7"></a>                 <span class="dt">password =</span> <span class="st">&quot;my_password&quot;</span>,</span>
+<span id="cb703-8"><a href="programming.html#cb703-8"></a>                 <span class="dt">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,</span>
+<span id="cb703-9"><a href="programming.html#cb703-9"></a>                 <span class="dt">port =</span> <span class="dv">5432</span>,</span>
+<span id="cb703-10"><a href="programming.html#cb703-10"></a>                 <span class="dt">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)</span>
+<span id="cb703-11"><a href="programming.html#cb703-11"></a>}</span>
+<span id="cb703-12"><a href="programming.html#cb703-12"></a></span>
+<span id="cb703-13"><a href="programming.html#cb703-13"></a></span>
+<span id="cb703-14"><a href="programming.html#cb703-14"></a><span class="co"># A function to open a database connection, read and return data:</span></span>
+<span id="cb703-15"><a href="programming.html#cb703-15"></a>read_my_data &lt;-<span class="st"> </span><span class="cf">function</span>(tablename, ...){</span>
+<span id="cb703-16"><a href="programming.html#cb703-16"></a>  </span>
+<span id="cb703-17"><a href="programming.html#cb703-17"></a>  con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
+<span id="cb703-18"><a href="programming.html#cb703-18"></a>  <span class="kw">on.exit</span>(<span class="kw">dbDisconnect</span>(con))</span>
+<span id="cb703-19"><a href="programming.html#cb703-19"></a>  </span>
+<span id="cb703-20"><a href="programming.html#cb703-20"></a>  data &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, tablename, ...)</span>
+<span id="cb703-21"><a href="programming.html#cb703-21"></a>  </span>
+<span id="cb703-22"><a href="programming.html#cb703-22"></a>}</span></code></pre></div>
 <p>With the above <code>read_my_data</code> you can read your favorite table from a database, simply with <code>mydata &lt;- read_my_data("cooldatatable")</code>. However, this is a poor function if you are planning to read many tables from this database in a short time, then it makes sense to keep the connection open the entire time (especially for remote databases, as is common).</p>
 <p>The following improvement allows passing a connection object, or creating it if it was not passed as an argument:</p>
-<div class="sourceCode" id="cb702"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb702-1"><a href="programming.html#cb702-1"></a>read_my_data2 &lt;-<span class="st"> </span><span class="cf">function</span>(tablename, <span class="dt">con =</span> <span class="ot">NULL</span>, ...){</span>
-<span id="cb702-2"><a href="programming.html#cb702-2"></a>  </span>
-<span id="cb702-3"><a href="programming.html#cb702-3"></a>  <span class="cf">if</span>(<span class="kw">missing</span>(con)){</span>
-<span id="cb702-4"><a href="programming.html#cb702-4"></a>    con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
-<span id="cb702-5"><a href="programming.html#cb702-5"></a>    <span class="kw">on.exit</span>(<span class="kw">dbDisconnect</span>(con))</span>
-<span id="cb702-6"><a href="programming.html#cb702-6"></a>  }</span>
-<span id="cb702-7"><a href="programming.html#cb702-7"></a>  </span>
-<span id="cb702-8"><a href="programming.html#cb702-8"></a>  data &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, tablename, ...)</span>
-<span id="cb702-9"><a href="programming.html#cb702-9"></a>  </span>
-<span id="cb702-10"><a href="programming.html#cb702-10"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb704"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb704-1"><a href="programming.html#cb704-1"></a>read_my_data2 &lt;-<span class="st"> </span><span class="cf">function</span>(tablename, <span class="dt">con =</span> <span class="ot">NULL</span>, ...){</span>
+<span id="cb704-2"><a href="programming.html#cb704-2"></a>  </span>
+<span id="cb704-3"><a href="programming.html#cb704-3"></a>  <span class="cf">if</span>(<span class="kw">missing</span>(con)){</span>
+<span id="cb704-4"><a href="programming.html#cb704-4"></a>    con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
+<span id="cb704-5"><a href="programming.html#cb704-5"></a>    <span class="kw">on.exit</span>(<span class="kw">dbDisconnect</span>(con))</span>
+<span id="cb704-6"><a href="programming.html#cb704-6"></a>  }</span>
+<span id="cb704-7"><a href="programming.html#cb704-7"></a>  </span>
+<span id="cb704-8"><a href="programming.html#cb704-8"></a>  data &lt;-<span class="st"> </span><span class="kw">dbReadTable</span>(con, tablename, ...)</span>
+<span id="cb704-9"><a href="programming.html#cb704-9"></a>  </span>
+<span id="cb704-10"><a href="programming.html#cb704-10"></a>}</span></code></pre></div>
 <p>Now we can do,</p>
-<div class="sourceCode" id="cb703"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb703-1"><a href="programming.html#cb703-1"></a>my_con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
-<span id="cb703-2"><a href="programming.html#cb703-2"></a></span>
-<span id="cb703-3"><a href="programming.html#cb703-3"></a>flowers &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;flower&quot;</span>, <span class="dt">con =</span> my_con)</span>
-<span id="cb703-4"><a href="programming.html#cb703-4"></a>eggs &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;eggs&quot;</span>, <span class="dt">con =</span> my_con)</span>
-<span id="cb703-5"><a href="programming.html#cb703-5"></a>butter &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;butter&quot;</span>, <span class="dt">con =</span> my_con)</span>
-<span id="cb703-6"><a href="programming.html#cb703-6"></a>milk &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;milk&quot;</span>, <span class="dt">con =</span> my_con)</span>
-<span id="cb703-7"><a href="programming.html#cb703-7"></a></span>
-<span id="cb703-8"><a href="programming.html#cb703-8"></a><span class="kw">dbDisconnect</span>(my_con)</span></code></pre></div>
-<p>If we leave out the <code>con</code> argument, the connection will be opened and closed for you.</p>
+<div class="sourceCode" id="cb705"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb705-1"><a href="programming.html#cb705-1"></a>my_con &lt;-<span class="st"> </span><span class="kw">db_connection</span>()</span>
+<span id="cb705-2"><a href="programming.html#cb705-2"></a></span>
+<span id="cb705-3"><a href="programming.html#cb705-3"></a>flowers &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;flower&quot;</span>, <span class="dt">con =</span> my_con)</span>
+<span id="cb705-4"><a href="programming.html#cb705-4"></a>eggs &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;eggs&quot;</span>, <span class="dt">con =</span> my_con)</span>
+<span id="cb705-5"><a href="programming.html#cb705-5"></a>butter &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;butter&quot;</span>, <span class="dt">con =</span> my_con)</span>
+<span id="cb705-6"><a href="programming.html#cb705-6"></a>milk &lt;-<span class="st"> </span><span class="kw">read_my_data2</span>(<span class="st">&quot;milk&quot;</span>, <span class="dt">con =</span> my_con)</span>
+<span id="cb705-7"><a href="programming.html#cb705-7"></a></span>
+<span id="cb705-8"><a href="programming.html#cb705-8"></a><span class="kw">dbDisconnect</span>(my_con)</span></code></pre></div>
+<p>If we leave out the <code>con</code> argument, the connection will be opened and closed for you every time you call <code>read_my_data2</code>.</p>
 </div>
 </div>
 <div id="exercises-3" class="section level2">

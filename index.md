@@ -1,7 +1,7 @@
 --- 
 title: "A Learning Guide to R: data, analytical, and programming skills."
 author: "Remko Duursma"
-date: "2020-03-03"
+date: "2020-11-09"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book

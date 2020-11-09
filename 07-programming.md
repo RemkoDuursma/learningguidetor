@@ -74,7 +74,7 @@ mean(unifvec)
 ```
 
 ```
-## [1] 1.541051
+## [1] 1.509744
 ```
 
 ```r
@@ -83,7 +83,7 @@ SEmean(unifvec)
 ```
 
 ```
-## [1] 0.0996315
+## [1] 0.07426643
 ```
 
 
@@ -118,8 +118,8 @@ seandsd(x)
 ```
 
 ```
-##       SE       SD 
-## 0.412936 4.129360
+##        SE        SD 
+## 0.3625314 3.6253137
 ```
 
 ### Functions without arguments
@@ -847,23 +847,23 @@ for(i in 1:length(myvec)){
 ```
 
 ```
-## Element 1 of the vector is: 0.3
+## Element 1 of the vector is: 0.9
 ```
 
 ```
-## Element 2 of the vector is: 0.6
+## Element 2 of the vector is: 0.2
 ```
 
 ```
-## Element 3 of the vector is: 1
+## Element 3 of the vector is: 0.2
 ```
 
 ```
-## Element 4 of the vector is: 0.1
+## Element 4 of the vector is: 0.9
 ```
 
 ```
-## Element 5 of the vector is: 0.1
+## Element 5 of the vector is: 0.6
 ```
 
 Note that this is only a toy example: the same result can be achieved by simply typing `myvec`.
@@ -885,7 +885,7 @@ for(lev in levels(dataset$species)){
 dev.off()
 ```
 
-Here, we have to call `dev.off()` to close the pdf.
+Here, we have to call `dev.off()` to close the pdf. This sort of use of `dev.off()` after a block of code is dangerous, instead use the approach outlined in Section \@ref(onexit) and place the code inside a function.
 
 
 
@@ -926,7 +926,7 @@ Organizing your complex work flow into many custom functions, instead of long sc
 
 - Using functions makes it clear what the **inputs** are, and what are the **outputs**. For example, if you run `result <- myfunction(mydata)`, you know that `mydata` was used to create `result`. Instead, if you place all your code *plain* in a script and use `source("myscript.R")`, what objects are created? Are there any output? If so, where? Using functions this way allows a logical flow of your scripts.
 
-- Using functions is much **safer** because objects created in the body of the function when it is executed only *live* for as long as the function is running. Once the function *returns* a result, all objects inside the function cease to exist. This means the objects do not use memory, and cannot cause conflicts with other objects in the session.
+- Using functions is much **safer** because objects created in the body of the function when it is executed only *live* for as long as the function is running (in the **function scope**). Once the function *returns* a result, all objects inside the function become cease to exist (see [Memory (Advanced R) by Hadley Wickham](http://adv-r.had.co.nz/memory.html)). This means the objects do not use memory, and cannot cause conflicts with other objects in the session.
 
 - Using functions allows you to **avoid any duplicated code**. Duplicated code is terrible because when you want to modify your code, you have to repeat the modification (and remember where!). As a rule of thumb, if you do something 3 times, you should write a function. This function can also take some arguments, allowing it to do slightly different operations from different calls.
 
@@ -1016,7 +1016,7 @@ ggplot(howell, aes(x = !!sym(xvar), y = !!sym(yvar))) +
 geom_point(size = 0.8, col = "dimgrey")
 ```
 
-![](07-programming_files/figure-latex/unnamed-chunk-36-1.pdf)<!-- --> 
+<img src="07-programming_files/figure-html/unnamed-chunk-36-1.svg" width="672" />
 
 
 We can now write a wrapper function for a `ggplot2` plot. The same approach works for many other similar wrapper functions, for example around `dplyr` operations.
@@ -1211,7 +1211,7 @@ multiplex3(c(4,8))
 ## [1] 24 36
 ```
 
-This final solution can be found in many base R functions, and is a flexible interface to allow vectorized arguments.
+This final solution can be found in many base R functions, and is a flexible  - but more advanced - interface to allow vectorized arguments.
 
 
 
@@ -1499,11 +1499,11 @@ plot_first_2_columns <- function(data, output = "plot.pdf"){
 ```
 
 
-### Catch errors with `try`
+### Catch errors with `try` {#try}
 
 The ultimate tool to make functions more robust is `try`, a mechanism to catch errors and avoid termination of your code.
 
-Although you can use `tryCatch` as an interface, I personally prefer the flexible use of `try`, like so:
+First we show the use of `try`, a flexible interface,  like so:
 
 
 
@@ -1529,17 +1529,30 @@ out
 Now `safe_logarithm("a")` returns `NA`, but you do see the error message printed (unless you look around `?try` for a way to suppress the error message).
 
 
+The same thing can be achieved with `tryCatch` :
+
+
+```r
+x <- "a"
+tryCatch(log(x), error = function(e)NA)
+```
+
+```
+## [1] NA
+```
+
+Here, we have to define a function (with argument `e`, which contains the error message) for the error. Similarly, functions can be defined that will be called when warnings arise in the code (`warning = function(w)w`), or neither (`finally`).
 
 
 
 
-### Writing database wrapper functions
+### Writing database wrapper functions {#dbiwrappers}
 
-This example combines various concepts from this section, and is a useful set of functions when you commonly work with databases. First review 'working with databases' if you need to (Section XXX). The functions below will be developed step-by-step. Please carefully review this section if you want to adapt this code to your situation.
+This example combines various concepts from this section, and is a useful set of functions when you commonly work with databases. First review Section about the `DBI`package to access data from databases. The functions below will be developed step-by-step. Please carefully review this section if you want to adapt this code to your situation.
 
 After we are done reading and writing to a (usually remote) database, the connection to it should be *closed* with `dbDisconnect` (in the DBI package). Sometimes we forget, or code fails, or whatever - leaving extra connections open that can cause various problems (especially in production-ready code).
 
-The following example can be modified to suite your needs (see Section \@ref(???)) :
+The following example can be modified to suite your needs :
 
 
 ```r
@@ -1599,7 +1612,7 @@ milk <- read_my_data2("milk", con = my_con)
 dbDisconnect(my_con)
 ```
 
-If we leave out the `con` argument, the connection will be opened and closed for you.
+If we leave out the `con` argument, the connection will be opened and closed for you every time you call `read_my_data2`.
 
 
 ## Exercises

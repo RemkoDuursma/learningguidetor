@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 8 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <title>Chapter 7 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
   <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 8 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:title" content="Chapter 7 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 8 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta name="twitter:title" content="Chapter 7 Mastering package dependencies | A Learning Guide to R: data, analytical, and programming skills." />
   
   <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
   
@@ -24,14 +24,14 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2020-03-03" />
+<meta name="date" content="2020-11-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="projectman.html"/>
+<link rel="prev" href="versioncontrol.html"/>
 
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -159,7 +159,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.6" data-path="intro.html"><a href="intro.html#updatingpackages"><i class="fa fa-check"></i><b>1.10.6</b> Updating packages</a></li>
 <li class="chapter" data-level="1.10.7" data-path="intro.html"><a href="intro.html#install-missing-packages"><i class="fa fa-check"></i><b>1.10.7</b> Install missing packages</a></li>
 <li class="chapter" data-level="1.10.8" data-path="intro.html"><a href="intro.html#conflicts"><i class="fa fa-check"></i><b>1.10.8</b> Conflicts</a></li>
-<li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#loading-many-packages"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
+<li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#pacman"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>1.11</b> Accessing the help files</a></li>
 <li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
@@ -288,8 +288,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.2" data-path="programming.html"><a href="programming.html#argument-checking"><i class="fa fa-check"></i><b>4.6.2</b> Argument checking</a></li>
 <li class="chapter" data-level="4.6.3" data-path="programming.html"><a href="programming.html#sending-warnings-errors-messages"><i class="fa fa-check"></i><b>4.6.3</b> Sending warnings, errors, messages</a></li>
 <li class="chapter" data-level="4.6.4" data-path="programming.html"><a href="programming.html#onexit"><i class="fa fa-check"></i><b>4.6.4</b> Executing code when the function ends (or fails)</a></li>
-<li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#catch-errors-with-try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
-<li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#writing-database-wrapper-functions"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
+<li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
+<li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#dbiwrappers"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
 </ul></li>
 <li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
 <li class="chapter" data-level="4.7.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>4.7.1</b> Writing functions</a></li>
@@ -302,8 +302,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="5" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>5</b> R on the web</a><ul>
 <li class="chapter" data-level="5.1" data-path="webservices.html"><a href="webservices.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
 <li class="chapter" data-level="5.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>5.2</b> Reading data from remote databases</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.1</b> NoSQL</a></li>
-<li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#sql"><i class="fa fa-check"></i><b>5.2.2</b> SQL</a></li>
+<li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#dbi"><i class="fa fa-check"></i><b>5.2.1</b> Accessing databases with the DBI package</a></li>
+<li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.2</b> NoSQL</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>5.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="5.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>5.4</b> Deploying an API with <code>plumber</code></a></li>
@@ -324,43 +324,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="6.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>6.4.1</b> Making a remote repository</a></li>
 <li class="chapter" data-level="6.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>6.4.2</b> Workflow</a></li>
 <li class="chapter" data-level="6.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>6.4.3</b> A session with a remote repository</a></li>
+<li class="chapter" data-level="6.4.4" data-path="versioncontrol.html"><a href="versioncontrol.html#conflicts-when-collaborating"><i class="fa fa-check"></i><b>6.4.4</b> Conflicts when collaborating</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="versioncontrol.html"><a href="versioncontrol.html#gitignore"><i class="fa fa-check"></i><b>6.5</b> Ignoring files</a></li>
 <li class="chapter" data-level="6.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>6.6</b> Using the command line</a><ul>
 <li class="chapter" data-level="6.6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>6.6.1</b> Basic commands</a></li>
 <li class="chapter" data-level="6.6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>6.6.2</b> Useful tasks</a></li>
 </ul></li>
+<li class="chapter" data-level="6.7" data-path="versioncontrol.html"><a href="versioncontrol.html#branches"><i class="fa fa-check"></i><b>6.7</b> Branches</a><ul>
+<li class="chapter" data-level="6.7.1" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_figures.r"><i class="fa fa-check"></i><b>6.7.1</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="6.7.2" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_load"><i class="fa fa-check"></i><b>6.7.2</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="6.7.3" data-path="versioncontrol.html"><a href="versioncontrol.html#load_packages.r"><i class="fa fa-check"></i><b>6.7.3</b> <code>load_packages.R</code></a></li>
+<li class="chapter" data-level="6.7.4" data-path="versioncontrol.html"><a href="versioncontrol.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>6.7.4</b> <code>facesoil_readdata.R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>7</b> Project management and workflow</a><ul>
-<li class="chapter" data-level="7.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>7.1</b> Tips on organizing your code</a></li>
-<li class="chapter" data-level="7.2" data-path="projectman.html"><a href="projectman.html#rstudioprojects"><i class="fa fa-check"></i><b>7.2</b> Set up a project in Rstudio</a></li>
-<li class="chapter" data-level="7.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>7.3</b> Directory structure</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>7.3.1</b> <code>rawdata</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>7.3.2</b> <code>Rfunctions</code></a></li>
-<li class="chapter" data-level="7.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>7.3.3</b> <code>output</code></a></li>
+<li class="chapter" data-level="6.8" data-path="versioncontrol.html"><a href="versioncontrol.html#archiving-the-output"><i class="fa fa-check"></i><b>6.8</b> Archiving the output</a><ul>
+<li class="chapter" data-level="6.8.1" data-path="versioncontrol.html"><a href="versioncontrol.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>6.8.1</b> Adding a Date stamp to output files</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>7.4</b> The R scripts</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>7.4.1</b> <code>facesoil_analysis.R</code></a></li>
-<li class="chapter" data-level="7.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>7.4.2</b> <code>facesoil_figures.R</code></a></li>
-<li class="chapter" data-level="7.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>7.4.3</b> <code>facesoil_load</code></a></li>
-<li class="chapter" data-level="7.4.4" data-path="projectman.html"><a href="projectman.html#load_packages.r"><i class="fa fa-check"></i><b>7.4.4</b> <code>load_packages.R</code></a></li>
-<li class="chapter" data-level="7.4.5" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>7.4.5</b> <code>facesoil_readdata.R</code></a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>7.5</b> Archiving the output</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>7.5.1</b> Adding a Date stamp to output files</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>7.6</b> A logical structure for your scripts</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="projectman.html"><a href="projectman.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>7.6.1</b> Write functions, not long scripts</a></li>
-<li class="chapter" data-level="7.6.2" data-path="projectman.html"><a href="projectman.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>7.6.2</b> Divide your script into functional blocks</a></li>
+<li class="chapter" data-level="6.9" data-path="versioncontrol.html"><a href="versioncontrol.html#scriptstructure"><i class="fa fa-check"></i><b>6.9</b> A logical structure for your scripts</a><ul>
+<li class="chapter" data-level="6.9.1" data-path="versioncontrol.html"><a href="versioncontrol.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>6.9.1</b> Write functions, not long scripts</a></li>
+<li class="chapter" data-level="6.9.2" data-path="versioncontrol.html"><a href="versioncontrol.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>6.9.2</b> Divide your script into functional blocks</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>8</b> Mastering package dependencies</a><ul>
-<li class="chapter" data-level="8.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>8.1</b> What version?</a></li>
-<li class="chapter" data-level="8.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>8.2</b> All packages: loaded or installed</a></li>
-<li class="chapter" data-level="8.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>8.3</b> Avoiding conflicts</a></li>
-<li class="chapter" data-level="8.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>8.4</b> The search path and conflicts</a></li>
-<li class="chapter" data-level="8.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>8.5</b> Bundling package dependencies with <code>renv</code></a></li>
-<li class="chapter" data-level="8.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>8.6</b> Minimizing package dependencies</a></li>
+<li class="chapter" data-level="7" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>7</b> Mastering package dependencies</a><ul>
+<li class="chapter" data-level="7.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>7.1</b> What version?</a></li>
+<li class="chapter" data-level="7.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>7.2</b> All packages: loaded or installed</a></li>
+<li class="chapter" data-level="7.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>7.3</b> Avoiding conflicts</a></li>
+<li class="chapter" data-level="7.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>7.4</b> The search path and conflicts</a></li>
+<li class="chapter" data-level="7.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>7.5</b> Bundling package dependencies with <code>renv</code></a></li>
+<li class="chapter" data-level="7.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>7.6</b> Minimizing package dependencies</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -383,7 +374,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 
             <section class="normal" id="section-">
 <div id="masteringpackages" class="section level1">
-<h1><span class="header-section-number">Chapter 8</span> Mastering package dependencies</h1>
+<h1><span class="header-section-number">Chapter 7</span> Mastering package dependencies</h1>
 <p>Besides having to write dependable code yourself, we also have to worry about dependencies of R packages, that is, code written by other R users.</p>
 
 <div class="rmdreading">
@@ -398,32 +389,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Can we bundle the R packages along with our code?</li>
 </ul>
 <div id="what-version" class="section level2">
-<h2><span class="header-section-number">8.1</span> What version?</h2>
+<h2><span class="header-section-number">7.1</span> What version?</h2>
 <p>When an external package has changed on CRAN since you last used it, the <em>version</em> will have changed. You can inspect the version of a package with,</p>
-<div class="sourceCode" id="cb758"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb758-1"><a href="masteringpackages.html#cb758-1"></a><span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="masteringpackages.html#cb769-1"></a><span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>)</span></code></pre></div>
 <pre><code>## [1] &#39;0.8.3&#39;</code></pre>
 <p>In a script, you can make sure a package is loaded with <em>at least</em> some version:</p>
-<div class="sourceCode" id="cb760"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb760-1"><a href="masteringpackages.html#cb760-1"></a><span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="op">&gt;</span><span class="st"> &quot;0.8.1&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="masteringpackages.html#cb771-1"></a><span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="op">&gt;</span><span class="st"> &quot;0.8.1&quot;</span></span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <p>Which you can use like,</p>
-<div class="sourceCode" id="cb762"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb762-1"><a href="masteringpackages.html#cb762-1"></a><span class="cf">if</span>(<span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="op">&lt;</span><span class="st"> &quot;0.8.1&quot;</span>){</span>
-<span id="cb762-2"><a href="masteringpackages.html#cb762-2"></a>  <span class="kw">stop</span>(<span class="st">&quot;First update the dplyr package!&quot;</span>)</span>
-<span id="cb762-3"><a href="masteringpackages.html#cb762-3"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb773"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb773-1"><a href="masteringpackages.html#cb773-1"></a><span class="cf">if</span>(<span class="kw">packageVersion</span>(<span class="st">&quot;dplyr&quot;</span>) <span class="op">&lt;</span><span class="st"> &quot;0.8.1&quot;</span>){</span>
+<span id="cb773-2"><a href="masteringpackages.html#cb773-2"></a>  <span class="kw">stop</span>(<span class="st">&quot;First update the dplyr package!&quot;</span>)</span>
+<span id="cb773-3"><a href="masteringpackages.html#cb773-3"></a>}</span></code></pre></div>
 </div>
 <div id="all-packages-loaded-or-installed" class="section level2">
-<h2><span class="header-section-number">8.2</span> All packages: loaded or installed</h2>
+<h2><span class="header-section-number">7.2</span> All packages: loaded or installed</h2>
 <p>To list all loaded packages, do:</p>
-<div class="sourceCode" id="cb763"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb763-1"><a href="masteringpackages.html#cb763-1"></a>pck &lt;-<span class="st"> </span><span class="kw">.packages</span>()</span>
-<span id="cb763-2"><a href="masteringpackages.html#cb763-2"></a>pck</span></code></pre></div>
+<div class="sourceCode" id="cb774"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb774-1"><a href="masteringpackages.html#cb774-1"></a>pck &lt;-<span class="st"> </span><span class="kw">.packages</span>()</span>
+<span id="cb774-2"><a href="masteringpackages.html#cb774-2"></a>pck</span></code></pre></div>
 <pre><code>##  [1] &quot;knitr&quot;     &quot;magrittr&quot;  &quot;tibble&quot;    &quot;stats&quot;     &quot;graphics&quot; 
 ##  [6] &quot;grDevices&quot; &quot;utils&quot;     &quot;datasets&quot;  &quot;methods&quot;   &quot;base&quot;</code></pre>
 <p>And to list all <em>installed</em> packages,</p>
-<div class="sourceCode" id="cb765"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb765-1"><a href="masteringpackages.html#cb765-1"></a><span class="kw">.packages</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb776"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb776-1"><a href="masteringpackages.html#cb776-1"></a><span class="kw">.packages</span>(<span class="ot">TRUE</span>)</span></code></pre></div>
 </div>
 <div id="avoidconflicts" class="section level2">
-<h2><span class="header-section-number">8.3</span> Avoiding conflicts</h2>
+<h2><span class="header-section-number">7.3</span> Avoiding conflicts</h2>
 <p>To make sure you use a function from the intended package, you can use the <code>::</code> operator.</p>
-<div class="sourceCode" id="cb766"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb766-1"><a href="masteringpackages.html#cb766-1"></a>out &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(mtcars, cyl, disp)</span></code></pre></div>
+<div class="sourceCode" id="cb777"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb777-1"><a href="masteringpackages.html#cb777-1"></a>out &lt;-<span class="st"> </span>dplyr<span class="op">::</span><span class="kw">select</span>(mtcars, cyl, disp)</span></code></pre></div>
 <p>In this example, we avoid a common problem with <code>select</code> and other functions in packages with very general names.</p>
 <p>When writing packages and other production-level code, the use of <code>::</code> is strongly recommended. In practice in writing dependable scripts, I recommend using <code>::</code> where practical, and less for functions that have obviously unique names in the context.</p>
 <p>Finally, one way to avoid conflicts is to use as few packages as possible, as described in a later section.</p>
@@ -434,10 +425,10 @@ When loading the <code>tidyverse</code> package, a collection of R packages by t
 
 </div>
 <div id="searchpath" class="section level2">
-<h2><span class="header-section-number">8.4</span> The search path and conflicts</h2>
+<h2><span class="header-section-number">7.4</span> The search path and conflicts</h2>
 <p>After you load a package with <code>library()</code>, it is added to the <em>search path</em>. This is an order of environments where R will look for the value of some object - often an R function.</p>
 <p>Use <code>search</code> to inspect the current search path:</p>
-<div class="sourceCode" id="cb767"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb767-1"><a href="masteringpackages.html#cb767-1"></a><span class="kw">search</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb778"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb778-1"><a href="masteringpackages.html#cb778-1"></a><span class="kw">search</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;.GlobalEnv&quot;        &quot;package:knitr&quot;     &quot;package:magrittr&quot; 
 ##  [4] &quot;package:tibble&quot;    &quot;package:stats&quot;     &quot;package:graphics&quot; 
 ##  [7] &quot;package:grDevices&quot; &quot;package:utils&quot;     &quot;package:datasets&quot; 
@@ -445,7 +436,7 @@ When loading the <code>tidyverse</code> package, a collection of R packages by t
 <p>When you type a function in R, like <code>summary()</code>, where will R find the definition of that function? In the search path above, it <strong>starts at the first entry</strong>, the global environment (containing the objects you see in the Environment pane in Rstudio). The search continues until a function is found with the name <code>summary</code>, and then R stops searching.</p>
 <p>If you have <strong>conflicts</strong>, where the name of a function is defined in more than one package, the order in which you loaded the packages will affect from which package the function will actually be used. However, do not use this fact as a way to manage package dependencies, instead read the next section carefully.</p>
 <p>To find the actual <strong>location of the package files</strong> on your system, use the following command (this might be helpful to archive all actual package files used in a project).</p>
-<div class="sourceCode" id="cb769"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb769-1"><a href="masteringpackages.html#cb769-1"></a><span class="kw">searchpaths</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb780"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb780-1"><a href="masteringpackages.html#cb780-1"></a><span class="kw">searchpaths</span>()</span></code></pre></div>
 <pre><code>##  [1] &quot;.GlobalEnv&quot;                                  
 ##  [2] &quot;c:/RLIBRARY/knitr&quot;                           
 ##  [3] &quot;c:/RLIBRARY/magrittr&quot;                        
@@ -460,7 +451,7 @@ When loading the <code>tidyverse</code> package, a collection of R packages by t
 ## [12] &quot;C:/PROGRA~1/R/R-36~1.2/library/base&quot;</code></pre>
 </div>
 <div id="bundling-package-dependencies-with-renv" class="section level2">
-<h2><span class="header-section-number">8.5</span> Bundling package dependencies with <code>renv</code></h2>
+<h2><span class="header-section-number">7.5</span> Bundling package dependencies with <code>renv</code></h2>
 <p>If you want to be able to run your project a long time after you created it, one of the packages may have changed - causing an error or unexpected result. Although this is comparatively rare, it is still a possibility you want to avoid.</p>
 <p>If we transport the script to another location, how can we be sure that the code will be working? Sometimes, newer versions of packages break old code, and in some cases packages are no longer hosted on CRAN after some time (though this is rare).</p>
 <p>Another problem arises because all your R projects normally share the same library of R packages on your machine. That means that if you install a newer version in one project, it might cause code to stop working <em>in another project</em>.</p>
@@ -471,7 +462,7 @@ Please read the documentation and installation instructions here: <a href="https
 </div>
 
 <p>In practice, we basically just run this command once in a new (or existing) project:</p>
-<div class="sourceCode" id="cb771"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb771-1"><a href="masteringpackages.html#cb771-1"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb782"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb782-1"><a href="masteringpackages.html#cb782-1"></a>renv<span class="op">::</span><span class="kw">init</span>()</span></code></pre></div>
 
 <div class="rmdcaution">
 The above command can take &gt;10min to execute.
@@ -482,7 +473,7 @@ The above command can take &gt;10min to execute.
 <p>If you are using, say package version 1.2, and version 1.3 is installed on your machine from a different project, the <code>renv</code> project will still use 1.2, unless we update this package locally ourselves (simply with <code>install.packages</code>).</p>
 </div>
 <div id="minimizing-package-dependencies" class="section level2">
-<h2><span class="header-section-number">8.6</span> Minimizing package dependencies</h2>
+<h2><span class="header-section-number">7.6</span> Minimizing package dependencies</h2>
 <p>Although a solution like <code>renv</code> can help us to make scripts reproducable, in practice this rule of thumb is a valuable lesson:</p>
 <p><strong>Use as few external packages in your code as possible</strong></p>
 <p>Complicated projects tend to break easily, and often external R packages are to blame.</p>
@@ -499,7 +490,7 @@ The above command can take &gt;10min to execute.
           </div>
         </div>
       </div>
-<a href="projectman.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="versioncontrol.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 
     </div>
   </div>

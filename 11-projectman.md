@@ -44,8 +44,7 @@ Browse for the directory you want to create a project in, and click `Choose`. Th
 
 Rstudio has now switched to your new project. Notice in the top-right corner there is a button that shows the current project. For the example project 'facesoil', it looks like this:
 
-
-\includegraphics[width=0.3\linewidth]{screenshots/projectbutton} 
+<img src="screenshots/projectbutton.png" width="30%" />
 
 **The Project button in Rstudio**
 
@@ -56,8 +55,7 @@ By clicking on that button you can easily switch over to other projects. The wor
 
 For the 'facesoil' project, we came up with the following directory structure. Each item is described further below.
 
-
-\includegraphics[width=0.7\linewidth]{screenshots/folderstructure} 
+<img src="screenshots/folderstructure.png" width="70%" />
 
 **Folder structure; just an example**
 
@@ -74,8 +72,7 @@ If you do not frequently write functions already, you should force yourself to d
 
 It is good practice to keep functions in a separate folder, for example `Rfunctions`, with each function in a separate file (with the extension `.R`). It may look like this,
 
-
-\includegraphics[width=0.7\linewidth]{screenshots/rfunctions} 
+<img src="screenshots/rfunctions.png" width="70%" />
 
 **Contents of Rfunctions folder, example.**
 
@@ -85,10 +82,9 @@ We will use `source()` to load these functions, see further below.
 
 It is a good idea to send all output from your R scripts to a separate folder. This way, it is very clear what the *outputs* of the analysis are. It may also be useful to have subfolders specifying what type of output it is. Here we decided to split it into figures, processeddata, and text :
 
+<img src="screenshots/output.png" width="70%" />
 
-\includegraphics[width=0.7\linewidth]{screenshots/output} 
-
-**Contents of Rfunctions folder, example.**
+**Contents of output folder, example.**
 
 
 ## The R scripts
@@ -177,7 +173,7 @@ to.pdf <- function(expr, filename, ...) {
 # and the generic function to.pdf, we can make the PDFs.
 to.pdf(
   soilplot_1(allTheta), 
-  filename = "output/figures/figure1.pdf")
+  filename = "output/figures/figure1.pdf"
 )
 ```
 
@@ -240,7 +236,7 @@ if(!require(pacman))install.packages("pacman")
 pacman::p_load(gplots, geometry, rgl, remotes, svglite)
 ```
 
-\BeginKnitrBlock{rmdreading}<div class="rmdreading">To learn more about advanced management of R package dependencies, read Section \@ref(masteringpackages)</div>\EndKnitrBlock{rmdreading}
+\BeginKnitrBlock{rmdreading}<div class="rmdreading">To learn more about advanced management of R package dependencies, read Chapter \@ref(masteringpackages)</div>\EndKnitrBlock{rmdreading}
 
 
 \BeginKnitrBlock{rmdcaution}<div class="rmdcaution">Never include `install.packages` in any of your *scripts* in your project. You do not want to call it more than once, otherwise the execution of the project will be much slower (and require an internet connection).</div>\EndKnitrBlock{rmdcaution}
@@ -275,10 +271,9 @@ In the example workflow we have set up in the previous sections, all items in th
 
 After a while, that directory may look like this:
 
+<img src="screenshots/archive.png" width="70%" />
 
-\includegraphics[width=0.7\linewidth]{screenshots/archive} 
-
-**Contents of Rfunctions folder, example.**
+**Contents of archive folder, example.**
 
 If your `processData` folder is very large, this may not be the optimal solution. Perhaps the `processedData` can be in a separate output folder, for example.
 
@@ -300,7 +295,7 @@ fn
 ```
 
 ```
-## output/figures/FACE_soilfigure1_2020-03-03.pdf
+## output/figures/FACE_soilfigure1_2020-11-09.pdf
 ```
 
 ```r
@@ -310,7 +305,7 @@ fn
 ```
 
 ```
-## output/figures/FACE_soilfigure1_2020-03-03_22-33.pdf
+## output/figures/FACE_soilfigure1_2020-11-09_21-27.pdf
 ```
 
 
@@ -352,8 +347,7 @@ for(fn in dir("R", pattern = "[.]R$", full.names = TRUE)){
 Dividing your scripts into a few functional blocks can help readability and reliability. 
 With special formatting, you can even improve the *table of contents* (TOC) menu in Rstudio for a script. Run the example below, and then find the TOC button in Rstudio:
 
-
-\includegraphics[width=0.3\linewidth]{screenshots/tablecontents_button} 
+<img src="screenshots/tablecontents_button.png" width="30%" />
 
 **Access the (nearly) automatic TOC in Rstudio**
 
