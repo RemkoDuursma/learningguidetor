@@ -30,7 +30,7 @@ packageVersion("dplyr")
 ```
 
 ```
-## [1] '0.8.3'
+## [1] '1.0.5'
 ```
 
 In a script, you can make sure a package is loaded with *at least* some version:
@@ -66,8 +66,8 @@ pck
 ```
 
 ```
-##  [1] "knitr"     "magrittr"  "tibble"    "stats"     "graphics" 
-##  [6] "grDevices" "utils"     "datasets"  "methods"   "base"
+##  [1] "knitr"     "magrittr"  "tibble"    "stats"     "graphics"  "grDevices"
+##  [7] "utils"     "datasets"  "methods"   "base"
 ```
 
 And to list all *installed* packages,
@@ -129,17 +129,17 @@ searchpaths()
 
 ```
 ##  [1] ".GlobalEnv"                                  
-##  [2] "c:/RLIBRARY/knitr"                           
-##  [3] "c:/RLIBRARY/magrittr"                        
-##  [4] "c:/RLIBRARY/tibble"                          
-##  [5] "C:/Program Files/R/R-3.6.2/library/stats"    
-##  [6] "C:/Program Files/R/R-3.6.2/library/graphics" 
-##  [7] "C:/Program Files/R/R-3.6.2/library/grDevices"
-##  [8] "C:/Program Files/R/R-3.6.2/library/utils"    
-##  [9] "C:/Program Files/R/R-3.6.2/library/datasets" 
-## [10] "C:/Program Files/R/R-3.6.2/library/methods"  
+##  [2] "C:/RLIBRARY/knitr"                           
+##  [3] "C:/RLIBRARY/magrittr"                        
+##  [4] "C:/RLIBRARY/tibble"                          
+##  [5] "C:/Program Files/R/R-4.0.5/library/stats"    
+##  [6] "C:/Program Files/R/R-4.0.5/library/graphics" 
+##  [7] "C:/Program Files/R/R-4.0.5/library/grDevices"
+##  [8] "C:/Program Files/R/R-4.0.5/library/utils"    
+##  [9] "C:/Program Files/R/R-4.0.5/library/datasets" 
+## [10] "C:/Program Files/R/R-4.0.5/library/methods"  
 ## [11] "Autoloads"                                   
-## [12] "C:/PROGRA~1/R/R-36~1.2/library/base"
+## [12] "C:/PROGRA~1/R/R-40~1.5/library/base"
 ```
 
 

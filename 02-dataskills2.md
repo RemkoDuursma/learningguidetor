@@ -325,6 +325,10 @@ group_by(pupae, CO2_treatment, T_treatment) %>%
 ```
 
 ```
+## `summarise()` has grouped output by 'CO2_treatment'. You can override using the `.groups` argument.
+```
+
+```
 ## # A tibble: 4 x 4
 ## # Groups:   CO2_treatment [2]
 ##   CO2_treatment T_treatment Frass_mean Frass_sd
@@ -350,13 +354,12 @@ group_by(pupae, CO2_treatment, T_treatment) %>%
 ```
 ## # A tibble: 4 x 6
 ## # Groups:   CO2_treatment [2]
-##   CO2_treatment T_treatment Frass_mean PupalWeight_mean Frass_sd
-##           <int> <fct>            <dbl>            <dbl>    <dbl>
-## 1           280 ambient          NA               0.290  NaN    
-## 2           280 elevated          1.48            0.305    0.239
-## 3           400 ambient           2.12            0.342    0.415
-## 4           400 elevated          1.91            0.299    0.360
-## # ... with 1 more variable: PupalWeight_sd <dbl>
+##   CO2_treatment T_treatment Frass_mean PupalWeight_mean Frass_sd PupalWeight_sd
+##           <int> <fct>            <dbl>            <dbl>    <dbl>          <dbl>
+## 1           280 ambient          NA               0.29    NA             0.0512
+## 2           280 elevated          1.48            0.305    0.239         0.0605
+## 3           400 ambient           2.12            0.342    0.415         0.0658
+## 4           400 elevated          1.91            0.299    0.360         0.0662
 ```
 
 The result is identical to our last example with `summaryBy`.
@@ -496,21 +499,19 @@ titanic %>% count(PClass, Sex, Survived)
 ```
 
 ```
-## # A tibble: 12 x 4
-##    PClass Sex    Survived     n
-##    <fct>  <fct>     <int> <int>
-##  1 1st    female        0     9
-##  2 1st    female        1   134
-##  3 1st    male          0   120
-##  4 1st    male          1    59
-##  5 2nd    female        0    13
-##  6 2nd    female        1    94
-##  7 2nd    male          0   148
-##  8 2nd    male          1    25
-##  9 3rd    female        0   132
-## 10 3rd    female        1    80
-## 11 3rd    male          0   441
-## 12 3rd    male          1    58
+##    PClass    Sex Survived   n
+## 1     1st female        0   9
+## 2     1st female        1 134
+## 3     1st   male        0 120
+## 4     1st   male        1  59
+## 5     2nd female        0  13
+## 6     2nd female        1  94
+## 7     2nd   male        0 148
+## 8     2nd   male        1  25
+## 9     3rd female        0 132
+## 10    3rd female        1  80
+## 11    3rd   male        0 441
+## 12    3rd   male        1  58
 ```
 
 ### Adding summary variables to dataframes {#summaryvars}
@@ -1315,7 +1316,13 @@ hfeif_meanh <-
   group_by(Date, treat) %>%       # New grouping; to get average by Date and treatment
   summarize(height = mean(height, na.rm=TRUE)) %>% # Average height, discard NA.
   rename(treatment = treat)       # rename a variable
-  
+```
+
+```
+## `summarise()` has grouped output by 'Date'. You can override using the `.groups` argument.
+```
+
+```r
 # It is possible to make the plot inside the data pipeline, but
 # we recommend separating them!
 ggplot(hfeif_meanh, aes(x = Date, y = height, col = treatment)) +
@@ -1455,6 +1462,9 @@ ggplot(weightloss2, aes(x = Date, y = Weight)) +
 5. Repeat the previous question with `summaryBy` or `dplyr`. Compare the results.
 
 
+```
+## `summarise()` has grouped output by 'sodiumClass'. You can override using the `.groups` argument.
+```
 
 6. Count the number of observations by Manufacturer and whether the cereal is 'hot' or 'cold', using `xtabs` (see Section  \@ref(xtabs)).
 

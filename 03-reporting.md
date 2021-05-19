@@ -220,6 +220,10 @@ ggplot(automobiles2, aes(x = horsepower, y = fuel_efficiency,
   labs(x = "Horse power (hp)", y = "Fuel use (liters / 100km)")
 ```
 
+```
+## `geom_smooth()` using formula 'y ~ x'
+```
+
 <img src="03-reporting_files/figure-html/unnamed-chunk-8-1.svg" width="672" />
 
 

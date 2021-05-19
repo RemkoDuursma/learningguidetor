@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 R on the web | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 R on the web | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2020-11-09" />
+<meta name="date" content="2021-05-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="programming.html"/>
 <link rel="next" href="versioncontrol.html"/>
+<script src="libs/header-attrs-2.7/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -53,18 +54,18 @@
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +85,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,7 +118,7 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,24 +134,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Learning Guide to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#aboutauthor"><i class="fa fa-check"></i>About the author</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Beginner skills</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>1.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Beginner skills</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>1.1</b> Installing R and Rstudio</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>1.1.1</b> Example data used throughout this book</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>1.2</b> Basic operations</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>1.3</b> Working with vectors</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>1.4</b> Writing code in a script</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>1.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>1.5</b> Vectorized operations</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>1.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.6</b> Working with matrices</a></li>
 <li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>1.7</b> Objects in the workspace</a></li>
 <li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>1.8</b> Files in the working directory</a></li>
 <li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>1.9</b> Rstudio projects</a></li>
-<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.10</b> Packages</a><ul>
+<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.10</b> Packages</a>
+<ul>
 <li class="chapter" data-level="1.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>1.10.1</b> Install packages from CRAN</a></li>
 <li class="chapter" data-level="1.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>1.10.2</b> Loading packages</a></li>
 <li class="chapter" data-level="1.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>1.10.3</b> Setting the CRAN mirror</a></li>
@@ -162,12 +168,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#pacman"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>1.11</b> Accessing the help files</a></li>
-<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a>
+<ul>
 <li class="chapter" data-level="1.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>1.12.1</b> Reproducible documents with rmarkdown</a></li>
 <li class="chapter" data-level="1.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>1.12.2</b> Using R scripts</a></li>
 </ul></li>
 <li class="chapter" data-level="1.13" data-path="intro.html"><a href="intro.html#pay-attention-to-detail-write-clean-code"><i class="fa fa-check"></i><b>1.13</b> Pay attention to detail: write clean code</a></li>
-<li class="chapter" data-level="1.14" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.14</b> Exercises</a><ul>
+<li class="chapter" data-level="1.14" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.14</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="1.14.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>1.14.1</b> Calculating</a></li>
 <li class="chapter" data-level="1.14.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>1.14.2</b> Simple objects</a></li>
 <li class="chapter" data-level="1.14.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>1.14.3</b> Working with a single vector</a></li>
@@ -180,13 +188,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.14.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>1.14.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>2</b> Data skills - Part 1</a><ul>
+<li class="chapter" data-level="2" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>2</b> Data skills - Part 1</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="dataskills1.html"><a href="dataskills1.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>2.2</b> Generating data</a><ul>
+<li class="chapter" data-level="2.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>2.2</b> Generating data</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="dataskills1.html"><a href="dataskills1.html#sequences"><i class="fa fa-check"></i><b>2.2.1</b> Sequences of numbers</a></li>
 <li class="chapter" data-level="2.2.2" data-path="dataskills1.html"><a href="dataskills1.html#randomnumbers"><i class="fa fa-check"></i><b>2.2.2</b> Random numbers</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>2.3</b> Reading data</a><ul>
+<li class="chapter" data-level="2.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>2.3</b> Reading data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="dataskills1.html"><a href="dataskills1.html#readcsv"><i class="fa fa-check"></i><b>2.3.1</b> Reading CSV files</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dataskills1.html"><a href="dataskills1.html#reading-large-csv-files"><i class="fa fa-check"></i><b>2.3.2</b> Reading large CSV files</a></li>
 <li class="chapter" data-level="2.3.3" data-path="dataskills1.html"><a href="dataskills1.html#tabdelimtext"><i class="fa fa-check"></i><b>2.3.3</b> Reading Tab-delimited text files</a></li>
@@ -197,19 +208,22 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.3.8" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>2.3.8</b> Proprietary formats</a></li>
 <li class="chapter" data-level="2.3.9" data-path="dataskills1.html"><a href="dataskills1.html#web-services"><i class="fa fa-check"></i><b>2.3.9</b> Web services</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="2.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Working with dataframes</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="dataskills1.html"><a href="dataskills1.html#vecstodfr"><i class="fa fa-check"></i><b>2.4.1</b> Convert vectors into a dataframe</a></li>
 <li class="chapter" data-level="2.4.2" data-path="dataskills1.html"><a href="dataskills1.html#vecdataframes"><i class="fa fa-check"></i><b>2.4.2</b> Variables in the dataframe</a></li>
 <li class="chapter" data-level="2.4.3" data-path="dataskills1.html"><a href="dataskills1.html#namesdataframe"><i class="fa fa-check"></i><b>2.4.3</b> Changing column names in dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>2.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="2.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>2.5</b> Extracting data</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="dataskills1.html"><a href="dataskills1.html#vectorindexing"><i class="fa fa-check"></i><b>2.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="2.5.2" data-path="dataskills1.html"><a href="dataskills1.html#subsetdataframes"><i class="fa fa-check"></i><b>2.5.2</b> Dataframes</a></li>
 <li class="chapter" data-level="2.5.3" data-path="dataskills1.html"><a href="dataskills1.html#a-faster-method"><i class="fa fa-check"></i><b>2.5.3</b> A faster method</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dataskills1.html"><a href="dataskills1.html#deleting-columns"><i class="fa fa-check"></i><b>2.5.4</b> Deleting columns</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="dataskills1.html"><a href="dataskills1.html#exportingdata"><i class="fa fa-check"></i><b>2.6</b> Exporting data</a></li>
-<li class="chapter" data-level="2.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>2.7</b> Special data types</a><ul>
+<li class="chapter" data-level="2.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>2.7</b> Special data types</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="dataskills1.html"><a href="dataskills1.html#workingfactors"><i class="fa fa-check"></i><b>2.7.1</b> Working with factors</a></li>
 <li class="chapter" data-level="2.7.2" data-path="dataskills1.html"><a href="dataskills1.html#workinglogic"><i class="fa fa-check"></i><b>2.7.2</b> Working with logical data</a></li>
 <li class="chapter" data-level="2.7.3" data-path="dataskills1.html"><a href="dataskills1.html#workingmissing"><i class="fa fa-check"></i><b>2.7.3</b> Working with missing values</a></li>
@@ -217,7 +231,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.5" data-path="dataskills1.html"><a href="dataskills1.html#workingwithdates"><i class="fa fa-check"></i><b>2.7.5</b> Working with dates and times</a></li>
 <li class="chapter" data-level="2.7.6" data-path="dataskills1.html"><a href="dataskills1.html#converttype"><i class="fa fa-check"></i><b>2.7.6</b> Converting between data types</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a><ul>
+<li class="chapter" data-level="2.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="dataskills1.html"><a href="dataskills1.html#working-with-a-single-vector---indexing"><i class="fa fa-check"></i><b>2.8.1</b> Working with a single vector - indexing</a></li>
 <li class="chapter" data-level="2.8.2" data-path="dataskills1.html"><a href="dataskills1.html#alphabet-aerobics-2"><i class="fa fa-check"></i><b>2.8.2</b> Alphabet aerobics 2</a></li>
 <li class="chapter" data-level="2.8.3" data-path="dataskills1.html"><a href="dataskills1.html#basic-operations-with-the-cereals-data"><i class="fa fa-check"></i><b>2.8.3</b> Basic operations with the Cereals data</a></li>
@@ -230,28 +245,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8.10" data-path="dataskills1.html"><a href="dataskills1.html#dna-aerobics"><i class="fa fa-check"></i><b>2.8.10</b> DNA Aerobics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 2</a><ul>
-<li class="chapter" data-level="3.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.1</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="3" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.1</b> Summarizing dataframes</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="dataskills2.html"><a href="dataskills2.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.1.1</b> Making summary tables</a></li>
 <li class="chapter" data-level="3.1.2" data-path="dataskills2.html"><a href="dataskills2.html#xtabs"><i class="fa fa-check"></i><b>3.1.2</b> Tables of counts</a></li>
 <li class="chapter" data-level="3.1.3" data-path="dataskills2.html"><a href="dataskills2.html#summaryvars"><i class="fa fa-check"></i><b>3.1.3</b> Adding summary variables to dataframes</a></li>
 <li class="chapter" data-level="3.1.4" data-path="dataskills2.html"><a href="dataskills2.html#reorder"><i class="fa fa-check"></i><b>3.1.4</b> Reordering factor levels based on a summary variable</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>3.2</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>3.2</b> Combining dataframes</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="dataskills2.html"><a href="dataskills2.html#merge"><i class="fa fa-check"></i><b>3.2.1</b> Merging dataframes</a></li>
 <li class="chapter" data-level="3.2.2" data-path="dataskills2.html"><a href="dataskills2.html#dplyrjoin"><i class="fa fa-check"></i><b>3.2.2</b> Using join from <code>dplyr</code></a></li>
 <li class="chapter" data-level="3.2.3" data-path="dataskills2.html"><a href="dataskills2.html#rbind"><i class="fa fa-check"></i><b>3.2.3</b> Row-binding dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>3.3</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>3.3</b> Reshaping data</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="dataskills2.html"><a href="dataskills2.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.3.1</b> From wide to long</a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataskills2.html"><a href="dataskills2.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.3.2</b> From long to wide</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.4</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.4</b> More complex <code>dplyr</code> examples</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="dataskills2.html"><a href="dataskills2.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.4.1</b> Tree growth data: filter and multiple groupings</a></li>
 <li class="chapter" data-level="3.4.2" data-path="dataskills2.html"><a href="dataskills2.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.4.2</b> Crude oil production: find top exporters</a></li>
 <li class="chapter" data-level="3.4.3" data-path="dataskills2.html"><a href="dataskills2.html#weightlossdplyr"><i class="fa fa-check"></i><b>3.4.3</b> Weight loss data: make an irregular timeseries regular</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a><ul>
+<li class="chapter" data-level="3.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-the-cereal-data"><i class="fa fa-check"></i><b>3.5.1</b> Summarizing the cereal data</a></li>
 <li class="chapter" data-level="3.5.2" data-path="dataskills2.html"><a href="dataskills2.html#words-and-the-weather"><i class="fa fa-check"></i><b>3.5.2</b> Words and the weather</a></li>
 <li class="chapter" data-level="3.5.3" data-path="dataskills2.html"><a href="dataskills2.html#merging-data"><i class="fa fa-check"></i><b>3.5.3</b> Merging data</a></li>
@@ -259,13 +280,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.5" data-path="dataskills2.html"><a href="dataskills2.html#ordered-boxplot"><i class="fa fa-check"></i><b>3.5.5</b> Ordered boxplot</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>4</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="4" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>4</b> Functions, lists and loops</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="programming.html"><a href="programming.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>4.2</b> Writing functions</a><ul>
+<li class="chapter" data-level="4.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>4.2</b> Writing functions</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="programming.html"><a href="programming.html#returning-results"><i class="fa fa-check"></i><b>4.2.1</b> Returning results</a></li>
 <li class="chapter" data-level="4.2.2" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>4.2.2</b> Functions without arguments</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>4.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="4.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>4.3</b> Working with lists</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>4.3.1</b> Indexing lists</a></li>
 <li class="chapter" data-level="4.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>4.3.2</b> Converting lists to dataframes or vectors</a></li>
 <li class="chapter" data-level="4.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>4.3.3</b> Combining lists</a></li>
@@ -273,17 +297,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>4.3.5</b> Creating lists from dataframes</a></li>
 <li class="chapter" data-level="4.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>4.3.6</b> Applying functions to lists</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>4.4</b> Loops</a><ul>
+<li class="chapter" data-level="4.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>4.4</b> Loops</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="programming.html"><a href="programming.html#better-indexing"><i class="fa fa-check"></i><b>4.4.1</b> Better indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="programming.html"><a href="programming.html#functionsadvanced"><i class="fa fa-check"></i><b>4.5</b> Functions : advanced concepts</a><ul>
+<li class="chapter" data-level="4.5" data-path="programming.html"><a href="programming.html#functionsadvanced"><i class="fa fa-check"></i><b>4.5</b> Functions : advanced concepts</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="programming.html"><a href="programming.html#why-should-i-write-more-functions"><i class="fa fa-check"></i><b>4.5.1</b> Why should I write more functions?</a></li>
 <li class="chapter" data-level="4.5.2" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>4.5.2</b> Wrapper functions</a></li>
 <li class="chapter" data-level="4.5.3" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>4.5.3</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
 <li class="chapter" data-level="4.5.4" data-path="programming.html"><a href="programming.html#functions-that-take-vectors-as-input"><i class="fa fa-check"></i><b>4.5.4</b> Functions that take vectors as input</a></li>
 <li class="chapter" data-level="4.5.5" data-path="programming.html"><a href="programming.html#if-then-else-switch"><i class="fa fa-check"></i><b>4.5.5</b> If, then, else … switch</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="programming.html"><a href="programming.html#defensive"><i class="fa fa-check"></i><b>4.6</b> Robust functions: defensive programming</a><ul>
+<li class="chapter" data-level="4.6" data-path="programming.html"><a href="programming.html#defensive"><i class="fa fa-check"></i><b>4.6</b> Robust functions: defensive programming</a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="programming.html"><a href="programming.html#argument-matching"><i class="fa fa-check"></i><b>4.6.1</b> Argument matching</a></li>
 <li class="chapter" data-level="4.6.2" data-path="programming.html"><a href="programming.html#argument-checking"><i class="fa fa-check"></i><b>4.6.2</b> Argument checking</a></li>
 <li class="chapter" data-level="4.6.3" data-path="programming.html"><a href="programming.html#sending-warnings-errors-messages"><i class="fa fa-check"></i><b>4.6.3</b> Sending warnings, errors, messages</a></li>
@@ -291,7 +318,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
 <li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#dbiwrappers"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
+<li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>4.7.1</b> Writing functions</a></li>
 <li class="chapter" data-level="4.7.2" data-path="programming.html"><a href="programming.html#working-with-lists"><i class="fa fa-check"></i><b>4.7.2</b> Working with lists</a></li>
 <li class="chapter" data-level="4.7.3" data-path="programming.html"><a href="programming.html#functions-for-histograms"><i class="fa fa-check"></i><b>4.7.3</b> Functions for histograms</a></li>
@@ -299,64 +327,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.5" data-path="programming.html"><a href="programming.html#monthly-weather-plots"><i class="fa fa-check"></i><b>4.7.5</b> Monthly weather plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>5</b> R on the web</a><ul>
+<li class="chapter" data-level="5" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>5</b> R on the web</a>
+<ul>
 <li class="chapter" data-level="5.1" data-path="webservices.html"><a href="webservices.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>5.2</b> Reading data from remote databases</a><ul>
+<li class="chapter" data-level="5.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>5.2</b> Reading data from remote databases</a>
+<ul>
 <li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#dbi"><i class="fa fa-check"></i><b>5.2.1</b> Accessing databases with the DBI package</a></li>
 <li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.2</b> NoSQL</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>5.3</b> Accessing an API</a></li>
 <li class="chapter" data-level="5.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>5.4</b> Deploying an API with <code>plumber</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>6</b> Version control with git</a><ul>
+<li class="chapter" data-level="6" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>6</b> Version control with git</a>
+<ul>
 <li class="chapter" data-level="6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>6.1</b> Should I learn version control?</a></li>
-<li class="chapter" data-level="6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>6.2</b> Basics of git</a><ul>
+<li class="chapter" data-level="6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>6.2</b> Basics of git</a>
+<ul>
 <li class="chapter" data-level="6.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>6.2.1</b> Basic principles</a></li>
 <li class="chapter" data-level="6.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>6.2.2</b> Installing git</a></li>
 <li class="chapter" data-level="6.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>6.2.3</b> Using git in Rstudio</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>6.3</b> Local git repositories</a><ul>
+<li class="chapter" data-level="6.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>6.3</b> Local git repositories</a>
+<ul>
 <li class="chapter" data-level="6.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>6.3.1</b> A first session with version control in Rstudio</a></li>
 <li class="chapter" data-level="6.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>6.3.2</b> Deleting files and sensitive information</a></li>
 <li class="chapter" data-level="6.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>6.3.3</b> Reverting changes</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>6.4</b> Remote git repositories</a><ul>
+<li class="chapter" data-level="6.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>6.4</b> Remote git repositories</a>
+<ul>
 <li class="chapter" data-level="6.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>6.4.1</b> Making a remote repository</a></li>
 <li class="chapter" data-level="6.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>6.4.2</b> Workflow</a></li>
 <li class="chapter" data-level="6.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>6.4.3</b> A session with a remote repository</a></li>
 <li class="chapter" data-level="6.4.4" data-path="versioncontrol.html"><a href="versioncontrol.html#conflicts-when-collaborating"><i class="fa fa-check"></i><b>6.4.4</b> Conflicts when collaborating</a></li>
 </ul></li>
 <li class="chapter" data-level="6.5" data-path="versioncontrol.html"><a href="versioncontrol.html#gitignore"><i class="fa fa-check"></i><b>6.5</b> Ignoring files</a></li>
-<li class="chapter" data-level="6.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>6.6</b> Using the command line</a><ul>
+<li class="chapter" data-level="6.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>6.6</b> Using the command line</a>
+<ul>
 <li class="chapter" data-level="6.6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>6.6.1</b> Basic commands</a></li>
 <li class="chapter" data-level="6.6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>6.6.2</b> Useful tasks</a></li>
 </ul></li>
 <li class="chapter" data-level="6.7" data-path="versioncontrol.html"><a href="versioncontrol.html#branches"><i class="fa fa-check"></i><b>6.7</b> Branches</a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>7</b> Project management and workflow</a><ul>
+<li class="chapter" data-level="7" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>7</b> Project management and workflow</a>
+<ul>
 <li class="chapter" data-level="7.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>7.1</b> Tips on organizing your code</a></li>
 <li class="chapter" data-level="7.2" data-path="projectman.html"><a href="projectman.html#rstudioprojects"><i class="fa fa-check"></i><b>7.2</b> Set up a project in Rstudio</a></li>
-<li class="chapter" data-level="7.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>7.3</b> Directory structure</a><ul>
+<li class="chapter" data-level="7.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>7.3</b> Directory structure</a>
+<ul>
 <li class="chapter" data-level="7.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>7.3.1</b> <code>rawdata</code></a></li>
 <li class="chapter" data-level="7.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>7.3.2</b> <code>Rfunctions</code></a></li>
 <li class="chapter" data-level="7.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>7.3.3</b> <code>output</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>7.4</b> The R scripts</a><ul>
+<li class="chapter" data-level="7.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>7.4</b> The R scripts</a>
+<ul>
 <li class="chapter" data-level="7.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>7.4.1</b> <code>facesoil_analysis.R</code></a></li>
 <li class="chapter" data-level="7.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>7.4.2</b> <code>facesoil_figures.R</code></a></li>
 <li class="chapter" data-level="7.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>7.4.3</b> <code>facesoil_load</code></a></li>
 <li class="chapter" data-level="7.4.4" data-path="projectman.html"><a href="projectman.html#load_packages.r"><i class="fa fa-check"></i><b>7.4.4</b> <code>load_packages.R</code></a></li>
 <li class="chapter" data-level="7.4.5" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>7.4.5</b> <code>facesoil_readdata.R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>7.5</b> Archiving the output</a><ul>
+<li class="chapter" data-level="7.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>7.5</b> Archiving the output</a>
+<ul>
 <li class="chapter" data-level="7.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>7.5.1</b> Adding a Date stamp to output files</a></li>
 </ul></li>
-<li class="chapter" data-level="7.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>7.6</b> A logical structure for your scripts</a><ul>
+<li class="chapter" data-level="7.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>7.6</b> A logical structure for your scripts</a>
+<ul>
 <li class="chapter" data-level="7.6.1" data-path="projectman.html"><a href="projectman.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>7.6.1</b> Write functions, not long scripts</a></li>
 <li class="chapter" data-level="7.6.2" data-path="projectman.html"><a href="projectman.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>7.6.2</b> Divide your script into functional blocks</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>8</b> Mastering package dependencies</a><ul>
+<li class="chapter" data-level="8" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>8</b> Mastering package dependencies</a>
+<ul>
 <li class="chapter" data-level="8.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>8.1</b> What version?</a></li>
 <li class="chapter" data-level="8.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>8.2</b> All packages: loaded or installed</a></li>
 <li class="chapter" data-level="8.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>8.3</b> Avoiding conflicts</a></li>
@@ -384,9 +425,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="webservices" class="section level1">
+<div id="webservices" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> R on the web</h1>
-<div id="introduction-2" class="section level2">
+<div id="introduction-2" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Introduction</h2>
 <p>This short chapter will show how to interact with, and deploy web services from R. An API (‘Application Programming Interface’) is a way to access data or services on a server, for example to download or upload data. The most common architecture for APIs is known as RESTful Web Services (or ‘REST API’ for short). We will use the <code>httr</code> package to download data from REST APIs.</p>
 <p>We start with downloading data from, and querying remotely stored databases, and include two working examples: a database (updated every 15min) in a MongoDB database, and a single table stored in a PostgreSQL database.</p>
@@ -399,122 +440,120 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><code>purrr</code> (for <code>flatten_dfr</code>, though the package offers much more).</li>
 </ul>
 </div>
-<div id="reading-data-from-remote-databases" class="section level2">
+<div id="reading-data-from-remote-databases" class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> Reading data from remote databases</h2>
-<div id="dbi" class="section level3">
+<div id="dbi" class="section level3" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Accessing databases with the DBI package</h3>
 <p>Here, we briefly show how to interact with SQL databases. There are many R packages available, partly because there are many implementations of SQL databases (including postgres, which we show here). A unified interface is provided by the <code>DBI</code> package (<a href="https://db.rstudio.com/dbi/">link to documentation</a>), which allows us to use nearly the same code for very different databases.</p>
 <p>Here, we only show how to read rectangular data with the <code>DBI</code> and <code>dbplyr</code> packages.</p>
 <p>With <code>dbConnect</code>, we setup a connection to the remotely available database (which does not download data yet). Using the connection we can list the tables available, download a table, and many other things.</p>
-<div class="sourceCode" id="cb708"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb708-1"><a href="webservices.html#cb708-1"></a><span class="co"># General database interface</span></span>
-<span id="cb708-2"><a href="webservices.html#cb708-2"></a><span class="kw">library</span>(DBI)</span>
-<span id="cb708-3"><a href="webservices.html#cb708-3"></a></span>
-<span id="cb708-4"><a href="webservices.html#cb708-4"></a><span class="co"># Drivers for postgres.</span></span>
-<span id="cb708-5"><a href="webservices.html#cb708-5"></a><span class="kw">library</span>(RPostgreSQL)</span>
-<span id="cb708-6"><a href="webservices.html#cb708-6"></a></span>
-<span id="cb708-7"><a href="webservices.html#cb708-7"></a><span class="co"># For generating SQL queries.</span></span>
-<span id="cb708-8"><a href="webservices.html#cb708-8"></a><span class="kw">library</span>(dplyr)</span>
-<span id="cb708-9"><a href="webservices.html#cb708-9"></a><span class="kw">library</span>(dbplyr)</span>
-<span id="cb708-10"><a href="webservices.html#cb708-10"></a></span>
-<span id="cb708-11"><a href="webservices.html#cb708-11"></a><span class="co"># Set up connection.</span></span>
-<span id="cb708-12"><a href="webservices.html#cb708-12"></a><span class="co"># !! This is a working connection (6/5/2019)</span></span>
-<span id="cb708-13"><a href="webservices.html#cb708-13"></a>con &lt;-<span class="st"> </span><span class="kw">dbConnect</span>(<span class="dt">drv =</span> <span class="kw">PostgreSQL</span>(),</span>
-<span id="cb708-14"><a href="webservices.html#cb708-14"></a>                 <span class="dt">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,</span>
-<span id="cb708-15"><a href="webservices.html#cb708-15"></a>                 <span class="dt">password =</span> <span class="st">&quot;RsIxTmV9a95Gbb6Vo7IgG9wZNiv4Hq5L&quot;</span>,</span>
-<span id="cb708-16"><a href="webservices.html#cb708-16"></a>                 <span class="dt">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,</span>
-<span id="cb708-17"><a href="webservices.html#cb708-17"></a>                 <span class="dt">port =</span> <span class="dv">5432</span>,</span>
-<span id="cb708-18"><a href="webservices.html#cb708-18"></a>                 <span class="dt">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)</span>
-<span id="cb708-19"><a href="webservices.html#cb708-19"></a></span>
-<span id="cb708-20"><a href="webservices.html#cb708-20"></a><span class="co"># List available tables (only one in this case)</span></span>
-<span id="cb708-21"><a href="webservices.html#cb708-21"></a><span class="kw">dbListTables</span>(con)</span>
-<span id="cb708-22"><a href="webservices.html#cb708-22"></a></span>
-<span id="cb708-23"><a href="webservices.html#cb708-23"></a><span class="co"># Makes a direct connection to the table, but does</span></span>
-<span id="cb708-24"><a href="webservices.html#cb708-24"></a><span class="co"># not download anything yet:</span></span>
-<span id="cb708-25"><a href="webservices.html#cb708-25"></a>cars &lt;-<span class="st"> </span><span class="kw">tbl</span>(con, <span class="st">&quot;automobiles&quot;</span>)</span>
-<span id="cb708-26"><a href="webservices.html#cb708-26"></a></span>
-<span id="cb708-27"><a href="webservices.html#cb708-27"></a><span class="co"># We can download the entire table with collect,</span></span>
-<span id="cb708-28"><a href="webservices.html#cb708-28"></a><span class="co"># but note that in practice we rarely do this as databases may be extremely large.</span></span>
-<span id="cb708-29"><a href="webservices.html#cb708-29"></a>cars_data &lt;-<span class="st"> </span><span class="kw">collect</span>(cars)</span>
-<span id="cb708-30"><a href="webservices.html#cb708-30"></a>  </span>
-<span id="cb708-31"><a href="webservices.html#cb708-31"></a><span class="co"># We can now make queries using dplyr syntax, to collect only subsets of data.</span></span>
-<span id="cb708-32"><a href="webservices.html#cb708-32"></a><span class="co"># for example, find all cars with weight over 2000kg.</span></span>
-<span id="cb708-33"><a href="webservices.html#cb708-33"></a>heavycars_query &lt;-<span class="st"> </span>cars <span class="op">%&gt;%</span></span>
-<span id="cb708-34"><a href="webservices.html#cb708-34"></a><span class="st">  </span><span class="kw">filter</span>(weight <span class="op">&gt;</span><span class="st"> </span><span class="dv">2000</span>)</span>
-<span id="cb708-35"><a href="webservices.html#cb708-35"></a></span>
-<span id="cb708-36"><a href="webservices.html#cb708-36"></a><span class="co"># What does the query look like in SQL?</span></span>
-<span id="cb708-37"><a href="webservices.html#cb708-37"></a><span class="kw">show_query</span>(heavycars_query)</span>
-<span id="cb708-38"><a href="webservices.html#cb708-38"></a></span>
-<span id="cb708-39"><a href="webservices.html#cb708-39"></a><span class="co"># Now send the query to the database, collect the data.</span></span>
-<span id="cb708-40"><a href="webservices.html#cb708-40"></a>heavycars &lt;-<span class="st"> </span><span class="kw">collect</span>(heavycars_query)</span>
-<span id="cb708-41"><a href="webservices.html#cb708-41"></a></span>
-<span id="cb708-42"><a href="webservices.html#cb708-42"></a></span>
-<span id="cb708-43"><a href="webservices.html#cb708-43"></a><span class="co"># Many other functions from dplyr or other can be used on databases,</span></span>
-<span id="cb708-44"><a href="webservices.html#cb708-44"></a><span class="co"># but not everything! Some trial and error may be necessary.</span></span>
-<span id="cb708-45"><a href="webservices.html#cb708-45"></a><span class="co"># Find all cars that have &#39;buick&#39; in the name, using grepl:</span></span>
-<span id="cb708-46"><a href="webservices.html#cb708-46"></a>buick_query &lt;-<span class="st"> </span><span class="kw">filter</span>(cars,</span>
-<span id="cb708-47"><a href="webservices.html#cb708-47"></a>                <span class="kw">grepl</span>(<span class="st">&quot;buick&quot;</span>, car_name)</span>
-<span id="cb708-48"><a href="webservices.html#cb708-48"></a>               )</span></code></pre></div>
+<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="webservices.html#cb712-1" aria-hidden="true" tabindex="-1"></a><span class="co"># General database interface</span></span>
+<span id="cb712-2"><a href="webservices.html#cb712-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DBI)</span>
+<span id="cb712-3"><a href="webservices.html#cb712-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-4"><a href="webservices.html#cb712-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Drivers for postgres.</span></span>
+<span id="cb712-5"><a href="webservices.html#cb712-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(RPostgreSQL)</span>
+<span id="cb712-6"><a href="webservices.html#cb712-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-7"><a href="webservices.html#cb712-7" aria-hidden="true" tabindex="-1"></a><span class="co"># For generating SQL queries.</span></span>
+<span id="cb712-8"><a href="webservices.html#cb712-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb712-9"><a href="webservices.html#cb712-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dbplyr)</span>
+<span id="cb712-10"><a href="webservices.html#cb712-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-11"><a href="webservices.html#cb712-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Set up connection.</span></span>
+<span id="cb712-12"><a href="webservices.html#cb712-12" aria-hidden="true" tabindex="-1"></a><span class="co"># !! This is a working connection (6/5/2019)</span></span>
+<span id="cb712-13"><a href="webservices.html#cb712-13" aria-hidden="true" tabindex="-1"></a>con <span class="ot">&lt;-</span> <span class="fu">dbConnect</span>(<span class="at">drv =</span> <span class="fu">PostgreSQL</span>(),</span>
+<span id="cb712-14"><a href="webservices.html#cb712-14" aria-hidden="true" tabindex="-1"></a>                 <span class="at">user =</span> <span class="st">&quot;mjvgsdzg&quot;</span>,</span>
+<span id="cb712-15"><a href="webservices.html#cb712-15" aria-hidden="true" tabindex="-1"></a>                 <span class="at">password =</span> <span class="st">&quot;RsIxTmV9a95Gbb6Vo7IgG9wZNiv4Hq5L&quot;</span>,</span>
+<span id="cb712-16"><a href="webservices.html#cb712-16" aria-hidden="true" tabindex="-1"></a>                 <span class="at">host =</span> <span class="st">&quot;balarama.db.elephantsql.com&quot;</span>,</span>
+<span id="cb712-17"><a href="webservices.html#cb712-17" aria-hidden="true" tabindex="-1"></a>                 <span class="at">port =</span> <span class="dv">5432</span>,</span>
+<span id="cb712-18"><a href="webservices.html#cb712-18" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dbname =</span> <span class="st">&quot;mjvgsdzg&quot;</span>)</span>
+<span id="cb712-19"><a href="webservices.html#cb712-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-20"><a href="webservices.html#cb712-20" aria-hidden="true" tabindex="-1"></a><span class="co"># List available tables (only one in this case)</span></span>
+<span id="cb712-21"><a href="webservices.html#cb712-21" aria-hidden="true" tabindex="-1"></a><span class="fu">dbListTables</span>(con)</span>
+<span id="cb712-22"><a href="webservices.html#cb712-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-23"><a href="webservices.html#cb712-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Makes a direct connection to the table, but does</span></span>
+<span id="cb712-24"><a href="webservices.html#cb712-24" aria-hidden="true" tabindex="-1"></a><span class="co"># not download anything yet:</span></span>
+<span id="cb712-25"><a href="webservices.html#cb712-25" aria-hidden="true" tabindex="-1"></a>cars <span class="ot">&lt;-</span> <span class="fu">tbl</span>(con, <span class="st">&quot;automobiles&quot;</span>)</span>
+<span id="cb712-26"><a href="webservices.html#cb712-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-27"><a href="webservices.html#cb712-27" aria-hidden="true" tabindex="-1"></a><span class="co"># We can download the entire table with collect,</span></span>
+<span id="cb712-28"><a href="webservices.html#cb712-28" aria-hidden="true" tabindex="-1"></a><span class="co"># but note that in practice we rarely do this as databases may be extremely large.</span></span>
+<span id="cb712-29"><a href="webservices.html#cb712-29" aria-hidden="true" tabindex="-1"></a>cars_data <span class="ot">&lt;-</span> <span class="fu">collect</span>(cars)</span>
+<span id="cb712-30"><a href="webservices.html#cb712-30" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb712-31"><a href="webservices.html#cb712-31" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now make queries using dplyr syntax, to collect only subsets of data.</span></span>
+<span id="cb712-32"><a href="webservices.html#cb712-32" aria-hidden="true" tabindex="-1"></a><span class="co"># for example, find all cars with weight over 2000kg.</span></span>
+<span id="cb712-33"><a href="webservices.html#cb712-33" aria-hidden="true" tabindex="-1"></a>heavycars_query <span class="ot">&lt;-</span> cars <span class="sc">%&gt;%</span></span>
+<span id="cb712-34"><a href="webservices.html#cb712-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(weight <span class="sc">&gt;</span> <span class="dv">2000</span>)</span>
+<span id="cb712-35"><a href="webservices.html#cb712-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-36"><a href="webservices.html#cb712-36" aria-hidden="true" tabindex="-1"></a><span class="co"># What does the query look like in SQL?</span></span>
+<span id="cb712-37"><a href="webservices.html#cb712-37" aria-hidden="true" tabindex="-1"></a><span class="fu">show_query</span>(heavycars_query)</span>
+<span id="cb712-38"><a href="webservices.html#cb712-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-39"><a href="webservices.html#cb712-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Now send the query to the database, collect the data.</span></span>
+<span id="cb712-40"><a href="webservices.html#cb712-40" aria-hidden="true" tabindex="-1"></a>heavycars <span class="ot">&lt;-</span> <span class="fu">collect</span>(heavycars_query)</span>
+<span id="cb712-41"><a href="webservices.html#cb712-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-42"><a href="webservices.html#cb712-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb712-43"><a href="webservices.html#cb712-43" aria-hidden="true" tabindex="-1"></a><span class="co"># Many other functions from dplyr or other can be used on databases,</span></span>
+<span id="cb712-44"><a href="webservices.html#cb712-44" aria-hidden="true" tabindex="-1"></a><span class="co"># but not everything! Some trial and error may be necessary.</span></span>
+<span id="cb712-45"><a href="webservices.html#cb712-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Find all cars that have &#39;buick&#39; in the name, using grepl:</span></span>
+<span id="cb712-46"><a href="webservices.html#cb712-46" aria-hidden="true" tabindex="-1"></a>buick_query <span class="ot">&lt;-</span> <span class="fu">filter</span>(cars,</span>
+<span id="cb712-47"><a href="webservices.html#cb712-47" aria-hidden="true" tabindex="-1"></a>                <span class="fu">grepl</span>(<span class="st">&quot;buick&quot;</span>, car_name)</span>
+<span id="cb712-48"><a href="webservices.html#cb712-48" aria-hidden="true" tabindex="-1"></a>               )</span></code></pre></div>
 
 <div class="rmdtry">
 Run both examples above - getting data from a (continuously updated_ MongoDB database, and a simple static PostreSQL database. Try applying some <code>dplyr</code> filters and summaries on the data.
 </div>
-
 </div>
-<div id="nosql" class="section level3">
+<div id="nosql" class="section level3" number="5.2.2">
 <h3><span class="header-section-number">5.2.2</span> NoSQL</h3>
 <p>In this example we show how to read data from MongoDB - a popular NoSQL database. With the <code>mongolite</code> package it is very straightforward to read data that can be transformed to a dataframe. Here, every item in the database is a piece of JSON, but of equal length and with the same names, so that each item can become a row in a dataframe.</p>
 <p>For a remotely stored MongoDB database, you first have to construct the URL, which includes a username and password. The URL looks like,</p>
 <pre><code>&quot;mongodb://username:password@hostingsite.com:portnr/databasename&quot;</code></pre>
 <p>The next example is a working example of a database stored on mlab.com, and grabs data using the <code>mongolite</code> package.</p>
 <p>The database contains data on number of cars parked on 13 car parks in Almere, the Netherlands. The data are updated every 15 minutes.</p>
-<div class="sourceCode" id="cb710"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb710-1"><a href="webservices.html#cb710-1"></a><span class="co"># A working URL (5/6/2019)</span></span>
-<span id="cb710-2"><a href="webservices.html#cb710-2"></a>parkingdata_url &lt;-<span class="st"> &quot;mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking&quot;</span></span>
-<span id="cb710-3"><a href="webservices.html#cb710-3"></a></span>
-<span id="cb710-4"><a href="webservices.html#cb710-4"></a><span class="co">#</span></span>
-<span id="cb710-5"><a href="webservices.html#cb710-5"></a><span class="kw">library</span>(mongolite)</span>
-<span id="cb710-6"><a href="webservices.html#cb710-6"></a></span>
-<span id="cb710-7"><a href="webservices.html#cb710-7"></a><span class="co"># Make a database connection. Here you don&#39;t download data yet, just</span></span>
-<span id="cb710-8"><a href="webservices.html#cb710-8"></a><span class="co"># set up a connection.</span></span>
-<span id="cb710-9"><a href="webservices.html#cb710-9"></a>db &lt;-<span class="st"> </span><span class="kw">mongo</span>(<span class="dt">collection =</span> <span class="st">&quot;almereparkingjson&quot;</span>,</span>
-<span id="cb710-10"><a href="webservices.html#cb710-10"></a>            <span class="dt">url =</span> parkingdata_url)</span>
-<span id="cb710-11"><a href="webservices.html#cb710-11"></a></span>
-<span id="cb710-12"><a href="webservices.html#cb710-12"></a><span class="co"># We can now download the last 1000 rows of the data.</span></span>
-<span id="cb710-13"><a href="webservices.html#cb710-13"></a>parkingdata &lt;-<span class="st"> </span>db<span class="op">$</span><span class="kw">find</span>(<span class="dt">limit =</span> <span class="dv">1000</span>, <span class="dt">sort =</span> <span class="st">&#39;{&quot;updated&quot;: -1}&#39;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="webservices.html#cb714-1" aria-hidden="true" tabindex="-1"></a><span class="co"># A working URL (5/6/2019)</span></span>
+<span id="cb714-2"><a href="webservices.html#cb714-2" aria-hidden="true" tabindex="-1"></a>parkingdata_url <span class="ot">&lt;-</span> <span class="st">&quot;mongodb://guest:123password123@ds229186.mlab.com:29186/almereparking&quot;</span></span>
+<span id="cb714-3"><a href="webservices.html#cb714-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb714-4"><a href="webservices.html#cb714-4" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb714-5"><a href="webservices.html#cb714-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mongolite)</span>
+<span id="cb714-6"><a href="webservices.html#cb714-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb714-7"><a href="webservices.html#cb714-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Make a database connection. Here you don&#39;t download data yet, just</span></span>
+<span id="cb714-8"><a href="webservices.html#cb714-8" aria-hidden="true" tabindex="-1"></a><span class="co"># set up a connection.</span></span>
+<span id="cb714-9"><a href="webservices.html#cb714-9" aria-hidden="true" tabindex="-1"></a>db <span class="ot">&lt;-</span> <span class="fu">mongo</span>(<span class="at">collection =</span> <span class="st">&quot;almereparkingjson&quot;</span>,</span>
+<span id="cb714-10"><a href="webservices.html#cb714-10" aria-hidden="true" tabindex="-1"></a>            <span class="at">url =</span> parkingdata_url)</span>
+<span id="cb714-11"><a href="webservices.html#cb714-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb714-12"><a href="webservices.html#cb714-12" aria-hidden="true" tabindex="-1"></a><span class="co"># We can now download the last 1000 rows of the data.</span></span>
+<span id="cb714-13"><a href="webservices.html#cb714-13" aria-hidden="true" tabindex="-1"></a>parkingdata <span class="ot">&lt;-</span> db<span class="sc">$</span><span class="fu">find</span>(<span class="at">limit =</span> <span class="dv">1000</span>, <span class="at">sort =</span> <span class="st">&#39;{&quot;updated&quot;: -1}&#39;</span>)</span></code></pre></div>
 <p>If you simply want to download all data, just do <code>db$find()</code>, it takes less than a minute.</p>
 
 <div class="rmdreading">
 <p>The above example shows how to make a query with the <code>mongolite</code> package, you can read <a href="https://jeroen.github.io/mongolite/query-data.html">more options in the documentation</a>.</p>
 </div>
-
 </div>
 </div>
-<div id="accessing-an-api" class="section level2">
+<div id="accessing-an-api" class="section level2" number="5.3">
 <h2><span class="header-section-number">5.3</span> Accessing an API</h2>
 <p>A REST API is simply presented as a URL, to which a specific service can be accessed, and even parameters passed (when necessary). A URL may simply look like:</p>
 <pre><code>https://someserver.com/getdata</code></pre>
 <p>or may be more complicated, with queries, authentication, and so on. Let’s look a simple example, using the <code>httr</code> package:</p>
-<div class="sourceCode" id="cb712"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb712-1"><a href="webservices.html#cb712-1"></a><span class="kw">library</span>(httr)</span>
-<span id="cb712-2"><a href="webservices.html#cb712-2"></a></span>
-<span id="cb712-3"><a href="webservices.html#cb712-3"></a><span class="co"># The first step is to reach out to the server, and get a response.</span></span>
-<span id="cb712-4"><a href="webservices.html#cb712-4"></a><span class="co"># Here, g is a complicated object that we do not inspect directly.</span></span>
-<span id="cb712-5"><a href="webservices.html#cb712-5"></a>g &lt;-<span class="st"> </span><span class="kw">GET</span>(<span class="st">&quot;https://opendata.cbs.nl/ODataApi/OData/37789ksz/TypedDataSet&quot;</span>)</span>
-<span id="cb712-6"><a href="webservices.html#cb712-6"></a></span>
-<span id="cb712-7"><a href="webservices.html#cb712-7"></a><span class="co"># Important: if the server could be reached, you have permission, </span></span>
-<span id="cb712-8"><a href="webservices.html#cb712-8"></a><span class="co"># and the service is available, you should see 200 as the response.</span></span>
-<span id="cb712-9"><a href="webservices.html#cb712-9"></a><span class="co"># Other HTML codes include 404 (service not found).</span></span>
-<span id="cb712-10"><a href="webservices.html#cb712-10"></a><span class="kw">status_code</span>(g)</span></code></pre></div>
+<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="webservices.html#cb716-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(httr)</span>
+<span id="cb716-2"><a href="webservices.html#cb716-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-3"><a href="webservices.html#cb716-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The first step is to reach out to the server, and get a response.</span></span>
+<span id="cb716-4"><a href="webservices.html#cb716-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Here, g is a complicated object that we do not inspect directly.</span></span>
+<span id="cb716-5"><a href="webservices.html#cb716-5" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">GET</span>(<span class="st">&quot;https://opendata.cbs.nl/ODataApi/OData/37789ksz/TypedDataSet&quot;</span>)</span>
+<span id="cb716-6"><a href="webservices.html#cb716-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb716-7"><a href="webservices.html#cb716-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Important: if the server could be reached, you have permission, </span></span>
+<span id="cb716-8"><a href="webservices.html#cb716-8" aria-hidden="true" tabindex="-1"></a><span class="co"># and the service is available, you should see 200 as the response.</span></span>
+<span id="cb716-9"><a href="webservices.html#cb716-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Other HTML codes include 404 (service not found).</span></span>
+<span id="cb716-10"><a href="webservices.html#cb716-10" aria-hidden="true" tabindex="-1"></a><span class="fu">status_code</span>(g)</span></code></pre></div>
 <pre><code>## [1] 200</code></pre>
-<div class="sourceCode" id="cb714"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb714-1"><a href="webservices.html#cb714-1"></a><span class="co"># We can read the actual data with the `content` function:</span></span>
-<span id="cb714-2"><a href="webservices.html#cb714-2"></a>dat &lt;-<span class="st"> </span><span class="kw">content</span>(g)</span>
-<span id="cb714-3"><a href="webservices.html#cb714-3"></a></span>
-<span id="cb714-4"><a href="webservices.html#cb714-4"></a><span class="co"># In this case, dat has two components - the interesting one is &#39;value&#39;</span></span>
-<span id="cb714-5"><a href="webservices.html#cb714-5"></a>uitkering_data_list &lt;-<span class="st"> </span>dat<span class="op">$</span>value</span></code></pre></div>
+<div class="sourceCode" id="cb718"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb718-1"><a href="webservices.html#cb718-1" aria-hidden="true" tabindex="-1"></a><span class="co"># We can read the actual data with the `content` function:</span></span>
+<span id="cb718-2"><a href="webservices.html#cb718-2" aria-hidden="true" tabindex="-1"></a>dat <span class="ot">&lt;-</span> <span class="fu">content</span>(g)</span>
+<span id="cb718-3"><a href="webservices.html#cb718-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb718-4"><a href="webservices.html#cb718-4" aria-hidden="true" tabindex="-1"></a><span class="co"># In this case, dat has two components - the interesting one is &#39;value&#39;</span></span>
+<span id="cb718-5"><a href="webservices.html#cb718-5" aria-hidden="true" tabindex="-1"></a>uitkering_data_list <span class="ot">&lt;-</span> dat<span class="sc">$</span>value</span></code></pre></div>
 <p>Unfortunately the result is a nested list, with NULL elements in some. To make this into a dataframe, we want to flatten each list, each of these will become a row in our dataframe, and bind all the rows together. This is such a common problem that I will show a robust solution:</p>
-<div class="sourceCode" id="cb715"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb715-1"><a href="webservices.html#cb715-1"></a><span class="kw">library</span>(dplyr) <span class="co"># bind_rows</span></span>
-<span id="cb715-2"><a href="webservices.html#cb715-2"></a><span class="kw">library</span>(purrr) <span class="co"># flatten_dfr</span></span>
-<span id="cb715-3"><a href="webservices.html#cb715-3"></a></span>
-<span id="cb715-4"><a href="webservices.html#cb715-4"></a>uitkering_data &lt;-<span class="st"> </span><span class="kw">lapply</span>(uitkering_data_list, flatten_dfr) <span class="op">%&gt;%</span></span>
-<span id="cb715-5"><a href="webservices.html#cb715-5"></a><span class="st">  </span>bind_rows</span></code></pre></div>
+<div class="sourceCode" id="cb719"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb719-1"><a href="webservices.html#cb719-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr) <span class="co"># bind_rows</span></span>
+<span id="cb719-2"><a href="webservices.html#cb719-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(purrr) <span class="co"># flatten_dfr</span></span>
+<span id="cb719-3"><a href="webservices.html#cb719-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb719-4"><a href="webservices.html#cb719-4" aria-hidden="true" tabindex="-1"></a>uitkering_data <span class="ot">&lt;-</span> <span class="fu">lapply</span>(uitkering_data_list, flatten_dfr) <span class="sc">%&gt;%</span></span>
+<span id="cb719-5"><a href="webservices.html#cb719-5" aria-hidden="true" tabindex="-1"></a>  bind_rows</span></code></pre></div>
 <p>We now have data from the Dutch government on social benefits, a dataset that gets updated frequently. The use of the API directly rather than downloading the data manually is clearly a much better option.</p>
 <p>As we saw in this example, the challenge is often not so much getting <em>something</em> from the web service, but often we have substantial work to shape it into a useful object in R (usually: a dataframe).</p>
 
@@ -522,45 +561,44 @@ Run both examples above - getting data from a (continuously updated_ MongoDB dat
 <p>Try downloading data from this URL (containing Dutch demography data since 1898).</p>
 <a href="https://opendata.cbs.nl/ODataApi/odata/37556/TypedDataSet" class="uri">https://opendata.cbs.nl/ODataApi/odata/37556/TypedDataSet</a>
 </div>
-
 </div>
-<div id="deploying-an-api-with-plumber" class="section level2">
+<div id="deploying-an-api-with-plumber" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> Deploying an API with <code>plumber</code></h2>
 <p>With <code>plumber</code> we can quickly set up an API, that we can use from within any other programming language, web site, or program. Normally you would deploy the API on a server running R, so that the R service can be used from anywhere. Here, to keep things simple, we deploy the API on your own machine (‘locally’), but it will work similarly to when it runs on a remote server.</p>
 <p>The first step is to create a standalone script (with extension .R) that defines as many <em>functions</em> as you like. Each function can take arguments. Take the following example, paste it in a script, call it <code>plumber.R</code>.</p>
-<div class="sourceCode" id="cb716"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb716-1"><a href="webservices.html#cb716-1"></a><span class="co"># plumber.R</span></span>
-<span id="cb716-2"><a href="webservices.html#cb716-2"></a></span>
-<span id="cb716-3"><a href="webservices.html#cb716-3"></a><span class="co">#* Echo back the input, in uppercase</span></span>
-<span id="cb716-4"><a href="webservices.html#cb716-4"></a><span class="co">#* @param msg The message to echo</span></span>
-<span id="cb716-5"><a href="webservices.html#cb716-5"></a><span class="co">#* @get /echo</span></span>
-<span id="cb716-6"><a href="webservices.html#cb716-6"></a><span class="cf">function</span>(<span class="dt">msg=</span><span class="st">&quot;&quot;</span>){</span>
-<span id="cb716-7"><a href="webservices.html#cb716-7"></a>  <span class="kw">list</span>(<span class="dt">msg =</span> <span class="kw">paste0</span>(<span class="st">&quot;The message is: &#39;&quot;</span>, <span class="kw">toupper</span>(msg), <span class="st">&quot;&#39;&quot;</span>))</span>
-<span id="cb716-8"><a href="webservices.html#cb716-8"></a>}</span>
-<span id="cb716-9"><a href="webservices.html#cb716-9"></a></span>
-<span id="cb716-10"><a href="webservices.html#cb716-10"></a><span class="co">#* Plot a histogram</span></span>
-<span id="cb716-11"><a href="webservices.html#cb716-11"></a><span class="co">#* @png</span></span>
-<span id="cb716-12"><a href="webservices.html#cb716-12"></a><span class="co">#* @get /plot</span></span>
-<span id="cb716-13"><a href="webservices.html#cb716-13"></a><span class="cf">function</span>(){</span>
-<span id="cb716-14"><a href="webservices.html#cb716-14"></a>  rand &lt;-<span class="st"> </span><span class="kw">rnorm</span>(<span class="dv">100</span>)</span>
-<span id="cb716-15"><a href="webservices.html#cb716-15"></a>  <span class="kw">hist</span>(rand)</span>
-<span id="cb716-16"><a href="webservices.html#cb716-16"></a>}</span>
-<span id="cb716-17"><a href="webservices.html#cb716-17"></a></span>
-<span id="cb716-18"><a href="webservices.html#cb716-18"></a><span class="co">#* Return the sum of two numbers</span></span>
-<span id="cb716-19"><a href="webservices.html#cb716-19"></a><span class="co">#* @param a The first number to add</span></span>
-<span id="cb716-20"><a href="webservices.html#cb716-20"></a><span class="co">#* @param b The second number to add</span></span>
-<span id="cb716-21"><a href="webservices.html#cb716-21"></a><span class="co">#* @get /sum</span></span>
-<span id="cb716-22"><a href="webservices.html#cb716-22"></a><span class="cf">function</span>(a, b){</span>
-<span id="cb716-23"><a href="webservices.html#cb716-23"></a>  <span class="kw">as.numeric</span>(a) <span class="op">+</span><span class="st"> </span><span class="kw">as.numeric</span>(b)</span>
-<span id="cb716-24"><a href="webservices.html#cb716-24"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb720"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb720-1"><a href="webservices.html#cb720-1" aria-hidden="true" tabindex="-1"></a><span class="co"># plumber.R</span></span>
+<span id="cb720-2"><a href="webservices.html#cb720-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-3"><a href="webservices.html#cb720-3" aria-hidden="true" tabindex="-1"></a><span class="co">#* Echo back the input, in uppercase</span></span>
+<span id="cb720-4"><a href="webservices.html#cb720-4" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param msg The message to echo</span></span>
+<span id="cb720-5"><a href="webservices.html#cb720-5" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /echo</span></span>
+<span id="cb720-6"><a href="webservices.html#cb720-6" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(<span class="at">msg=</span><span class="st">&quot;&quot;</span>){</span>
+<span id="cb720-7"><a href="webservices.html#cb720-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">msg =</span> <span class="fu">paste0</span>(<span class="st">&quot;The message is: &#39;&quot;</span>, <span class="fu">toupper</span>(msg), <span class="st">&quot;&#39;&quot;</span>))</span>
+<span id="cb720-8"><a href="webservices.html#cb720-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb720-9"><a href="webservices.html#cb720-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-10"><a href="webservices.html#cb720-10" aria-hidden="true" tabindex="-1"></a><span class="co">#* Plot a histogram</span></span>
+<span id="cb720-11"><a href="webservices.html#cb720-11" aria-hidden="true" tabindex="-1"></a><span class="co">#* @png</span></span>
+<span id="cb720-12"><a href="webservices.html#cb720-12" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /plot</span></span>
+<span id="cb720-13"><a href="webservices.html#cb720-13" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(){</span>
+<span id="cb720-14"><a href="webservices.html#cb720-14" aria-hidden="true" tabindex="-1"></a>  rand <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>)</span>
+<span id="cb720-15"><a href="webservices.html#cb720-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">hist</span>(rand)</span>
+<span id="cb720-16"><a href="webservices.html#cb720-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb720-17"><a href="webservices.html#cb720-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb720-18"><a href="webservices.html#cb720-18" aria-hidden="true" tabindex="-1"></a><span class="co">#* Return the sum of two numbers</span></span>
+<span id="cb720-19"><a href="webservices.html#cb720-19" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param a The first number to add</span></span>
+<span id="cb720-20"><a href="webservices.html#cb720-20" aria-hidden="true" tabindex="-1"></a><span class="co">#* @param b The second number to add</span></span>
+<span id="cb720-21"><a href="webservices.html#cb720-21" aria-hidden="true" tabindex="-1"></a><span class="co">#* @get /sum</span></span>
+<span id="cb720-22"><a href="webservices.html#cb720-22" aria-hidden="true" tabindex="-1"></a><span class="cf">function</span>(a, b){</span>
+<span id="cb720-23"><a href="webservices.html#cb720-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as.numeric</span>(a) <span class="sc">+</span> <span class="fu">as.numeric</span>(b)</span>
+<span id="cb720-24"><a href="webservices.html#cb720-24" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>The first function sends back an uppercase version of a message, the second function plots a histogram, and the third function adds two numbers. Obviously, you can write much, much more complicated R functions that can be subsequently called using the API. These functions are chosen because they return different things: text, a plot, and a number. Let’s see how they work in practice.</p>
 <p>With our API ‘endpoints’ (the three functions) defined, we can start the API via:</p>
-<div class="sourceCode" id="cb717"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb717-1"><a href="webservices.html#cb717-1"></a><span class="kw">library</span>(plumber)</span>
-<span id="cb717-2"><a href="webservices.html#cb717-2"></a></span>
-<span id="cb717-3"><a href="webservices.html#cb717-3"></a><span class="co"># There are no other arguments besides a directory to find the file.</span></span>
-<span id="cb717-4"><a href="webservices.html#cb717-4"></a>p &lt;-<span class="st"> </span><span class="kw">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
-<span id="cb717-5"><a href="webservices.html#cb717-5"></a></span>
-<span id="cb717-6"><a href="webservices.html#cb717-6"></a><span class="co"># Deploy the API.</span></span>
-<span id="cb717-7"><a href="webservices.html#cb717-7"></a>p<span class="op">$</span><span class="kw">run</span>(<span class="dt">port=</span><span class="dv">8001</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb721"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb721-1"><a href="webservices.html#cb721-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plumber)</span>
+<span id="cb721-2"><a href="webservices.html#cb721-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb721-3"><a href="webservices.html#cb721-3" aria-hidden="true" tabindex="-1"></a><span class="co"># There are no other arguments besides a directory to find the file.</span></span>
+<span id="cb721-4"><a href="webservices.html#cb721-4" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">plumb</span>(<span class="st">&quot;plumber.R&quot;</span>)</span>
+<span id="cb721-5"><a href="webservices.html#cb721-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb721-6"><a href="webservices.html#cb721-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Deploy the API.</span></span>
+<span id="cb721-7"><a href="webservices.html#cb721-7" aria-hidden="true" tabindex="-1"></a>p<span class="sc">$</span><span class="fu">run</span>(<span class="at">port=</span><span class="dv">8001</span>)</span></code></pre></div>
 <p>Your R process will now be busy (until you close it), with a message like:</p>
 <pre><code>Starting server to listen on port 8001</code></pre>
 <p>This will also open up a <code>swagger</code> window, which is a simple interface to our own Web service. Here you can ‘Try out’ the various end points.</p>
@@ -573,12 +611,10 @@ Run both examples above - getting data from a (continuously updated_ MongoDB dat
 Now go back to the script above, and notice how each endpoint is defined (<code>echo</code>, <code>plot</code>, and <code>sum</code>)
 </div>
 
-
 <div class="rmdreading">
 <p>The above example comes straight from the <code>plumber</code> documentation, which you can read here: <a href="https://www.rplumber.io/" class="uri">https://www.rplumber.io/</a></p>
 More complicated examples are available as well.
 </div>
-
 <!-- #### Dynamic routes -->
 <!-- I am not going to repeat any of the introductory stuff of [the excellent plumber documentation](), just highlight some key points. We first make a file with the API definitions, using some special formatting. Suppose the file 'item_predictor_api_definition.R' contains the following: -->
 <!-- ```{r} -->

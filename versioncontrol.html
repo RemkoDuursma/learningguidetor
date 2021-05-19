@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 6 Version control with git | A Learning Guide to R: data, analytical, and programming skills.</title>
+  <title>Chapter 5 Version control with git | A Learning Guide to R: data, analytical, and programming skills.</title>
   <meta name="description" content="This book teaches introductory to intermediate skills in R." />
-  <meta name="generator" content="bookdown 0.17 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 6 Version control with git | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta property="og:title" content="Chapter 5 Version control with git | A Learning Guide to R: data, analytical, and programming skills." />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 6 Version control with git | A Learning Guide to R: data, analytical, and programming skills." />
+  <meta name="twitter:title" content="Chapter 5 Version control with git | A Learning Guide to R: data, analytical, and programming skills." />
   
   <meta name="twitter:description" content="This book teaches introductory to intermediate skills in R." />
   
@@ -24,15 +24,16 @@
 <meta name="author" content="Remko Duursma" />
 
 
-<meta name="date" content="2020-11-09" />
+<meta name="date" content="2021-05-19" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="webservices.html"/>
+<link rel="prev" href="programming.html"/>
 <link rel="next" href="projectman.html"/>
+<script src="libs/header-attrs-2.8/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,21 +51,23 @@
 
 
 
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
 
 
 <style type="text/css">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -84,7 +87,7 @@ pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-le
 div.sourceCode
   {   }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,7 +120,8 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="css\style.css" type="text/css" />
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
 <body>
@@ -133,24 +137,29 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">A Learning Guide to R</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a><ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a>
+<ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#aboutauthor"><i class="fa fa-check"></i>About the author</a></li>
 </ul></li>
-<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Beginner skills</a><ul>
-<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>1.1</b> Installing R and Rstudio</a><ul>
+<li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> Beginner skills</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#installingr"><i class="fa fa-check"></i><b>1.1</b> Installing R and Rstudio</a>
+<ul>
 <li class="chapter" data-level="1.1.1" data-path="intro.html"><a href="intro.html#exampledata"><i class="fa fa-check"></i><b>1.1.1</b> Example data used throughout this book</a></li>
 </ul></li>
 <li class="chapter" data-level="1.2" data-path="intro.html"><a href="intro.html#basicops"><i class="fa fa-check"></i><b>1.2</b> Basic operations</a></li>
 <li class="chapter" data-level="1.3" data-path="intro.html"><a href="intro.html#vectorintro"><i class="fa fa-check"></i><b>1.3</b> Working with vectors</a></li>
 <li class="chapter" data-level="1.4" data-path="intro.html"><a href="intro.html#writing-code-in-a-script"><i class="fa fa-check"></i><b>1.4</b> Writing code in a script</a></li>
-<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>1.5</b> Vectorized operations</a><ul>
+<li class="chapter" data-level="1.5" data-path="intro.html"><a href="intro.html#vectorized"><i class="fa fa-check"></i><b>1.5</b> Vectorized operations</a>
+<ul>
 <li class="chapter" data-level="1.5.1" data-path="intro.html"><a href="intro.html#multifunctions"><i class="fa fa-check"></i><b>1.5.1</b> Applying multiple functions at once</a></li>
 </ul></li>
 <li class="chapter" data-level="1.6" data-path="intro.html"><a href="intro.html#matrices"><i class="fa fa-check"></i><b>1.6</b> Working with matrices</a></li>
 <li class="chapter" data-level="1.7" data-path="intro.html"><a href="intro.html#objects-in-the-workspace"><i class="fa fa-check"></i><b>1.7</b> Objects in the workspace</a></li>
 <li class="chapter" data-level="1.8" data-path="intro.html"><a href="intro.html#fileswd"><i class="fa fa-check"></i><b>1.8</b> Files in the working directory</a></li>
 <li class="chapter" data-level="1.9" data-path="intro.html"><a href="intro.html#rstudio-projects"><i class="fa fa-check"></i><b>1.9</b> Rstudio projects</a></li>
-<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.10</b> Packages</a><ul>
+<li class="chapter" data-level="1.10" data-path="intro.html"><a href="intro.html#packages"><i class="fa fa-check"></i><b>1.10</b> Packages</a>
+<ul>
 <li class="chapter" data-level="1.10.1" data-path="intro.html"><a href="intro.html#installpackage"><i class="fa fa-check"></i><b>1.10.1</b> Install packages from CRAN</a></li>
 <li class="chapter" data-level="1.10.2" data-path="intro.html"><a href="intro.html#loadpackage"><i class="fa fa-check"></i><b>1.10.2</b> Loading packages</a></li>
 <li class="chapter" data-level="1.10.3" data-path="intro.html"><a href="intro.html#setting-the-cran-mirror"><i class="fa fa-check"></i><b>1.10.3</b> Setting the CRAN mirror</a></li>
@@ -162,12 +171,14 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.10.9" data-path="intro.html"><a href="intro.html#pacman"><i class="fa fa-check"></i><b>1.10.9</b> Loading many packages</a></li>
 </ul></li>
 <li class="chapter" data-level="1.11" data-path="intro.html"><a href="intro.html#helpfiles"><i class="fa fa-check"></i><b>1.11</b> Accessing the help files</a></li>
-<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a><ul>
+<li class="chapter" data-level="1.12" data-path="intro.html"><a href="intro.html#writing-lots-of-code-rmarkdown-or-scripts"><i class="fa fa-check"></i><b>1.12</b> Writing lots of code: rmarkdown or scripts?</a>
+<ul>
 <li class="chapter" data-level="1.12.1" data-path="intro.html"><a href="intro.html#reproducible-documents-with-rmarkdown"><i class="fa fa-check"></i><b>1.12.1</b> Reproducible documents with rmarkdown</a></li>
 <li class="chapter" data-level="1.12.2" data-path="intro.html"><a href="intro.html#scripts"><i class="fa fa-check"></i><b>1.12.2</b> Using R scripts</a></li>
 </ul></li>
 <li class="chapter" data-level="1.13" data-path="intro.html"><a href="intro.html#pay-attention-to-detail-write-clean-code"><i class="fa fa-check"></i><b>1.13</b> Pay attention to detail: write clean code</a></li>
-<li class="chapter" data-level="1.14" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.14</b> Exercises</a><ul>
+<li class="chapter" data-level="1.14" data-path="intro.html"><a href="intro.html#exercises"><i class="fa fa-check"></i><b>1.14</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="1.14.1" data-path="intro.html"><a href="intro.html#calculating"><i class="fa fa-check"></i><b>1.14.1</b> Calculating</a></li>
 <li class="chapter" data-level="1.14.2" data-path="intro.html"><a href="intro.html#simple-objects"><i class="fa fa-check"></i><b>1.14.2</b> Simple objects</a></li>
 <li class="chapter" data-level="1.14.3" data-path="intro.html"><a href="intro.html#vecexerc1"><i class="fa fa-check"></i><b>1.14.3</b> Working with a single vector</a></li>
@@ -180,36 +191,40 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="1.14.10" data-path="intro.html"><a href="intro.html#packages-1"><i class="fa fa-check"></i><b>1.14.10</b> Packages</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>2</b> Data skills - Part 1</a><ul>
+<li class="chapter" data-level="2" data-path="dataskills1.html"><a href="dataskills1.html"><i class="fa fa-check"></i><b>2</b> Data skills - Part 1</a>
+<ul>
 <li class="chapter" data-level="2.1" data-path="dataskills1.html"><a href="dataskills1.html#introduction"><i class="fa fa-check"></i><b>2.1</b> Introduction</a></li>
-<li class="chapter" data-level="2.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>2.2</b> Generating data</a><ul>
+<li class="chapter" data-level="2.2" data-path="dataskills1.html"><a href="dataskills1.html#generating-data"><i class="fa fa-check"></i><b>2.2</b> Generating data</a>
+<ul>
 <li class="chapter" data-level="2.2.1" data-path="dataskills1.html"><a href="dataskills1.html#sequences"><i class="fa fa-check"></i><b>2.2.1</b> Sequences of numbers</a></li>
 <li class="chapter" data-level="2.2.2" data-path="dataskills1.html"><a href="dataskills1.html#randomnumbers"><i class="fa fa-check"></i><b>2.2.2</b> Random numbers</a></li>
 </ul></li>
-<li class="chapter" data-level="2.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>2.3</b> Reading data</a><ul>
+<li class="chapter" data-level="2.3" data-path="dataskills1.html"><a href="dataskills1.html#readingdata"><i class="fa fa-check"></i><b>2.3</b> Reading data</a>
+<ul>
 <li class="chapter" data-level="2.3.1" data-path="dataskills1.html"><a href="dataskills1.html#readcsv"><i class="fa fa-check"></i><b>2.3.1</b> Reading CSV files</a></li>
 <li class="chapter" data-level="2.3.2" data-path="dataskills1.html"><a href="dataskills1.html#reading-large-csv-files"><i class="fa fa-check"></i><b>2.3.2</b> Reading large CSV files</a></li>
 <li class="chapter" data-level="2.3.3" data-path="dataskills1.html"><a href="dataskills1.html#tabdelimtext"><i class="fa fa-check"></i><b>2.3.3</b> Reading Tab-delimited text files</a></li>
 <li class="chapter" data-level="2.3.4" data-path="dataskills1.html"><a href="dataskills1.html#datainscript"><i class="fa fa-check"></i><b>2.3.4</b> Including data in a script</a></li>
 <li class="chapter" data-level="2.3.5" data-path="dataskills1.html"><a href="dataskills1.html#json"><i class="fa fa-check"></i><b>2.3.5</b> JSON</a></li>
-<li class="chapter" data-level="2.3.6" data-path="dataskills1.html"><a href="dataskills1.html#nosql-databases"><i class="fa fa-check"></i><b>2.3.6</b> (No)SQL databases</a></li>
-<li class="chapter" data-level="2.3.7" data-path="dataskills1.html"><a href="dataskills1.html#excel-spreadsheets"><i class="fa fa-check"></i><b>2.3.7</b> Excel spreadsheets</a></li>
-<li class="chapter" data-level="2.3.8" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>2.3.8</b> Proprietary formats</a></li>
-<li class="chapter" data-level="2.3.9" data-path="dataskills1.html"><a href="dataskills1.html#web-services"><i class="fa fa-check"></i><b>2.3.9</b> Web services</a></li>
+<li class="chapter" data-level="2.3.6" data-path="dataskills1.html"><a href="dataskills1.html#excel-spreadsheets"><i class="fa fa-check"></i><b>2.3.6</b> Excel spreadsheets</a></li>
+<li class="chapter" data-level="2.3.7" data-path="dataskills1.html"><a href="dataskills1.html#proprietary-formats"><i class="fa fa-check"></i><b>2.3.7</b> Proprietary formats</a></li>
 </ul></li>
-<li class="chapter" data-level="2.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Working with dataframes</a><ul>
+<li class="chapter" data-level="2.4" data-path="dataskills1.html"><a href="dataskills1.html#dataframes"><i class="fa fa-check"></i><b>2.4</b> Working with dataframes</a>
+<ul>
 <li class="chapter" data-level="2.4.1" data-path="dataskills1.html"><a href="dataskills1.html#vecstodfr"><i class="fa fa-check"></i><b>2.4.1</b> Convert vectors into a dataframe</a></li>
 <li class="chapter" data-level="2.4.2" data-path="dataskills1.html"><a href="dataskills1.html#vecdataframes"><i class="fa fa-check"></i><b>2.4.2</b> Variables in the dataframe</a></li>
 <li class="chapter" data-level="2.4.3" data-path="dataskills1.html"><a href="dataskills1.html#namesdataframe"><i class="fa fa-check"></i><b>2.4.3</b> Changing column names in dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="2.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>2.5</b> Extracting data</a><ul>
+<li class="chapter" data-level="2.5" data-path="dataskills1.html"><a href="dataskills1.html#extracting-data"><i class="fa fa-check"></i><b>2.5</b> Extracting data</a>
+<ul>
 <li class="chapter" data-level="2.5.1" data-path="dataskills1.html"><a href="dataskills1.html#vectorindexing"><i class="fa fa-check"></i><b>2.5.1</b> Vectors</a></li>
 <li class="chapter" data-level="2.5.2" data-path="dataskills1.html"><a href="dataskills1.html#subsetdataframes"><i class="fa fa-check"></i><b>2.5.2</b> Dataframes</a></li>
 <li class="chapter" data-level="2.5.3" data-path="dataskills1.html"><a href="dataskills1.html#a-faster-method"><i class="fa fa-check"></i><b>2.5.3</b> A faster method</a></li>
 <li class="chapter" data-level="2.5.4" data-path="dataskills1.html"><a href="dataskills1.html#deleting-columns"><i class="fa fa-check"></i><b>2.5.4</b> Deleting columns</a></li>
 </ul></li>
 <li class="chapter" data-level="2.6" data-path="dataskills1.html"><a href="dataskills1.html#exportingdata"><i class="fa fa-check"></i><b>2.6</b> Exporting data</a></li>
-<li class="chapter" data-level="2.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>2.7</b> Special data types</a><ul>
+<li class="chapter" data-level="2.7" data-path="dataskills1.html"><a href="dataskills1.html#special-data-types"><i class="fa fa-check"></i><b>2.7</b> Special data types</a>
+<ul>
 <li class="chapter" data-level="2.7.1" data-path="dataskills1.html"><a href="dataskills1.html#workingfactors"><i class="fa fa-check"></i><b>2.7.1</b> Working with factors</a></li>
 <li class="chapter" data-level="2.7.2" data-path="dataskills1.html"><a href="dataskills1.html#workinglogic"><i class="fa fa-check"></i><b>2.7.2</b> Working with logical data</a></li>
 <li class="chapter" data-level="2.7.3" data-path="dataskills1.html"><a href="dataskills1.html#workingmissing"><i class="fa fa-check"></i><b>2.7.3</b> Working with missing values</a></li>
@@ -217,7 +232,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.7.5" data-path="dataskills1.html"><a href="dataskills1.html#workingwithdates"><i class="fa fa-check"></i><b>2.7.5</b> Working with dates and times</a></li>
 <li class="chapter" data-level="2.7.6" data-path="dataskills1.html"><a href="dataskills1.html#converttype"><i class="fa fa-check"></i><b>2.7.6</b> Converting between data types</a></li>
 </ul></li>
-<li class="chapter" data-level="2.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a><ul>
+<li class="chapter" data-level="2.8" data-path="dataskills1.html"><a href="dataskills1.html#exercises-1"><i class="fa fa-check"></i><b>2.8</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="2.8.1" data-path="dataskills1.html"><a href="dataskills1.html#working-with-a-single-vector---indexing"><i class="fa fa-check"></i><b>2.8.1</b> Working with a single vector - indexing</a></li>
 <li class="chapter" data-level="2.8.2" data-path="dataskills1.html"><a href="dataskills1.html#alphabet-aerobics-2"><i class="fa fa-check"></i><b>2.8.2</b> Alphabet aerobics 2</a></li>
 <li class="chapter" data-level="2.8.3" data-path="dataskills1.html"><a href="dataskills1.html#basic-operations-with-the-cereals-data"><i class="fa fa-check"></i><b>2.8.3</b> Basic operations with the Cereals data</a></li>
@@ -230,28 +246,34 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="2.8.10" data-path="dataskills1.html"><a href="dataskills1.html#dna-aerobics"><i class="fa fa-check"></i><b>2.8.10</b> DNA Aerobics</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 2</a><ul>
-<li class="chapter" data-level="3.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.1</b> Summarizing dataframes</a><ul>
+<li class="chapter" data-level="3" data-path="dataskills2.html"><a href="dataskills2.html"><i class="fa fa-check"></i><b>3</b> Data skills - Part 2</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-dataframes"><i class="fa fa-check"></i><b>3.1</b> Summarizing dataframes</a>
+<ul>
 <li class="chapter" data-level="3.1.1" data-path="dataskills2.html"><a href="dataskills2.html#tapplyaggregate"><i class="fa fa-check"></i><b>3.1.1</b> Making summary tables</a></li>
 <li class="chapter" data-level="3.1.2" data-path="dataskills2.html"><a href="dataskills2.html#xtabs"><i class="fa fa-check"></i><b>3.1.2</b> Tables of counts</a></li>
 <li class="chapter" data-level="3.1.3" data-path="dataskills2.html"><a href="dataskills2.html#summaryvars"><i class="fa fa-check"></i><b>3.1.3</b> Adding summary variables to dataframes</a></li>
 <li class="chapter" data-level="3.1.4" data-path="dataskills2.html"><a href="dataskills2.html#reorder"><i class="fa fa-check"></i><b>3.1.4</b> Reordering factor levels based on a summary variable</a></li>
 </ul></li>
-<li class="chapter" data-level="3.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>3.2</b> Combining dataframes</a><ul>
+<li class="chapter" data-level="3.2" data-path="dataskills2.html"><a href="dataskills2.html#combining-dataframes"><i class="fa fa-check"></i><b>3.2</b> Combining dataframes</a>
+<ul>
 <li class="chapter" data-level="3.2.1" data-path="dataskills2.html"><a href="dataskills2.html#merge"><i class="fa fa-check"></i><b>3.2.1</b> Merging dataframes</a></li>
 <li class="chapter" data-level="3.2.2" data-path="dataskills2.html"><a href="dataskills2.html#dplyrjoin"><i class="fa fa-check"></i><b>3.2.2</b> Using join from <code>dplyr</code></a></li>
 <li class="chapter" data-level="3.2.3" data-path="dataskills2.html"><a href="dataskills2.html#rbind"><i class="fa fa-check"></i><b>3.2.3</b> Row-binding dataframes</a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>3.3</b> Reshaping data</a><ul>
+<li class="chapter" data-level="3.3" data-path="dataskills2.html"><a href="dataskills2.html#reshaping"><i class="fa fa-check"></i><b>3.3</b> Reshaping data</a>
+<ul>
 <li class="chapter" data-level="3.3.1" data-path="dataskills2.html"><a href="dataskills2.html#from-wide-to-long"><i class="fa fa-check"></i><b>3.3.1</b> From wide to long</a></li>
 <li class="chapter" data-level="3.3.2" data-path="dataskills2.html"><a href="dataskills2.html#from-long-to-wide"><i class="fa fa-check"></i><b>3.3.2</b> From long to wide</a></li>
 </ul></li>
-<li class="chapter" data-level="3.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.4</b> More complex <code>dplyr</code> examples</a><ul>
+<li class="chapter" data-level="3.4" data-path="dataskills2.html"><a href="dataskills2.html#more-complex-dplyr-examples"><i class="fa fa-check"></i><b>3.4</b> More complex <code>dplyr</code> examples</a>
+<ul>
 <li class="chapter" data-level="3.4.1" data-path="dataskills2.html"><a href="dataskills2.html#tree-growth-data-filter-and-multiple-groupings"><i class="fa fa-check"></i><b>3.4.1</b> Tree growth data: filter and multiple groupings</a></li>
 <li class="chapter" data-level="3.4.2" data-path="dataskills2.html"><a href="dataskills2.html#crude-oil-production-find-top-exporters"><i class="fa fa-check"></i><b>3.4.2</b> Crude oil production: find top exporters</a></li>
 <li class="chapter" data-level="3.4.3" data-path="dataskills2.html"><a href="dataskills2.html#weightlossdplyr"><i class="fa fa-check"></i><b>3.4.3</b> Weight loss data: make an irregular timeseries regular</a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a><ul>
+<li class="chapter" data-level="3.5" data-path="dataskills2.html"><a href="dataskills2.html#exercises-2"><i class="fa fa-check"></i><b>3.5</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="3.5.1" data-path="dataskills2.html"><a href="dataskills2.html#summarizing-the-cereal-data"><i class="fa fa-check"></i><b>3.5.1</b> Summarizing the cereal data</a></li>
 <li class="chapter" data-level="3.5.2" data-path="dataskills2.html"><a href="dataskills2.html#words-and-the-weather"><i class="fa fa-check"></i><b>3.5.2</b> Words and the weather</a></li>
 <li class="chapter" data-level="3.5.3" data-path="dataskills2.html"><a href="dataskills2.html#merging-data"><i class="fa fa-check"></i><b>3.5.3</b> Merging data</a></li>
@@ -259,13 +281,16 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="3.5.5" data-path="dataskills2.html"><a href="dataskills2.html#ordered-boxplot"><i class="fa fa-check"></i><b>3.5.5</b> Ordered boxplot</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>4</b> Functions, lists and loops</a><ul>
+<li class="chapter" data-level="4" data-path="programming.html"><a href="programming.html"><i class="fa fa-check"></i><b>4</b> Functions, lists and loops</a>
+<ul>
 <li class="chapter" data-level="4.1" data-path="programming.html"><a href="programming.html#introduction-1"><i class="fa fa-check"></i><b>4.1</b> Introduction</a></li>
-<li class="chapter" data-level="4.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>4.2</b> Writing functions</a><ul>
+<li class="chapter" data-level="4.2" data-path="programming.html"><a href="programming.html#writefunctions"><i class="fa fa-check"></i><b>4.2</b> Writing functions</a>
+<ul>
 <li class="chapter" data-level="4.2.1" data-path="programming.html"><a href="programming.html#returning-results"><i class="fa fa-check"></i><b>4.2.1</b> Returning results</a></li>
 <li class="chapter" data-level="4.2.2" data-path="programming.html"><a href="programming.html#functions-without-arguments"><i class="fa fa-check"></i><b>4.2.2</b> Functions without arguments</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>4.3</b> Working with lists</a><ul>
+<li class="chapter" data-level="4.3" data-path="programming.html"><a href="programming.html#workinglists"><i class="fa fa-check"></i><b>4.3</b> Working with lists</a>
+<ul>
 <li class="chapter" data-level="4.3.1" data-path="programming.html"><a href="programming.html#indexing-lists"><i class="fa fa-check"></i><b>4.3.1</b> Indexing lists</a></li>
 <li class="chapter" data-level="4.3.2" data-path="programming.html"><a href="programming.html#converting-lists-to-dataframes-or-vectors"><i class="fa fa-check"></i><b>4.3.2</b> Converting lists to dataframes or vectors</a></li>
 <li class="chapter" data-level="4.3.3" data-path="programming.html"><a href="programming.html#combining-lists"><i class="fa fa-check"></i><b>4.3.3</b> Combining lists</a></li>
@@ -273,17 +298,20 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.3.5" data-path="programming.html"><a href="programming.html#dfrlists"><i class="fa fa-check"></i><b>4.3.5</b> Creating lists from dataframes</a></li>
 <li class="chapter" data-level="4.3.6" data-path="programming.html"><a href="programming.html#lapply"><i class="fa fa-check"></i><b>4.3.6</b> Applying functions to lists</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>4.4</b> Loops</a><ul>
+<li class="chapter" data-level="4.4" data-path="programming.html"><a href="programming.html#simpleloops"><i class="fa fa-check"></i><b>4.4</b> Loops</a>
+<ul>
 <li class="chapter" data-level="4.4.1" data-path="programming.html"><a href="programming.html#better-indexing"><i class="fa fa-check"></i><b>4.4.1</b> Better indexing</a></li>
 </ul></li>
-<li class="chapter" data-level="4.5" data-path="programming.html"><a href="programming.html#functionsadvanced"><i class="fa fa-check"></i><b>4.5</b> Functions : advanced concepts</a><ul>
+<li class="chapter" data-level="4.5" data-path="programming.html"><a href="programming.html#functionsadvanced"><i class="fa fa-check"></i><b>4.5</b> Functions : advanced concepts</a>
+<ul>
 <li class="chapter" data-level="4.5.1" data-path="programming.html"><a href="programming.html#why-should-i-write-more-functions"><i class="fa fa-check"></i><b>4.5.1</b> Why should I write more functions?</a></li>
 <li class="chapter" data-level="4.5.2" data-path="programming.html"><a href="programming.html#wrapfunctions"><i class="fa fa-check"></i><b>4.5.2</b> Wrapper functions</a></li>
 <li class="chapter" data-level="4.5.3" data-path="programming.html"><a href="programming.html#wrapper-functions-to-ggplot2-or-dplyr"><i class="fa fa-check"></i><b>4.5.3</b> Wrapper functions to <code>ggplot2</code> or <code>dplyr</code></a></li>
 <li class="chapter" data-level="4.5.4" data-path="programming.html"><a href="programming.html#functions-that-take-vectors-as-input"><i class="fa fa-check"></i><b>4.5.4</b> Functions that take vectors as input</a></li>
 <li class="chapter" data-level="4.5.5" data-path="programming.html"><a href="programming.html#if-then-else-switch"><i class="fa fa-check"></i><b>4.5.5</b> If, then, else … switch</a></li>
 </ul></li>
-<li class="chapter" data-level="4.6" data-path="programming.html"><a href="programming.html#defensive"><i class="fa fa-check"></i><b>4.6</b> Robust functions: defensive programming</a><ul>
+<li class="chapter" data-level="4.6" data-path="programming.html"><a href="programming.html#defensive"><i class="fa fa-check"></i><b>4.6</b> Robust functions: defensive programming</a>
+<ul>
 <li class="chapter" data-level="4.6.1" data-path="programming.html"><a href="programming.html#argument-matching"><i class="fa fa-check"></i><b>4.6.1</b> Argument matching</a></li>
 <li class="chapter" data-level="4.6.2" data-path="programming.html"><a href="programming.html#argument-checking"><i class="fa fa-check"></i><b>4.6.2</b> Argument checking</a></li>
 <li class="chapter" data-level="4.6.3" data-path="programming.html"><a href="programming.html#sending-warnings-errors-messages"><i class="fa fa-check"></i><b>4.6.3</b> Sending warnings, errors, messages</a></li>
@@ -291,7 +319,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.6.5" data-path="programming.html"><a href="programming.html#try"><i class="fa fa-check"></i><b>4.6.5</b> Catch errors with <code>try</code></a></li>
 <li class="chapter" data-level="4.6.6" data-path="programming.html"><a href="programming.html#dbiwrappers"><i class="fa fa-check"></i><b>4.6.6</b> Writing database wrapper functions</a></li>
 </ul></li>
-<li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a><ul>
+<li class="chapter" data-level="4.7" data-path="programming.html"><a href="programming.html#exercises-3"><i class="fa fa-check"></i><b>4.7</b> Exercises</a>
+<ul>
 <li class="chapter" data-level="4.7.1" data-path="programming.html"><a href="programming.html#writing-functions"><i class="fa fa-check"></i><b>4.7.1</b> Writing functions</a></li>
 <li class="chapter" data-level="4.7.2" data-path="programming.html"><a href="programming.html#working-with-lists"><i class="fa fa-check"></i><b>4.7.2</b> Working with lists</a></li>
 <li class="chapter" data-level="4.7.3" data-path="programming.html"><a href="programming.html#functions-for-histograms"><i class="fa fa-check"></i><b>4.7.3</b> Functions for histograms</a></li>
@@ -299,70 +328,72 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="4.7.5" data-path="programming.html"><a href="programming.html#monthly-weather-plots"><i class="fa fa-check"></i><b>4.7.5</b> Monthly weather plots</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="webservices.html"><a href="webservices.html"><i class="fa fa-check"></i><b>5</b> R on the web</a><ul>
-<li class="chapter" data-level="5.1" data-path="webservices.html"><a href="webservices.html#introduction-2"><i class="fa fa-check"></i><b>5.1</b> Introduction</a></li>
-<li class="chapter" data-level="5.2" data-path="webservices.html"><a href="webservices.html#reading-data-from-remote-databases"><i class="fa fa-check"></i><b>5.2</b> Reading data from remote databases</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="webservices.html"><a href="webservices.html#dbi"><i class="fa fa-check"></i><b>5.2.1</b> Accessing databases with the DBI package</a></li>
-<li class="chapter" data-level="5.2.2" data-path="webservices.html"><a href="webservices.html#nosql"><i class="fa fa-check"></i><b>5.2.2</b> NoSQL</a></li>
+<li class="chapter" data-level="5" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>5</b> Version control with git</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>5.1</b> Should I learn version control?</a></li>
+<li class="chapter" data-level="5.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>5.2</b> Basics of git</a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>5.2.1</b> Basic principles</a></li>
+<li class="chapter" data-level="5.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>5.2.2</b> Installing git</a></li>
+<li class="chapter" data-level="5.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>5.2.3</b> Using git in Rstudio</a></li>
 </ul></li>
-<li class="chapter" data-level="5.3" data-path="webservices.html"><a href="webservices.html#accessing-an-api"><i class="fa fa-check"></i><b>5.3</b> Accessing an API</a></li>
-<li class="chapter" data-level="5.4" data-path="webservices.html"><a href="webservices.html#deploying-an-api-with-plumber"><i class="fa fa-check"></i><b>5.4</b> Deploying an API with <code>plumber</code></a></li>
+<li class="chapter" data-level="5.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>5.3</b> Local git repositories</a>
+<ul>
+<li class="chapter" data-level="5.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>5.3.1</b> A first session with version control in Rstudio</a></li>
+<li class="chapter" data-level="5.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>5.3.2</b> Deleting files and sensitive information</a></li>
+<li class="chapter" data-level="5.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>5.3.3</b> Reverting changes</a></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="versioncontrol.html"><a href="versioncontrol.html"><i class="fa fa-check"></i><b>6</b> Version control with git</a><ul>
-<li class="chapter" data-level="6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#shouldigit"><i class="fa fa-check"></i><b>6.1</b> Should I learn version control?</a></li>
-<li class="chapter" data-level="6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#basics-of-git"><i class="fa fa-check"></i><b>6.2</b> Basics of git</a><ul>
-<li class="chapter" data-level="6.2.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-principles"><i class="fa fa-check"></i><b>6.2.1</b> Basic principles</a></li>
-<li class="chapter" data-level="6.2.2" data-path="versioncontrol.html"><a href="versioncontrol.html#installing-git"><i class="fa fa-check"></i><b>6.2.2</b> Installing git</a></li>
-<li class="chapter" data-level="6.2.3" data-path="versioncontrol.html"><a href="versioncontrol.html#using-git-in-rstudio"><i class="fa fa-check"></i><b>6.2.3</b> Using git in Rstudio</a></li>
+<li class="chapter" data-level="5.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>5.4</b> Remote git repositories</a>
+<ul>
+<li class="chapter" data-level="5.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>5.4.1</b> Making a remote repository</a></li>
+<li class="chapter" data-level="5.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>5.4.2</b> Workflow</a></li>
+<li class="chapter" data-level="5.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>5.4.3</b> A session with a remote repository</a></li>
+<li class="chapter" data-level="5.4.4" data-path="versioncontrol.html"><a href="versioncontrol.html#conflicts-when-collaborating"><i class="fa fa-check"></i><b>5.4.4</b> Conflicts when collaborating</a></li>
 </ul></li>
-<li class="chapter" data-level="6.3" data-path="versioncontrol.html"><a href="versioncontrol.html#localgit"><i class="fa fa-check"></i><b>6.3</b> Local git repositories</a><ul>
-<li class="chapter" data-level="6.3.1" data-path="versioncontrol.html"><a href="versioncontrol.html#firstgitsession"><i class="fa fa-check"></i><b>6.3.1</b> A first session with version control in Rstudio</a></li>
-<li class="chapter" data-level="6.3.2" data-path="versioncontrol.html"><a href="versioncontrol.html#deleting-files-and-sensitive-information"><i class="fa fa-check"></i><b>6.3.2</b> Deleting files and sensitive information</a></li>
-<li class="chapter" data-level="6.3.3" data-path="versioncontrol.html"><a href="versioncontrol.html#reverting-changes"><i class="fa fa-check"></i><b>6.3.3</b> Reverting changes</a></li>
+<li class="chapter" data-level="5.5" data-path="versioncontrol.html"><a href="versioncontrol.html#gitignore"><i class="fa fa-check"></i><b>5.5</b> Ignoring files</a></li>
+<li class="chapter" data-level="5.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>5.6</b> Using the command line</a>
+<ul>
+<li class="chapter" data-level="5.6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>5.6.1</b> Basic commands</a></li>
+<li class="chapter" data-level="5.6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>5.6.2</b> Useful tasks</a></li>
 </ul></li>
-<li class="chapter" data-level="6.4" data-path="versioncontrol.html"><a href="versioncontrol.html#remotegit"><i class="fa fa-check"></i><b>6.4</b> Remote git repositories</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="versioncontrol.html"><a href="versioncontrol.html#makeremotegit"><i class="fa fa-check"></i><b>6.4.1</b> Making a remote repository</a></li>
-<li class="chapter" data-level="6.4.2" data-path="versioncontrol.html"><a href="versioncontrol.html#gitremoteworkflow"><i class="fa fa-check"></i><b>6.4.2</b> Workflow</a></li>
-<li class="chapter" data-level="6.4.3" data-path="versioncontrol.html"><a href="versioncontrol.html#a-session-with-a-remote-repository"><i class="fa fa-check"></i><b>6.4.3</b> A session with a remote repository</a></li>
-<li class="chapter" data-level="6.4.4" data-path="versioncontrol.html"><a href="versioncontrol.html#conflicts-when-collaborating"><i class="fa fa-check"></i><b>6.4.4</b> Conflicts when collaborating</a></li>
+<li class="chapter" data-level="5.7" data-path="versioncontrol.html"><a href="versioncontrol.html#branches"><i class="fa fa-check"></i><b>5.7</b> Branches</a></li>
 </ul></li>
-<li class="chapter" data-level="6.5" data-path="versioncontrol.html"><a href="versioncontrol.html#gitignore"><i class="fa fa-check"></i><b>6.5</b> Ignoring files</a></li>
-<li class="chapter" data-level="6.6" data-path="versioncontrol.html"><a href="versioncontrol.html#commandline"><i class="fa fa-check"></i><b>6.6</b> Using the command line</a><ul>
-<li class="chapter" data-level="6.6.1" data-path="versioncontrol.html"><a href="versioncontrol.html#basic-commands"><i class="fa fa-check"></i><b>6.6.1</b> Basic commands</a></li>
-<li class="chapter" data-level="6.6.2" data-path="versioncontrol.html"><a href="versioncontrol.html#useful-tasks"><i class="fa fa-check"></i><b>6.6.2</b> Useful tasks</a></li>
+<li class="chapter" data-level="6" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>6</b> Project management and workflow</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>6.1</b> Tips on organizing your code</a></li>
+<li class="chapter" data-level="6.2" data-path="projectman.html"><a href="projectman.html#rstudioprojects"><i class="fa fa-check"></i><b>6.2</b> Set up a project in Rstudio</a></li>
+<li class="chapter" data-level="6.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>6.3</b> Directory structure</a>
+<ul>
+<li class="chapter" data-level="6.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>6.3.1</b> <code>rawdata</code></a></li>
+<li class="chapter" data-level="6.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>6.3.2</b> <code>Rfunctions</code></a></li>
+<li class="chapter" data-level="6.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>6.3.3</b> <code>output</code></a></li>
 </ul></li>
-<li class="chapter" data-level="6.7" data-path="versioncontrol.html"><a href="versioncontrol.html#branches"><i class="fa fa-check"></i><b>6.7</b> Branches</a></li>
+<li class="chapter" data-level="6.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>6.4</b> The R scripts</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>6.4.1</b> <code>facesoil_analysis.R</code></a></li>
+<li class="chapter" data-level="6.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>6.4.2</b> <code>facesoil_figures.R</code></a></li>
+<li class="chapter" data-level="6.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>6.4.3</b> <code>facesoil_load</code></a></li>
+<li class="chapter" data-level="6.4.4" data-path="projectman.html"><a href="projectman.html#load_packages.r"><i class="fa fa-check"></i><b>6.4.4</b> <code>load_packages.R</code></a></li>
+<li class="chapter" data-level="6.4.5" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>6.4.5</b> <code>facesoil_readdata.R</code></a></li>
 </ul></li>
-<li class="chapter" data-level="7" data-path="projectman.html"><a href="projectman.html"><i class="fa fa-check"></i><b>7</b> Project management and workflow</a><ul>
-<li class="chapter" data-level="7.1" data-path="projectman.html"><a href="projectman.html#tips-on-organizing-your-code"><i class="fa fa-check"></i><b>7.1</b> Tips on organizing your code</a></li>
-<li class="chapter" data-level="7.2" data-path="projectman.html"><a href="projectman.html#rstudioprojects"><i class="fa fa-check"></i><b>7.2</b> Set up a project in Rstudio</a></li>
-<li class="chapter" data-level="7.3" data-path="projectman.html"><a href="projectman.html#directory-structure"><i class="fa fa-check"></i><b>7.3</b> Directory structure</a><ul>
-<li class="chapter" data-level="7.3.1" data-path="projectman.html"><a href="projectman.html#rawdata"><i class="fa fa-check"></i><b>7.3.1</b> <code>rawdata</code></a></li>
-<li class="chapter" data-level="7.3.2" data-path="projectman.html"><a href="projectman.html#rfunctions"><i class="fa fa-check"></i><b>7.3.2</b> <code>Rfunctions</code></a></li>
-<li class="chapter" data-level="7.3.3" data-path="projectman.html"><a href="projectman.html#output"><i class="fa fa-check"></i><b>7.3.3</b> <code>output</code></a></li>
+<li class="chapter" data-level="6.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>6.5</b> Archiving the output</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>6.5.1</b> Adding a Date stamp to output files</a></li>
 </ul></li>
-<li class="chapter" data-level="7.4" data-path="projectman.html"><a href="projectman.html#the-r-scripts"><i class="fa fa-check"></i><b>7.4</b> The R scripts</a><ul>
-<li class="chapter" data-level="7.4.1" data-path="projectman.html"><a href="projectman.html#facesoil_analysis.r"><i class="fa fa-check"></i><b>7.4.1</b> <code>facesoil_analysis.R</code></a></li>
-<li class="chapter" data-level="7.4.2" data-path="projectman.html"><a href="projectman.html#facesoil_figures.r"><i class="fa fa-check"></i><b>7.4.2</b> <code>facesoil_figures.R</code></a></li>
-<li class="chapter" data-level="7.4.3" data-path="projectman.html"><a href="projectman.html#facesoil_load"><i class="fa fa-check"></i><b>7.4.3</b> <code>facesoil_load</code></a></li>
-<li class="chapter" data-level="7.4.4" data-path="projectman.html"><a href="projectman.html#load_packages.r"><i class="fa fa-check"></i><b>7.4.4</b> <code>load_packages.R</code></a></li>
-<li class="chapter" data-level="7.4.5" data-path="projectman.html"><a href="projectman.html#facesoil_readdata.r"><i class="fa fa-check"></i><b>7.4.5</b> <code>facesoil_readdata.R</code></a></li>
-</ul></li>
-<li class="chapter" data-level="7.5" data-path="projectman.html"><a href="projectman.html#archiving-the-output"><i class="fa fa-check"></i><b>7.5</b> Archiving the output</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="projectman.html"><a href="projectman.html#adding-a-date-stamp-to-output-files"><i class="fa fa-check"></i><b>7.5.1</b> Adding a Date stamp to output files</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>7.6</b> A logical structure for your scripts</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="projectman.html"><a href="projectman.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>7.6.1</b> Write functions, not long scripts</a></li>
-<li class="chapter" data-level="7.6.2" data-path="projectman.html"><a href="projectman.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>7.6.2</b> Divide your script into functional blocks</a></li>
+<li class="chapter" data-level="6.6" data-path="projectman.html"><a href="projectman.html#scriptstructure"><i class="fa fa-check"></i><b>6.6</b> A logical structure for your scripts</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="projectman.html"><a href="projectman.html#write-functions-not-long-scripts"><i class="fa fa-check"></i><b>6.6.1</b> Write functions, not long scripts</a></li>
+<li class="chapter" data-level="6.6.2" data-path="projectman.html"><a href="projectman.html#divide-your-script-into-functional-blocks"><i class="fa fa-check"></i><b>6.6.2</b> Divide your script into functional blocks</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="8" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>8</b> Mastering package dependencies</a><ul>
-<li class="chapter" data-level="8.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>8.1</b> What version?</a></li>
-<li class="chapter" data-level="8.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>8.2</b> All packages: loaded or installed</a></li>
-<li class="chapter" data-level="8.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>8.3</b> Avoiding conflicts</a></li>
-<li class="chapter" data-level="8.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>8.4</b> The search path and conflicts</a></li>
-<li class="chapter" data-level="8.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>8.5</b> Bundling package dependencies with <code>renv</code></a></li>
-<li class="chapter" data-level="8.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>8.6</b> Minimizing package dependencies</a></li>
+<li class="chapter" data-level="7" data-path="masteringpackages.html"><a href="masteringpackages.html"><i class="fa fa-check"></i><b>7</b> Mastering package dependencies</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="masteringpackages.html"><a href="masteringpackages.html#what-version"><i class="fa fa-check"></i><b>7.1</b> What version?</a></li>
+<li class="chapter" data-level="7.2" data-path="masteringpackages.html"><a href="masteringpackages.html#all-packages-loaded-or-installed"><i class="fa fa-check"></i><b>7.2</b> All packages: loaded or installed</a></li>
+<li class="chapter" data-level="7.3" data-path="masteringpackages.html"><a href="masteringpackages.html#avoidconflicts"><i class="fa fa-check"></i><b>7.3</b> Avoiding conflicts</a></li>
+<li class="chapter" data-level="7.4" data-path="masteringpackages.html"><a href="masteringpackages.html#searchpath"><i class="fa fa-check"></i><b>7.4</b> The search path and conflicts</a></li>
+<li class="chapter" data-level="7.5" data-path="masteringpackages.html"><a href="masteringpackages.html#bundling-package-dependencies-with-renv"><i class="fa fa-check"></i><b>7.5</b> Bundling package dependencies with <code>renv</code></a></li>
+<li class="chapter" data-level="7.6" data-path="masteringpackages.html"><a href="masteringpackages.html#minimizing-package-dependencies"><i class="fa fa-check"></i><b>7.6</b> Minimizing package dependencies</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -384,10 +415,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="versioncontrol" class="section level1">
-<h1><span class="header-section-number">Chapter 6</span> Version control with git</h1>
-<div id="shouldigit" class="section level2">
-<h2><span class="header-section-number">6.1</span> Should I learn version control?</h2>
+<div id="versioncontrol" class="section level1" number="5">
+<h1><span class="header-section-number">Chapter 5</span> Version control with git</h1>
+<div id="shouldigit" class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> Should I learn version control?</h2>
 <p>When you use version control, you can do the following:</p>
 <ul>
 <li>Keep a history of all the changes you have made to your code.</li>
@@ -399,10 +430,10 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul>
 <p>These are all basic capabilities of version control, and as you can see an absolute requirement for even the somewhat serious coder. Here we use version control with <em>git</em>, the most popular system. In this chapter, I will give an informal introduction to version control, and focus on its use in Rstudio. The command line will also be introduced, particularly for somewhat more advanced options. The built-in menus in Rstudio are fine for most basic uses, although the use of the command line is recommended when you are committing many files at once (when Rstudio can be very slow and unresponsive).</p>
 </div>
-<div id="basics-of-git" class="section level2">
-<h2><span class="header-section-number">6.2</span> Basics of git</h2>
-<div id="basic-principles" class="section level3">
-<h3><span class="header-section-number">6.2.1</span> Basic principles</h3>
+<div id="basics-of-git" class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> Basics of git</h2>
+<div id="basic-principles" class="section level3" number="5.2.1">
+<h3><span class="header-section-number">5.2.1</span> Basic principles</h3>
 <p>With git, every folder that you work in can have its own version control repository. This allows you to keep your projects neatly organized in separate folders, each with its own history and set of files that belong together. Organizing code in smaller projects also makes for a natural connection to <em>projects</em> in Rstudio, as we will see shortly.</p>
 <p>Not all files in the folder need to be kept track of in the git repository. You can specify yourself which files you want to have under version control. Generally speaking it’s up to you which files to track, but a few guidelines are helpful. Mind you that exceptions will arise for each of these ideas; every project is different.</p>
 <ul>
@@ -418,24 +449,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="rmdreading">
 It needs to be stressed that this chapter is a brief non-technical introduction to the topic. It only covers the basic capabilities of git, and stresses the use of Rstudio as an interface to git. You can find many <em>git</em> tutorials online if you want a bit more depth.
 </div>
-
-<div id="local-and-remote-repositories" class="section level4">
-<h4><span class="header-section-number">6.2.1.1</span> Local and remote repositories</h4>
+<div id="local-and-remote-repositories" class="section level4" number="5.2.1.1">
+<h4><span class="header-section-number">5.2.1.1</span> Local and remote repositories</h4>
 <p>An important concept when starting with git is that there is a distinction between <strong>local</strong> and <strong>remote</strong> repositories. With git, your version control <strong>is fundamentally done on your computer, that is, it is a local repository</strong>. Optionally, this local repository may be synced with a remote repository (on some online web service). It is thus important to understand that <strong>a)</strong> you do not need to have a remote repository for git to function (you do not need an internet connection) and <strong>b)</strong> you must have a local repository even if you also have a remote one.</p>
-<p>Finally, do not confuse ‘github’ with ‘git’, the former is a website (github.com) used for hosting remote git repositories, the latter is the actual version control system. There are other websites of that kind (for example bitbucket.org). The inventor of git has nothing to do with these websites.</p>
+<p>Finally, do not confuse ‘github’ with ‘git,’ the former is a website (github.com) used for hosting remote git repositories, the latter is the actual version control system. There are other websites of that kind (for example bitbucket.org). The inventor of git has nothing to do with these websites.</p>
 </div>
-<div id="rstudio-projects-1" class="section level4">
-<h4><span class="header-section-number">6.2.1.2</span> Rstudio projects</h4>
+<div id="rstudio-projects-1" class="section level4" number="5.2.1.2">
+<h4><span class="header-section-number">5.2.1.2</span> Rstudio projects</h4>
 <p>If you end up working primarily from Rstudio, we very strongly recommend the use of <strong>Projects</strong> in Rstudio to keep your work organized, and to help set the working directory.</p>
 <p>Rstudio projects are really just small files added to a certain folder, which “tags” that folder as containing a particular project. You can switch easily between different projects, or have multiple instances of Rstudio open, all with different projects (something I do a lot). When you switch to a project, <em>it also sets the working directory</em> to the folder where the .Rproj file is located.</p>
-<p>We make an Rstudio project in Section <a href="versioncontrol.html#firstgitsession">6.3.1</a> and also return to projects in Section <a href="projectman.html#rstudioprojects">7.2</a>.</p>
+<p>We make an Rstudio project in Section <a href="versioncontrol.html#firstgitsession">5.3.1</a> and also return to projects in Section <a href="projectman.html#rstudioprojects">6.2</a>.</p>
 </div>
 </div>
-<div id="installing-git" class="section level3">
-<h3><span class="header-section-number">6.2.2</span> Installing git</h3>
+<div id="installing-git" class="section level3" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Installing git</h3>
 <p>To get started, first install the actual git program from <a href="https://git-scm.com/" class="uri">https://git-scm.com/</a>. During the installation process, do not change any of the defaults, just press OK when prompted.</p>
 <p>The first time you use git on a computer, you have to set your name and email. These will be appended to each time you commit (very useful when collaborating!).</p>
-<p>Normally you can open a ‘git bash shell’ (a command line window) from Rstudio, as we show in Section <a href="versioncontrol.html#commandline">6.6</a>. This first time, however, you <em>might</em> have to find <code>Git Bash</code> in the list of installed programs.</p>
+<p>Normally you can open a ‘git bash shell’ (a command line window) from Rstudio, as we show in Section <a href="versioncontrol.html#commandline">5.6</a>. This first time, however, you <em>might</em> have to find <code>Git Bash</code> in the list of installed programs.</p>
 <p>With the shell open, type the following commands, using the name and email address you want appended to each commit. You can change this setting any time, the current setting will be applied to the next commit.</p>
 <pre><code>git config --global user.name &quot;My Name&quot;
 git config --global user.email &quot;myemail@somewhere.com&quot;</code></pre>
@@ -443,29 +473,29 @@ git config --global user.email &quot;myemail@somewhere.com&quot;</code></pre>
 <pre><code>git config --list</code></pre>
 <p>You can now close the shell. We return to the shell in a later section. The built-in menu’s in Rstudio are fine for 95% of our work with git.</p>
 </div>
-<div id="using-git-in-rstudio" class="section level3">
-<h3><span class="header-section-number">6.2.3</span> Using git in Rstudio</h3>
+<div id="using-git-in-rstudio" class="section level3" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Using git in Rstudio</h3>
 <p>After installation, Rstudio may have trouble finding the git executable (a reboot may help, but this does not always fix the problem). We can let Rstudio know where git was installed by clicking <code>Browse</code> in the following screenshot (on Windows it will most likely be installed in this exact directory).</p>
 <p><img src="screenshots/gitoptionsrstudio.png" width="75%" /></p>
 <p><strong>Click <code>Browse</code> to find the directory where git.exe is installed, on Windows it will be this exact directory. You may not have to do this if you rebooted after installing git.</strong></p>
 </div>
 </div>
-<div id="localgit" class="section level2">
-<h2><span class="header-section-number">6.3</span> Local git repositories</h2>
+<div id="localgit" class="section level2" number="5.3">
+<h2><span class="header-section-number">5.3</span> Local git repositories</h2>
 <p>Before we turn to remote repositories, we first need a basic understanding of local repositories. Unlike some version control systems, git can work with only a local repository; this can be very useful when you want to commit changes when you are offline.</p>
 <p>The workflow with a local git repository is as follows:</p>
 <ul>
 <li>Make changes to your code</li>
-<li>Stage changes, this will mark the changes to the files to be added to the next ‘commit’.</li>
+<li>Stage changes, this will mark the changes to the files to be added to the next ‘commit.’</li>
 <li>Commit your changes to the local git repository.</li>
 <li>Repeat.</li>
 </ul>
-<div id="firstgitsession" class="section level3">
-<h3><span class="header-section-number">6.3.1</span> A first session with version control in Rstudio</h3>
-<p>Let’s start a new Rstudio project with version control. In this example we will make a simple local project, with no remote repository defined. We do that in Section <a href="versioncontrol.html#remotegit">6.4</a>.</p>
+<div id="firstgitsession" class="section level3" number="5.3.1">
+<h3><span class="header-section-number">5.3.1</span> A first session with version control in Rstudio</h3>
+<p>Let’s start a new Rstudio project with version control. In this example we will make a simple local project, with no remote repository defined. We do that in Section <a href="versioncontrol.html#remotegit">5.4</a>.</p>
 <p><img src="screenshots/versioncontrolproject.png" width="75%" /></p>
 <p><strong>To start a new, local, project with git enabled click ‘New Directory’ (not Version Control!). Alternatively you can use an ‘Existing Directory’ and create a project there.</strong></p>
-<p>On the next tab, select <code>Empty Project</code>, and the following window appears. Here, give the project a reasonable name- it will be used to create a new folder if you selected ‘New Directory’ in the above window. Now, also check the box that says ‘Create git repository’.</p>
+<p>On the next tab, select <code>Empty Project</code>, and the following window appears. Here, give the project a reasonable name- it will be used to create a new folder if you selected ‘New Directory’ in the above window. Now, also check the box that says ‘Create git repository.’</p>
 <p><img src="screenshots/gitnewproject.png" width="75%" /></p>
 <p><strong>Enter a name for the new project, the directory where the project will be created (as a sub-directory with the project’s name). Check ‘Create a git repository’ to enable git.</strong></p>
 <p>Click OK, and if successful, you wil switch to a new instance of Rstudio. The git tab should look like the following figure.</p>
@@ -474,7 +504,7 @@ git config --global user.email &quot;myemail@somewhere.com&quot;</code></pre>
 <p>The two files in the folder show up with two question marks. This means that git is not sure if you want to track these files. By default, it won’t track them. The <code>.gitignore</code> file is a special file that lists all the files you always will want to ignore. It is very useful and we will use it later.</p>
 <p>Now, let’s open two new scripts and write some code. I have called my new scripts <code>analysis.R</code> and <code>figures.R</code>. As you expect, these two files will show up in the git tab with two question marks. Notice the <code>Staged</code> column in the above figure? Let’s stage both files by checking them, as in the below figure.</p>
 <p><img src="screenshots/gittabnewproject.png" width="75%" /></p>
-<p><strong>Two new files are staged for the next commit. The green ‘A’ means ‘Add’, because these files were not already being tracked by the git repository.</strong></p>
+<p><strong>Two new files are staged for the next commit. The green ‘A’ means ‘Add,’ because these files were not already being tracked by the git repository.</strong></p>
 <p>We will now make our <strong>first commit</strong>. With the files staged as in the screenshot, click the ‘Commit’ button.</p>
 <p><img src="screenshots/gitfirstcommit.png" width="75%" /></p>
 <p><strong>With the two new files staged, you can commit their changes to the local git repository. You must first write a meaningul message in the box on the right.</strong></p>
@@ -488,22 +518,22 @@ git config --global user.email &quot;myemail@somewhere.com&quot;</code></pre>
 <p><img src="screenshots/firsthistory.png" width="75%" /></p>
 <p><strong>History of the project sofar. The HEAD tag means this is the current location of the working directory. As we will see later, we can check out older versions, in which case HEAD will move to whatever commit we are looking at. Shown are the messages we wrote when committing, the author and date (taken from the git configuration), and the SHA.</strong></p>
 <p>The ‘SHA’ is the unique code given to each commit. You normally don’t have to use it in Rstudio, but it is important in the command line commands given below. We never need all characters from the SHA, only the first few (normally 5 or so). You can find the (abbreviated) SHA in the right-hand column of the history.</p>
-<p>The question marks for <code>.gitignore</code> and the <code>Rproj</code> indicate that these files have not been staged in any previous commit. If you do not want to ever track them, see Section <a href="versioncontrol.html#gitignore">6.5</a>.</p>
+<p>The question marks for <code>.gitignore</code> and the <code>Rproj</code> indicate that these files have not been staged in any previous commit. If you do not want to ever track them, see Section <a href="versioncontrol.html#gitignore">5.5</a>.</p>
 </div>
-<div id="deleting-files-and-sensitive-information" class="section level3">
-<h3><span class="header-section-number">6.3.2</span> Deleting files and sensitive information</h3>
+<div id="deleting-files-and-sensitive-information" class="section level3" number="5.3.2">
+<h3><span class="header-section-number">5.3.2</span> Deleting files and sensitive information</h3>
 <p>Some new users are surprised by how git deals with deleting files in your repository. If you delete a file, git will mark the file as deleted (with a red D in the Rstudio interface), and you can stage the change to also remove the file from git (so it won’t be tracked anymore). Even though the file is deleted, it is still contained in the <em>history</em> of your repository. That means you (or someone else) can return to a state of the repository that included the file, and read its contents.</p>
 <p>If you accidentally committed a file with sensitive information, such as passwords, deleting the file does not remove it from the history. There is also a way to completely remove files, even from the history, but this is a bit cumbersome and best avoided. Normally we do not like to change history unless some of the files are very large or contain sensitive information.</p>
 </div>
-<div id="reverting-changes" class="section level3">
-<h3><span class="header-section-number">6.3.3</span> Reverting changes</h3>
+<div id="reverting-changes" class="section level3" number="5.3.3">
+<h3><span class="header-section-number">5.3.3</span> Reverting changes</h3>
 <p>To undo changes to files in Rstudio, and reset to the last known version of that file (i.e. the the last commit), select the file and click the ‘Revert’ button (this button is only visible in the Commit window, otherwise it is grouped under the ‘More’ button).
 Sometimes this menu in Rstudio is a little <em>buggy</em>, reverting only one file at a time.</p>
-<p>If you are <strong>100% sure you have made commits you want to delete forever</strong>, see Section <a href="versioncontrol.html#commandline">6.6</a> for the use of <code>git reset --hard</code>.</p>
+<p>If you are <strong>100% sure you have made commits you want to delete forever</strong>, see Section <a href="versioncontrol.html#commandline">5.6</a> for the use of <code>git reset --hard</code>.</p>
 </div>
 </div>
-<div id="remotegit" class="section level2">
-<h2><span class="header-section-number">6.4</span> Remote git repositories</h2>
+<div id="remotegit" class="section level2" number="5.4">
+<h2><span class="header-section-number">5.4</span> Remote git repositories</h2>
 <p>Version control with git becomes especially useful if you host your code in an online (‘remote’) repository. It is an essential step for collaboration (even if this is just with yourself, on multiple computers). Popular sites to host git repositories are &lt;www.github.com&gt; and &lt;www.bitbucket.org&gt;. I will not provide a guide to using either site, I will leave this to you to figure out. Either way, the first step is to create a user account, and set up the remote to be able to communicate with your computer.</p>
 <p>A few tips to get started:</p>
 <ul>
@@ -511,13 +541,13 @@ Sometimes this menu in Rstudio is a little <em>buggy</em>, reverting only one fi
 <li>It is generally a good idea to organize your local repositories in a single directory, a location with a short path is useful since you will be accessing your repositories via the command line.</li>
 <li>You can add git version control to an existing project, but the easiest, most fail-safe way is to create a remote repository, then make a new project in Rstudio pulling from that repository, and adding your files into the project. We will follow this approach below.</li>
 </ul>
-<div id="https-or-ssh" class="section level4">
-<h4><span class="header-section-number">6.4.0.1</span> HTTPS or SSH?</h4>
+<div id="https-or-ssh" class="section level4" number="5.4.0.1">
+<h4><span class="header-section-number">5.4.0.1</span> HTTPS or SSH?</h4>
 <p>There are two ways to connect to a git repository hosted on a remote (like github). The easiest setup is connecting via HTTPS, but this will require you to enter your password every time you try to update the remote. I recommend HTTPS only when you are using a public computer.</p>
 <p>A better approach is to use SSH, since you never have to type your password - a sort of password will be saved on your computer.</p>
 </div>
-<div id="setting-up-ssh" class="section level4">
-<h4><span class="header-section-number">6.4.0.2</span> Setting up SSH</h4>
+<div id="setting-up-ssh" class="section level4" number="5.4.0.2">
+<h4><span class="header-section-number">5.4.0.2</span> Setting up SSH</h4>
 <p>If you are using SSH for authentication, you must first make a sort of password (an ‘SSH key’), which is stored on your computer as well as on the hosting site. This is a straightforward process thanks to Rstudio.</p>
 <ul>
 <li>Go to <code>Tools/Global Options...</code> then click on the <code>Git/SVN</code> button, and note the ‘SSH/RSA key’ field.</li>
@@ -525,27 +555,27 @@ Sometimes this menu in Rstudio is a little <em>buggy</em>, reverting only one fi
 <li>Next, click ‘View RSA Key’ (a small link), and copy the key (Ctrl-C).</li>
 </ul>
 <p>The next step is to paste the SSH key in the remote hosting site, so it knows who you are when you try to use the repository.</p>
-<p>On bitbucket, when logged in, click ‘Manage Account’, and find ‘SSH Keys’ on the left. Then click ‘Add Key’, and you now have to paste the key that you copied in the previous step.</p>
-<p>On github, go to Settings/SSH and GPG keys and make a “New SSH key”, and paste it in as above.</p>
+<p>On bitbucket, when logged in, click ‘Manage Account,’ and find ‘SSH Keys’ on the left. Then click ‘Add Key,’ and you now have to paste the key that you copied in the previous step.</p>
+<p>On github, go to Settings/SSH and GPG keys and make a “New SSH key,” and paste it in as above.</p>
 <p>You can now paste it into the field. Also add a nice label for the key (identifying the computer you are working on).</p>
 </div>
-<div id="makeremotegit" class="section level3">
-<h3><span class="header-section-number">6.4.1</span> Making a remote repository</h3>
+<div id="makeremotegit" class="section level3" number="5.4.1">
+<h3><span class="header-section-number">5.4.1</span> Making a remote repository</h3>
 <p>Now, let’s create a remote repository. On bitbucket (when you are logged in), click the “+” in the left-hand side menu, on github click the plus (‘+’) button in the top right and <code>Create repository</code>. Decide for yourself on the settings for the repository, such as Private/Public etc.</p>
 <p>The key thing for us is to find the address of the repository, we need this to use the remote in Rstudio. When using SSH, it will look like (on bitbucket):</p>
 <pre><code>git@bitbucket.org:remkoduursma/tutorialgit.git</code></pre>
 <p>When using HTTPS, it will look like this:</p>
 <pre><code>https://remkoduursma@bitbucket.org/remkoduursma/tutorialgit.git</code></pre>
-<div id="adding-a-remote-repository-to-an-existing-project" class="section level4">
-<h4><span class="header-section-number">6.4.1.1</span> Adding a remote repository to an existing project</h4>
+<div id="adding-a-remote-repository-to-an-existing-project" class="section level4" number="5.4.1.1">
+<h4><span class="header-section-number">5.4.1.1</span> Adding a remote repository to an existing project</h4>
 <p>To do this, you have to use the command line. If you want to use only Rstudio’s menu’s, skip to the next section.</p>
 <p>With the command line (bash) open in the working directory, type the following two commands where you replace the <em>github</em> URL with the one matching your remote repository.</p>
 <pre><code>git remote add origin git@github.com:USERNAME/REPOSITORY.git
 git push -u origin master</code></pre>
 <p>The remote repository will now be an exact copy of your local one (besides untracked files).</p>
 </div>
-<div id="cloning-make-a-local-copy-of-a-remote-repository" class="section level4">
-<h4><span class="header-section-number">6.4.1.2</span> Cloning : make a local copy of a remote repository</h4>
+<div id="cloning-make-a-local-copy-of-a-remote-repository" class="section level4" number="5.4.1.2">
+<h4><span class="header-section-number">5.4.1.2</span> Cloning : make a local copy of a remote repository</h4>
 <p>The easiest approach is to start with an empty remote repository and use it as the basis for a new project in Rstudio. Then, you can add your files to this repository and start tracking (a selection of) them.</p>
 <p>First, make a remote repository, find the address (SSH or HTTPS, see previous section), and copy it. In Rstudio, go <code>File/New Project.../Version Control/Git</code> and paste the address in the URL box (HTTPS or SSH, it will be recognized). Rstudio is going to create a (nearly empty) folder with a git repository. It will create this as a subfolder of the directory in the window you see (the third field). I recommend you keep your git repositories in a local folder in the root, <strong>that contains no spaces in the name</strong>. For example, <code>c:/repos/</code>.</p>
 <p><img src="screenshots/clonegitrepos.png" width="75%" /></p>
@@ -553,9 +583,9 @@ git push -u origin master</code></pre>
 <p>When you click OK, Rstudio should open up with the new project.</p>
 </div>
 </div>
-<div id="gitremoteworkflow" class="section level3">
-<h3><span class="header-section-number">6.4.2</span> Workflow</h3>
-<p>Whether or not you have a remote repository enabled, you will still work in a local repository as explained in Section <a href="versioncontrol.html#localgit">6.3</a>, and occassionally synchronize the two. In other words, <strong>committing changes is always local</strong>. When you want to sync with a remote, you either do a <strong>push</strong> (send your commits to the remote repository), or a <strong>pull</strong> (get the latest commits from the remote that you don’t have).</p>
+<div id="gitremoteworkflow" class="section level3" number="5.4.2">
+<h3><span class="header-section-number">5.4.2</span> Workflow</h3>
+<p>Whether or not you have a remote repository enabled, you will still work in a local repository as explained in Section <a href="versioncontrol.html#localgit">5.3</a>, and occassionally synchronize the two. In other words, <strong>committing changes is always local</strong>. When you want to sync with a remote, you either do a <strong>push</strong> (send your commits to the remote repository), or a <strong>pull</strong> (get the latest commits from the remote that you don’t have).</p>
 <p>It is important to note that <strong>you can only push if the local up to date with remote</strong>. We will see in the working example how to deal with the situation where we are ‘behind’ the remote (that is, have not included some commits stored in the remote repository).</p>
 <p>The standard workflow for code stored in a remote repository is:</p>
 <ol style="list-style-type: decimal">
@@ -566,18 +596,18 @@ git push -u origin master</code></pre>
 </ol>
 <p>It is thus important to understand that <strong>you don’t have to push every time you commit changes</strong>. In fact it is better if you don’t, because it is easier to fix problems in the local repository, than when the commits have been pushed to the remote.</p>
 </div>
-<div id="a-session-with-a-remote-repository" class="section level3">
-<h3><span class="header-section-number">6.4.3</span> A session with a remote repository</h3>
-<p>In this section, I will show a typical workflow with a remote repository. In this example I assume you have made a remote repository, and we will clone the empty repository into a new Rstudio project (see ‘Cloning’ in Section <a href="versioncontrol.html#makeremotegit">6.4.1</a>.</p>
+<div id="a-session-with-a-remote-repository" class="section level3" number="5.4.3">
+<h3><span class="header-section-number">5.4.3</span> A session with a remote repository</h3>
+<p>In this section, I will show a typical workflow with a remote repository. In this example I assume you have made a remote repository, and we will clone the empty repository into a new Rstudio project (see ‘Cloning’ in Section <a href="versioncontrol.html#makeremotegit">5.4.1</a>.</p>
 <p>If these first two steps - explained in the previous section - were successful, you now have a new, empty project open in Rstudio. I have copied two scripts that I wrote previously into the folder. In the git tab in Rstudio, you have to ‘stage’ the added files by clicking the check box. The two new files now show up with a green ‘A’ :</p>
 <p><img src="screenshots/session2stage1.png" width="75%" /></p>
 <p><strong>Adding two files to be included in the next commit. Note that ‘Push’ and ‘Pull’ are greyed out, this is normal because we have no commits in the repository.</strong></p>
-<p>Next, click commit (opens up a new window), write a reasonable message in the text box on the right, and click ‘Commit’. You now have a single commit in the <strong>local</strong> repository. Again, it is crucial you understand that this commit is not yet on the remote.</p>
+<p>Next, click commit (opens up a new window), write a reasonable message in the text box on the right, and click ‘Commit.’ You now have a single commit in the <strong>local</strong> repository. Again, it is crucial you understand that this commit is not yet on the remote.</p>
 <p>Let’s <strong>push</strong> this first commit to the remote repository. Just click ‘Push’ on the git tab, and a new window opens up in Rstudio with the response from the remote. It will say something like,</p>
 <p><img src="screenshots/session2firstpush.png" width="75%" /></p>
 <p><strong>Response of the remote after the first push (opens in Rstudio when you click ‘push’). Note that a new branch is created because this is the very first commit on the remote repository. All commits will always go to the ‘master’ branch (in this tutorial, at least).</strong></p>
 <p>Now go to the online version (on github.com or bitbucket.org), and check that your code is really there. Also look for the ‘commits’ (a list of all your commits) and the source code (you can, quite conveniently, browse the code online).</p>
-<p>Next, suppose you start a new session with this project. As described in Section <a href="versioncontrol.html#gitremoteworkflow">6.4.2</a>, you should always start with a <strong>pull</strong>, except when you are really 100% sure that your local is already up to date with the remote. If you are already up to date, the output will be:</p>
+<p>Next, suppose you start a new session with this project. As described in Section <a href="versioncontrol.html#gitremoteworkflow">5.4.2</a>, you should always start with a <strong>pull</strong>, except when you are really 100% sure that your local is already up to date with the remote. If you are already up to date, the output will be:</p>
 <p><img src="screenshots/session2pullalreadyuptodate.png" width="75%" /></p>
 <p><strong>Output from a ‘pull’ when the local repository is already synced with the remote.</strong></p>
 <p>In the next example, I added the file <code>README.md</code> to the repository on another computer. This time, the output from ‘pull’ looks like:</p>
@@ -588,8 +618,8 @@ git push -u origin master</code></pre>
 <p><strong>Output when attempting to push to a remote when the remote is ahead of the local repository.</strong></p>
 <p>The solution to this problem is to first do a pull, and then try to push again. The amazing thing about git is that even if your local commits and the commits on the remote that you don’t yet have include changes on the same files, they will be automatically merged in the new commit.</p>
 </div>
-<div id="conflicts-when-collaborating" class="section level3">
-<h3><span class="header-section-number">6.4.4</span> Conflicts when collaborating</h3>
+<div id="conflicts-when-collaborating" class="section level3" number="5.4.4">
+<h3><span class="header-section-number">5.4.4</span> Conflicts when collaborating</h3>
 <p>Version control is especially powerful when collaborating on the same code. When you work on separate files, or even different sections of the same file, git knows how to combine commits from one user with commits from another user. You can even see who changed which line of code with the <code>git blame</code> command.</p>
 <p>There are cases, however, where <strong>conflicts</strong> arise when two users have changed the same line of code. Suppose User 1 makes changes, commits, and pushes to the remote. Then, you make changes to some of the same lines, commit and push, you receive the following error:</p>
 <p><img src="screenshots/gitpullconflict.png" width="75%" /></p>
@@ -601,8 +631,8 @@ git push -u origin master</code></pre>
 <p>It is however much better to avoid these conflicts by always <strong>beginning your session with a pull, and ending with a push</strong>. That way you minimize the risk of changing the same line of code twice.</p>
 </div>
 </div>
-<div id="gitignore" class="section level2">
-<h2><span class="header-section-number">6.5</span> Ignoring files</h2>
+<div id="gitignore" class="section level2" number="5.5">
+<h2><span class="header-section-number">5.5</span> Ignoring files</h2>
 <p>As discussed, you don’t want all of your local files to be copied to the remote repository. These include private data, large files, most binary files, sensitive information like passwords.</p>
 <p>You can keep a list of files to ignore in the file <code>.gitignore</code>, which will most likely already be generated for you in the working directory.</p>
 <p>Here is an example, with some useful settings</p>
@@ -623,16 +653,16 @@ config/
 <pre><code>git ls-files</code></pre>
 <p>It is also always a good idea to inspect the remote repository to see if anything was uploaded you did not want to share. If you accidentally do push passwords to a remote repository, the best way is to <strong>delete the remote repository and make a new one with the same name</strong>.</p>
 </div>
-<div id="commandline" class="section level2">
-<h2><span class="header-section-number">6.6</span> Using the command line</h2>
+<div id="commandline" class="section level2" number="5.6">
+<h2><span class="header-section-number">5.6</span> Using the command line</h2>
 <p>Rstudio is very convenient for day-to-day version control, but for more advanced options, you must know how to use the command line. You may also find that when you gain more <em>git skills</em>, that using the command line is just as convenient while providing more control.</p>
-<p>First, we show you how to open the ‘shell’, a command window where the full capabilities of git can be used.</p>
+<p>First, we show you how to open the ‘shell,’ a command window where the full capabilities of git can be used.</p>
 <p><img src="screenshots/openshell.png" width="75%" /></p>
 <p><strong>From the ‘Git’ tab in Rstudio (same pane as Environment and History), open the Shell like this.</strong></p>
 <p>The shell is different from the Windows command line! It comes installed with git, and recognizes most unix commands.</p>
-<p>Note that **if the output is longer than the screen, output will end with a ‘:’. In that case, press <code>q</code> to return to the command prompt}.</p>
-<div id="basic-commands" class="section level3">
-<h3><span class="header-section-number">6.6.1</span> Basic commands</h3>
+<p>Note that **if the output is longer than the screen, output will end with a ‘:’ In that case, press <code>q</code> to return to the command prompt}.</p>
+<div id="basic-commands" class="section level3" number="5.6.1">
+<h3><span class="header-section-number">5.6.1</span> Basic commands</h3>
 <p>When using the command line, you will often repeat this command:</p>
 <pre><code>git status</code></pre>
 <p>The output is basically what you see in the Git pane in Rstudio, but in text instead of colored icons (sometimes it is easier to understand what is happening!):</p>
@@ -655,32 +685,32 @@ config/
 <p>To pull changes from the remote, obviously:</p>
 <pre><code>git pull</code></pre>
 </div>
-<div id="useful-tasks" class="section level3">
-<h3><span class="header-section-number">6.6.2</span> Useful tasks</h3>
+<div id="useful-tasks" class="section level3" number="5.6.2">
+<h3><span class="header-section-number">5.6.2</span> Useful tasks</h3>
 <p>This section lists a number of useful things you can do with git from the command line. It is by no means exhaustive.</p>
-<div id="history" class="section level4">
-<h4><span class="header-section-number">6.6.2.1</span> History</h4>
+<div id="history" class="section level4" number="5.6.2.1">
+<h4><span class="header-section-number">5.6.2.1</span> History</h4>
 <p>Look at the history of the repository with,</p>
 <pre><code>git log</code></pre>
 <p>which lists each commit (and its SHA and commit message). If you only want to see the last, say 2 commits, do,</p>
 <pre><code>git log -2</code></pre>
 <p>and remember to press <code>q</code> when the output is longer than the window to return to the prompt.</p>
 </div>
-<div id="adding-a-remote-to-a-local-repository" class="section level4">
-<h4><span class="header-section-number">6.6.2.2</span> Adding a remote to a local repository</h4>
-<p>Suppose you have a local project as the example workflow in Section <a href="versioncontrol.html#firstgitsession">6.3.1</a>, and you want to start a remote repository. You now simply have to let git know that you have a remote as well. To do this, you have to open a Console (see Section <a href="versioncontrol.html#commandline">6.6</a>) and use this command:</p>
+<div id="adding-a-remote-to-a-local-repository" class="section level4" number="5.6.2.2">
+<h4><span class="header-section-number">5.6.2.2</span> Adding a remote to a local repository</h4>
+<p>Suppose you have a local project as the example workflow in Section <a href="versioncontrol.html#firstgitsession">5.3.1</a>, and you want to start a remote repository. You now simply have to let git know that you have a remote as well. To do this, you have to open a Console (see Section <a href="versioncontrol.html#commandline">5.6</a>) and use this command:</p>
 <pre><code>git remote add origin git@bitbucket.org:remkoduursma/tutorialgit.git</code></pre>
 <p>where the right-hand side is the address of your remote (found in the last section).</p>
 <p>Then, make your changes as usual, and use this special <code>push</code> command the first time you push to the remote (after that, you can do the usual simple ‘git push’).</p>
 <pre><code>git push -u origin master</code></pre>
 </div>
-<div id="list-all-tracked-files" class="section level4">
-<h4><span class="header-section-number">6.6.2.3</span> List all tracked files</h4>
+<div id="list-all-tracked-files" class="section level4" number="5.6.2.3">
+<h4><span class="header-section-number">5.6.2.3</span> List all tracked files</h4>
 <p>If you are unsure which files are being tracked, you could browse the remote repository (if you have one), or use this command:</p>
 <pre><code>git ls-files</code></pre>
 </div>
-<div id="looking-around-in-an-old-version" class="section level4">
-<h4><span class="header-section-number">6.6.2.4</span> Looking around in an old version</h4>
+<div id="looking-around-in-an-old-version" class="section level4" number="5.6.2.4">
+<h4><span class="header-section-number">5.6.2.4</span> Looking around in an old version</h4>
 <p>Perhaps you don’t actually want to undo changes, but instead inspect some older code, from which you can copy-paste bits you accidentally deleted. We can use the <code>checkout</code> command for this, which let’s you temporarily look at an old commit.</p>
 <p>First we find the SHA of the commit, either in the history (in Rstudio), or via <code>git log</code> as shown above.</p>
 <pre><code>git log -2</code></pre>
@@ -692,15 +722,15 @@ config/
 <p>To return back to the current, last version, do:</p>
 <pre><code>git checkout master</code></pre>
 </div>
-<div id="undoing-uncommited-changes" class="section level4">
-<h4><span class="header-section-number">6.6.2.5</span> Undoing uncommited changes</h4>
+<div id="undoing-uncommited-changes" class="section level4" number="5.6.2.5">
+<h4><span class="header-section-number">5.6.2.5</span> Undoing uncommited changes</h4>
 <p>Suppose you have committed your work, then made a bunch more changes that you are very unhappy with. But, luckily, you haven’t committed them yet. You can use the ‘Revert’ button in Rstudio (as mentioned previously), but this really removes any chance that you <em>maybe</em> want to use the new edits.</p>
 <p>Using the command line, you can use the <code>git stash</code> command as follows:</p>
 <pre><code>git stash</code></pre>
-<p>The files will not automatically appear as they were in the last commit. The advantage of using <code>stash</code> here - instead of the Revert button in Rstudio - is that if you change your mind you can do <code>git stash apply</code>. Basically your uncommitted changes are kept in a ‘stash’, not deleted.</p>
+<p>The files will not automatically appear as they were in the last commit. The advantage of using <code>stash</code> here - instead of the Revert button in Rstudio - is that if you change your mind you can do <code>git stash apply</code>. Basically your uncommitted changes are kept in a ‘stash,’ not deleted.</p>
 </div>
-<div id="deleting-the-last-commit" class="section level4">
-<h4><span class="header-section-number">6.6.2.6</span> Deleting the last commit</h4>
+<div id="deleting-the-last-commit" class="section level4" number="5.6.2.6">
+<h4><span class="header-section-number">5.6.2.6</span> Deleting the last commit</h4>
 <p>Suppose you have made changes, committed them, and then found out these are terrible and you want to get rid of them. We can use the <code>reset</code> command. <strong>Use this at your own risk, it cannot be undone!</strong>.</p>
 <p>First let’s look at the last two commits,</p>
 <pre><code>git log -2</code></pre>
@@ -708,14 +738,14 @@ config/
 <pre><code>git reset --hard hu88e</code></pre>
 <p>Instead of <code>--hard</code>, you can use the <code>--soft</code> option to revert back to the old commit, but keep the changes since then as unstaged changes to the files. This is useful if you want to keep some of the changes, but manually remove or fix some other changes.</p>
 </div>
-<div id="force-updating-the-remote" class="section level4">
-<h4><span class="header-section-number">6.6.2.7</span> Force-updating the remote</h4>
+<div id="force-updating-the-remote" class="section level4" number="5.6.2.7">
+<h4><span class="header-section-number">5.6.2.7</span> Force-updating the remote</h4>
 <p>Sometimes your local version of the code is the only correct version, and you want to completely overwrite the remote repository. This arises when you did a “hard reset” to an old commit as in the previous section. If you are sure you want to overwrite the remote, do:</p>
 <pre><code>git push --force</code></pre>
 <p>Be careful, there is no “undo” option.</p>
 </div>
-<div id="deleting-files" class="section level4">
-<h4><span class="header-section-number">6.6.2.8</span> Deleting files</h4>
+<div id="deleting-files" class="section level4" number="5.6.2.8">
+<h4><span class="header-section-number">5.6.2.8</span> Deleting files</h4>
 <p>We already saw that when you delete a tracked file from a git repository, you have to stage the change just like you stage a modification to a file. Here are a couple of useful commands related to deleting files locally.</p>
 <p>Remove from local repository (i.e. stop tracking) all locally deleted files:</p>
 <pre><code>git rm $(git ls-files --deleted)</code></pre>
@@ -725,27 +755,27 @@ config/
 <p>To do the same, but include subdirectories (use this at even more own risk!):</p>
 <pre><code>git clean -f -d</code></pre>
 </div>
-<div id="searching-the-history" class="section level4">
-<h4><span class="header-section-number">6.6.2.9</span> Searching the history</h4>
+<div id="searching-the-history" class="section level4" number="5.6.2.9">
+<h4><span class="header-section-number">5.6.2.9</span> Searching the history</h4>
 <p>There are a few ways to search the history - all of them require the command line. It may be useful to find code you deleted (on purpose), or to find all the occassions where some word occurs in changed lines of code, or list all the commits that acted on a particular file.</p>
 <p>Find all commits with ‘someword’ in the commit message.</p>
 <pre><code>git log --grep=someword</code></pre>
 <p>Find all commits where ‘someword’ occurs in changed lines of code</p>
 <pre><code>git log -G someword</code></pre>
-<p>List all commits that include changes on ‘somefile.R’. This even works when the file was deleted at some point.</p>
+<p>List all commits that include changes on ‘somefile.R.’ This even works when the file was deleted at some point.</p>
 <pre><code>git log -- somefile.R</code></pre>
 </div>
-<div id="accessing-git-help-files" class="section level4">
-<h4><span class="header-section-number">6.6.2.10</span> Accessing git help files</h4>
+<div id="accessing-git-help-files" class="section level4" number="5.6.2.10">
+<h4><span class="header-section-number">5.6.2.10</span> Accessing git help files</h4>
 <p>You can learn more about the many options of git via the help files, each of these can be accessed like this.</p>
-<p>Show help file for ‘log’.</p>
+<p>Show help file for ‘log.’</p>
 <pre><code>git log --help</code></pre>
 <p>Perhaps more usefully, if you don’t know how to do something in git, simply type your question in Google (“git how to delete untracked files”).</p>
 </div>
 </div>
 </div>
-<div id="branches" class="section level2">
-<h2><span class="header-section-number">6.7</span> Branches</h2>
+<div id="branches" class="section level2" number="5.7">
+<h2><span class="header-section-number">5.7</span> Branches</h2>
 <p>A powerful feature of git is the ability to maintain parallel versions of code, with the use of branches. A branch (not to be confused with a fork!) keeps its own history of commits, separate from the main branch (usually called the <strong>master</strong> branch). At the point when you make the new branch, the master and the new branch are identical - but when you are working on the new branch, changes files and commit - the two will have different histories.</p>
 <p>Branches are very useful for working on alternative versions of your working code base on the master branch. For example, when other users depend on your master branch working (and not being polluted with experimental code), but your new changes will take a long time - and multiple commits - to complete.</p>
 <p>To make a new branch, I prefer the use of a small button in Rstudio :</p>
@@ -770,7 +800,7 @@ config/
           </div>
         </div>
       </div>
-<a href="webservices.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="programming.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="projectman.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
@@ -794,6 +824,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["twitter", "linkedin"],
 "google": false
 },

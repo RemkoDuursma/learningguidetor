@@ -237,25 +237,25 @@ There are many more functions you can use directly on vectors. See the table bel
 
 Table: (\#tab:unnamed-chunk-13)A selection of useful built-in functions in R.
 
-Function      What it does                                             Example                          
-------------  -------------------------------------------------------  ---------------------------------
-`length`      Length of the vector                                     `length(nums1)`                  
-`rev`         Reverses the elements of a vector                        `rev(nums1)`                     
-`sort`        Sorts the elements of a vector                           `sort(nums1, decreasing = TRUE)` 
-`order`       The order of elements in a vector                        `order(nums1)`                   
-`head`        The first few elements of a vector                       `head(nums1, 5)`                 
-`max`         The maximum value                                        `max(nums1)`                     
-`min`         The minimum value                                        `min(nums1)`                     
-`which.max`   Which element of the vector is the max?                  `which.max(nums1)`               
-`which.min`   Which element of the vector is the min?                  `which.min(nums1)`               
-`mean`        The average value                                        `mean(nums1)`                    
-`median`      The median                                               `median(nums1)`                  
-`var`         Variance                                                 `var(nums1)`                     
-`sd`          Standard deviation                                       `sd(nums1)`                      
-`cumsum`      Cumulative sum (running total)                           `cumsum(nums1)`                  
-`diff`        Successive difference of a vector                        `diff(nums1)`                    
-`unique`      Unique values used in the vector                         `unique(nums1)`                  
-`round`       Rounds numbers to a specified number of decimal points   `round(nums1, 2)`                
+|Function    |What it does                                           |Example                          |
+|:-----------|:------------------------------------------------------|:--------------------------------|
+|`length`    |Length of the vector                                   |`length(nums1)`                  |
+|`rev`       |Reverses the elements of a vector                      |`rev(nums1)`                     |
+|`sort`      |Sorts the elements of a vector                         |`sort(nums1, decreasing = TRUE)` |
+|`order`     |The order of elements in a vector                      |`order(nums1)`                   |
+|`head`      |The first few elements of a vector                     |`head(nums1, 5)`                 |
+|`max`       |The maximum value                                      |`max(nums1)`                     |
+|`min`       |The minimum value                                      |`min(nums1)`                     |
+|`which.max` |Which element of the vector is the max?                |`which.max(nums1)`               |
+|`which.min` |Which element of the vector is the min?                |`which.min(nums1)`               |
+|`mean`      |The average value                                      |`mean(nums1)`                    |
+|`median`    |The median                                             |`median(nums1)`                  |
+|`var`       |Variance                                               |`var(nums1)`                     |
+|`sd`        |Standard deviation                                     |`sd(nums1)`                      |
+|`cumsum`    |Cumulative sum (running total)                         |`cumsum(nums1)`                  |
+|`diff`      |Successive difference of a vector                      |`diff(nums1)`                    |
+|`unique`    |Unique values used in the vector                       |`unique(nums1)`                  |
+|`round`     |Rounds numbers to a specified number of decimal points |`round(nums1, 2)`                |
 
 
 ## Writing code in a script
@@ -799,8 +799,6 @@ On the other hand, you should use an **rmarkdown document** if you:
 - Easy to learn syntax, and Rstudio provides many shortcuts and tools for working with `rmarkdown`.
 - Output formats include HTML, PDF (if LaTeX is installed) and MS Word. 
 - Make not just simple documents, but also HTML presentations (in many formats), blogs (with `blogdown`), books (with `bookdown`), auto-generated websites documenting R packages (with `pkgdown`), and many more templates provided by add-on packages.
-
-We give more information in Section \@ref(rmarkdown).
 
 ### Using R scripts {#scripts}
 

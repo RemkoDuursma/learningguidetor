@@ -144,8 +144,8 @@ runif(10)
 ```
 
 ```
-##  [1] 0.47317469 0.77509436 0.99029491 0.03454375 0.90054662 0.78013254
-##  [7] 0.89967433 0.72243909 0.62191171 0.50109629
+##  [1] 0.7645172 0.7855547 0.5170210 0.7384271 0.9910471 0.8009838 0.9453731
+##  [8] 0.9556838 0.5325729 0.9961107
 ```
 
 ```r
@@ -154,7 +154,7 @@ runif(5, 100, 1000)
 ```
 
 ```
-## [1] 294.6699 737.1633 744.0102 858.4447 342.3396
+## [1] 158.6324 388.1254 769.2246 987.9335 469.4625
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The `runif` function is part of a much larger class of functions, each of which returns
@@ -171,7 +171,7 @@ sample(numbers, size=20, replace=TRUE)
 ```
 
 ```
-##  [1]  1  8 11  1  1  6 10 13  2  5  1  4  5 10 10 11 10  9 13 10
+##  [1]  6  1 12 10  2  3 12 14  8  9 12 11  9  7 10  8  3  4  4  7
 ```
 
 This command samples 20 numbers from the `numbers` vector, with replacement.
@@ -315,9 +315,6 @@ Hmisc::contents(comment_data)
 ```
 
 
-### (No)SQL databases
-
-We show examples of how to obtain data from SQL and NoSQL databases in Chapter \@ref(webservices).
 
 
 ### Excel spreadsheets
@@ -338,9 +335,6 @@ Here, `sheet` will specify the sheet by number, alternatively you can refer to t
 
 Many statistical software packages store data in their own format, not just text files. For data from **SPSS**, **SAS** or **Stata**, we recommend the `haven` package for reading the data into dataframes, and the `foreign` package provides further support for Minitab, **Systat**, and **Weka.** 
 
-### Web services
-
-Nowadays many data are available via a 'RESTful' API, which is now by far the most common way to download publicly available (open) data (and many other services as well). We discuss reading data from a REST service, as well as setting up our REST service in Chapter \@ref(webservices).
 
 
 
@@ -433,11 +427,11 @@ round(allometry$diameter,1)
 ```
 
 ```
-##  [1] 54.6 34.8 24.9 28.7 34.8 37.9 22.6 39.4 39.9 26.2 43.7 69.8 44.5 56.6
-## [15] 54.6  5.3  6.1  7.4  8.3 13.5 51.3 22.4 69.6 58.4 33.3 44.2 30.5 27.4
-## [29] 43.2 38.9 52.6 20.8 24.1 24.9 46.0 35.0 23.9 60.2 12.4  4.8 70.6 11.4
-## [43] 11.9 60.2 60.7 70.6 57.7 43.1 18.3 43.4 18.5 12.9 37.9 26.9 38.6  6.5
-## [57] 31.8 73.7 28.2 61.5 51.6 18.3  8.4
+##  [1] 54.6 34.8 24.9 28.7 34.8 37.9 22.6 39.4 39.9 26.2 43.7 69.8 44.5 56.6 54.6
+## [16]  5.3  6.1  7.4  8.3 13.5 51.3 22.4 69.6 58.4 33.3 44.2 30.5 27.4 43.2 38.9
+## [31] 52.6 20.8 24.1 24.9 46.0 35.0 23.9 60.2 12.4  4.8 70.6 11.4 11.9 60.2 60.7
+## [46] 70.6 57.7 43.1 18.3 43.4 18.5 12.9 37.9 26.9 38.6  6.5 31.8 73.7 28.2 61.5
+## [61] 51.6 18.3  8.4
 ```
 
 It is also straightforward to add new variables to a dataframe. Let's convert the tree diameter to inches, and add it to the dataframe as a new variable:
@@ -523,8 +517,8 @@ names(allometry)
 ```
 
 ```
-## [1] "species"      "diameter"     "height"       "leafarea"    
-## [5] "branchmass"   "diameterInch" "volindex"
+## [1] "species"      "diameter"     "height"       "leafarea"     "branchmass"  
+## [6] "diameterInch" "volindex"
 ```
 
 ```r
@@ -643,7 +637,7 @@ nums2[ranels]
 ```
 
 ```
-## [1]  8.1  0.9 13.8  9.8 21.2
+## [1] 21.2  3.3  9.8 13.8  8.1
 ```
 
 ```r
@@ -890,8 +884,8 @@ allometry[sample(1:nrow(allometry),10),"leafarea"]
 ```
 
 ```
-##  [1]  20.74328  45.02004 189.73301  70.60280 131.72730 122.15786 121.42898
-##  [8]  90.45366 160.83917  34.46469
+##  [1] 176.029213  18.855867  45.020041 189.733007   7.650902 122.157864
+##  [7] 411.160376  20.743280 349.057010 169.163842
 ```
 
 ```r
@@ -1073,14 +1067,14 @@ Now that we know how to read in dataframes, it is time we take a closer look at 
 
 
 
-Data type     Description                                                                                                                                                                                                                         Example                                           Section               
-------------  ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------  ------------------------------------------------  ----------------------
-*numeric*     Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values.                                                        `c(1, 12.3491, 10/2, 10^6, pi)`                                         
-*character*   Strings of text                                                                                                                                                                                                                     `c('apple', 'pear', letters[1:3])`                \@ref(workingtext)    
-*factor*      Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable.   `factor(c('Control','Fertilized','Irrigated'))`   \@ref(workingfactors) 
-*logical*     Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE).                                                                                                                                                                   `10 == 100/10`                                    \@ref(workinglogic)   
-*Date*        Special Date class. Internally stored as number of days since 1970-1-1.                                                                                                                                                             `as.Date(Sys.time())`                             \@ref(readingdates)   
-*POSIXct*     Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes.                                                                                                                   `lubridate::ymd_hms('1883-08-26 14:00')`          \@ref(datetime)       
+|Data type   |Description                                                                                                                                                                                                                       |Example                                         |Section               |
+|:-----------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:-----------------------------------------------|:---------------------|
+|*numeric*   |Any number, including `double` (double precision floating point) and `integer` (whole numbers). In R you very rarely have to worry about the exact nature of numeric values.                                                      |`c(1, 12.3491, 10/2, 10^6, pi)`                 |                      |
+|*character* |Strings of text                                                                                                                                                                                                                   |`c('apple', 'pear', letters[1:3])`              |\@ref(workingtext)    |
+|*factor*    |Categorial variable. Preferred over character when few unique levels (values) present in the data. Must use in statistical models, plotting. Internally stored as an integer corresponding to the *level* of the factor variable. |`factor(c('Control','Fertilized','Irrigated'))` |\@ref(workingfactors) |
+|*logical*   |Either TRUE or FALSE. Internally stored as 0 (FALSE) or 1 (TRUE).                                                                                                                                                                 |`10 == 100/10`                                  |\@ref(workinglogic)   |
+|*Date*      |Special Date class. Internally stored as number of days since 1970-1-1.                                                                                                                                                           |`as.Date(Sys.time())`                           |\@ref(readingdates)   |
+|*POSIXct*   |Special Date-time class. Internally stored as number of seconds since 1970-1-1, and may have timezone attributes.                                                                                                                 |`lubridate::ymd_hms('1883-08-26 14:00')`        |\@ref(datetime)       |
 
 
 Also, R has a very useful built-in data type to represent **missing values**. This is represented by `NA` (Not Available) (see Section \@ref(workingmissing)).
@@ -1809,13 +1803,13 @@ grepl("Raisin",cerealnames)
 ```
 
 ```
-##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [12] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [23]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [34] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
-## [45]  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE
-## [56] FALSE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE
-## [67] FALSE FALSE FALSE FALSE  TRUE FALSE FALSE FALSE FALSE FALSE FALSE
+##  [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [13] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [25] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE
+## [37] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE
+## [49] FALSE  TRUE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE
+## [61]  TRUE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE  TRUE FALSE
+## [73] FALSE FALSE FALSE FALSE FALSE
 ```
 
 ```r
@@ -1825,16 +1819,11 @@ cerealnames[grep("Raisin",cerealnames)]
 ```
 
 ```
-##  [1] "Crispy_Wheat_&_Raisins"           
-##  [2] "Muesli_Raisins,_Dates,_&_Almonds" 
-##  [3] "Muesli_Raisins,_Peaches,_&_Pecans"
-##  [4] "Nutri-Grain_Almond-Raisin"        
-##  [5] "Oatmeal_Raisin_Crisp"             
-##  [6] "Post_Nat._Raisin_Bran"            
-##  [7] "Raisin_Bran"                      
-##  [8] "Raisin_Nut_Bran"                  
-##  [9] "Raisin_Squares"                   
-## [10] "Total_Raisin_Bran"
+##  [1] "Crispy_Wheat_&_Raisins"            "Muesli_Raisins,_Dates,_&_Almonds" 
+##  [3] "Muesli_Raisins,_Peaches,_&_Pecans" "Nutri-Grain_Almond-Raisin"        
+##  [5] "Oatmeal_Raisin_Crisp"              "Post_Nat._Raisin_Bran"            
+##  [7] "Raisin_Bran"                       "Raisin_Nut_Bran"                  
+##  [9] "Raisin_Squares"                    "Total_Raisin_Bran"
 ```
 
 ```r
@@ -2010,8 +1999,8 @@ difftime(as.Date("2009-7-1"), as.Date("2008-12-1"), units = "weeks")
 ```
 
 ```r
-# To add other timespans, use functions months(), years() or weeks() to
-# avoid problems with leap years
+# To add other timespans, use functions months(), years() or weeks() to avoid
+# problems with leap years
 as.Date("2013-8-18") + years(10) + months(1)
 ```
 
@@ -2084,7 +2073,7 @@ today()
 ```
 
 ```
-## [1] "2020-11-09"
+## [1] "2021-05-19"
 ```
 
 ```r
@@ -2093,7 +2082,7 @@ today() - as.Date("1976-5-22")
 ```
 
 ```
-## Time difference of 16242 days
+## Time difference of 16433 days
 ```
 
 
@@ -2228,7 +2217,7 @@ now() + hours(3) + minutes(15)
 ```
 
 ```
-## [1] "2020-11-10 01:09:28 CET"
+## [1] "2021-05-19 13:46:45 CEST"
 ```
 
 \BeginKnitrBlock{rmdtry}<div class="rmdtry">The 2012 Sydney marathon started at 7:20AM on September 16th. The winner completed the race in 2 hours, 11 minutes and 50 seconds. What was the time when the racer crossed the finish line? Using the `weekdays` function, which day was the race held? </div>\EndKnitrBlock{rmdtry}
